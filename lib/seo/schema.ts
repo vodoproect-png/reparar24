@@ -8,12 +8,24 @@ interface LocalBusinessSchemaProps {
   url?: string
   image?: string
   priceRange?: string
+  city?: City
 }
 
 export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
   const address = getBusinessAddress()
   const telephone = getPhoneNumber()
   const email = getEmail()
+  
+  // Use city coordinates if provided, otherwise use business address coordinates (Valencia/Torrent area)
+  const geo = props.city ? {
+    '@type': 'GeoCoordinates' as const,
+    latitude: props.city.coordinates.lat,
+    longitude: props.city.coordinates.lng
+  } : {
+    '@type': 'GeoCoordinates' as const,
+    latitude: 39.4699, // Valencia coordinates (fallback for homepage/organization)
+    longitude: -0.3763
+  }
   
   return {
     '@context': 'https://schema.org',
@@ -32,11 +44,7 @@ export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
       postalCode: address.postalCode,
       addressCountry: address.addressCountry
     },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 39.4370,
-      longitude: -0.4679
-    },
+    geo: geo,
     image: props.image || 'https://reparar24.es/logo.png',
     logo: 'https://reparar24.es/logo.png',
     priceRange: props.priceRange || '€€-€€€',

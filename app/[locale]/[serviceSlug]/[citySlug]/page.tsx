@@ -63,6 +63,7 @@ export default async function ServiceCityPage({
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `${service.name} en ${city.name} - Reparar24`,
     description: `${service.description} en ${city.name}`,
+    city: city,
   })
 
   const districtLinks = getDistrictLinks(city, service, locale)

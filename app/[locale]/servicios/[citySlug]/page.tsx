@@ -41,6 +41,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `Reparar24 - Servicios en ${city.name}`,
     description: `Servicios profesionales 24 horas en ${city.name}`,
+    city: city,
   })
 
   const serviceLinks = getCityServiceLinks(city, services, locale)
