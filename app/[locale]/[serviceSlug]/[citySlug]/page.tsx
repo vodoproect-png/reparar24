@@ -8,6 +8,8 @@ import { getDistrictLinks } from '@/lib/linking/internal'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
+import { AIAnswerList, commonEmergencyQuestions } from '@/components/seo/AIAnswerBlock'
+import { EEATSection } from '@/components/seo/EEATSignals'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -148,6 +150,33 @@ export default async function ServiceCityPage({
             </div>
           </div>
         </section>
+
+        {/* EEAT Trust Signals */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <EEATSection
+              city={city.name}
+              showGuarantee={true}
+              showResponseTime={true}
+              showExpertise={true}
+              showProcess={false}
+            />
+          </div>
+        </section>
+
+        {/* AI-Optimized Q&A Section */}
+        {locale === 'es' && (
+          <section className="py-16 bg-white">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                Preguntas Frecuentes - {service.name} en {city.name}
+              </h2>
+              <div className="max-w-4xl mx-auto">
+                <AIAnswerList questions={commonEmergencyQuestions.es} />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Other Services in City */}
         <section className="py-16 bg-gray-50">

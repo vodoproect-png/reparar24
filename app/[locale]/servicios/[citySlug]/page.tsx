@@ -10,6 +10,7 @@ import { getPhoneHref, getPhoneDisplay, getPhoneNumber } from '@/lib/config/cont
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
+import { EEATSection } from '@/components/seo/EEATSignals'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; citySlug: string }[] = []
@@ -69,6 +70,19 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* EEAT Trust Signals */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <EEATSection
+              city={city.name}
+              showGuarantee={true}
+              showResponseTime={true}
+              showExpertise={true}
+              showProcess={false}
+            />
           </div>
         </section>
 
