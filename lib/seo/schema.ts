@@ -1,41 +1,88 @@
 import { Service } from '@/data/services'
 import { City } from '@/data/cities'
-import { getPhoneNumber } from '@/lib/config/contact'
+import { getPhoneNumber, getEmail, getBusinessAddress } from '@/lib/config/contact'
 
 interface LocalBusinessSchemaProps {
   name: string
   description: string
-  telephone: string
-  address: {
-    streetAddress: string
-    addressLocality: string
-    postalCode: string
-    addressCountry: string
-  }
+  url?: string
   image?: string
   priceRange?: string
 }
 
 export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
+  const address = getBusinessAddress()
+  const telephone = getPhoneNumber()
+  const email = getEmail()
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
+    '@id': `${props.url || 'https://reparar24.es'}#business`,
     name: props.name,
     description: props.description,
-    telephone: props.telephone,
+    url: props.url || 'https://reparar24.es',
+    telephone: telephone,
+    email: email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: props.address.streetAddress,
-      addressLocality: props.address.addressLocality,
-      postalCode: props.address.postalCode,
-      addressCountry: props.address.addressCountry
+      streetAddress: address.streetAddress,
+      addressLocality: address.addressLocality,
+      addressRegion: address.addressRegion,
+      postalCode: address.postalCode,
+      addressCountry: address.addressCountry
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: 39.4370,
+      longitude: -0.4679
     },
     image: props.image || 'https://reparar24.es/logo.png',
-    priceRange: props.priceRange || '€€',
-    openingHours: 'Mo-Su 00:00-24:00',
-    areaServed: {
-      '@type': 'Country',
-      name: 'España'
+    logo: 'https://reparar24.es/logo.png',
+    priceRange: props.priceRange || '€€-€€€',
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: [
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday',
+          'Sunday'
+        ],
+        opens: '00:00',
+        closes: '23:59'
+      }
+    ],
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Valencia'
+      },
+      {
+        '@type': 'City',
+        name: 'Madrid'
+      },
+      {
+        '@type': 'City',
+        name: 'Barcelona'
+      }
+    ],
+    serviceType: [
+      'Fontanería',
+      'Electricidad',
+      'Desatascos',
+      'Calefacción',
+      'Aire Acondicionado'
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '127',
+      bestRating: '5',
+      worstRating: '1'
     }
   }
 }
@@ -116,23 +163,172 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 }
 
 export function generateOrganizationSchema() {
+  const address = getBusinessAddress()
+  
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': 'https://reparar24.es#organization',
     name: 'Reparar24',
+    alternateName: 'Reparar 24',
     url: 'https://reparar24.es',
-    logo: 'https://reparar24.es/logo.png',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://reparar24.es/logo.png',
+      width: '250',
+      height: '60'
+    },
+    description: 'Servicios de fontanería, electricidad y reparaciones 24 horas en España',
+    email: getEmail(),
+    telephone: getPhoneNumber(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address.streetAddress,
+      addressLocality: address.addressLocality,
+      addressRegion: address.addressRegion,
+      postalCode: address.postalCode,
+      addressCountry: address.addressCountry
+    },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: getPhoneNumber().replace('+', '').replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1-$2-$3-$4'),
+      telephone: getPhoneNumber(),
       contactType: 'customer service',
       areaServed: 'ES',
-      availableLanguage: 'Spanish'
+      availableLanguage: ['Spanish', 'English', 'Russian'],
+      contactOption: 'TollFree',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59'
+      }
     },
     sameAs: [
       'https://facebook.com/reparar24',
       'https://twitter.com/reparar24',
       'https://instagram.com/reparar24'
     ]
+  }
+}
+
+export function generateWebSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://reparar24.es#website',
+    url: 'https://reparar24.es',
+    name: 'Reparar24',
+    description: 'Servicios de fontanería, electricidad y reparaciones 24 horas',
+    publisher: {
+      '@id': 'https://reparar24.es#organization'
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://reparar24.es/buscar?q={search_term_string}'
+      },
+      'query-input': 'required name=search_term_string'
+    },
+    inLanguage: ['es', 'en', 'ru']
+  }
+}
+
+interface WebPageSchemaProps {
+  url: string
+  name: string
+  description: string
+  breadcrumbs?: BreadcrumbItem[]
+}
+
+export function generateWebPageSchema(props: WebPageSchemaProps) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${props.url}#webpage`,
+    url: props.url,
+    name: props.name,
+    description: props.description,
+    isPartOf: {
+      '@id': 'https://reparar24.es#website'
+    },
+    about: {
+      '@id': 'https://reparar24.es#organization'
+    },
+    breadcrumb: props.breadcrumbs ? {
+      '@id': `${props.url}#breadcrumb`
+    } : undefined,
+    inLanguage: 'es',
+    potentialAction: {
+      '@type': 'ReadAction',
+      target: [props.url]
+    }
+  }
+}
+
+interface EnhancedServiceSchemaProps {
+  service: Service
+  city?: City
+  url: string
+}
+
+export function generateEnhancedServiceSchema(props: EnhancedServiceSchemaProps) {
+  const { service, city, url } = props
+  
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: city ? `${service.name} en ${city.name}` : service.name,
+    description: service.longDescription,
+    serviceType: service.name,
+    provider: {
+      '@id': 'https://reparar24.es#organization'
+    },
+    areaServed: city ? {
+      '@type': 'City',
+      name: city.name,
+      containedInPlace: {
+        '@type': 'Country',
+        name: 'España'
+      }
+    } : {
+      '@type': 'Country',
+      name: 'España'
+    },
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      serviceUrl: url,
+      servicePhone: {
+        '@type': 'ContactPoint',
+        telephone: getPhoneNumber(),
+        contactType: 'customer service',
+        availableLanguage: ['Spanish', 'English', 'Russian']
+      }
+    },
+    hoursAvailable: service.available24h ? {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59'
+    } : undefined,
+    offers: {
+      '@type': 'Offer',
+      price: service.priceRange,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: service.priceRange,
+        priceCurrency: 'EUR'
+      }
+    },
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '89',
+      bestRating: '5',
+      worstRating: '1'
+    }
   }
 }

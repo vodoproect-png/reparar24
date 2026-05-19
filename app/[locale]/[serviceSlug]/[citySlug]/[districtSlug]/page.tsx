@@ -126,13 +126,6 @@ export default async function ServiceCityDistrictPage({
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `${service.name} en ${district.name} - Reparar24`,
     description: intro.substring(0, 200),
-    telephone: '+34-900-000-000',
-    address: {
-      streetAddress: `Servicio en ${district.name}`,
-      addressLocality: city.name,
-      postalCode: district.postalCodes[0],
-      addressCountry: 'ES',
-    },
   })
 
   return (

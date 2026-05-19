@@ -40,13 +40,6 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `Reparar24 - Servicios en ${city.name}`,
     description: `Servicios profesionales 24 horas en ${city.name}`,
-    telephone: getPhoneNumber().replace('+', '').replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1-$2-$3-$4'),
-    address: {
-      streetAddress: 'Servicio a domicilio',
-      addressLocality: city.name,
-      postalCode: city.postalCodes[0],
-      addressCountry: 'ES',
-    },
   })
 
   const serviceLinks = getCityServiceLinks(city, services, locale)

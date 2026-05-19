@@ -29,13 +29,6 @@ export default async function HomePage({ params }: HomePageProps) {
   const localBusinessSchema = generateLocalBusinessSchema({
     name: 'Reparar24',
     description: 'Servicios profesionales de fontanería, electricidad, desatascos y reparaciones 24 horas',
-    telephone: getPhoneNumber(),
-    address: {
-      streetAddress: businessAddress.streetAddress,
-      addressLocality: businessAddress.addressLocality,
-      postalCode: businessAddress.postalCode,
-      addressCountry: businessAddress.addressCountry,
-    },
   })
 
   return (
