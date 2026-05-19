@@ -1,45 +1,97 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import { getPhoneHref, getPhoneDisplay } from '@/lib/config/contact'
+import MobileMenu from './MobileMenu'
 
 interface HeaderProps {
   locale: Locale
 }
 
 export default function Header({ locale }: HeaderProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="container-custom py-4">
-        <div className="flex items-center justify-between">
-          <Link href={`/${locale}`} className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-primary-600">Reparar24</span>
-          </Link>
+    <>
+      <header className="bg-white shadow-sm sticky top-0 z-50">
+        <nav className="container-custom py-3">
+          {/* Mobile Layout */}
+          <div className="flex md:hidden items-center justify-between gap-2">
+            {/* Logo - Left */}
+            <Link 
+              href={`/${locale}`} 
+              className="flex items-center flex-shrink-0"
+              aria-label="Reparar24 - Inicio"
+            >
+              <span className="text-xl font-bold text-primary-600">Reparar24</span>
+            </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <Link href={`/${locale}/fontanero`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Fontanería
-            </Link>
-            <Link href={`/${locale}/electricista`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Electricidad
-            </Link>
-            <Link href={`/${locale}/desatascos`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Desatascos
-            </Link>
-            <Link href={`/${locale}/aire-acondicionado`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-              Clima
-            </Link>
-          </div>
-
-          <div className="flex items-center space-x-4">
+            {/* Compact Phone CTA - Middle */}
             <a 
               href={getPhoneHref()} 
-              className="btn-primary text-sm md:text-base"
+              className="flex items-center gap-1 px-3 py-2 bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold rounded-lg transition-colors touch-target flex-shrink-0"
+              aria-label={`Llamar al ${getPhoneDisplay()}`}
             >
-              📞 {getPhoneDisplay()}
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span className="whitespace-nowrap">{getPhoneDisplay()}</span>
             </a>
+
+            {/* Hamburger Menu - Right */}
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-2 hover:bg-gray-100 rounded-lg transition-colors touch-target flex-shrink-0"
+              aria-label="Abrir menú de navegación"
+              aria-expanded={isMobileMenuOpen}
+            >
+              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
-        </div>
-      </nav>
-    </header>
+
+          {/* Desktop Layout */}
+          <div className="hidden md:flex items-center justify-between">
+            <Link href={`/${locale}`} className="flex items-center space-x-2">
+              <span className="text-2xl font-bold text-primary-600">Reparar24</span>
+            </Link>
+
+            <div className="flex items-center space-x-8">
+              <Link href={`/${locale}/fontanero`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+                Fontanería
+              </Link>
+              <Link href={`/${locale}/electricista`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+                Electricidad
+              </Link>
+              <Link href={`/${locale}/desatascos`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+                Desatascos
+              </Link>
+              <Link href={`/${locale}/aire-acondicionado`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+                Clima
+              </Link>
+            </div>
+
+            <div className="flex items-center space-x-4">
+              <a 
+                href={getPhoneHref()} 
+                className="btn-primary text-sm md:text-base"
+              >
+                📞 {getPhoneDisplay()}
+              </a>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      {/* Mobile Menu Popup */}
+      <MobileMenu 
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
+        locale={locale}
+      />
+    </>
   )
 }
