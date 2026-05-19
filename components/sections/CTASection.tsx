@@ -19,13 +19,13 @@ export default function CTASection({ locale }: CTASectionProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:+34900000000" 
+              href="tel:+34641688524" 
               className="bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"
             >
               📞 Llamar al 900 000 000
             </a>
             <a 
-              href="https://wa.me/34900000000" 
+              href="https://wa.me/34641688524" 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"

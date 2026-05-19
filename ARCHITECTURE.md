@@ -284,7 +284,7 @@ const emergencyLinks = getEmergencyServiceLinks(services, locale)
 ```tsx
 <WhatsAppCTA 
   variant="floating"          // floating | inline | banner
-  phone="34900000000"
+  phone="34641688524"
   message="Custom message"
 />
 ```
@@ -305,7 +305,7 @@ const emergencyLinks = getEmergencyServiceLinks(services, locale)
 <CallNowButton 
   variant="primary"            // primary | secondary | emergency
   size="lg"                    // sm | md | lg
-  phone="+34900000000"
+  phone="+34641688524"
 />
 ```
 

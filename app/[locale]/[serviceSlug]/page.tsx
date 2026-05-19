@@ -92,7 +92,7 @@ export default async function ServicePage({
               <p className="text-2xl mb-8 text-primary-50">{service.longDescription}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:+34900000000"
+                  href="tel:+34641688524"
                   className="btn-primary bg-accent-500 hover:bg-accent-600"
                 >
                   📞 Llamar Ahora - {service.priceRange}

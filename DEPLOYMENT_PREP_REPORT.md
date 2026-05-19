@@ -165,7 +165,7 @@ NEXT_PUBLIC_SITE_NAME=Reparar24
 # Business Contact (Valencia Primary)
 NEXT_PUBLIC_PHONE=+34-900-000-000
 NEXT_PUBLIC_EMAIL=contacto@reparar24.es
-NEXT_PUBLIC_WHATSAPP=34900000000
+NEXT_PUBLIC_WHATSAPP=34641688524
 
 # Analytics (if applicable)
 # NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
@@ -184,7 +184,7 @@ NEXT_PUBLIC_SITE_NAME=Reparar24 (Staging)
 # Same business contact as production
 NEXT_PUBLIC_PHONE=+34-900-000-000
 NEXT_PUBLIC_EMAIL=contacto@reparar24.es
-NEXT_PUBLIC_WHATSAPP=34900000000
+NEXT_PUBLIC_WHATSAPP=34641688524
 
 # Build Configuration
 NODE_ENV=production
@@ -204,7 +204,7 @@ NODE_ENV=production
 // Should use process.env or import from verified config
 export const PHONE = process.env.NEXT_PUBLIC_PHONE || '+34-900-000-000'
 export const EMAIL = process.env.NEXT_PUBLIC_EMAIL || 'contacto@reparar24.es'
-export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || '34900000000'
+export const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || '34641688524'
 ```
 
 ---

@@ -176,7 +176,7 @@ export default async function ServiceCityDistrictPage({
 
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <a
-                  href="tel:+34900000000"
+                  href="tel:+34641688524"
                   className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg px-8 py-4"
                 >
                   📞 {cta.primary}
@@ -255,7 +255,7 @@ export default async function ServiceCityDistrictPage({
                   </p>
                 </div>
                 <a
-                  href="tel:+34900000000"
+                  href="tel:+34641688524"
                   className="btn-primary bg-red-600 hover:bg-red-700 text-white px-8 py-4 whitespace-nowrap"
                 >
                   📞 Llamar Urgente

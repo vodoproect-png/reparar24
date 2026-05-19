@@ -28,7 +28,7 @@ export default function GlobalError({
             </p>
             <div className="space-y-3">
               <a
-                href="tel:+34900000000"
+                href="tel:+34641688524"
                 className="btn-primary w-full inline-block"
               >
                 📞 Llamar: 900 000 000

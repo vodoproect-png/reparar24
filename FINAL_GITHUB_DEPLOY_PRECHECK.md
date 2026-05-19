@@ -52,7 +52,7 @@ The Reparar24 repository has been thoroughly audited for production deployment s
 
 #### contact.ts ✅
 ```typescript
-const basePhone = process.env.NEXT_PUBLIC_PHONE || '+34900000000'
+const basePhone = process.env.NEXT_PUBLIC_PHONE || '+34641688524'
 email: process.env.NEXT_PUBLIC_EMAIL || 'contacto@reparar24.es'
 ```
 - ✅ Uses environment variables
@@ -507,7 +507,7 @@ NEXT_PUBLIC_SITE_URL=https://reparar24.es
 NEXT_PUBLIC_SITE_NAME=Reparar24
 NEXT_PUBLIC_PHONE=+34-900-000-000
 NEXT_PUBLIC_EMAIL=contacto@reparar24.es
-NEXT_PUBLIC_WHATSAPP=34900000000
+NEXT_PUBLIC_WHATSAPP=34641688524
 ```
 
 Optional (can add later):

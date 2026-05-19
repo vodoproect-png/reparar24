@@ -70,7 +70,7 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="text-white font-semibold mb-4">Contacto</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+34900000000" className="hover:text-primary-400 transition-colors">
+                <a href="tel:+34641688524" className="hover:text-primary-400 transition-colors">
                   📞 900 000 000
                 </a>
               </li>

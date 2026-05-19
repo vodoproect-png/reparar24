@@ -31,7 +31,7 @@ export default function Header({ locale }: HeaderProps) {
 
           <div className="flex items-center space-x-4">
             <a 
-              href="tel:+34900000000" 
+              href="tel:+34641688524" 
               className="btn-primary text-sm md:text-base"
             >
               📞 900 000 000

@@ -210,7 +210,7 @@ export default function CallNowButton() {
   
   return (
     <a 
-      href="tel:+34900000000"
+      href="tel:+34641688524"
       onClick={handleClick}
       className="btn-primary"
     >
@@ -242,7 +242,7 @@ export default function WhatsAppCTA({ message }: { message: string }) {
     }
   }
   
-  const whatsappUrl = `https://wa.me/34900000000?text=${encodeURIComponent(message)}`
+  const whatsappUrl = `https://wa.me/34641688524?text=${encodeURIComponent(message)}`
   
   return (
     <a 

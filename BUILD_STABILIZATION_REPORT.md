@@ -351,7 +351,7 @@ import Link from 'next/link'
 
 **Correct Usage (External Links):**
 ```tsx
-<a href="tel:+34900000000">Call</a>
+<a href="tel:+34641688524">Call</a>
 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a>
 ```
 

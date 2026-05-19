@@ -200,14 +200,14 @@ $ npm run build
   NEXT_PUBLIC_SITE_NAME=Reparar24
   NEXT_PUBLIC_PHONE=+34-900-000-000
   NEXT_PUBLIC_EMAIL=contacto@reparar24.es
-  NEXT_PUBLIC_WHATSAPP=34900000000
+  NEXT_PUBLIC_WHATSAPP=34641688524
   ```
 - [ ] Optional: Add GA4 tracking ID (can be added post-launch)
 
 #### 2. Business Operations Verification
 - [ ] **Critical:** Confirm Valencia technician availability
 - [ ] Verify phone +34-900-000-000 is active
-- [ ] Verify WhatsApp 34900000000 is active
+- [ ] Verify WhatsApp 34641688524 is active
 - [ ] Verify email contacto@reparar24.es is monitored
 - [ ] Confirm 30-45 min response time is achievable
 - [ ] Set up lead intake process
@@ -519,7 +519,7 @@ $ npm run build
 ### Operational Readiness ⚠️ REQUIRES CONFIRMATION
 - [ ] **Valencia technician capacity confirmed**
 - [ ] **Phone system tested (+34-900-000-000)**
-- [ ] **WhatsApp active (34900000000)**
+- [ ] **WhatsApp active (34641688524)**
 - [ ] **Email monitored (contacto@reparar24.es)**
 - [ ] **30-45 min response time verified**
 - [ ] **CRM/lead intake ready**

@@ -5,7 +5,7 @@ interface HeroProps {
 }
 
 export default function Hero({ locale }: HeroProps) {
-  const whatsappUrl = `https://wa.me/34900000000?text=${encodeURIComponent('Hola, necesito asistencia urgente')}`
+  const whatsappUrl = `https://wa.me/34641688524?text=${encodeURIComponent('Hola, necesito asistencia urgente')}`
   
   return (
     <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
@@ -34,7 +34,7 @@ export default function Hero({ locale }: HeroProps) {
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-slide-up">
             <a 
-              href="tel:+34900000000" 
+              href="tel:+34641688524" 
               className="btn-emergency text-center touch-target group"
             >
               <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 20 20">

@@ -9,7 +9,7 @@ interface WhatsAppCTAProps {
 }
 
 export default function WhatsAppCTA({
-  phone = '34900000000',
+  phone = '34641688524',
   message = 'Hola, necesito información sobre sus servicios',
   text = 'Contactar por WhatsApp',
   variant = 'inline',

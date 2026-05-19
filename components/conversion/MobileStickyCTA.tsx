@@ -9,7 +9,7 @@ interface MobileStickyCTAProps {
 }
 
 export default function MobileStickyCTA({
-  phone = '34900000000',
+  phone = '34641688524',
   whatsappMessage = 'Hola, necesito asistencia urgente',
   className = '',
 }: MobileStickyCTAProps) {

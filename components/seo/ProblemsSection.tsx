@@ -105,7 +105,7 @@ export default function ProblemsSection({
                 {/* CTA */}
                 {problem.urgency === 'emergency' && (
                   <a
-                    href="tel:+34900000000"
+                    href="tel:+34641688524"
                     className="btn-emergency btn-sm w-full text-center"
                   >
                     Llamar Urgente
@@ -121,13 +121,13 @@ export default function ProblemsSection({
           <div className="text-center">
             <div className="inline-flex flex-col sm:flex-row gap-3">
               <a
-                href="tel:+34900000000"
+                href="tel:+34641688524"
                 className="btn-primary"
               >
                 📞 Llamar Ahora: 900 000 000
               </a>
               <a
-                href={`https://wa.me/34900000000?text=${encodeURIComponent('Necesito ayuda con un problema')}`}
+                href={`https://wa.me/34641688524?text=${encodeURIComponent('Necesito ayuda con un problema')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"

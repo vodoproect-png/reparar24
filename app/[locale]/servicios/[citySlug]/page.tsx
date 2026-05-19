@@ -60,7 +60,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Servicios Profesionales en {city.name}</h1>
             <p className="text-2xl mb-4 text-primary-50">Fontaneros, electricistas y profesionales 24h en {city.province}</p>
             <p className="text-lg mb-8 text-primary-100">📍 {city.districts.length} distritos • 👥 {city.population.toLocaleString(locale)} habitantes</p>
-            <a href="tel:+34900000000" className="btn-primary bg-accent-500 hover:bg-accent-600">📞 900 000 000</a>
+            <a href="tel:+34641688524" className="btn-primary bg-accent-500 hover:bg-accent-600">📞 900 000 000</a>
           </div>
         </section>
 

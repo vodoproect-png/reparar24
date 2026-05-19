@@ -265,7 +265,7 @@
 
 **Contact Systems:**
 - [ ] Phone line tested: +34-900-000-000
-- [ ] WhatsApp active: 34900000000
+- [ ] WhatsApp active: 34641688524
 - [ ] Email monitored: contacto@reparar24.es
 - [ ] Response time protocols: Documented
 

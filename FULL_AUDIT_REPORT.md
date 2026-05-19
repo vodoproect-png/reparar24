@@ -83,8 +83,8 @@ services.forEach((service) => {
 **Problem:**
 ```typescript
 // Found in multiple files:
-<a href="tel:+34900000000">  // ❌ Fake number hardcoded
-<a href="https://wa.me/34900000000">  // ❌ Fake number
+<a href="tel:+34641688524">  // ❌ Fake number hardcoded
+<a href="https://wa.me/34641688524">  // ❌ Fake number
 ```
 
 **Impact:**
@@ -100,7 +100,7 @@ Create `lib/config/contact.ts`:
 ```typescript
 export const getPhoneNumber = (service?: string, city?: string) => {
   // Future: route calls by service/location
-  return process.env.NEXT_PUBLIC_PHONE || '+34900000000'
+  return process.env.NEXT_PUBLIC_PHONE || '+34641688524'
 }
 ```
 
