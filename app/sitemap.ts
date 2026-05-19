@@ -21,6 +21,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     })
 
+    // Contact page
+    sitemapEntries.push({
+      url: `${baseUrl}${localePrefix}/contacto`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    })
+
     // Service pages - NOW USES LOCALIZED SLUGS
     services.forEach((service) => {
       const localizedSlug = getLocalizedServiceSlug(service.slug as ServiceId, locale)
