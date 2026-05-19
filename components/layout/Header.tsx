@@ -31,7 +31,7 @@ export default function Header({ locale }: HeaderProps) {
             {/* Clean Phone CTA - Middle (minimal style, shifted left for alignment) */}
             <a 
               href={getPhoneHref()} 
-              className="flex items-center gap-1.5 text-gray-700 hover:text-primary-600 font-medium text-base transition-colors touch-target flex-shrink-0 -ml-4"
+              className="flex items-center gap-1.5 text-primary-600 hover:text-primary-700 font-medium text-base transition-colors touch-target flex-shrink-0 -ml-4"
               aria-label={`Llamar al ${getPhoneDisplay()}`}
             >
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -47,7 +47,7 @@ export default function Header({ locale }: HeaderProps) {
               aria-label="Abrir menú de navegación"
               aria-expanded={isMobileMenuOpen}
             >
-              <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
