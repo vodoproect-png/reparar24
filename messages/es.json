@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "plumbing": "Fontanería",
+    "electrical": "Electricidad",
+    "drainage": "Desatascos",
+    "airConditioning": "Aire Acondicionado",
+    "cities": "Ciudades"
+  },
+  "cta": {
+    "callNow": "Llamar Ahora",
+    "whatsapp": "WhatsApp",
+    "getQuote": "Presupuesto Gratuito",
+    "emergency": "Emergencia",
+    "availableNow": "Disponible Ahora"
+  },
+  "emergency": {
+    "banner": "🚨 Servicio de Emergencias 24/7",
+    "subtitle": "Atención inmediata para urgencias",
+    "available": "Disponible 24 Horas",
+    "fastResponse": "Respuesta Rápida",
+    "responseTime": "30-60 minutos"
+  },
+  "trust": {
+    "certified": "Profesionales Certificados",
+    "guarantee": "Garantía de Trabajo",
+    "experience": "Experiencia Garantizada",
+    "quality": "Calidad Asegurada",
+    "freeQuote": "Presupuesto Sin Compromiso",
+    "transparentPricing": "Precios Transparentes"
+  },
+  "footer": {
+    "description": "Servicios profesionales de fontanería, electricidad y reparaciones disponibles las 24 horas del día en toda España.",
+    "services": "Servicios",
+    "cities": "Ciudades",
+    "contact": "Contacto",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "cookies": "Cookies",
+    "rights": "Todos los derechos reservados"
+  },
+  "common": {
+    "readMore": "Leer más",
+    "seeAll": "Ver todo",
+    "learnMore": "Más información",
+    "from": "Desde",
+    "viewServices": "Ver servicios",
+    "inYourCity": "en tu ciudad",
+    "districts": "distritos",
+    "inhabitants": "habitantes"
+  }
+}

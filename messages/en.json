@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "plumbing": "Plumbing",
+    "electrical": "Electrical",
+    "drainage": "Drain Cleaning",
+    "airConditioning": "Air Conditioning",
+    "cities": "Cities"
+  },
+  "cta": {
+    "callNow": "Call Now",
+    "whatsapp": "WhatsApp",
+    "getQuote": "Free Quote",
+    "emergency": "Emergency",
+    "availableNow": "Available Now"
+  },
+  "emergency": {
+    "banner": "🚨 24/7 Emergency Service",
+    "subtitle": "Immediate attention for emergencies",
+    "available": "Available 24 Hours",
+    "fastResponse": "Fast Response",
+    "responseTime": "30-60 minutes"
+  },
+  "trust": {
+    "certified": "Certified Professionals",
+    "guarantee": "Work Guarantee",
+    "experience": "Guaranteed Experience",
+    "quality": "Assured Quality",
+    "freeQuote": "No Obligation Quote",
+    "transparentPricing": "Transparent Pricing"
+  },
+  "footer": {
+    "description": "Professional plumbing, electrical and repair services available 24 hours a day throughout Spain.",
+    "services": "Services",
+    "cities": "Cities",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "cookies": "Cookies",
+    "rights": "All rights reserved"
+  },
+  "common": {
+    "readMore": "Read more",
+    "seeAll": "See all",
+    "learnMore": "Learn more",
+    "from": "From",
+    "viewServices": "View services",
+    "inYourCity": "in your city",
+    "districts": "districts",
+    "inhabitants": "inhabitants"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Главная",
+    "services": "Услуги",
+    "plumbing": "Сантехника",
+    "electrical": "Электрика",
+    "drainage": "Прочистка труб",
+    "airConditioning": "Кондиционеры",
+    "cities": "Города"
+  },
+  "cta": {
+    "callNow": "Позвонить",
+    "whatsapp": "WhatsApp",
+    "getQuote": "Бесплатная оценка",
+    "emergency": "Срочно",
+    "availableNow": "Доступно сейчас"
+  },
+  "emergency": {
+    "banner": "🚨 Аварийная служба 24/7",
+    "subtitle": "Немедленная помощь при авариях",
+    "available": "Доступно 24 часа",
+    "fastResponse": "Быстрый отклик",
+    "responseTime": "30-60 минут"
+  },
+  "trust": {
+    "certified": "Сертифицированные специалисты",
+    "guarantee": "Гарантия качества",
+    "experience": "Опытные мастера",
+    "quality": "Гарантия качества",
+    "freeQuote": "Бесплатная оценка",
+    "transparentPricing": "Прозрачные цены"
+  },
+  "footer": {
+    "description": "Профессиональные сантехнические, электрические и ремонтные услуги доступны 24 часа в сутки по всей Испании.",
+    "services": "Услуги",
+    "cities": "Города",
+    "contact": "Контакты",
+    "privacy": "Политика конфиденциальности",
+    "terms": "Условия использования",
+    "cookies": "Файлы cookie",
+    "rights": "Все права защищены"
+  },
+  "common": {
+    "readMore": "Читать далее",
+    "seeAll": "Смотреть все",
+    "learnMore": "Узнать больше",
+    "from": "От",
+    "viewServices": "Посмотреть услуги",
+    "inYourCity": "в вашем городе",
+    "districts": "районов",
+    "inhabitants": "жителей"
+  }
+}

@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  }
+
+  /* Typography System */
+  html {
+    @apply antialiased scroll-smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl lg:text-5xl xl:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl lg:text-4xl xl:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl lg:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl lg:text-2xl;
+  }
+
+  p {
+    @apply text-base lg:text-lg leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Container System */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-wide {
+    @apply max-w-8xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Card System */
+  .card {
+    @apply bg-white rounded-xl shadow-card hover:shadow-card-hover transition-all duration-300 p-6;
+  }
+
+  .card-compact {
+    @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 p-4;
+  }
+
+  .card-flat {
+    @apply bg-white rounded-lg border border-gray-200 hover:border-primary-200 transition-all duration-200 p-6;
+  }
+
+  .card-highlight {
+    @apply bg-gradient-to-br from-primary-50 to-blue-50 rounded-xl border-2 border-primary-200 p-6;
+  }
+
+  /* Button System */
+  .btn {
+    @apply font-semibold rounded-lg transition-all duration-200 inline-flex items-center justify-center text-center;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-600 hover:bg-primary-700 text-white shadow-sm hover:shadow-md;
+    @apply focus:ring-primary-500;
+    @apply py-3 px-6 text-base lg:text-lg;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent-600 hover:bg-accent-700 text-white shadow-sm hover:shadow-md;
+    @apply focus:ring-accent-500;
+    @apply py-3 px-6 text-base lg:text-lg;
+  }
+
+  .btn-emergency {
+    @apply btn bg-emergency-600 hover:bg-emergency-700 text-white shadow-lg hover:shadow-xl;
+    @apply focus:ring-emergency-500;
+    @apply py-4 px-8 text-lg font-bold;
+  }
+
+  .btn-outline {
+    @apply btn bg-white hover:bg-gray-50 text-gray-900 border-2 border-gray-300 hover:border-primary-500;
+    @apply focus:ring-primary-500;
+    @apply py-3 px-6 text-base lg:text-lg;
+  }
+
+  .btn-whatsapp {
+    @apply btn bg-[#25D366] hover:bg-[#20BA5A] text-white shadow-md hover:shadow-lg;
+    @apply py-3 px-6 text-base lg:text-lg gap-2;
+  }
+
+  .btn-sm {
+    @apply py-2 px-4 text-sm;
+  }
+
+  .btn-lg {
+    @apply py-4 px-8 text-xl;
+  }
+
+  /* Section System */
+  .section {
+    @apply py-16 lg:py-24;
+  }
+
+  .section-compact {
+    @apply py-12 lg:py-16;
+  }
+
+  .section-hero {
+    @apply py-20 lg:py-32;
+  }
+
+  /* Trust Badge */
+  .trust-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-gray-200;
+    @apply text-sm font-medium text-gray-700;
+  }
+
+  /* Emergency Banner */
+  .emergency-banner {
+    @apply bg-gradient-to-r from-emergency-50 to-orange-50 border-l-4 border-emergency-600;
+    @apply p-4 lg:p-6 rounded-lg;
+  }
+
+  /* Review Card */
+  .review-card {
+    @apply card bg-gradient-to-br from-white to-gray-50;
+  }
+
+  /* Icon Circle */
+  .icon-circle {
+    @apply w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-primary-100 flex items-center justify-center;
+    @apply text-2xl lg:text-3xl;
+  }
+
+  .icon-circle-accent {
+    @apply w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-accent-100 flex items-center justify-center;
+    @apply text-2xl lg:text-3xl;
+  }
+
+  .icon-circle-emergency {
+    @apply w-12 h-12 lg:w-16 lg:h-16 rounded-full bg-emergency-100 flex items-center justify-center;
+    @apply text-2xl lg:text-3xl;
+  }
+}
+
+@layer utilities {
+  /* Animation Utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-pulse-soft {
+    animation: pulseSoft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Gradient Utilities */
+  .gradient-primary {
+    @apply bg-gradient-to-br from-primary-600 to-primary-800;
+  }
+
+  .gradient-accent {
+    @apply bg-gradient-to-br from-accent-600 to-accent-800;
+  }
+
+  .gradient-emergency {
+    @apply bg-gradient-to-r from-emergency-600 to-orange-600;
+  }
+
+  /* Text Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Mobile Touch Target */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
