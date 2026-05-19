@@ -1,5 +1,6 @@
 import { Service } from '@/data/services'
 import { City } from '@/data/cities'
+import { getPhoneNumber } from '@/lib/config/contact'
 
 interface LocalBusinessSchemaProps {
   name: string
@@ -123,7 +124,7 @@ export function generateOrganizationSchema() {
     logo: 'https://reparar24.es/logo.png',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+34-900-000-000',
+      telephone: getPhoneNumber().replace('+', '').replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1-$2-$3-$4'),
       contactType: 'customer service',
       areaServed: 'ES',
       availableLanguage: 'Spanish'

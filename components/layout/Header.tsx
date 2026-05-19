@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
+import { getPhoneHref, getPhoneDisplay } from '@/lib/config/contact'
 
 interface HeaderProps {
   locale: Locale
@@ -31,10 +32,10 @@ export default function Header({ locale }: HeaderProps) {
 
           <div className="flex items-center space-x-4">
             <a 
-              href="tel:+34641688524" 
+              href={getPhoneHref()} 
               className="btn-primary text-sm md:text-base"
             >
-              📞 900 000 000
+              📞 {getPhoneDisplay()}
             </a>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { Locale } from '@/lib/i18n/config'
+import { getPhoneHref, getPhoneDisplay, getWhatsAppHref } from '@/lib/config/contact'
 
 interface CTASectionProps {
   locale: Locale
@@ -19,13 +20,13 @@ export default function CTASection({ locale }: CTASectionProps) {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="tel:+34641688524" 
+              href={getPhoneHref()} 
               className="bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"
             >
-              📞 Llamar al 900 000 000
+              📞 Llamar al {getPhoneDisplay()}
             </a>
             <a 
-              href="https://wa.me/34641688524" 
+              href={getWhatsAppHref()} 
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"

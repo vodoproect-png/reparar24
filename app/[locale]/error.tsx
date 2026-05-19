@@ -46,7 +46,7 @@ export default function Error({
                   href={getPhoneHref()}
                   className="btn-primary w-full inline-block"
                 >
-                  📞 Llamar Ahora - 900 000 000
+                  📞 Llamar Ahora
                 </a>
                 <a
                   href={getWhatsAppHref('Tengo un problema con la página web')}

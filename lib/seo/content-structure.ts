@@ -206,7 +206,7 @@ export const ContentTemplateGenerator = {
         availability: service.available24h
           ? '24 horas, 7 días a la semana'
           : 'Lunes a Sábado, 8:00 - 20:00',
-        contactInfo: '900 000 000',
+        contactInfo: '+34 641 68 85 24',
       },
       metadata: {
         serviceId: service.id,

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
 import { cities } from '@/data/cities'
+import { getPhoneHref, getPhoneDisplay, getEmail } from '@/lib/config/contact'
 
 interface FooterProps {
   locale: Locale
@@ -70,13 +71,13 @@ export default function Footer({ locale }: FooterProps) {
             <h4 className="text-white font-semibold mb-4">Contacto</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="tel:+34641688524" className="hover:text-primary-400 transition-colors">
-                  📞 900 000 000
+                <a href={getPhoneHref()} className="hover:text-primary-400 transition-colors">
+                  📞 {getPhoneDisplay()}
                 </a>
               </li>
               <li>
-                <a href="mailto:info@reparar24.es" className="hover:text-primary-400 transition-colors">
-                  ✉️ info@reparar24.es
+                <a href={`mailto:${getEmail()}`} className="hover:text-primary-400 transition-colors">
+                  ✉️ {getEmail()}
                 </a>
               </li>
               <li className="text-gray-400">

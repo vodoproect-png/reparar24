@@ -1,4 +1,5 @@
 import type { Locale } from '@/lib/i18n/config'
+import { getPhoneHref, getPhoneDisplay } from '@/lib/config/contact'
 
 interface ProcessStep {
   number: number
@@ -129,10 +130,10 @@ export default function ProcessSection({
             ¿Listo para resolver tu problema?
           </p>
           <a
-            href="tel:+34641688524"
+            href={getPhoneHref()}
             className="btn-primary inline-flex"
           >
-            📞 Llamar Ahora - 900 000 000
+            📞 Llamar Ahora - {getPhoneDisplay()}
           </a>
         </div>
       </div>

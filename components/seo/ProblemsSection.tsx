@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import type { Problem } from '@/data/problems'
+import { getPhoneHref, getPhoneDisplay, getWhatsAppHref } from '@/lib/config/contact'
 
 interface ProblemsSectionProps {
   problems: Problem[]
@@ -105,7 +106,7 @@ export default function ProblemsSection({
                 {/* CTA */}
                 {problem.urgency === 'emergency' && (
                   <a
-                    href="tel:+34641688524"
+                    href={getPhoneHref()}
                     className="btn-emergency btn-sm w-full text-center"
                   >
                     Llamar Urgente
@@ -121,13 +122,13 @@ export default function ProblemsSection({
           <div className="text-center">
             <div className="inline-flex flex-col sm:flex-row gap-3">
               <a
-                href="tel:+34641688524"
+                href={getPhoneHref()}
                 className="btn-primary"
               >
-                📞 Llamar Ahora: 900 000 000
+                📞 Llamar Ahora: {getPhoneDisplay()}
               </a>
               <a
-                href={`https://wa.me/34641688524?text=${encodeURIComponent('Necesito ayuda con un problema')}`}
+                href={getWhatsAppHref('Necesito ayuda con un problema')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-whatsapp"

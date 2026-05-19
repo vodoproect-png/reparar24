@@ -23,7 +23,7 @@ export default function NotFound() {
                   href={getPhoneHref()}
                   className="btn-primary w-full inline-block"
                 >
-                  📞 Llamar Ahora - 900 000 000
+                  📞 Llamar Ahora
                 </a>
                 <a
                   href={getWhatsAppHref('Necesito ayuda')}

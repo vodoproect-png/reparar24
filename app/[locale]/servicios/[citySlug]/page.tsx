@@ -6,6 +6,7 @@ import { services } from '@/data/services'
 import { generateEnhancedCityMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateLocalBusinessSchema } from '@/lib/seo/schema'
 import { getCityServiceLinks } from '@/lib/linking/internal'
+import { getPhoneHref, getPhoneDisplay, getPhoneNumber } from '@/lib/config/contact'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
@@ -39,7 +40,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `Reparar24 - Servicios en ${city.name}`,
     description: `Servicios profesionales 24 horas en ${city.name}`,
-    telephone: '+34-900-000-000',
+    telephone: getPhoneNumber().replace('+', '').replace(/(\d{2})(\d{3})(\d{3})(\d{3})/, '+$1-$2-$3-$4'),
     address: {
       streetAddress: 'Servicio a domicilio',
       addressLocality: city.name,
@@ -60,7 +61,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
             <h1 className="text-5xl md:text-6xl font-bold mb-6">Servicios Profesionales en {city.name}</h1>
             <p className="text-2xl mb-4 text-primary-50">Fontaneros, electricistas y profesionales 24h en {city.province}</p>
             <p className="text-lg mb-8 text-primary-100">📍 {city.districts.length} distritos • 👥 {city.population.toLocaleString(locale)} habitantes</p>
-            <a href="tel:+34641688524" className="btn-primary bg-accent-500 hover:bg-accent-600">📞 900 000 000</a>
+            <a href={getPhoneHref()} className="btn-primary bg-accent-500 hover:bg-accent-600">📞 {getPhoneDisplay()}</a>
           </div>
         </section>
 

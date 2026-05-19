@@ -1,11 +1,12 @@
 import type { Locale } from '@/lib/i18n/config'
+import { getPhoneHref, getPhoneDisplay, getWhatsAppHref } from '@/lib/config/contact'
 
 interface HeroProps {
   locale: Locale
 }
 
 export default function Hero({ locale }: HeroProps) {
-  const whatsappUrl = `https://wa.me/34641688524?text=${encodeURIComponent('Hola, necesito asistencia urgente')}`
+  const whatsappUrl = getWhatsAppHref('Hola, necesito asistencia urgente')
   
   return (
     <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white">
@@ -34,13 +35,13 @@ export default function Hero({ locale }: HeroProps) {
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row gap-3 mb-8 animate-slide-up">
             <a 
-              href="tel:+34641688524" 
+              href={getPhoneHref()} 
               className="btn-emergency text-center touch-target group"
             >
               <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span>Llamar Ahora: 900 000 000</span>
+              <span>Llamar Ahora: {getPhoneDisplay()}</span>
             </a>
             
             <a 

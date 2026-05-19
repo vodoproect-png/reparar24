@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { getPhoneHref, getPhoneDisplay } from '@/lib/config/contact'
 
 export default function GlobalError({
   error,
@@ -28,10 +29,10 @@ export default function GlobalError({
             </p>
             <div className="space-y-3">
               <a
-                href="tel:+34641688524"
+                href={getPhoneHref()}
                 className="btn-primary w-full inline-block"
               >
-                📞 Llamar: 900 000 000
+                📞 Llamar: {getPhoneDisplay()}
               </a>
               <button
                 onClick={reset}
