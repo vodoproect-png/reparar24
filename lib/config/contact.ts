@@ -36,7 +36,7 @@ export function getContactConfig(
   
   return {
     phone: basePhone,
-    phoneDisplay: '641 68 85 24',
+    phoneDisplay: '641 688 524',
     whatsapp: basePhone.replace('+', ''),
     email: process.env.NEXT_PUBLIC_EMAIL || 'info@reparar24.es',
   }

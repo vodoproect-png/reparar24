@@ -16,38 +16,38 @@ export default function Header({ locale }: HeaderProps) {
   return (
     <>
       <header className="bg-white shadow-sm sticky top-0 z-50">
-        <nav className="container-custom py-3">
+        <nav className="container-custom py-4">
           {/* Mobile Layout */}
-          <div className="flex md:hidden items-center justify-between gap-2">
-            {/* Logo - Left */}
+          <div className="flex md:hidden items-center justify-between gap-1">
+            {/* Logo - Left (lowered slightly for baseline alignment) */}
             <Link 
               href={`/${locale}`} 
-              className="flex items-center flex-shrink-0"
+              className="flex items-center flex-shrink-0 self-center pt-0.5"
               aria-label="Reparar24 - Inicio"
             >
               <span className="text-xl font-bold text-primary-600">Reparar24</span>
             </Link>
 
-            {/* Compact Phone CTA - Middle */}
+            {/* Clean Phone CTA - Middle (minimal style, shifted left for alignment) */}
             <a 
               href={getPhoneHref()} 
-              className="flex items-center gap-1 px-3 py-2 bg-accent-500 hover:bg-accent-600 text-white text-sm font-semibold rounded-lg transition-colors touch-target flex-shrink-0"
+              className="flex items-center gap-1.5 text-gray-700 hover:text-primary-600 font-medium text-base transition-colors touch-target flex-shrink-0 -ml-4"
               aria-label={`Llamar al ${getPhoneDisplay()}`}
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
-              <span className="whitespace-nowrap">{getPhoneDisplay()}</span>
+              <span className="whitespace-nowrap font-semibold">{getPhoneDisplay()}</span>
             </a>
 
-            {/* Hamburger Menu - Right */}
+            {/* Hamburger Menu - Right (enlarged) */}
             <button
               onClick={() => setIsMobileMenuOpen(true)}
               className="p-2 hover:bg-gray-100 rounded-lg transition-colors touch-target flex-shrink-0"
               aria-label="Abrir menú de navegación"
               aria-expanded={isMobileMenuOpen}
             >
-              <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
