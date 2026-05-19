@@ -59,6 +59,7 @@ export function generateServiceMetadata(service: Service, city?: City): Metadata
     ? [...service.keywords, city.name, `${service.slug} ${city.slug}`]
     : service.keywords
 
+  // Spanish uses root-level URLs (no /es prefix)
   const canonical = city
     ? `https://reparar24.es/${service.slug}/${city.slug}`
     : `https://reparar24.es/${service.slug}`
@@ -88,11 +89,11 @@ export function generateCityMetadata(city: City): Metadata {
     title,
     description,
     keywords,
-    canonical: `https://reparar24.es/ciudad/${city.slug}`,
+    canonical: `https://reparar24.es/servicios/${city.slug}`,
   })
 }
 
-export function generateDistrictMetadata(city: City, districtSlug: string): Metadata {
+export function generateDistrictMetadata(city: City, districtSlug: string, serviceSlug?: string): Metadata {
   const district = city.districts.find(d => d.slug === districtSlug)
   
   if (!district) {
@@ -111,10 +112,15 @@ export function generateDistrictMetadata(city: City, districtSlug: string): Meta
     ...district.postalCodes
   ]
 
+  // Spanish uses root-level URLs (no /es prefix)
+  const canonical = serviceSlug
+    ? `https://reparar24.es/${serviceSlug}/${city.slug}/${district.slug}`
+    : `https://reparar24.es/servicios/${city.slug}/${district.slug}`
+
   return generateMetadata({
     title,
     description,
     keywords,
-    canonical: `https://reparar24.es/ciudad/${city.slug}/${district.slug}`,
+    canonical,
   })
 }

@@ -4,21 +4,54 @@ import { locales, defaultLocale } from '@/lib/i18n/config'
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+  const hostname = request.headers.get('host') || ''
   
-  // Check if pathname already has a locale
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  )
-
-  if (pathnameHasLocale) {
-    return NextResponse.next()
+  // Anti-index protection for Vercel preview domains
+  const isVercelDomain = hostname.includes('vercel.app')
+  
+  // Check if pathname starts with /es/ or is /es
+  // These should 301 redirect to root-level Spanish URLs
+  if (pathname.startsWith('/es/') || pathname === '/es') {
+    const newPath = pathname === '/es' ? '/' : pathname.replace(/^\/es/, '')
+    const url = request.nextUrl.clone()
+    url.pathname = newPath
+    
+    const response = NextResponse.redirect(url, 301) // Permanent redirect
+    
+    if (isVercelDomain) {
+      response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+    }
+    
+    return response
   }
-
-  // Redirect to default locale for non-locale URLs
-  // This ensures all pages use /[locale]/ structure
+  
+  // Check if pathname has /en/ or /ru/ prefix
+  const hasNonSpanishLocale = pathname.startsWith('/en/') || pathname === '/en' ||
+                                pathname.startsWith('/ru/') || pathname === '/ru'
+  
+  if (hasNonSpanishLocale) {
+    // EN and RU URLs are fine - they keep their prefix
+    const response = NextResponse.next()
+    
+    if (isVercelDomain) {
+      response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+    }
+    
+    return response
+  }
+  
+  // For root-level paths (Spanish URLs without /es prefix)
+  // Rewrite to /es/... internally so pages still work
   const url = request.nextUrl.clone()
-  url.pathname = `/${defaultLocale}${pathname}`
-  return NextResponse.redirect(url)
+  url.pathname = `/es${pathname}`
+  
+  const response = NextResponse.rewrite(url)
+  
+  if (isVercelDomain) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow')
+  }
+  
+  return response
 }
 
 export const config = {

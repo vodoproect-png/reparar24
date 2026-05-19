@@ -9,6 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = []
 
   locales.forEach((locale) => {
+    // Spanish (es) uses root-level URLs without prefix
+    // EN and RU keep their prefixes
     const localePrefix = locale === 'es' ? '' : `/${locale}`
 
     // Homepage
