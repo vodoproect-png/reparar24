@@ -220,7 +220,25 @@ export default async function ServiceCityPage({
         {/* Final CTA - Above SEO Content */}
         <CTASection locale={locale} />
 
-        {/* City-Specific SEO Content - Absolute Bottom Placement */}
+        {/* City-Specific FAQs - Above SEO Content */}
+        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
+          <section className="py-16 bg-gray-50">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                Preguntas Frecuentes sobre {service.name} en {city.name}
+              </h2>
+              <div className="max-w-4xl mx-auto">
+                <CitySEOFAQList 
+                  faqs={citySEO.faqs}
+                  serviceName={service.name}
+                  cityName={city.name}
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* City-Specific SEO Content - Absolute Bottom Before Footer */}
         {citySEO && locale === 'es' && (
           <section className="py-16 bg-white">
             <div className="container-custom">
@@ -234,24 +252,6 @@ export default async function ServiceCityPage({
                       .replace(/^/g, '<p>')
                       .replace(/$/g, '</p>')
                   }} 
-                />
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* City-Specific FAQs - Before Footer */}
-        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
-          <section className="py-16 bg-gray-50">
-            <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                Preguntas Frecuentes sobre {service.name} en {city.name}
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <CitySEOFAQList 
-                  faqs={citySEO.faqs}
-                  serviceName={service.name}
-                  cityName={city.name}
                 />
               </div>
             </div>
