@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { type Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
 import { cities } from '@/data/cities'
+import { faqs } from '@/data/faqs'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateFAQSchema } from '@/lib/seo/schema'
 import { getServiceCityLinks } from '@/lib/linking/internal'
@@ -89,7 +90,7 @@ export default async function ServicePage({
                 <span className="text-6xl">{service.icon}</span>
                 <h1 className="text-5xl md:text-6xl font-bold">{service.name}</h1>
               </div>
-              <p className="text-2xl mb-8 text-primary-50">{service.longDescription}</p>
+              <p className="text-2xl mb-8 text-primary-50">{service.description}</p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:+34641688524"
@@ -145,6 +146,39 @@ export default async function ServicePage({
         </section>
 
         <CTASection locale={locale} />
+
+        {/* Service-Specific FAQs */}
+        {faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
+          <section className="py-16 bg-gray-50">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">Preguntas Frecuentes</h2>
+              <div className="max-w-3xl mx-auto space-y-4">
+                {faqs.filter(faq => faq.serviceId === service.id).map((faq, index) => (
+                  <details key={index} className="bg-white rounded-lg shadow-md overflow-hidden group">
+                    <summary className="px-6 py-4 font-semibold text-lg cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center">
+                      <span>{faq.question}</span>
+                      <span className="text-primary-600 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="px-6 pb-4 text-gray-600">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* SEO Content Section - Bottom Placement */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto prose prose-lg">
+              <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                {service.longDescription}
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer locale={locale} />
     </>
