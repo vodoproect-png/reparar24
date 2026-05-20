@@ -167,8 +167,18 @@ export default async function ServiceCityPage({
           </div>
         </section>
 
-        {/* AI-Optimized Q&A Section */}
-        {locale === 'es' && (
+        {/* AI-Optimized Q&A Section - TEMPORARILY DISABLED FOR SEMANTIC GOVERNANCE */}
+        {/*
+          GOVERNANCE NOTE: Generic emergency FAQ layer disabled on GEO city pages.
+          Issue: commonEmergencyQuestions contains cross-service terminology.
+          Example: "fontanero" terms appearing on electricista pages.
+          
+          This creates semantic contamination and violates keyword ownership.
+          
+          Status: GENERIC_FAQ_LAYER_DISABLED
+          Will be replaced with service-specific, GEO-optimized FAQs after approval.
+        */}
+        {/* {locale === 'es' && (
           <section className="py-16 bg-white">
             <div className="container-custom">
               <h2 className="text-3xl font-bold mb-8 text-center">
@@ -179,7 +189,7 @@ export default async function ServiceCityPage({
               </div>
             </div>
           </section>
-        )}
+        )} */}
 
         {/* Other Services in City */}
         <section className="py-16 bg-gray-50">
