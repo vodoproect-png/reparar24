@@ -217,8 +217,20 @@ export default async function ServiceCityPage({
         {/* Final CTA - Above SEO Content */}
         <CTASection locale={locale} />
 
-        {/* City-Specific FAQs - Above SEO Content */}
-        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
+        {/* City-Specific FAQs - TEMPORARILY REMOVED FOR SEMANTIC GOVERNANCE RESET */}
+        {/* 
+          GOVERNANCE NOTE: GEO FAQ blocks removed pending semantic optimization.
+          Current issue: Cross-service keyword contamination detected.
+          Future implementation requires:
+          - Approved semantic clustering
+          - Strict keyword ownership validation
+          - Service-specific GEO intent
+          - Zero cannibalization risk
+          
+          Status: REMOVED_PENDING_SEMANTIC_IMPLEMENTATION
+          Component preserved for future approved use.
+        */}
+        {/* {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
           <section className="py-16 bg-gray-50">
             <div className="container-custom">
               <h2 className="text-3xl font-bold mb-8 text-center">
@@ -233,7 +245,7 @@ export default async function ServiceCityPage({
               </div>
             </div>
           </section>
-        )}
+        )} */}
 
         {/* City-Specific SEO Content - Absolute Bottom Before Footer */}
         {citySEO && locale === 'es' && (
