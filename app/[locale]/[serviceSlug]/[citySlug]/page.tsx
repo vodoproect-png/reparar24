@@ -95,9 +95,6 @@ export default async function ServiceCityPage({
                   <h1 className="text-5xl md:text-6xl font-bold">
                     {service.name} en {city.name}
                   </h1>
-                  <p className="text-xl mt-2 text-primary-100">
-                    {city.province} - {city.population.toLocaleString(locale)} habitantes
-                  </p>
                 </div>
               </div>
               <p className="text-2xl mb-8 text-primary-50">
