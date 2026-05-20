@@ -149,18 +149,50 @@ Como empresa de desatascos profesional, utilizamos técnicas no invasivas que pr
     name: 'Aire Acondicionado',
     slug: 'aire-acondicionado',
     icon: '❄️',
-    description: 'Instalación y reparación de aires acondicionados',
-    longDescription: 'Especialistas en instalación, mantenimiento y reparación de sistemas de aire acondicionado. Todas las marcas y modelos.',
+    description: 'Reparación de aire acondicionado urgente. Técnicos especializados en instalación y mantenimiento. Todas las marcas de split.',
+    longDescription: `¿Necesitas reparación de aire acondicionado urgente? En Reparar24 ofrecemos servicio de aire acondicionado profesional con técnicos especializados disponibles para resolver cualquier avería de aire acondicionado, realizar instalaciones y mantenimiento de aire acondicionado de todas las marcas y modelos.
+
+Somos especialistas en reparación split y sistemas de climatización. Si tu aire acondicionado no enfría correctamente, hace ruidos extraños, pierde agua, o presenta mal olor aire acondicionado, nuestros técnicos de aire acondicionado diagnostican y solucionan el problema rápidamente. Atendemos averías comunes como falta de refrigeración, fugas de gas, problemas con el compresor, o fallos en el sistema de drenaje.
+
+Un problema frecuente es cuando el aire acondicionado no enfría. Las causas pueden ser: nivel bajo de gas refrigerante, filtros sucios obstruidos, condensador sucio, fallo en el compresor, o termostato descalibrado. Nuestros técnicos realizan diagnóstico completo para identificar la causa específica y aplicar la reparación adecuada, ya sea carga de gas aire acondicionado, limpieza de componentes, o sustitución de piezas.
+
+La fuga de gas aire acondicionado es una avería que requiere atención profesional inmediata. Si notas pérdida de rendimiento progresiva o formación de hielo en la unidad, puede indicar fuga. Nuestros técnicos localizan la fuga, reparan el punto de escape, realizan vacío del sistema y recargan con la cantidad exacta de gas refrigerante según especificaciones del fabricante.
+
+Realizamos instalación de aire acondicionado y instalación split profesional para viviendas, oficinas y locales comerciales. Trabajamos con todas las marcas: Daikin, Mitsubishi, Samsung, LG, Fujitsu, Panasonic y más. La instalación incluye: montaje de unidad interior y exterior, conexiones frigoríficas y  eléctricas, vacío del sistema, carga de gas, y pruebas de funcionamiento completas.
+
+El mantenimiento de aire acondicionado preventivo es esencial para eficiencia energética y durabilidad del equipo. Recomendamos revisión de aire acondicionado anual que incluye: limpieza de filtros profunda, limpieza de intercambiadores de calor, comprobación de presiones, verificación de conexiones eléctricas, limpieza del circuito de drenaje, y comprobación de niveles de refrigerante. El mantenimiento previene averías, reduce consumo eléctrico y mejora calidad del aire.
+
+Ofrecemos tarifas transparentes desde 79€ para visita y diagnóstico. Limpieza y mantenimiento básico 60-90€, carga de gas aire acondicionado 90-150€, reparación de averías 100-200€ según problema, instalación split desde 350€ según potencia. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende del tipo de trabajo y materiales necesarios.
+
+Como empresa de servicios de climatización profesional, nuestros técnicos cuentan con certificación de gases fluorados obligatoria, experiencia en todas las marcas, y seguro de responsabilidad civil. Utilizamos equipos profesionales para carga de gas y detección de fugas. Cumplimos toda la normativa vigente de instalaciones frigoríficas. Todos nuestros trabajos incluyen garantía. Confía en técnicos de aire acondicionado cualificados para tus instalaciones, reparaciones y mantenimiento.`,
     benefits: [
-      'Instaladores oficiales',
-      'Mantenimiento preventivo',
-      'Reparaciones rápidas',
-      'Recarga de gas',
-      'Garantía del fabricante'
+      'Técnicos certificados en gases fluorados',
+      'Todas las marcas de aire acondicionado',
+      'Instalación profesional con garantía',
+      'Mantenimiento preventivo anual',
+      'Reparaciones con piezas originales'
     ],
     priceRange: 'Desde 79€',
     available24h: false,
-    keywords: ['aire acondicionado', 'climatización', 'split', 'mantenimiento', 'instalación']
+    keywords: [
+      'reparación de aire acondicionado',
+      'aire acondicionado urgente',
+      'técnico de aire acondicionado',
+      'servicio de aire acondicionado',
+      'averías de aire acondicionado',
+      'mantenimiento de aire acondicionado',
+      'instalación de aire acondicionado',
+      'aire acondicionado no enfría',
+      'fuga de gas aire acondicionado',
+      'carga de gas aire acondicionado',
+      'limpieza de filtros',
+      'revisión de aire acondicionado',
+      'instalación split',
+      'reparación split',
+      'climatizador averiado',
+      'aire acondicionado hace ruido',
+      'mal olor aire acondicionado'
+    ]
   },
   {
     id: 'calefaccion',

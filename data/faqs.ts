@@ -154,6 +154,43 @@ export const faqs: FAQ[] = [
     category: 'mantenimiento',
     serviceId: 'calefaccion'
   },
+  // Aire Acondicionado-specific FAQs (GEO-neutral)
+  {
+    question: '¿Por qué el aire acondicionado no enfría?',
+    answer: 'Causas comunes de aire acondicionado que no enfría: nivel bajo de gas refrigerante (necesita recarga), filtros sucios obstruidos (bloquean flujo de aire), condensador exterior sucio, fallo en el compresor, termostato descalibrado, o válvula de expansión defectuosa. Si tras limpiar los filtros el problema persiste, llama a un técnico de aire acondicionado para diagnóstico completo y reparación.',
+    category: 'problemas',
+    serviceId: 'aire-acondicionado'
+  },
+  {
+    question: '¿Por qué el aire acondicionado pierde agua?',
+    answer: 'El split pierde agua por: tubo de drenaje obstruido (causa más común), bandeja de condensación sucia o rota, bomba de drenaje averiada, o exceso de humedad por falta de mantenimiento. Si el agua cae dentro de casa, el circuito de drenaje necesita limpieza o reparación. Un técnico de aire acondicionado limpia el desagüe, repara la bandeja si es necesario y restablece el drenaje correcto.',
+    category: 'problemas',
+    serviceId: 'aire-acondicionado'
+  },
+  {
+    question: '¿Cuándo necesita el aire acondicionado carga de gas?',
+    answer: 'El aire acondicionado necesita carga de gas cuando: enfría menos de lo normal progresivamente, se forma hielo en la unidad interior, el compresor funciona pero no enfría, o tras reparar una fuga de gas. El gas refrigerante no se consume, si baja nivel hay fuga. Un técnico certificado en gases fluorados localiza y repara fugas antes de recargar. La recarga incluye vacío del sistema y carga según especificaciones del fabricante.',
+    category: 'mantenimiento',
+    serviceId: 'aire-acondicionado'
+  },
+  {
+    question: '¿Qué hacer si el split hace ruido?',
+    answer: 'Si el aire acondicionado hace ruido: ruidos de clic al encender/apagar son normales (dilatación), ruido continuo fuerte indica ventilador sucio o rodamientos gastados, vibración excesiva sugiere fijaciones flojas, silbidos indican falta de gas o restricción en tuberías. Si el ruido es nuevo o excesivo, contacta técnico de aire acondicionado. El mantenimiento preventivo con limpieza evita la mayoría de ruidos.',
+    category: 'problemas',
+    serviceId: 'aire-acondicionado'
+  },
+  {
+    question: '¿Cuánto cuesta reparar un aire acondicionado?',
+    answer: 'El coste de reparación de aire acondicionado varía según avería. Visita y diagnóstico desde 79€. Limpieza y mantenimiento básico 60-90€, carga de gas refrigerante 90-150€, reparación de fugas 120-200€, cambio de piezas comunes (ventilador, sonda) 100-180€. Instalación split completa desde 350€. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier reparación.',
+    category: 'precio',
+    serviceId: 'aire-acondicionado'
+  },
+  {
+    question: '¿Cuándo hacer mantenimiento del aire acondicionado?',
+    answer: 'Recomendamos mantenimiento de aire acondicionado anual, idealmente antes del verano. El mantenimiento incluye: limpieza profunda de filtros, limpieza de intercambiadores de calor, comprobación de presiones de gas, verificación de conexiones eléctricas, limpieza del circuito de drenaje, y revisión del compresor. El mantenimiento previene averías, mejora eficiencia energética (reduce consumo hasta 30%), y elimina mal olor del aire acondicionado. Técnicos certificados en gases fluorados.',
+    category: 'mantenimiento',
+    serviceId: 'aire-acondicionado'
+  },
   // General FAQs
   {
     question: '¿Cuánto cuesta un servicio de fontanería?',

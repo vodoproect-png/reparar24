@@ -5,6 +5,8 @@ import { cities } from '@/data/cities'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
 import { getDistrictLinks } from '@/lib/linking/internal'
+import { getCitySEOContent } from '@/data/city-seo-content'
+import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
@@ -67,6 +69,9 @@ export default async function ServiceCityPage({
   })
 
   const districtLinks = getDistrictLinks(city, service, locale)
+
+  // Get city-specific SEO content if available
+  const citySEO = getCitySEOContent(service.id, city.slug)
 
   return (
     <>
@@ -211,6 +216,44 @@ export default async function ServiceCityPage({
             </div>
           </div>
         </section>
+
+        {/* City-Specific SEO Content - Bottom Placement */}
+        {citySEO && locale === 'es' && (
+          <section className="py-16 bg-white">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto">
+                <div 
+                  className="prose prose-lg max-w-none"
+                  dangerouslySetInnerHTML={{ 
+                    __html: citySEO.seoText
+                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                      .replace(/\n\n/g, '</p><p>')
+                      .replace(/^/g, '<p>')
+                      .replace(/$/g, '</p>')
+                  }} 
+                />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* City-Specific FAQs */}
+        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
+          <section className="py-16 bg-gray-50">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                Preguntas Frecuentes sobre {service.name} en {city.name}
+              </h2>
+              <div className="max-w-4xl mx-auto">
+                <CitySEOFAQList 
+                  faqs={citySEO.faqs}
+                  serviceName={service.name}
+                  cityName={city.name}
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         <CTASection locale={locale} />
       </main>
