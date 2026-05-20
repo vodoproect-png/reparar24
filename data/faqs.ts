@@ -117,6 +117,43 @@ export const faqs: FAQ[] = [
     category: 'informacion',
     serviceId: 'electricista'
   },
+  // Calefaccion-specific FAQs (GEO-neutral)
+  {
+    question: '¿Por qué no calientan los radiadores?',
+    answer: 'Causas comunes de radiadores que no calientan: aire acumulado en el sistema (necesita purgado de radiadores), presión baja en caldera (menos de 1 bar), válvula del radiador cerrada o defectuosa, bomba circuladora averiada, o termostato mal configurado. Si tras purgar los radiadores el problema persiste, llama a un técnico de calefacción para diagnosticar la avería.',
+    category: 'problemas',
+    serviceId: 'calefaccion'
+  },
+  {
+    question: '¿Qué hacer si la calefacción no funciona?',
+    answer: 'Si la calefacción no funciona: verifica que el termostato esté encendido y a temperatura adecuada, comprueba la presión de la caldera (debe estar entre 1-1.5 bar), asegúrate de que hay suministro de gas o electricidad, revisa que no haya errores en pantalla de la caldera. Si todo está correcto y sigue sin funcionar, contacta con un técnico de calefacción urgente. No intentes reparar la caldera tú mismo.',
+    category: 'emergencia',
+    serviceId: 'calefaccion'
+  },
+  {
+    question: '¿Por qué baja la presión de la caldera?',
+    answer: 'La presión baja en caldera ocurre por: pequeñas fugas en radiadores, tuberías o válvulas, válvula de seguridad defectuosa, o vaso de expansión averiado. Si la presión baja frecuentemente, hay que identificar y reparar la causa. No es normal que baje constantemente. Un técnico de calefacción localiza la fuga y repara el sistema para mantener presión estable.',
+    category: 'problemas',
+    serviceId: 'calefaccion'
+  },
+  {
+    question: '¿Cuánto cuesta reparar una caldera?',
+    answer: 'El coste de reparación de calderas varía según la avería. Visita y diagnóstico desde 59€. Reparación de avería básica 80-150€, cambio de piezas comunes (termostato, electroválvula) 100-200€, reparación del circuito 150-300€. El mantenimiento anual preventivo cuesta 80-120€ y evita averías graves. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier reparación.',
+    category: 'precio',
+    serviceId: 'calefaccion'
+  },
+  {
+    question: '¿Cuándo llamar a un técnico de calefacción?',
+    answer: 'Llama a un técnico de calefacción si: la caldera no arranca, hace ruidos extraños, pierde presión constantemente, muestra errores en pantalla, huele a gas, los radiadores no calientan tras purgarlos, o para realizar el mantenimiento anual obligatorio. No esperes a que la avería sea grave, especialmente en invierno. Servicio urgente disponible 24/7.',
+    category: 'servicio',
+    serviceId: 'calefaccion'
+  },
+  {
+    question: '¿Es obligatorio el mantenimiento de la caldera?',
+    answer: 'Sí, el mantenimiento de calefacción es obligatorio por normativa. Calderas de gas requieren revisión anual. El mantenimiento incluye: limpieza de quemadores, revisión de válvulas de seguridad, comprobación de presiones, análisis de combustión, y prueba de estanqueidad. Emitimos certificado de mantenimiento obligatorio. El mantenimiento previene averías, mejora eficiencia energética y garantiza seguridad.',
+    category: 'mantenimiento',
+    serviceId: 'calefaccion'
+  },
   // General FAQs
   {
     question: '¿Cuánto cuesta un servicio de fontanería?',

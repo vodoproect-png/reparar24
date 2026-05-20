@@ -167,18 +167,50 @@ Como empresa de desatascos profesional, utilizamos técnicas no invasivas que pr
     name: 'Calefacción',
     slug: 'calefaccion',
     icon: '🔥',
-    description: 'Instalación y mantenimiento de sistemas de calefacción',
-    longDescription: 'Servicios completos de calefacción: calderas, radiadores, suelo radiante, bomba de calor. Instalación, reparación y mantenimiento.',
+    description: 'Reparación de calefacción urgente. Técnicos especializados en calderas y radiadores. Averías, mantenimiento y revisiones.',
+    longDescription: `¿Necesitas reparación de calefacción urgente? En Reparar24 ofrecemos servicio de calefacción profesional disponible las 24 horas del día, los 7 días de la semana. Nuestro equipo de técnicos de calefacción especializados está preparado para resolver cualquier avería de calefacción o realizar trabajos de instalación y mantenimiento de calefacción.
+
+Somos especialistas en reparación de calderas y sistemas de calefacción central. Si tu caldera presenta un fallo de caldera, no arranca, hace ruidos extraños, o tiene problemas en el circuito, nuestros técnicos identifican y solucionan la avería rápidamente. Realizamos reparación de calderas de gas, gasoil y eléctricas, trabajando con todas las marcas y modelos.
+
+Un problema frecuente es la presión baja en caldera. Si la presión está por debajo de 1 bar, la caldera no funciona correctamente. Nuestros técnicos comprueban si hay fugas en el sistema, reparan válvulas defectuosas y restablecen la presión adecuada. También atendemos averías relacionadas con termostatos, válvulas de seguridad y sistemas de encendido.
+
+Realizamos reparación de radiadores que no calientan, uno de los problemas de calefacción más comunes. Si algunos radiadores no calientan uniformemente, realizamos purgado de radiadores para eliminar el aire acumulado. También solucionamos fugas en radiadores, reemplazamos válvulas defectuosas y hacemos instalación de radiadores nuevos cuando es necesario renovar el sistema.
+
+Nuestro servicio incluye mantenimiento de calefacción preventivo y revisión de calefacción completa. El mantenimiento anual de la caldera es obligatorio por normativa y garantiza eficiencia energética y seguridad. Realizamos limpieza de quemadores, comprobación de presiones, revisión de válvulas de seguridad, y análisis de combustión para asegurar el correcto funcionamiento del sistema de calefacción.
+
+Ofrecemos tarifas transparentes desde 59€ para visita y diagnóstico. Reparación de avería de caldera básica 80-150€, reparación de radiadores 60-100€, purgado del sistema completo 70-120€, mantenimiento anual de caldera 80-120€. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende del tipo de avería y materiales necesarios.
+
+Disponemos de calefacción urgente 24/7 para emergencias: caldera que no arranca en pleno invierno, fuga de gas, pérdida total de calefacción, o problemas graves de presión. Nuestro tiempo de respuesta es rápido en emergencias de calefacción, con técnicos preparados para restablecer el servicio inmediatamente.
+
+Como empresa de servicios de calefacción profesional, nuestros técnicos cuentan con certificación de gas, experiencia en todas las marcas de calderas, y seguro de responsabilidad civil. Cumplimos toda la normativa vigente de instalaciones térmicas. Emitimos certificados de mantenimiento obligatorios. Todos nuestros trabajos incluyen garantía. Confía en técnicos de calefacción cualificados para tus reparaciones y mantenimiento.`,
     benefits: [
-      'Técnicos especializados',
-      'Todas las marcas',
-      'Certificado de gas',
-      'Mantenimiento anual',
-      'Reparaciones urgentes'
+      'Servicio urgente 24 horas',
+      'Técnicos con certificado de gas',
+      'Todas las marcas de calderas',
+      'Mantenimiento con certificado',
+      'Garantía en reparaciones'
     ],
     priceRange: 'Desde 59€',
     available24h: true,
-    keywords: ['calefacción', 'caldera', 'radiadores', 'suelo radiante', 'calentador']
+    keywords: [
+      'reparación de calefacción',
+      'calefacción urgente',
+      'servicio de calefacción',
+      'técnico de calefacción',
+      'averías de calefacción',
+      'reparación de radiadores',
+      'reparación de calderas',
+      'radiadores que no calientan',
+      'problemas de calefacción',
+      'purgado de radiadores',
+      'fallo de caldera',
+      'presión baja en caldera',
+      'mantenimiento de calefacción',
+      'instalación de radiadores',
+      'revisión de calefacción',
+      'calefacción central',
+      'sistema de calefacción'
+    ]
   },
   {
     id: 'limpieza-tuberias',
