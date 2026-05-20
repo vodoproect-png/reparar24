@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
 import { cities } from '@/data/cities'
-import { getPhoneHref, getPhoneDisplay, getEmail } from '@/lib/config/contact'
+import { getPhoneHref, getPhoneDisplay, getEmail, getBusinessAddress } from '@/lib/config/contact'
 
 interface FooterProps {
   locale: Locale
@@ -79,6 +79,11 @@ export default function Footer({ locale }: FooterProps) {
                 <a href={`mailto:${getEmail()}`} className="hover:text-primary-400 transition-colors">
                   ✉️ {getEmail()}
                 </a>
+              </li>
+              <li className="text-gray-400">
+                📍 {getBusinessAddress().streetAddress}<br />
+                {getBusinessAddress().postalCode} {getBusinessAddress().addressLocality}<br />
+                {getBusinessAddress().addressRegion}
               </li>
               <li className="text-gray-400">
                 🕐 Disponible 24/7
