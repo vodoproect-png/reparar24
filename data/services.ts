@@ -17,8 +17,8 @@ export const services: Service[] = [
     name: 'Fontanería',
     slug: 'fontanero',
     icon: '🔧',
-    description: 'Fontanero urgente 24h en Valencia. Reparación de fugas, tuberías, grifos. Profesionales certificados.',
-    longDescription: `¿Necesitas un fontanero urgente en Valencia? En Reparar24 ofrecemos servicio de fontanería profesional las 24 horas del día, los 7 días a la semana, incluidos festivos. Nuestro equipo de fontaneros certificados está listo para resolver cualquier emergencia o trabajo programado de fontanería en Valencia y toda la Comunidad Valenciana.
+    description: 'Fontanero urgente 24h. Reparación de fugas, tuberías, grifos. Profesionales certificados con garantía.',
+    longDescription: `¿Necesitas un fontanero urgente? En Reparar24 ofrecemos servicio de fontanería profesional las 24 horas del día, los 7 días a la semana, incluidos festivos. Nuestro equipo de fontaneros certificados está listo para resolver cualquier emergencia o trabajo programado de fontanería.
 
 Somos especialistas en todo tipo de trabajos de fontanería. Realizamos reparación de fugas de agua con equipos de detección avanzados para localizar fugas ocultas sin romper paredes. Instalamos y reemplazamos tuberías de agua y desagüe trabajando con cobre, PVC, PEX y multicapa, garantizando instalaciones duraderas según normativa actual.
 
@@ -26,9 +26,9 @@ Nuestros servicios incluyen instalación de grifos de cocina, baño y termoestá
 
 Ofrecemos tarifas transparentes desde 49€ para visita y diagnóstico. Reparaciones simples cuestan 60-90€, cambio de grifo 80-120€, instalación de sanitario 120-200€, y cambio de cisterna 90-150€. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende del trabajo específico y materiales necesarios.
 
-Disponemos de servicio de fontanero urgente 24/7 para fugas de agua graves, tuberías rotas, inundaciones y fallos en calentadores. Nuestro tiempo de respuesta es de 30-60 minutos en Valencia capital y alrededores.
+Disponemos de servicio de fontanero urgente 24/7 para fugas de agua graves, tuberías rotas, inundaciones y fallos en calentadores. Nuestro tiempo de respuesta es rápido en emergencias, con profesionales cercanos listos para atenderte.
 
-Como empresa de fontanería profesional registrada en Valencia, nuestros fontaneros cuentan con certificación, experiencia comprobada y seguro de responsabilidad civil. Cumplimos toda la normativa vigente y ofrecemos garantía en todos nuestros trabajos. Confía en profesionales cualificados para tus averías de fontanería.`,
+Como empresa de fontanería profesional, nuestros fontaneros cuentan con certificación, experiencia comprobada y seguro de responsabilidad civil. Cumplimos toda la normativa vigente y ofrecemos garantía en todos nuestros trabajos. Confía en profesionales cualificados para tus averías de fontanería.`,
     benefits: [
       'Servicio de emergencia 24 horas',
       'Profesionales certificados',

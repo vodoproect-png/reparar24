@@ -6,16 +6,16 @@ export interface FAQ {
 }
 
 export const faqs: FAQ[] = [
-  // Fontanero-specific FAQs (Valencia-focused)
+  // Fontanero-specific FAQs (GEO-neutral)
   {
-    question: '¿Cuánto cuesta contratar un fontanero en Valencia?',
+    question: '¿Cuánto cuesta contratar un fontanero urgente?',
     answer: 'El servicio de fontanería empieza desde 49€ (visita + diagnóstico). Reparaciones básicas 60-120€ según trabajo. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier intervención. El precio final depende del tipo de avería y materiales necesarios.',
     category: 'precio',
     serviceId: 'fontanero'
   },
   {
     question: '¿Cuánto tarda en llegar un fontanero urgente?',
-    answer: 'Nuestro servicio de fontanero urgente llega en 30-60 minutos en Valencia capital y alrededores. Estamos disponibles 24 horas al día, 7 días a la semana, incluidos festivos. Para emergencias graves priorizamos la atención inmediata. Llama al 641 688 524 para asistencia urgente.',
+    answer: 'Nuestro servicio de fontanero urgente tiene tiempo de respuesta de 30-60 minutos en zonas urbanas. Estamos disponibles 24 horas al día, 7 días a la semana, incluidos festivos. Para emergencias graves priorizamos la atención inmediata. Llama al 641 688 524 para asistencia urgente.',
     category: 'servicio',
     serviceId: 'fontanero'
   },
@@ -26,14 +26,14 @@ export const faqs: FAQ[] = [
     serviceId: 'fontanero'
   },
   {
-    question: '¿Dónde prestáis servicio de fontanería?',
-    answer: 'Atendemos toda la Comunidad Valenciana: Valencia capital, Paterna, Burjassot, Mislata, y más localidades. Para servicio urgente en Valencia ciudad, nuestro tiempo de respuesta es de 30-60 minutos. Consulta disponibilidad para tu zona.',
-    category: 'cobertura',
+    question: '¿Tenéis servicio de fontanería 24 horas?',
+    answer: 'Sí, disponemos de servicio de emergencia 24/7. Nuestros profesionales están disponibles todos los días del año, incluidos festivos y fines de semana. Atendemos emergencias de fontanería con respuesta rápida. Consulta cobertura para tu zona.',
+    category: 'servicio',
     serviceId: 'fontanero'
   },
   {
     question: '¿Los fontaneros están certificados?',
-    answer: 'Sí, todos nuestros fontaneros profesionales cuentan con certificación, experiencia comprobada y seguro de responsabilidad civil. Cumplimos normativa vigente. Nuestro trabajo incluye garantía. Empresa de fontanería profesional registrada en Valencia.',
+    answer: 'Sí, todos nuestros fontaneros profesionales cuentan con certificación, experiencia comprobada y seguro de responsabilidad civil. Cumplimos normativa vigente. Nuestro trabajo incluye garantía. Somos una empresa de fontanería profesional certificada.',
     category: 'profesionales',
     serviceId: 'fontanero'
   },
