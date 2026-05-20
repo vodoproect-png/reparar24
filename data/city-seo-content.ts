@@ -46,53 +46,53 @@ export const citySEOContent: CitySEOContent[] = [
   {
     serviceId: 'fontanero',
     citySlug: 'valencia',
-    seoText: `Cuando necesitas un fontanero urgente en Valencia, cada minuto cuenta. En Reparar24 ofrecemos servicio de fontanería profesional en toda la ciudad de Valencia con tiempo de respuesta de 30-60 minutos. Nuestros fontaneros en Valencia están disponibles 24 horas para atender emergencias de fontanería: fugas de agua, tuberías rotas, atascos, y cualquier avería que requiera intervención inmediata.
+    seoText: `Cuando necesitas un fontanero urgente en Valencia, cada minuto cuenta. En Reparar24 ofrecemos servicio de fontanería profesional en toda la ciudad con tiempo de respuesta de 30-60 minutos. Nuestro equipo de especialistas está disponible 24 horas para atender emergencias: fugas de agua, tuberías rotas, atascos, y cualquier avería que requiera intervención inmediata.
 
-**Servicio de Fontanería 24 Horas en Valencia**
+**Servicio de Fontanería 24 Horas**
 
-Valencia es una ciudad con edificios de diferentes épocas, desde construcciones históricas en el centro hasta edificaciones modernas en zonas como Campanar o Benimaclet. Cada tipo de edificio presenta desafíos específicos de fontanería. Nuestros fontaneros en Valencia tienen experiencia trabajando con instalaciones antiguas que requieren cuidado especial, así como con sistemas modernos en viviendas y locales comerciales nuevos.
+Valencia es una ciudad con edificios de diferentes épocas, desde construcciones históricas en el centro hasta edificaciones modernas en zonas como Campanar o Benimaclet. Cada tipo de edificio presenta desafíos específicos. Nuestros técnicos especializados tienen experiencia trabajando con instalaciones antiguas que requieren cuidado especial, así como con sistemas modernos en viviendas y locales comerciales nuevos.
 
-Ofrecemos cobertura completa en todos los barrios de Valencia: Ruzafa, El Carmen, Benimaclet, Campanar, Malvarrosa, Nazaret, Algirós, y todas las zonas de la ciudad. Cuando llamas, localizamos al fontanero más cercano a tu ubicación para garantizar llegada rápida. El tiempo de respuesta promedio en Valencia es de 30-60 minutos, priorizando emergencias graves como inundaciones o fugas de gas.
+Ofrecemos cobertura completa en todos los barrios: Ruzafa, El Carmen, Benimaclet, Campanar, Malvarrosa, Nazaret, Algirós, y todas las zonas de la ciudad. Cuando llamas, localizamos al profesional más cercano a tu ubicación para garantizar llegada rápida. El tiempo de respuesta promedio es de 30-60 minutos, priorizando emergencias graves como inundaciones o fugas de gas.
 
-**Reparación de Fugas de Agua en Valencia**
+**Reparación de Fugas de Agua**
 
-Las fugas de agua son una de las emergencias más frecuentes en Valencia. La presión del agua en Valencia y la antigüedad de algunas instalaciones pueden provocar roturas en tuberías. Si detectas una fuga en tu vivienda o local, es crucial actuar rápidamente para evitar daños mayores. Nuestros fontaneros en Valencia utilizan equipos de detección de fugas sin necesidad de romper paredes, localizando el punto exacto del escape para realizar reparaciones precisas y minimizar daños.
+Las fugas de agua son una de las emergencias más frecuentes en la ciudad. La presión del agua y la antigüedad de algunas instalaciones pueden provocar roturas en tuberías. Si detectas una fuga en tu vivienda o local, es crucial actuar rápidamente para evitar daños mayores. Nuestros técnicos utilizan equipos de detección de fugas sin necesidad de romper paredes, localizando el punto exacto del escape para realizar reparaciones precisas y minimizar daños.
 
-Reparamos todo tipo de fugas: fugas en tuberías ocultas, goteos en grifos, fugas en cisternas, y pérdidas en calentadores. Si tu factura de agua ha aumentado sin motivo aparente, puede estar indicando una fuga oculta. Ofrecemos servicio de detección e inspección para identificar fugas que no son visibles a simple vista.
+Reparamos todo tipo de fugas: fugas en tuberías ocultas, goteos en grifos, fugas en cisternas, y pérdidas en calentadores. Si tu factura de agua ha aumentado sin motivo aparente, puede estar indicando una fuga oculta. Ofrecemos servicio de detección e inspección para identificar pérdidas que no son visibles a simple vista.
 
-**Instalación y Cambio de Tuberías en Valencia**
+**Instalación y Cambio de Tuberías**
 
 Muchos edificios en Valencia tienen tuberías antiguas que necesitan actualización. Realizamos cambio completo de tuberías en viviendas y locales, trabajando con materiales modernos como PEX, cobre y multicapa. La instalación de tuberías nuevas mejora la presión del agua, elimina problemas de corrosión, y previene futuras averías.
 
-Nuestros fontaneros en Valencia están familiarizados con las particularidades de las instalaciones valencianas. Trabajamos respetando normativas locales y adaptándonos a las características específicas de cada edificio. Si vives en un edificio antiguo del centro de Valencia, sabemos cómo trabajar con cuidado en instalaciones delicadas. Si tu vivienda es nueva en zonas como la Ciudad de las Artes o Malilla, aplicamos las técnicas más modernas de fontanería.
+Nuestros profesionales están familiarizados con las particularidades de las instalaciones valencianas. Trabajamos respetando normativas locales y adaptándonos a las características específicas de cada edificio. Si vives en un edificio antiguo del centro histórico, sabemos cómo trabajar con cuidado en instalaciones delicadas. Si tu vivienda es nueva en zonas como la Ciudad de las Artes o Malilla, aplicamos las técnicas más modernas.
 
-**Reparación de Sanitarios y Grifería en Valencia**
+**Reparación de Sanitarios y Grifería**
 
-Instalamos y reparamos todo tipo de sanitarios: inodoros, lavabos, bidés, duchas y bañeras. Si tu inodoro pierde agua continuamente, si la cisterna no funciona correctamente, o si hay fugas en juntas, nuestros fontaneros en Valencia lo solucionan rápidamente. También realizamos instalación de grifería moderna, termostáticos para ducha, y sistemas de ahorro de agua.
+Instalamos y reparamos todo tipo de sanitarios: inodoros, lavabos, bidés, duchas y bañeras. Si tu inodoro pierde agua continuamente, si la cisterna no funciona correctamente, o si hay fugas en juntas, nuestro equipo lo soluciona rápidamente. También realizamos instalación de grifería moderna, termostáticos para ducha, y sistemas de ahorro de agua.
 
-La dureza del agua en Valencia puede afectar a grifos y sanitarios con el tiempo, provocando acumulación de cal. Ofrecemos limpieza y mantenimiento para prolongar la vida útil de tus instalaciones, así como instalación de descalcificadores si es necesario.
+La dureza del agua local puede afectar a grifos y sanitarios con el tiempo, provocando acumulación de cal. Ofrecemos limpieza y mantenimiento para prolongar la vida útil de tus instalaciones, así como instalación de descalcificadores si es necesario.
 
-**Desatascos y Limpieza de Tuberías en Valencia**
+**Desatascos y Limpieza de Tuberías**
 
-Los atascos en fregaderos, lavabos y desagües son problemas comunes en cualquier vivienda. En Valencia, factores como la antigüedad de algunas instalaciones o el tipo de agua pueden contribuir a atascos frecuentes. Nuestros fontaneros cuentan con equipos profesionales para desatascos: sondas eléctricas, sistemas de alta presión, y cámaras de inspección.
+Los atascos en fregaderos, lavabos y desagües son problemas comunes en cualquier vivienda. Factores como la antigüedad de algunas instalaciones o el tipo de agua pueden contribuir a atascos frecuentes. Nuestros técnicos cuentan con equipos profesionales para desatascos: sondas eléctricas, sistemas de alta presión, y cámaras de inspección.
 
-Realizamos desatascos urgentes en Valencia sin romper suelos ni paredes. Si el atasco es recurrente, investigamos la causa con cámara de inspección para identificar si hay problemas estructurales en las tuberías. También ofrecemos servicio preventivo de limpieza de tuberías para evitar atascos futuros.
+Realizamos desatascos urgentes sin romper suelos ni paredes. Si el atasco es recurrente, investigamos la causa con cámara de inspección para identificar si hay problemas estructurales en las tuberías. También ofrecemos servicio preventivo de limpieza para evitar futuros problemas.
 
-**Fontaneros para Comunidades de Propietarios en Valencia**
+**Servicio para Comunidades de Propietarios**
 
-Trabajamos con comunidades de vecinos en Valencia ofreciendo contratos de mantenimiento preventivo. Si administras una comunidad, podemos establecer revisiones periódicas de instalaciones comunes: arquetas, bajantes, sistemas de agua caliente centralizados, y más. El mantenimiento preventivo reduce averías urgentes y ahorra costes a largo plazo.
+Trabajamos con comunidades de vecinos ofreciendo contratos de mantenimiento preventivo. Si administras una comunidad, podemos establecer revisiones periódicas de instalaciones comunes: arquetas, bajantes, sistemas de agua caliente centralizados, y más. El mantenimiento preventivo reduce averías urgentes y ahorra costes a largo plazo.
 
-**Precios Transparentes de Fontanería en Valencia**
+**Precios Transparentes**
 
-Nuestras tarifas en Valencia son transparentes desde el primer momento. Visita y diagnóstico desde 49€. Reparaciones simples de grifos o cisternas 60-90€. Cambio de sanitarios 120-200€ dependiendo del modelo. Reparación de fugas 80-150€ según complejidad. Desatascos básicos 69-90€. Cada servicio incluye presupuesto gratuito antes de cualquier intervención, sin sorpresas en la factura final.
+Nuestras tarifas son claras desde el primer momento. Visita y diagnóstico desde 49€. Reparaciones simples de grifos o cisternas 60-90€. Cambio de sanitarios 120-200€ dependiendo del modelo. Reparación de fugas 80-150€ según complejidad. Desatascos básicos 69-90€. Cada servicio incluye presupuesto gratuito antes de cualquier intervención, sin sorpresas en la factura final.
 
-**Por qué Elegir Nuestros Fontaneros en Valencia**
+**Por qué Elegirnos**
 
-Todos nuestros fontaneros en Valencia cuentan con certificación profesional, experiencia comprobada, y seguro de responsabilidad civil. Conocemos Valencia y sus particularidades: desde edificios históricos hasta construcciones modernas. Ofrecemos garantía en todos nuestros trabajos y seguimos protocolos de calidad rigurosos.
+Todos nuestros profesionales cuentan con certificación, experiencia comprobada, y seguro de responsabilidad civil. Conocemos la ciudad y sus particularidades: desde edificios históricos hasta construcciones modernas. Ofrecemos garantía en todos nuestros trabajos y seguimos protocolos de calidad rigurosos.
 
 Disponemos de stock de materiales y repuestos en nuestras furgonetas, lo que nos permite resolver la mayoría de averías en la primera visita sin necesidad de pedir piezas y volver otro día. Nuestro objetivo es solucionar tu problema de fontanería de forma rápida, eficiente y definitiva.
 
-Si necesitas un fontanero urgente en Valencia, llámanos al 641 688 524. Estamos disponibles 24 horas, todos los días del año, para atender tus emergencias de fontanería con respuesta rápida y trabajo profesional.`,
+Si necesitas asistencia urgente en Valencia, llámanos al 641 688 524. Estamos disponibles 24 horas, todos los días del año, para atender tus emergencias con respuesta rápida y trabajo profesional.`,
     faqs: [
       {
         question: '¿Cuánto tarda en llegar un fontanero urgente a Valencia?',

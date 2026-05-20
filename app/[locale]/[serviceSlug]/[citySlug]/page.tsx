@@ -217,7 +217,10 @@ export default async function ServiceCityPage({
           </div>
         </section>
 
-        {/* City-Specific SEO Content - Bottom Placement */}
+        {/* Final CTA - Above SEO Content */}
+        <CTASection locale={locale} />
+
+        {/* City-Specific SEO Content - Absolute Bottom Placement */}
         {citySEO && locale === 'es' && (
           <section className="py-16 bg-white">
             <div className="container-custom">
@@ -237,7 +240,7 @@ export default async function ServiceCityPage({
           </section>
         )}
 
-        {/* City-Specific FAQs */}
+        {/* City-Specific FAQs - Before Footer */}
         {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
           <section className="py-16 bg-gray-50">
             <div className="container-custom">
@@ -254,8 +257,6 @@ export default async function ServiceCityPage({
             </div>
           </section>
         )}
-
-        <CTASection locale={locale} />
       </main>
       <Footer locale={locale} />
     </>
