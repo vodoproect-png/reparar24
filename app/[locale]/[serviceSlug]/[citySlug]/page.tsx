@@ -101,7 +101,7 @@ export default async function ServiceCityPage({
                 </div>
               </div>
               <p className="text-2xl mb-8 text-primary-50">
-                {service.longDescription} Servicio en todos los distritos de {city.name}.
+                {service.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
