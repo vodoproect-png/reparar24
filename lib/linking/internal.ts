@@ -131,3 +131,24 @@ export function generateServiceCityBreadcrumbs(
     },
   ]
 }
+
+export function generateServiceCityDistrictBreadcrumbs(
+  service: Service,
+  city: City,
+  districtName: string,
+  districtSlug: string,
+  locale: Locale
+): BreadcrumbItem[] {
+  return [
+    { name: 'Inicio', url: '/' },
+    { name: service.name, url: getServiceUrl(service.slug, locale) },
+    {
+      name: city.name,
+      url: getServiceCityUrl(service.slug, city.slug, locale),
+    },
+    {
+      name: districtName,
+      url: `${getServiceCityUrl(service.slug, city.slug, locale)}/${districtSlug}`,
+    },
+  ]
+}

@@ -5,6 +5,8 @@ import { cities } from '@/data/cities'
 import { getDistrictContext } from '@/data/district-context'
 import { generateEnhancedMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
+import { generateServiceCityDistrictBreadcrumbs } from '@/lib/linking/internal'
+import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import {
   generateDistrictIntro,
   generateLocalExpertiseText,
@@ -131,6 +133,16 @@ export default async function ServiceCityDistrictPage({
     city: city,
   })
 
+  // Generate breadcrumbs
+  const breadcrumbItems = generateServiceCityDistrictBreadcrumbs(
+    service,
+    city,
+    district.name,
+    district.slug,
+    locale
+  )
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
+
   return (
     <>
       <script
@@ -141,7 +153,12 @@ export default async function ServiceCityDistrictPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header locale={locale} />
+      <Breadcrumbs items={breadcrumbItems} />
       <EmergencyBanner />
       <main>
         {/* Hero Section with Semantic H1 */}

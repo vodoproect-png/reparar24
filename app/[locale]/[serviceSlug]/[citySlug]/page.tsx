@@ -4,7 +4,8 @@ import { services } from '@/data/services'
 import { cities } from '@/data/cities'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
-import { getDistrictLinks } from '@/lib/linking/internal'
+import { getDistrictLinks, generateServiceCityBreadcrumbs } from '@/lib/linking/internal'
+import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import { getCitySEOContent } from '@/data/city-seo-content'
 import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
 import Header from '@/components/layout/Header'
@@ -73,6 +74,10 @@ export default async function ServiceCityPage({
   // Get city-specific SEO content if available
   const citySEO = getCitySEOContent(service.id, city.slug)
 
+  // Generate breadcrumbs
+  const breadcrumbItems = generateServiceCityBreadcrumbs(service, city, locale)
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
+
   return (
     <>
       <script
@@ -83,7 +88,12 @@ export default async function ServiceCityPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header locale={locale} />
+      <Breadcrumbs items={breadcrumbItems} />
       <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">

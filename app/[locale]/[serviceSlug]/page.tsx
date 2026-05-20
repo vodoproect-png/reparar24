@@ -5,7 +5,8 @@ import { cities } from '@/data/cities'
 import { faqs } from '@/data/faqs'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateFAQSchema } from '@/lib/seo/schema'
-import { getServiceCityLinks } from '@/lib/linking/internal'
+import { getServiceCityLinks, generateServiceBreadcrumbs } from '@/lib/linking/internal'
+import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
@@ -69,6 +70,8 @@ export default async function ServicePage({
   })
 
   const cityLinks = getServiceCityLinks(service, cities, locale)
+  const breadcrumbItems = generateServiceBreadcrumbs(service, locale)
+  const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
 
   return (
     <>
@@ -80,7 +83,12 @@ export default async function ServicePage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <Header locale={locale} />
+      <Breadcrumbs items={breadcrumbItems} />
       <main>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
