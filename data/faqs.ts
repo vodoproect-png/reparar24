@@ -80,6 +80,43 @@ export const faqs: FAQ[] = [
     category: 'prevencion',
     serviceId: 'desatascos'
   },
+  // Electricista-specific FAQs (GEO-neutral)
+  {
+    question: '¿Cuánto cuesta contratar un electricista urgente?',
+    answer: 'El servicio eléctrico empieza desde 59€ (visita + diagnóstico). Reparación de avería eléctrica básica 70-120€, reparación de cuadro eléctrico 90-180€, instalación de enchufes 60-100€. Ofrecemos presupuesto gratuito sin compromiso. El precio final depende de la complejidad del trabajo y materiales necesarios.',
+    category: 'precio',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Qué hacer si salta el diferencial?',
+    answer: 'Si salta el diferencial: desconecta todos los aparatos eléctricos, intenta subirlo de nuevo, si vuelve a saltar no insistas. Llama a un electricista profesional para diagnosticar la causa: cortocircuito, fallo de aislamiento, o aparato defectuoso. No manipules el cuadro eléctrico sin conocimientos, puede ser peligroso.',
+    category: 'emergencia',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Cuáles son las señales de una avería eléctrica?',
+    answer: 'Señales de avería eléctrica: diferencial que salta frecuentemente, chispas en enchufes o interruptores, olores a quemado, interruptores que se calientan, luces que parpadean, o se te va la luz sin motivo. Si detectas alguna señal, contacta con un electricista urgente para evitar riesgos mayores.',
+    category: 'informacion',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Cuándo debo llamar a un electricista urgente?',
+    answer: 'Llama inmediatamente si: huele a quemado de origen eléctrico, ves chispas o humo, el cuadro eléctrico hace ruidos extraños, se te va la luz constantemente, o el diferencial no se puede subir. Nuestro servicio urgente 24/7 atiende emergencias eléctricas rápidamente para garantizar tu seguridad.',
+    category: 'emergencia',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Los electricistas están certificados?',
+    answer: 'Sí, todos nuestros electricistas profesionales cuentan con certificación oficial, experiencia comprobada y seguro de responsabilidad civil. Cumplimos toda la normativa eléctrica vigente. Emitimos boletín eléctrico cuando es necesario. Nuestro trabajo incluye garantía. Somos empresa de servicios eléctricos profesional certificada.',
+    category: 'profesionales',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Qué es un boletín eléctrico y cuándo es necesario?',
+    answer: 'El boletín eléctrico es un certificado oficial que acredita que la instalación eléctrica cumple normativa vigente. Es necesario en: instalaciones nuevas, reformas importantes, cambio de potencia, o compraventa de vivienda. Nuestros electricistas certificados emiten el boletín eléctrico tras realizar la instalación o revisión.',
+    category: 'informacion',
+    serviceId: 'electricista'
+  },
   // General FAQs
   {
     question: '¿Cuánto cuesta un servicio de fontanería?',

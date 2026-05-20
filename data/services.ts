@@ -59,18 +59,48 @@ Como empresa de fontanería profesional, nuestros fontaneros cuentan con certifi
     name: 'Electricidad',
     slug: 'electricista',
     icon: '⚡',
-    description: 'Electricistas profesionales para instalaciones y reparaciones',
-    longDescription: 'Electricistas certificados para todo tipo de instalaciones eléctricas, reparaciones, cuadros eléctricos, iluminación y emergencias eléctricas.',
+    description: 'Electricista urgente 24h. Reparación de averías eléctricas, cortocircuitos, cuadros eléctricos. Certificados y boletín.',
+    longDescription: `¿Necesitas un electricista urgente? En Reparar24 ofrecemos servicio eléctrico profesional disponible las 24 horas del día, los 7 días de la semana, incluidos festivos. Nuestro equipo de electricistas certificados está preparado para resolver cualquier emergencia eléctrica o trabajo programado de instalación eléctrica.
+
+Somos especialistas en todo tipo de reparaciones eléctricas y averías eléctricas. Atendemos cortocircuitos, fallos eléctricos y saltos de diferencial con respuesta inmediata. Realizamos diagnóstico preciso de la causa del problema eléctrico mediante equipos de medición profesionales, garantizando soluciones efectivas y seguras según normativa vigente.
+
+Nuestros servicios incluyen reparación de cuadros eléctricos, actualización de instalaciones antiguas, reparación de enchufes e interruptores que no funcionan correctamente, e instalación de luces y sistemas de iluminación. También realizamos mantenimiento eléctrico preventivo y revisión eléctrica completa de tu instalación para detectar problemas antes de que se conviertan en emergencias.
+
+Si se te va la luz en casa, salta el diferencial sin motivo aparente, o detectas señales de una avería eléctrica como chispas, olores extraños o interruptores que se calientan, es momento de llamar a un electricista profesional. No arriesgues tu seguridad intentando reparaciones eléctricas sin conocimientos: los fallos eléctricos pueden provocar incendios o descargas peligrosas.
+
+Ofrecemos tarifas transparentes desde 59€ para visita y diagnóstico. Reparación de avería eléctrica básica 70-120€, reparación de cuadro eléctrico 90-180€, instalación de enchufes o interruptores 60-100€, instalación de iluminación 80-150€. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende de la complejidad del trabajo y materiales necesarios.
+
+Disponemos de servicio de emergencia eléctrica 24/7 para cortocircuitos graves, fallos en el cuadro eléctrico, instalaciones que saltan constantemente, u olores a quemado de origen eléctrico. Nuestro tiempo de respuesta es rápido en emergencias eléctricas, con electricistas preparados para intervenir inmediatamente.
+
+Como empresa de servicios eléctricos profesional, nuestros electricistas cuentan con certificación oficial, experiencia comprobada y seguro de responsabilidad civil. Cumplimos toda la normativa eléctrica vigente y emitimos boletín eléctrico cuando es necesario. Todos nuestros trabajos incluyen garantía. Confía en electricistas profesionales cualificados para tus instalaciones y reparaciones eléctricas.`,
     benefits: [
-      'Electricistas certificados',
-      'Normativa vigente',
-      'Seguridad garantizada',
-      'Servicio urgente disponible',
-      'Boletín eléctrico incluido'
+      'Servicio urgente 24 horas',
+      'Electricistas certificados oficialmente',
+      'Boletín eléctrico incluido',
+      'Cumplimiento normativa vigente',
+      'Garantía en todos los trabajos'
     ],
     priceRange: 'Desde 59€',
     available24h: true,
-    keywords: ['electricista', 'instalación eléctrica', 'cortocircuito', 'cuadro eléctrico', 'enchufes']
+    keywords: [
+      'electricista urgente',
+      'electricista 24 horas',
+      'servicio eléctrico',
+      'electricista profesional',
+      'reparación eléctrica',
+      'averías eléctricas',
+      'instalación eléctrica',
+      'cortocircuito',
+      'fallo eléctrico',
+      'cuadro eléctrico',
+      'enchufes e interruptores',
+      'instalación de luces',
+      'reparación de enchufes',
+      'salto de diferencial',
+      'mantenimiento eléctrico',
+      'revisión eléctrica',
+      'emergencia eléctrica'
+    ]
   },
   {
     id: 'desatascos',
