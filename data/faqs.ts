@@ -37,6 +37,49 @@ export const faqs: FAQ[] = [
     category: 'profesionales',
     serviceId: 'fontanero'
   },
+  // Desatascos-specific FAQs (GEO-neutral)
+  {
+    question: '¿Cuánto cuesta un servicio de desatascos?',
+    answer: 'El servicio de desatascos comienza desde 69€ para desatascos básicos. Desatasco de fregadero o lavabo 69-90€, desatasco de inodoro 80-110€, desatasco de bajantes 120-180€. Ofrecemos presupuesto gratuito sin compromiso. El precio final depende de la complejidad del atasco y la técnica necesaria.',
+    category: 'precio',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Cuánto tarda un servicio de desatascos?',
+    answer: 'La mayoría de desatascos se resuelven en 30-60 minutos. Atascos complejos pueden requerir 1-2 horas. Disponemos de servicio urgente 24/7 con tiempo de respuesta rápido en emergencias. Para atascos graves priorizamos la atención inmediata.',
+    category: 'servicio',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Qué técnicas de desatasco utilizáis?',
+    answer: 'Utilizamos sondas eléctricas rotativas, máquinas de alta presión, sistemas de aspiración y cámaras de inspección HD. Todas nuestras técnicas son no invasivas: no rompemos suelos ni paredes. Seleccionamos la técnica según el tipo de atasco y tubería.',
+    category: 'servicio',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Cuándo debo llamar a un servicio de desatascos urgente?',
+    answer: 'Llama inmediatamente si: el inodoro está completamente obstruido, hay desbordamiento de aguas residuales, el agua no drena en múltiples puntos, o hay mal olor persistente. Nuestro servicio urgente 24/7 atiende emergencias rápidamente para evitar daños mayores.',
+    category: 'emergencia',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Qué causa los atascos en las tuberías?',
+    answer: 'Las causas más comunes son: acumulación de residuos (grasa, jabón, pelo), objetos extraños, toallitas húmedas, raíces de árboles en tuberías exteriores, o problemas estructurales. Usamos cámara de inspección para identificar la causa exacta y aplicar la solución adecuada.',
+    category: 'informacion',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Los desatascos incluyen garantía?',
+    answer: 'Sí, todos nuestros servicios de desatascos incluyen garantía. Si el mismo atasco se repite en el periodo garantizado, volvemos sin coste adicional. Utilizamos equipos profesionales y técnicas efectivas para asegurar resultados duraderos.',
+    category: 'garantia',
+    serviceId: 'desatascos'
+  },
+  {
+    question: '¿Puedo prevenir atascos en las tuberías?',
+    answer: 'Sí. Recomendaciones: no tires grasa por el fregadero, usa rejillas en desagües, no arrojes toallitas al inodoro, realiza limpiezas preventivas periódicas. Ofrecemos servicio de limpieza preventiva con alta presión para mantener tus tuberías en óptimas condiciones.',
+    category: 'prevencion',
+    serviceId: 'desatascos'
+  },
   // General FAQs
   {
     question: '¿Cuánto cuesta un servicio de fontanería?',

@@ -77,18 +77,42 @@ Como empresa de fontanería profesional, nuestros fontaneros cuentan con certifi
     name: 'Desatascos',
     slug: 'desatascos',
     icon: '🚰',
-    description: 'Desatascos urgentes de tuberías y desagües',
-    longDescription: 'Servicio profesional de desatascos con maquinaria especializada. Desatascamos tuberías, fregaderos, inodoros, desagües y arquetas.',
+    description: 'Desatascos urgentes 24h. Servicio profesional con maquinaria especializada. Sin romper, resultados inmediatos.',
+    longDescription: `¿Necesitas un desatasco urgente? En Reparar24 ofrecemos servicio profesional de desatascos disponible las 24 horas del día, los 7 días de la semana, incluidos festivos. Nuestro equipo especializado está equipado con maquinaria profesional para resolver cualquier atasco de tuberías de forma rápida y eficaz.
+
+Somos especialistas en todo tipo de desatascos. Realizamos desatasco de fregaderos, lavabos, duchas y bañeras utilizando técnicas avanzadas que no requieren romper suelos ni paredes. Nuestros profesionales cuentan con sondas eléctricas, equipos de alta presión y cámaras de inspección para localizar y eliminar atascos incluso en las tuberías más difíciles de acceder.
+
+Atendemos emergencias de desatascos en inodoros y WC atascados, un problema común que requiere atención inmediata. También realizamos desatasco de bajantes, arquetas y desagües generales. Nuestro servicio incluye inspección con cámara para identificar la causa del atasco: acumulación de residuos, objetos extraños, raíces de árboles o problemas estructurales en las tuberías.
+
+Ofrecemos tarifas transparentes desde 69€ para desatascos básicos. Desatasco de fregadero o lavabo 69-90€, desatasco de inodoro 80-110€, desatasco de bajantes 120-180€, y desatasco con cámara de inspección desde 150€. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende de la complejidad del atasco y la técnica necesaria.
+
+Disponemos de servicio de desatascos urgentes 24/7 para emergencias: inodoros completamente obstruidos, desbordamiento de aguas residuales, atascos múltiples o problemas que afectan al funcionamiento normal del hogar. Nuestro tiempo de respuesta es rápido, con profesionales preparados para atender tu emergencia.
+
+Como empresa de desatascos profesional, utilizamos técnicas no invasivas que protegen tus instalaciones. Trabajamos con equipos de última generación: sondas eléctricas rotativas, máquinas de alta presión, sistemas de aspiración y cámaras de inspección HD. Todos nuestros trabajos incluyen garantía y seguimos protocolos de higiene y seguridad. Confía en profesionales cualificados para resolver tus problemas de tuberías atascadas.`,
     benefits: [
-      'Maquinaria profesional',
-      'Sin romper',
-      'Resultados inmediatos',
-      'Disponible 24h',
-      'Cámara de inspección'
+      'Servicio urgente 24 horas',
+      'Sin romper suelos ni paredes',
+      'Maquinaria profesional especializada',
+      'Cámara de  inspección incluida',
+      'Garantía en todos los trabajos'
     ],
     priceRange: 'Desde 69€',
     available24h: true,
-    keywords: ['desatascos', 'atasco', 'desagüe', 'tubería obstruida', 'wc atascado']
+    keywords: [
+      'desatascos urgentes',
+      'desatascos 24 horas',
+      'servicio de desatascos',
+      'empresa de desatascos',
+      'desatasco de tuberías',
+      'desatasco urgente',
+      'desatascos profesionales',
+      'desatasco de fregadero',
+      'desatasco de lavabo',
+      'desatasco de ducha',
+      'tuberías atascadas',
+      'desatasco de bajantes',
+      'desatasco de desagües'
+    ]
   },
   {
     id: 'aire-acondicionado',
