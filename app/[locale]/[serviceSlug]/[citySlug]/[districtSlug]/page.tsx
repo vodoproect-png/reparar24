@@ -3,6 +3,7 @@ import { type Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
 import { cities } from '@/data/cities'
 import { getDistrictContext } from '@/data/district-context'
+import { getDistrictSEOContent } from '@/data/district-seo-content'
 import { generateEnhancedMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
 import { generateServiceCityDistrictBreadcrumbs } from '@/lib/linking/internal'
@@ -71,23 +72,27 @@ export async function generateMetadata({
 
   if (!service || !city || !district) return {}
 
-  // Get district context for semantic differentiation
-  const context = getDistrictContext(city.id, district.id)
+  // Check for unique district SEO content (Phase 1 Pilot)
+  const districtSEO = getDistrictSEOContent(service.id, city.slug, district.slug)
   
-  // Generate semantically varied H1 and description
+  if (districtSEO && locale === 'es') {
+    // Use unique meta tags for pilot districts
+    return generateEnhancedMetadata({
+      title: districtSEO.metadata.title,
+      description: districtSEO.metadata.description,
+      path: `${service.slug}/${city.slug}/${district.slug}`,
+      locale,
+    })
+  }
+
+  // Fall back to generated meta tags for non-pilot districts
+  const context = getDistrictContext(city.id, district.id)
   const h1 = generateDistrictH1(service, city, district, context)
   const description = generateDistrictMetaDescription(service, city, district, context)
 
   return generateEnhancedMetadata({
     title: `${h1} | Reparar24`,
     description,
-    keywords: [
-      ...service.keywords,
-      district.name,
-      city.name,
-      ...district.postalCodes,
-      ...(context?.traits || []),
-    ],
     path: `${service.slug}/${city.slug}/${district.slug}`,
     locale,
   })
@@ -112,13 +117,16 @@ export default async function ServiceCityDistrictPage({
     notFound()
   }
 
+  // Check for unique district SEO content (Phase 1 Pilot)
+  const districtSEO = getDistrictSEOContent(service.id, city.slug, district.slug)
+  
   // Get district context for semantic content
   const context = getDistrictContext(city.id, district.id)
   
-  // Generate semantically differentiated content
+  // Use unique content for pilots, or generate for non-pilots
   const intro = generateDistrictIntro(service, city, district, context)
   const localExpertise = generateLocalExpertiseText(service, city, district, context)
-  const faqs = generateDistrictFAQs(service, city, district, context)
+  const faqs = (districtSEO && locale === 'es') ? districtSEO.faqs : generateDistrictFAQs(service, city, district, context)
   const problems = generateDistrictProblems(service, city, district, context, 4)
   const h1 = generateDistrictH1(service, city, district, context)
   const emergencyText = generateEmergencyContext(service, city, district, context)
@@ -335,6 +343,24 @@ export default async function ServiceCityDistrictPage({
               </h2>
               <div className="max-w-4xl mx-auto">
                 <AIAnswerList questions={commonEmergencyQuestions.es} />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Unique District SEO Text - Bottom Placement (Pilot Districts Only) */}
+        {districtSEO && locale === 'es' && (
+          <section className="py-16 bg-white border-t-2 border-gray-100">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-2xl font-bold mb-6">
+                  {service.name} Profesional en {district.name}, {city.name}
+                </h2>
+                <div className="prose prose-lg max-w-none">
+                  <p className="text-gray-700 leading-relaxed">
+                    {districtSEO.seoText}
+                  </p>
+                </div>
               </div>
             </div>
           </section>
