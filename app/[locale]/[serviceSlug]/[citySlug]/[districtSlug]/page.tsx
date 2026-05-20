@@ -22,7 +22,6 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import EmergencyBanner from '@/components/conversion/EmergencyBanner'
-import ResponseTimeBlock from '@/components/conversion/ResponseTimeBlock'
 import WhatsAppCTA from '@/components/conversion/WhatsAppCTA'
 import { AIAnswerList, commonEmergencyQuestions } from '@/components/seo/AIAnswerBlock'
 import { EEATSection } from '@/components/seo/EEATSignals'
@@ -182,12 +181,7 @@ export default async function ServiceCityDistrictPage({
                 </div>
               </div>
 
-              {/* Semantic Intro - varies by district */}
-              <p className="text-xl mb-8 text-primary-50 leading-relaxed">
-                {intro}
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:+34641688524"
                   className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg px-8 py-4"
@@ -199,8 +193,6 @@ export default async function ServiceCityDistrictPage({
                   message={whatsappMessage}
                 />
               </div>
-
-              <ResponseTimeBlock variant="compact" />
             </div>
           </div>
         </section>
