@@ -2,9 +2,42 @@ export interface FAQ {
   question: string
   answer: string
   category?: string
+  serviceId?: string
 }
 
 export const faqs: FAQ[] = [
+  // Fontanero-specific FAQs (Valencia-focused)
+  {
+    question: '¿Cuánto cuesta contratar un fontanero en Valencia?',
+    answer: 'El servicio de fontanería empieza desde 49€ (visita + diagnóstico). Reparaciones básicas 60-120€ según trabajo. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier intervención. El precio final depende del tipo de avería y materiales necesarios.',
+    category: 'precio',
+    serviceId: 'fontanero'
+  },
+  {
+    question: '¿Cuánto tarda en llegar un fontanero urgente?',
+    answer: 'Nuestro servicio de fontanero urgente llega en 30-60 minutos en Valencia capital y alrededores. Estamos disponibles 24 horas al día, 7 días a la semana, incluidos festivos. Para emergencias graves priorizamos la atención inmediata. Llama al 641 688 524 para asistencia urgente.',
+    category: 'servicio',
+    serviceId: 'fontanero'
+  },
+  {
+    question: '¿Qué servicios de fontanería ofrecéis?',
+    answer: 'Ofrecemos reparación de fugas de agua, reparación y cambio de tuberías, instalación de grifos y sanitarios, reparación de cisternas, y reparación de calentadores. También atendemos averías de fontanería urgentes. Todos nuestros trabajos incluyen garantía.',
+    category: 'servicio',
+    serviceId: 'fontanero'
+  },
+  {
+    question: '¿Dónde prestáis servicio de fontanería?',
+    answer: 'Atendemos toda la Comunidad Valenciana: Valencia capital, Paterna, Burjassot, Mislata, y más localidades. Para servicio urgente en Valencia ciudad, nuestro tiempo de respuesta es de 30-60 minutos. Consulta disponibilidad para tu zona.',
+    category: 'cobertura',
+    serviceId: 'fontanero'
+  },
+  {
+    question: '¿Los fontaneros están certificados?',
+    answer: 'Sí, todos nuestros fontaneros profesionales cuentan con certificación, experiencia comprobada y seguro de responsabilidad civil. Cumplimos normativa vigente. Nuestro trabajo incluye garantía. Empresa de fontanería profesional registrada en Valencia.',
+    category: 'profesionales',
+    serviceId: 'fontanero'
+  },
+  // General FAQs
   {
     question: '¿Cuánto cuesta un servicio de fontanería?',
     answer: 'El coste de un servicio de fontanería comienza desde 49€ para servicios básicos. El precio final depende del tipo de trabajo, urgencia, materiales necesarios y complejidad. Ofrecemos presupuestos gratuitos sin compromiso.',
