@@ -232,12 +232,14 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
 
           {/* Contacto */}
           <Link
-            href={`/${locale}#contacto`}
+            href={`/${locale}/contacto`}
             onClick={onClose}
             className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 hover:bg-gray-50 transition-colors"
           >
             <span className="text-lg">📧</span>
-            <span className="font-semibold text-gray-900">Contacto</span>
+            <span className="font-semibold text-gray-900">
+              {locale === 'es' ? 'Contacto' : locale === 'en' ? 'Contact' : 'Контакты'}
+            </span>
           </Link>
 
           {/* Language Switcher */}

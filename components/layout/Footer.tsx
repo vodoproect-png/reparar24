@@ -3,6 +3,7 @@ import type { Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
 import { cities } from '@/data/cities'
 import { getPhoneHref, getPhoneDisplay, getEmail, getBusinessAddress } from '@/lib/config/contact'
+import { getCompanyInfo } from '@/lib/config/company'
 
 interface FooterProps {
   locale: Locale
@@ -93,7 +94,8 @@ export default function Footer({ locale }: FooterProps) {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Reparar24. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} {getCompanyInfo().legalName} - CIF: {getCompanyInfo().cif}</p>
+          <p className="text-gray-500 mt-1 text-xs">Torrent, Valencia, España</p>
           <div className="mt-2 space-x-4">
             <Link href="/privacidad" className="hover:text-primary-400 transition-colors">
               Política de Privacidad

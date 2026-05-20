@@ -1,6 +1,7 @@
 import { Service } from '@/data/services'
 import { City } from '@/data/cities'
 import { getPhoneNumber, getEmail, getBusinessAddress } from '@/lib/config/contact'
+import { getCompanyInfo } from '@/lib/config/company'
 
 interface LocalBusinessSchemaProps {
   name: string
@@ -172,13 +173,16 @@ export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
 
 export function generateOrganizationSchema() {
   const address = getBusinessAddress()
+  const company = getCompanyInfo()
   
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': 'https://reparar24.es#organization',
-    name: 'Reparar24',
+    name: company.tradeName,
+    legalName: company.legalName,
     alternateName: 'Reparar 24',
+    taxID: company.cif,
     url: 'https://reparar24.es',
     logo: {
       '@type': 'ImageObject',
