@@ -3552,6 +3552,351 @@ export const districtSEOContent: DistrictSEO[] = [
       }
     ],
     semanticOwnership: ['calefaccion', 'universidad', 'zaragoza', 'estudiantes', 'frio', 'economico']
+  },
+
+  // CALEFACCIÓN PHASE 2 — Enterprise Heating Semantic Expansion (11 districts)
+
+  // Madrid Retiro — Family Residential Preventive Heating
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'madrid',
+    districtSlug: 'retiro',
+    metadata: {
+      title: 'Calefacción Retiro Madrid | Confort Familiar y Mantenimiento Preventivo',
+      description: 'Servicio de calefacción en Retiro Madrid - radiadores, calderas, termostatos, mantenimiento preventivo residencial. Técnicos 24h para confort térmico familiar continuo.'
+    },
+    seoText: `En Retiro instalamos y mantenemos sistemas de calefacción residenciales que garantizan confort térmico familiar continuo durante todo el invierno madrileño. Esta zona residencial tranquila demanda calefacción fiable y eficiente para viviendas familiares amplias.
+
+Especializados en mantenimiento preventivo de calderas antes del invierno, limpieza de circuitos hidráulicos, equilibrado de radiadores por habitaciones, y termostatos programables para optimizar consumo según horarios familia. Atendemos viviendas unifamiliares, pisos amplios con múltiples zonas térmicas, y edificios residenciales con calefacción central comunitaria.
+
+En Retiro las familias valoran calefacción silenciosa, confort estable sin variaciones bruscas temperatura, y sistemas que no requieren intervención constante. Trabajamos calderas condensación alta eficiencia, radiadores aluminio diseño discreto, válvulas termostáticas por estancia, y bombas circulación inverter bajo ruido. Servicio disponible 24 horas para emergencias invierno.`,
+    faqs: [
+      {
+        question: '¿El mantenimiento preventivo de caldera antes del invierno es realmente necesario en Retiro?',
+        answer: 'Sí, mantenimiento preventivo caldera es esencial en Retiro Madrid. Revisión antes invierno incluye: limpieza intercambiador (acumulación calcio reduce rendimiento 20-30%), verificación presión circuito (óptimo 1.2-1.5 bar), purgado radiadores todas habitaciones, comprobación seguridades (termostato límite, detector llama), y análisis combustión (CO2 óptimo 8-9%). Previene averías en pleno invierno cuando familia necesita calefacción continuamente. Costo mantenimiento: 80-120€. Costo avería urgente 24h invierno: 200-350€. Inversión preventiva evita interrupciones confort familiar.'
+      },
+      {
+        question: '¿Cómo equilibrar radiadores en vivienda familiar grande Retiro con zonas que calientan desigual?',
+        answer: 'Equilibrado hidráulico en vivienda grande Retiro requiere ajuste proporcional llaves paso radiadores: 1) Identificar radiadores lejanos caldera (calientan poco) vs cercanos (calientan excesivo). 2) Cerrar parcialmente llaves radiadores cerca caldera (dejar 40-60% apertura). 3) Abrir completamente radiadores lejos caldera. 4) Dejar sistema funcionar 2-3h estabilizar. 5) Verificar temperatura uniforme +/- 1-2°C todas habitaciones. Equilibrado profesional con termómetro infrarrojo y medidor caudal: 120-180€. Resultado: confort uniforme, reducción consumo 10-15%, y eliminación habitaciones frías/sobrecalentadas.'
+      },
+      {
+        question: '¿Qué termostato programable conviene familia Retiro con horarios escolares regulares?',
+        answer: 'Familia Retiro con rutinas escolares regulares beneficia termostato programable semanal: temperatura 20-21°C mañanas 7-9h (preparación escolar), bajar 18°C durante día 9-17h (casa vacía), subir 21°C tardes-noches 17-23h (familia reunida), bajar 17-18°C madrugadas (dormitorios frescos descansa mejor). Fines semana programación diferente (familias permanecen más tiempo). Termostatos recomendados: Honeywell T4 semanal (60-80€), Netatmo inteligente WiFi (150-180€), Tado° control remoto smartphone (200-220€). Ahorro programación: 15-25% factura gas respecto temperatura constante 24h.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'retiro', 'madrid', 'familia', 'residencial', 'preventivo']
+  },
+
+  // Madrid Chamartín — Office Commercial Centralized Heating
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'madrid',
+    districtSlug: 'chamartin',
+    metadata: {
+      title: 'Calefacción Chamartín Madrid | Sistemas Centralizados y Oficinas',
+      description: 'Calefacción Chamartín Madrid - edificios oficinas, sistemas centralizados alta capacidad, continuidad negocio invierno. Servicio técnico empresarial 24h.'
+    },
+    seoText: `En Chamartín atendemos calefacción centralizada de edificios de oficinas y espacios comerciales que requieren confort térmico continuo durante horario laboral completo invierno. Esta zona empresarial demanda sistemas alta capacidad y fiabilidad absoluta.
+
+Especializados en calderas centralizadas gran volumen (150-500kW), distribución hidráulica multizona para plantas independientes, sistemas BMS integración control edificio, y mantenimiento preventivo programado fuera horario laboral. Atendemos torres oficinas modernas, edificios corporativos, centros negocios, y complejos comerciales.
+
+En Chamartín edificios oficinas priorizan continuidad térmica horario completo (8-20h), zonificación independiente por plantas/empresas, y eficiencia energética certificaciones sostenibilidad. Trabajamos calderas condensación modulantes, bombas alta eficiencia IE3/IE4, válvulas motorizadas control zonas, y sistemas monitorización remoto. Contrato mantenimiento empresarial disponible. Emergencias 24h garantizadas.`,
+    faqs: [
+      {
+        question: '¿La calefacción central de oficinas en Chamartín requiere mantenimiento preventivo antes del invierno?',
+        answer: 'Absolutamente. Edificios oficinas Chamartín con calefacción centralizada gran capacidad requieren mantenimiento preventivo exhaustivo: limpieza completa intercambiadores calderas (acumulación suciedad reduce rendimiento 25-35%), revisión bombas circulación (rodamientos, estanqueidad), purgado completo circuitos todas plantas, verificación válvulas seguridad y expansión (evita sobrepresión), análisis combustión optimizado, y comprobación sistema BMS. Interrupción calefacción horario laboral afecta productividad 100+ empleados. Costo mantenimiento preventivo: 400-800€ según capacidad. Costo avería urgencia laboral: 1.000-2.500€. Preventivo es inversión obligada continuidad negocio.'
+      },
+      {
+        question: '¿Cómo regular temperatura independiente por plantas en edificio oficinas Chamartín?',
+        answer: 'Regulación independiente plantas edificio Chamartín requiere sistema zonificación hidráulica: válvulas motorizadas dos-tres vías en distribuidores cada planta, termostatos zona independientes (cada empresa/planta configura temperatura deseada 19-23°C), y colectores equilibrado caudal proporcional superficie. Sistema BMS gestiona demandas simultáneas optimizando rendimiento caldera. Instalación zonificación edificio 4-6 plantas: 3.000-6.000€ según complejidad. Beneficios: satisfacción térmica personalizada, reducción consumo 20-30% (no calentar plantas vacías/uso reducido), y facturación individualizada empresas.'
+      },
+      {
+        question: '¿Qué hacer si caldera centralizada edificio Chamartín falla en pleno invierno laboral?',
+        answer: 'Protocolo emergencia caldera oficinas Chamartín: 1) Llamar servicio técnico urgente 24h (empresarial prioridad). 2) Verificar si es fallo menor restablecible (presión baja rellenar circuito, reset seguridad térmica). 3) Si falla compleja (bomba, intercambiador, electrónica), técnico llega 1-2h con repuestos comunes. 4) Reparación in situ si posible (60-70% casos). 5) Si requiere pieza especial pedido (10-30% casos), instalación calefacción provisional portátil empresas (calentadores eléctricos industriales, generadores aire caliente) mientras llega repuesto 24-48h. Costo emergencia: 300-500€ desplazamiento + reparación. Contrato mantenimiento: prioridad absoluta, repuestos stock, backup garantizado.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'chamartin', 'madrid', 'oficinas', 'comercial', 'centralizada']
+  },
+
+  // Barcelona Gràcia — Artistic Old Apartment Heating Retrofits
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'barcelona',
+    districtSlug: 'gracia',
+    metadata: {
+      title: 'Calefacción Gràcia Barcelona | Retrofits y Apartamentos Artísticos',
+      description: 'Calefacción Gràcia Barcelona - edificios antiguos, retrofits térmicos, radiadores compactos, pisos bohemios. Soluciones calefacción respetuosas arquitectura histórica.'
+    },
+    seoText: `En Gràcia instalamos soluciones calefacción adaptadas a apartamentos antiguos bohemios y edificios principios siglo XX donde arquitectura singular requiere retrofits térmicos respetuosos. Este barrio artístico presenta desafíos únicos aislamiento deficiente y espacios irregulares.
+
+Especializados en radiadores aluminio compactos alta emisión, calderas murales reducidas dimensiones sin obras invasivas, termostatos inalámbricos sin cableado aparente, y sistemas calefacción eléctrica infrarrojo donde no existe gas natural. Atendemos pisos reformados estilo industrial, estudios artistas techos altos, y viviendas compartidas comunidades creativas.
+
+En Gràcia residentes valoran estética minimalista, instalación rápida sin obras prolongadas, y flexibilidad adaptación viviendas singulares. Trabajamos calefacción gas natural allí disponible, radiadores eléctricos bajo consumo donde no hay gas, y bombas calor splits versátiles frío-calor. Asesoramiento eficiencia térmica edificios antiguos humedad. Servicio 24 horas disponible invierno.`,
+    faqs: [
+      {
+        question: '¿Qué calefacción instalar en piso antiguo Gràcia sin gas natural y aislamiento deficiente?',
+        answer: 'Piso antiguo Gràcia sin gas y mal aislado opciones calefacción eléctrica eficiente: 1) Splits bomba calor inverter (más eficiente, 1kW eléctrico = 3-4kW térmicos, inversión 800-1.500€ instalado). 2) Radiadores eléctricos bajo consumo programables (flexibles por habitación, 200-400€ cada uno). 3) Paneles radiantes infrarrojos (calientan objetos no aire, sensación inmediata, 300-600€). Para piso mal aislado priorizar: mejorar ventanas (burletes, doble vidrio), cortinas térmicas (retienen 25-30% más calor), y calentar solo habitaciones usadas (no climatizar todo piso). Consumo split bomba calor: 40-70€/mes. Radiadores eléctricos: 60-100€/mes. Paneles infrarrojo: 50-80€/mes.'
+      },
+      {
+        question: '¿Cuánto cuesta modernizar calefacción radiadores fundición antiguos Gràcia a aluminio eficiente?',
+        answer: 'Modernización radiadores fundición a aluminio piso Gràcia: radiadores aluminio emiten 15-25% más calor mismo tamaño, calientan más rápido (inercia baja), y pesan 60% menos (instalación sencilla). Costo modernización piso 70-90m² (5-6 radiadores): radiadores aluminio nuevos 800-1.400€, mano obra desmontaje-montaje 400-600€, ajuste válvulas termostáticas 200-300€. Total: 1.400-2.300€. Beneficios: confort más rápido (calientan 30-40% antes), ahorro consumo 10-20%, y estética moderna minimalista. Alternativa económica: mantener radiadores fundición pero añadir válvulas termostáticas programables mejorando control (300-500€ total).'
+      },
+      {
+        question: '¿Cómo combatir humedad condensación invierno piso antiguo Gràcia con calefacción insuficiente?',
+        answer: 'Condensación invierno pisos antiguos Gràcia ocurre cuando aire frío exterior toca paredes frías interiores + humedad interior (cocinar, duchar, respirar). Soluciones combinadas: 1) Mejorar calefacción potencia adecuada (mínimo 80-100W/m²). 2) Ventilar correctamente: 10min mañana ventilación cruzada rápida (renueva aire sin enfriar muros). 3) Termostato higrostático (activa calefacción si humedad >65%). 4) Aislamiento térmico puntual (interior paredes norte/exteriores con placa XPS 3-4cm). 5) Extractor baño-cocina obligatorio. Inversión mejoras anti-condensación: 800-1.500€. Resultado: elimina moho, protege salud respiratoria, y preserva vivienda.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'gracia', 'barcelona', 'antiguo', 'bohemio', 'retrofit']
+  },
+
+  // Barcelona Sants — Dense Affordable Practical Radiator Optimization
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'barcelona',
+    districtSlug: 'sants',
+    metadata: {
+      title: 'Calefacción Sants Barcelona | Radiadores y Eficiencia Práctica',
+      description: 'Calefacción Sants Barcelona - apartamentos densos, optimización radiadores, calefacción práctica económica. Técnicos especializados en eficiencia térmica asequible.'
+    },
+    seoText: `En Sants proporcionamos servicios calefacción prácticos y económicos para apartamentos densos y edificios residenciales donde familias buscan confort invierno sin disparar factura gas. Esta zona popular demanda soluciones térmicas eficientes accesibles.
+
+Especializados en optimización radiadores existentes mediante válvulas termostáticas, purgado completo circuitos, equilibrado hidráulico entre habitaciones, y calderas condensación sustituyendo atmosféricas antiguas (ahorro 20-30% garantizado). Atendemos pisos compartidos, viviendas familias numerosas, y edificios calefacción central comunitaria.
+
+En Sants residentes priorizan relación calidad-precio, ahorro factura gas mensual, y soluciones prácticas mantenimiento sencillo. Trabajamos materiales fiables calidad-precio óptima, evitamos sobrecostos innecesarios, y explicamos funcionamiento permitiendo auto-mantenimiento básico (purgado, presión). Financiación sustitución calderas disponible. Servicio urgencias 24h invierno.`,
+    faqs: [
+      {
+        question: '¿Cuánto ahorro real supone cambiar caldera antigua atmosférica Sants por condensación moderna?',
+        answer: 'Sustitución caldera atmosférica antigua (rendimiento 70-80%) por condensación moderna (rendimiento 95-105%) en Sants genera ahorro real: consumo gas reducción 20-30%. Ejemplo familia 90m² consumo actual 1.200€/año: ahorro 240-360€/año. Costo caldera condensación instalada: 1.800-2.800€ según marca. Amortización: 5-8 años. Además, calderas nuevas incluyen termostato programable, seguridades modernas, y reducción averías. Subvenciones ayuntamiento Barcelona calderas eficientes: 200-400€. Plan Renove estatal: hasta 600€ adicionales. Ahorro neto inversión: recuperación 4-6 años, luego beneficio puro 20-25 años vida útil.'
+      },
+      {
+        question: '¿Cómo reducir factura calefacción familia Sants sin inversión grande?',
+        answer: 'Reducción factura calefacción Sants sin inversión costosa: 1) Instalar válvulas termostáticas radiadores (150-300€ total, ahorran 15-20% cerrando automático habitaciones vacías). 2) Termostato programable (50-120€, ahorra 10-15% bajando automático temperatura ausencias-noche). 3) Purgar radiadores (gratis DIY, mejora 5-10% eliminando aire interior). 4) Burletes puertas-ventanas (30-60€, evitan fugas calor). 5) Temperatura óptima 20-21°C día, 17-18°C noche (cada grado menos = 7% ahorro). 6) Reflectores radiadores (15-30€, reflejan calor interior habitación). Inversión total medidas: 250-500€. Ahorro combinado: 25-40% factura. Amortización: 1-2 años.'
+      },
+      {
+        question: '¿Qué mantenimiento básico puede hacer familia Sants sin llamar técnico cada vez?',
+        answer: 'Mantenimiento básico calefacción DIY familias Sants: 1) Purgar radiadores inicio invierno (llave purgador, dejar salir aire hasta gotea agua, cerrar. Video YouTube tutorial). 2) Rellenar presión caldera si baja <1 bar (llave llenado agua fría hasta alcanza 1.2-1.5 bar). 3) Limpiar polvo acumulado radiadores (aspirador, paño húmedo. Polvo reduce emisión 10-15%). 4) Verificar válvulas termostáticas funcionan (girar manualmente, no forzar). 5) Reset caldera si salta error (botón reset 3 segundos). 6) Comprobar piloto encendido visible. Tareas anuales técnico profesional obligadas: limpieza intercambiador, análisis combustión, verificación seguridades (80-120€/año). Autonomía mantenimiento básico ahorra 3-5 llamadas técnico anuales.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'sants', 'barcelona', 'practico', 'economico', 'ahorro']
+  },
+
+  // Barcelona Sarrià — Luxury Villa Premium Radiant Heating
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'barcelona',
+    districtSlug: 'sarria',
+    metadata: {
+      title: 'Calefacción Sarrià Barcelona | Suelo Radiante y Confort Premium',
+      description: 'Calefacción Sarrià Barcelona - villas luxury, suelo radiante hidráulico, termostatos inteligentes premium, confort térmico silencioso elegante. Servicio exclusivo 24h.'
+    },
+    seoText: `En Sarrià instalamos sistemas calefacción premium para villas y apartamentos lujo donde confort térmico sofisticado, diseño elegante invisible, y tecnología smart son prioritarios. Esta zona residencial alto standing demanda calefacción discreta máxima calidad.
+
+Especializados en suelo radiante hidráulico instalación completa (calor uniforme sin elementos visibles), calderas condensación marca premium silenciosas, termostatos inteligentes Nest/Netatmo/Tado control smartphone, y sistemas híbridos aerotermia+
+
+gas sostenibilidad energética. Atendemos villas unifamiliares jardín, dúplex premium diseño contemporáneo, y apartamentos lujo edificios exclusivos.
+
+En Sarrià residentes valoran calefacción prácticamente insonora, estética minimalista sin radiadores aparentes, control remoto vacaciones, y eficiencia energética certificaciones sostenibilidad. Trabajamos marcas premium Vaillant/Viessmann/Junkers, instalación impecable acabados perfectos, y mantenimiento preventivo anual incluido contrato. Servicio técnico prioritario 24h disponible.`,
+    faqs: [
+      {
+        question: '¿El suelo radiante mejora el confort en villas premium de Sarrià realmente?',
+        answer: 'Absolutamente. Suelo radiante hidráulico en villas Sarrià ofrece confort superior vs radiadores: 1) Calor uniforme suelo a techo (elimina zonas frías, sensación térmica +2-3°C misma temperatura aire). 2) Confort pies descalzos (especialmente baños, dormitorios). 3) Estética invisible (sin radiadores en paredes, libertad decoración). 4) Silencio absoluto (sin bombas ruido, sin aire forzado). 5) Eficiencia mayor (trabaja 35-45°C vs radiadores 70-80°C, ahorra 15-25% gas). 6) Compatible aerotermia (bomba calor alta eficiencia). Inversión villa 200-300m²: 12.000-20.000€ instalación completa. Amortización: 8-12 años vía ahorro. Beneficio confort y valor propiedad: invaluable.'
+      },
+      {
+        question: '¿Qué termostato inteligente conviene villa Sarrià con múltiples zonas térmicas?',
+        answer: 'Villa Sarrià multizona (planta baja, planta superior, sótano/gimnasio, zona invitados) requiere sistema termostatos inteligentes coordinados: Nest Learning (Google, autoajusta patrones, 200€/unidad), Tado° (control por habitación, geolocalización ausencias, 150€ cabezal termostático + 200€ bridge), o Netatmo (Apple HomeKit, 180€ termostato + 80€ válvulas adicionales). Ventajas inteligentes: control smartphone remoto vacaciones, programación automática aprendizaje, geofencing (detecta salida/llegada casa ajustando temperatura), y estadísticas consumo. Sistema completo villa 4-5 zonas: 800-1.500€. Ahorro vs termostatos convencionales: 15-25% adicional optimización ausencias.'
+      },
+      {
+        question: '¿Cuánto cuesta mantenimiento anual calefacción villa premium Sarrià?',
+        answer: 'Mantenimiento anual completo villa premium Sarrià incluye: revisión exhaustiva caldera condensación (limpieza intercambiador, análisis combustión, verificación seguridades), comprobación circuitos suelo radiante (presión, purga colectores, válvulas), verificación bombas circulación eficiencia, ajuste termostatos inteligentes, y limpieza filtros sistema. Costo mantenimiento villa 200-300m²: 180-280€/año según complejidad. Contrato mantenimiento premium incluye: visita anual, prioridad urgencias 24h (tiempo respuesta <3h), repuestos comunes stock, y revisión adicional gratuita si incidencia. Inversión preventiva evita averías costosas (reparación urgente bomba: 400-800€, caldera: 300-600€).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'sarria', 'barcelona', 'premium', 'lujo', 'radiante']
+  },
+
+  // Valencia Campanar — Family Community Centralized Optimization
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'valencia',
+    districtSlug: 'campanar',
+    metadata: {
+      title: 'Calefacción Campanar Valencia | Comunidades y Eficiencia Familiar',
+      description: 'Calefacción Campanar Valencia - comunidades vecinales, calefacción central optimizada, familias eficiencia térmica. Invierno suave mediterráneo dimensionamiento correcto.'
+    },
+    seoText: `En Campanar atendemos calefacción de comunidades residenciales familiares donde calefacción central compartida y eficiencia térmica suave invierno valenciano son prioritarios. Esta zona familiar demanda sistemas equilibrados consumo moderado.
+
+Especializados en optimización calderas centralizadas comunitarias, contadores caloríficos individualizados por vivienda, equilibrado distribución hidráulica edificio, y dimensionamiento correcto evitando sobredimensionamiento típico instaladores sin experiencia clima mediterráneo. Atendemos edificios residenciales 20-50 viviendas, comunidades propietarios, y complejos familiares.
+
+En Campanar comunidades valoran reparto justo costes según consumo real, confort suficiente invierno suave (raramente <5-8°C), y evitar desperdicio energético sobrecalentar. Trabajamos contadores caloríficos certificados, válvulas termostáticas viviendas independencia, y calderas modulantes adaptación demanda variable. Asesoramiento técnico juntas propietarios. Servicio comunidades 24h disponible.`,
+    faqs: [
+      {
+        question: '¿Cómo individualizar consumo calefacción comunidad Campanar con caldera central compartida?',
+        answer: 'Individualización consumo calefacción central Campanar requiere instalación contadores caloríficos: dispositivos electrónicos montados radiadores cada vivienda miden energía térmica consumida (kWh). Sistema incluye: contadores todos radiadores vivienda, módulo comunicación centralizado, y software reparto costes proporcional consumo real. Instalación comunidad 30 viviendas: 9.000-15.000€ (300-500€ por vivienda). Beneficios: pago justo según uso real (familias ausentes no subvencionan presentes), incentivo ahorro individual (cada familia controla gasto), reducción consumo total 15-30% (usuarios conscientes). Amortización colectiva: 4-7 años. Obligatorio edificios nuevos desde 2017.'
+      },
+      {
+        question: '¿Qué potencia caldera central necesita edificio 40 viviendas Campanar para invierno valenciano suave?',
+        answer: 'Dimensionamiento caldera central 40 viviendas Campanar (invierno suave mediterráneo raramente <5-8°C, no <0°C prolongado como Madrid/Zaragoza): potencia necesaria 250-350kW (65-90W/m² vs 100-120W/m² climas fríos). Error común instaladores: sobredimensionar usando tablas zona fría (400-500kW), resultando caldera trabajo intermitente ineficiente. Caldera correctamente dimensionada: funcionamiento modulante continuo 30-70% carga (máxima eficiencia condensación), arranques-paros reducidos (menor desgaste), y consumo optimizado. Consultor energético independiente recomendable calcular carga térmica real (400-600€). Inversión correcta inicial evita 20 años consumo excesivo.'
+      },
+      {
+        question: '¿Cuántos meses año se usa calefacción realmente en Campanar Valencia?',
+        answer: 'Uso real calefacción Campanar Valencia: 3-4 meses efectivos (diciembre-enero-febrero plenos, noviembre-marzo parciales días fríos puntuales). Invierno mediterráneo suave: temperatura media diurna 12-16°C, mínimas nocturnas 5-10°C. Días genuinamente fríos <5°C: 10-20 días/temporada. Familias usan calefacción: mañanas frías 7-9h preparación, tardes-noches 19-23h reunión familiar, y apagan durante día si soleado. Consumo anual familia 90m² Campanar: 400-700€ gas (vs 1.000-1.500€ Madrid/Zaragoza misma superficie). Estrategia eficiente: termostato programable horarios presencia, temperatura moderada 19-20°C suficiente, y aprovechar sol diurno (ganancia solar gratuita).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'campanar', 'valencia', 'comunidad', 'familia', 'central']
+  },
+
+  // Valencia Extramurs — Mixed Residential Commercial Compact Modernization
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'valencia',
+    districtSlug: 'extramurs',
+    metadata: {
+      title: 'Calefacción Extramurs Valencia | Modernización y Compacta Eficiente',
+      description: 'Calefacción Extramurs Valencia - pisos mixtos, modernización compacta, radiadores eficientes, retrofits térmicos. Invierno mediterráneo dimensionamiento adecuado.'
+    },
+    seoText: `En Extramurs instalamos soluciones calefacción modernizadas para pisos mixtos residencial-comercial donde espacio reducido, eficiencia térmica, y adaptación edificios diversos son prioritarios. Esta zona dinámica demanda retrofits inteligentes clima mediterráneo suave.
+
+Especializados en calderas murales compactas alta eficiencia, radiadores aluminio diseño contemporáneo máxima emisión mínimo espacio, termostatos programables ahorro energético, y mejoras aislamiento térmico ventanas-fachadas. Atendemos pisos jóvenes profesionales, estudios compactos, locales convertidos viviendas, y edificios rehabilitación térmica.
+
+En Extramurs residentes valoran instalación rápida mínimas obras, estética moderna minimalista, y consumo ajustado invierno suave valenciano. Trabajamos soluciones gas natural allí disponible, splits bomba calor versátiles donde no hay gas, y mejoras eficiencia sin inversión excesiva. Asesoramiento subvenciones rehabilitación energética. Servicio técnico 24h invierno disponible.`,
+    faqs: [
+      {
+        question: '¿Qué mejoras térmicas priorizar piso Extramurs con calefacción poco eficiente sin inversión grande?',
+        answer: 'Mejoras eficiencia térmica piso Extramurs priorizadas presupuesto limitado: 1) Válvulas termostáticas radiadores (150-300€, ahorro 15-20% calentando solo estancias usadas). 2) Termostato programable (50-120€, ahorro 10-15% bajando temperatura ausencias-trabajo). 3) Burletes ventanas-puertas (30-80€, evitan fugas aire caliente). 4) Cortinas térmicas (100-200€, retienen 20-30% más calor noche). 5) Reflectores detrás radiadores (20-40€, reflejan calor interior habitación). 6) Purgar radiadores inicio temporada (gratis DIY). Inversión total: 350-740€. Ahorro combinado: 30-45% factura. Amortización: 1.5-2.5 años. Mejora grande (ventanas doble vidrio) solo si presupuesto mayor (2.000-4.000€, amortización 8-12 años).'
+      },
+      {
+        question: '¿Conviene suelo radiante en piso pequeño Extramurs Valencia o mejor radiadores modernos?',
+        answer: 'Piso pequeño Extramurs (60-80m²) radiadores aluminio modernos más conveniente vs suelo radiante: costo radiadores 1.200-2.000€ instalados vs suelo radiante 5.000-8.000€. Diferencia 3.500-6.000€ amortizaría 15-20 años solo vía ahorro energético (suelo radiante ahorra 15-20% vs radiadores buenos). Factores decisivos pro-radiadores: inversión menor, instalación 1-2 días sin obras grandes, reemplazo futuro sencillo, y suficiente invierno suave Valencia (suelo radiante óptimo climas fríos uso intenso). Suelo radiante justificable: vivienda nueva construcción (obra abierta, sin sobrecosto), invierno muy frío (>5 meses uso), o presupuesto holgado valorando confort pies máximo.'
+      },
+      {
+        question: '¿Qué calefacción elegir para piso Extramurs sin gas natural disponible?',
+        answer: 'Piso Extramurs sin gas natural opciones calefacción: 1) Split bomba calor inverter (más eficiente opción eléctrica: 1kW eléctrico = 3-4kW térmicos. Instalación 1 unidad dormitorio + 1 salón: 1.500-2.500€. Consumo invierno: 40-70€/mes. Ventaja adicional: aire acondicionado verano incluido). 2) Radiadores eléctricos bajo consumo programables (flexibilidad por habitación, inversión menor 800-1.200€ piso completo, consumo 60-100€/mes). 3) Acumuladores eléctricos tarifa nocturna (cargan calor noche tarifa valle, liberan día. Inversión 1.500-2.500€, consumo 50-80€/mes). Recomendación Valencia invierno suave: split bomba calor (eficiencia máxima + frío verano + inversión moderada). Evitar: calefacción eléctrica directa resistencias (consumo desorbitado).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'extramurs', 'valencia', 'compacto', 'mixto', 'modernizacion']
+  },
+
+  // Sevilla Nervión — Commercial Office Winter Comfort Continuity
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'sevilla',
+    districtSlug: 'nervion',
+    metadata: {
+      title: 'Calefacción Nervión Sevilla | Oficinas y Continuidad Térmica',
+      description: 'Calefacción Nervión Sevilla - oficinas comerciales, continuidad térmica laboral, sistemas centralizados, invierno suave andaluz. Servicio empresarial 24h.'
+    },
+    seoText: `En Nervión atendemos calefacción de oficinas y espacios comerciales donde continuidad térmica horario laboral, confort empleados, y eficiencia energética invierno suave sevillano son prioritarios. Esta zona comercial demanda fiabilidad absoluta sistemas dimensionados correctamente.
+
+Especializados en calderas centralizadas edificios oficinas, sistemas zonificación por plantas-empresas, termostatos programables horario comercial 8-20h, y dimensionamiento adecuado invierno andaluz suave (evitar sobredimensionamiento desperdicio). Atendemos edificios oficinas modernas, centros negocios, locales comerciales, y espacios coworking.
+
+En Nervión empresas valoran confort térmico empleados productividad, consumo ajustado invierno corto (3-4 meses), y mantenimiento preventivo fuera horario laboral. Trabajamos sistemas eficiencia energética certificaciones, control remoto BMS, y contratos mantenimiento empresarial garantía continuidad. Servicio técnico prioritario empresas 24h disponible.`,
+    faqs: [
+      {
+        question: '¿Qué temperatura calefacción oficinas Nervión es óptima para productividad y ahorro?',
+        answer: 'Temperatura óptima oficinas Nervión: 20-21°C (estudios productividad laboral muestran 20-22°C rango confort máximo concentración, <19°C reduce productividad frío, >23°C produce somnolencia). Normativa prevención riesgos laborales España recomienda 17-27°C, óptimo 20-21°C invierno. Estrategia ahorro: 21°C horario laboral 8-20h, bajar 16°C noche-fin semana (edificio vacío), inercia térmica edificios evita enfriado excesivo arranque matinal. Cada grado reducción temperatura = 7% ahorro gas. Ejemplo oficina 200m² Nervión: temperatura 21°C consumo 800€/temporada vs 23°C consumo 1.000€/temporada (diferencia 200€). Termostato programable semanal esencial optimización.'
+      },
+      {
+        question: '¿Cuántos meses realmente se usa calefacción en oficinas Nervión Sevilla?',
+        answer: 'Uso real calefacción oficinas Nervión: 3-4 meses efectivos (diciembre-enero-febrero continuos, noviembre-marzo días fríos puntuales). Invierno sevillano suave: temperatura media diurna 12-17°C, mínimas nocturnas 3-8°C. Días genuinamente fríos <5°C: 15-25 días/temporada. Oficinas climatizadas necesitan calefacción mañanas frías (edificio enfriado noche) y días nublados húmedos sensación térmica baja. Consumo anual oficina 150m² Nervión: 600-1.000€ gas (vs 1.500-2.500€ Madrid/Barcelona misma superficie). Error común: dimensionar calefacción para hipotéticos 0°C (ocurren 0-2 días/año) resulta sobrecapacidad ineficiente 95% temporada. Dimensionamiento correcto: temperatura diseño 3-5°C realista.'
+      },
+      {
+        question: '¿Qué hacer si calefacción oficinas Nervión falla durante jornada laboral invierno?',
+        answer: 'Protocolo emergencia calefacción oficinas Nervión jornada laboral: 1) Verificar fallo menor restablecible inmediato (presión baja rellenar circuito, termostato programación horario, reset seguridad caldera). 2) Llamar servicio técnico urgente empresarial (prioridad <2h). 3) Mientras llega técnico: cerrar puertas-ventanas conservar calor residual, redistribuir personal zonas más cálidas edificio, y evaluar gravedad (invierno sevillano suave permite continuar jornada sin calefacción 3-4h sin riesgo salud). 4) Técnico llega con repuestos comunes (60-70% reparaciones in situ inmediatas). 5) Fallos complejos: calefacción provisional portátil (calentadores eléctricos industriales) mientras llega pieza 24-48h. Contrato mantenimiento empresarial: prioridad absoluta + backup garantizado.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'nervion', 'sevilla', 'oficinas', 'comercial', 'continuidad']
+  },
+
+  // Sevilla Centro — Tourism Historic Compact Winter Heating
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'sevilla',
+    districtSlug: 'centro',
+    metadata: {
+      title: 'Calefacción Centro Sevilla | Apartamentos Turísticos e Históricos',
+      description: 'Calefacción Centro Sevilla - apartamentos turísticos, edificios históricos, calefacción compacta, invierno suave. Fiabilidad huéspedes, instalación respetuosa patrimonio.'
+    },
+    seoText: `En Centro Sevilla instalamos soluciones calefacción apartamentos turísticos y edificios históricos donde fiabilidad absoluta huéspedes, instalación respetuosa patrimonio arquitectónico, y dimensionamiento correcto invierno suave son prioritarios. Esta zona turística demanda sistemas compactos discretos.
+
+Especializados en splits bomba calor silenciosos frío-calor (versátiles todo año), radiadores eléctricos programables sin obras gas, calefacción compacta dormitorios-baños apartamentos pequeños, y mantenimiento preventivo pre-temporada alta turística. Atendemos apartamentos turísticos casco histórico, viviendas vacacionales, casas-patio tradicionales, y edificios protegidos restricciones patrimoniales.
+
+En Centro propietarios valoran sistemas automáticos sin intervención huéspedes, fiabilidad cero averías temporada alta, y estética discreta respetuosa arquitectura tradicional. Trabajamos instalación mínima impacto visual, control remoto propietario ausente, y servicio urgente 24h garantizado ocupación turística. Asesoramiento normativa apartamentos turísticos climatización.`,
+    faqs: [
+      {
+        question: '¿Qué calefacción instalar apartamento turístico Centro Sevilla para satisfacción huéspedes invierno?',
+        answer: 'Apartamento turístico Centro Sevilla calefacción ideal: split bomba calor inverter silencioso (calor invierno + frío verano, control remoto WiFi propietario, termostato automático huésped no manipula configuración, consumo moderado invierno suave sevillano). Instalación apartamento 50-70m² (1 unidad salón-dormitorio + 1 dormitorio adicional): 1.500-2.500€. Ventajas turístico: funcionamiento automático sin complicaciones huésped, fiabilidad tecnología inverter, climatización todo año sin equipos adicionales, y consumo eléctrico incluido tarifa plana sin sorpresas. Alternativa económica: radiadores eléctricos programables bajo consumo (800-1.200€), pero solo calor invierno (necesita AC verano aparte). Evitar: calefacción gas apartamentos turísticos (normativa restricciones seguridad, inspecciones anuales obligatorias).'
+      },
+      {
+        question: '¿Cómo prevenir averías calefacción apartamento Centro Sevilla durante ocupación huéspedes?',
+        answer: 'Prevención averías calefacción apartamento turístico Centro: 1) Mantenimiento preventivo pre-temporada alta octubre-noviembre (limpieza filtros split, verificación funcionamiento, recarga gas si necesario). 2) Sistemas sencillos automáticos (termostato fijo no manipulable, mando oculto propietario). 3) Instrucciones visuales claras huéspedes español-inglés (encendido/apagado básico, temperatura recomendada 21-22°C). 4) Monitorización remota consumo-funcionamiento (detectar anomalías antes queja huésped). 5) Servicio técnico urgente 24h contratado (<3h respuesta dentro temporada alta). 6) Backup plan: calentadores eléctricos portátiles almacén (solución mientras llega técnico). Inversión mantenimiento + monitorización: 150-300€/año. Costo avería temporada alta con huésped: 300-500€ + valoración negativa inapreciable.'
+      },
+      {
+        question: '¿Edificio histórico protegido Centro Sevilla tiene restricciones instalar calefacción?',
+        answer: 'Edificios históricos protegidos Centro Sevilla restricciones calefacción: prohibición modificar fachadas exteriores (unidades split exteriores requieren autorización especial Gerencia Urbanismo, ubicación discreta patio interior/trasera permitida), limitaciones abrir rozas muros originales (calefacción eléctrica sin gas preferible), y respeto estético elementos originales. Soluciones compatibles patrimonio: splits unidades exteriores patio interior ocultas, radiadores eléctricos sin instalación gas (evita tuberías), y bomba calor aerotermia azotea (centralizada, impacto visual nulo). Trámites: proyecto técnico + licencia obras patrimonio histórico (2-4 meses tramitación). Asesoramiento arquitecto especializado patrimonio recomendable (400-800€). Alternativa rápida: calefacción eléctrica portátil certificada (sin obras, sin licencias, inmediato).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'centro', 'sevilla', 'turistico', 'historico', 'compacto']
+  },
+
+  // Málaga Este — Coastal Winter Humidity Compact Efficient
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'malaga',
+    districtSlug: 'este',
+    metadata: {
+      title: 'Calefacción Este Málaga | Humedad Costera y Eficiencia Invierno',
+      description: 'Calefacción Este Málaga - humedad costera invernal, sistemas compactos eficientes, invierno excepcionalmente suave. Dimensionamiento correcto clima mediterráneo.'
+    },
+    seoText: `En Este Málaga proporcionamos soluciones calefacción adaptadas a humedad costera invernal y clima excepcionalmente suave donde dimensionamiento correcto, eficiencia térmica moderada, y control humedad son prioritarios. Esta zona costera demanda sistemas ajustados realidad mediterránea.
+
+Especializados en splits bomba calor modo calor+deshumidificación (gestionan humedad 70-85% costera), radiadores compactos dimensionamiento prudente (evitar sobredimensionamiento desperdicio), calderas uso limitado 2-4 meses año, y termostatos higrostáticos control humedad+temperatura. Atendemos viviendas residenciales costeras, apartamentos vista mar, y pisos zonas húmedas proximidad litoral.
+
+En Este residentes priorizan gestión humedad invernal sensación fría, calefacción uso limitado invierno brevísimo (raramente <8-10°C), y evitar inversión excesiva sistemas infrautilizados. Trabajamos equipos versátiles deshumidificación+calor, dimensionamiento realista no hipotético, y asesoramiento eficiencia adaptada clima. Servicio técnico 24h disponible temporada.`,
+    faqs: [
+      {
+        question: '¿Por qué humedad invernal Málaga Este hace sentir más frío que temperatura real indica?',
+        answer: 'Humedad costera Este Málaga invierno (70-85% HR típico) amplifica sensación fría: aire húmedo conduce calor corporal 25x más rápido que aire seco, haciendo sentir 15°C húmedos como 10-12°C secos. Además, humedad alta dificulta evaporación transpiración (mecanismo termorregulación cuerpo menos eficiente). Solución calefacción adaptada: split bomba calor modo simultáneo calor+deshumidificación (reduce humedad 70% a 50-55% confortable + calienta a 20-21°C. Sensación térmica mejora dramáticamente). Costo operación: 30-50€/mes invierno (diciembre-febrero). Beneficio adicional: previene condensación ventanas y moho paredes (humedad >65% + frío = condensación). Deshumidificación tan importante como calefacción zonas costeras.'
+      },
+      {
+        question: '¿Cuánta potencia calefacción necesita realmente vivienda Este Málaga con invierno tan suave?',
+        answer: 'Vivienda Este Málaga invierno suave (mínimas raramente <8-10°C, medias 12-16°C) necesita potencia moderada: 50-70W/m² (vs 100-120W/m² zonas frías Madrid/Zaragoza). Error común instaladores: aplicar tablas genéricas zonas frías resultando sobredimensionamiento 50-80% (calefacción 100-120W/m² funciona intermitente ineficiente clima suave). Ejemplo vivienda 90m²: potencia necesaria 4.5-6.3kW suficiente vs 9-10kW instaladores suelen proponer. Consecuencias sobredimensionamiento: inversión inicial excesiva, funcionamiento intermitente on-off (desgaste+ineficiencia), y consumo innecesario. Consultor energético independiente calcular carga térmica real clima malagueño: 300-500€. Inversión recuperada en equipos correctamente dimensionados.'
+      },
+      {
+        question: '¿Split bomba calor frío-calor suficiente para calefacción Este Málaga o necesita radiadores gas adicionales?',
+        answer: 'Split bomba calor inverter suficiente calefacción Este Málaga: invierno suave (uso 2-4 meses, temperaturas raramente <8°C) no justifica inversión caldera gas + radiadores (2.500-4.000€) cuando split cubre perfectamente necesidades (1.500-2.500€ + aire acondicionado verano incluido). Bomba calor eficiencia excelente temperaturas suaves (COP 3.5-4.5: 1kW eléctrico = 3.5-4.5kW térmicos). Solo climas <0°C prolongado justifican gas. Ventajas split Málaga: inversión menor, frío+calor integrado, eficiencia máxima clima suave, instalación rápida sin obras gas, y mantenimiento sencillo. Consumo invierno split 90m²: 35-60€/mes (diciembre-febrero). Consumo gas hipotético: 40-70€/mes + inversión inicial doble. Split imbatible coste-beneficio costas mediterráneas.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'este', 'malaga', 'costero', 'humedad', 'suave']
+  },
+
+  // Zaragoza Delicias — Family Economical Continental Efficiency
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'zaragoza',
+    districtSlug: 'delicias',
+    metadata: {
+      title: 'Calefacción Delicias Zaragoza | Familias y Ahorro Continental',
+      description: 'Calefacción Delicias Zaragoza - familias economía ajustada, radiadores optimizados, eficiencia continental fría. Ahorro energético invierno zaragozano genuino.'
+    },
+    seoText: `En Delicias proporcionamos soluciones calefacción económicas y eficientes para familias donde ahorro energético, confort suficiente invierno continental genuinamente frío, y relación calidad-precio son prioritarios. Este barrio familiar demanda sistemas prácticos accesibles.
+
+Especializados en optimización radiadores calefacción central comunitaria mediante válvulas termostáticas, calderas individuales condensación sustituyendo antiguas (ahorro 25-35%), termostatos programables horarios familiares, y asesoramiento eficiencia térmica presupuestos ajustados. Atendemos pisos familias numerosas, viviendas comunidades propietarios, y apartamentos calefacción central incluida.
+
+En Delicias familias priorizan factura gas controlada, temperatura agradable suficiente 19-21°C (no excesiva), y soluciones prácticas mantenimiento DIY básico. Trabajamos materiales fiables calidad-precio óptima, financiación calderas disponible, y formación auto-mantenimiento elemental (purgado, presión). Servicio urgencias 24h invierno. Asesoramiento subvenciones eficiencia energética.`,
+    faqs: [
+      {
+        question: '¿Cómo reducir factura gas familia Delicias con invierno zaragozano frío sin pasar frío en casa?',
+        answer: 'Reducción factura gas familia Delicias invierno frío manteniendo confort: 1) Temperatura óptima 19-20°C día / 17-18°C noche (cada grado menos = 7% ahorro. 20°C confortable vs 23°C desperdicio). 2) Termostato programable horarios (bajar ausencias-trabajo, subir presencia familiar. Ahorro 15-20%). 3) Válvulas termostáticas radiadores (calentar solo habitaciones usadas, cerrar dormitorios vacíos día. Ahorro 15-18%). 4) Purgar radiadores inicio invierno (eliminaaire acumulado mejora 8-12%). 5) Burletes ventanas-puertas (evitan fugas aire frío/caliente. Ahorro 10-15%). 6) Cortinas gruesas cerradas noche (retienen calor interior). 7) Reflectores detrás radiadores (reflejan calor interior habitación). Ahorro combinado: 35-50% factura. Familia 90m² Delicias: reducción 1.200€/año a 700-800€/año.'
+      },
+      {
+        question: '¿Vale la pena cambiar caldera antigua Delicias por condensación moderna con ahorro Gobierno?',
+        answer: 'Sustitución caldera antigua por condensación Delicias con subvención muy rentable: caldera atmosférica antigua (rendimiento 70-75%) vs condensación moderna (rendimiento 95-105%) ahorra 25-35% gas. Familia 100m² consumo actual 1.500€/año: ahorro 450-525€/año. Costo caldera condensación instalada: 2.200-3.200€. Subvenciones disponibles: Plan Renove Aragón calderas eficientes 400-800€ + Plan estatal 600-1.000€ adicionales familias renta media-baja. Costo neto inversión: 800-1.800€. Amortización: 2-4 años. Beneficios adicionales: mayor confort (modulación precisa temperatura), fiabilidad (tecnología nueva vs antigua 15-20 años), y reducción emisiones CO2. Inversión altamente rentable largo plazo.'
+      },
+      {
+        question: '¿Cómo mantener calefacción familia Delicias sin llamar técnico constantemente ahorrando visitas?',
+        answer: 'Mantenimiento básico calefacción DIY familias Delicias: 1) Purgar radiadores inicio temporada (llave purgador, abrir hasta sale agua sin aire, cerrar. Tutorial YouTube familias). 2) Rellenar presión caldera <1 bar (llave llenado agua fría hasta 1.2-1.5 bar alcanzado manómetro). 3) Limpiar polvo radiadores mensual (aspirador ranuras, paño húmedo exterior). 4) Verificar válvulas termostáticas giran suavemente (no forzar rotas). 5) Reset caldera si error (botón reset 5 segundos). 6) Comprobar piloto encendido visible. Tareas técnico profesional obligatorias anuales: limpieza intercambiador, análisis combustión, verificación seguridades (90-140€). Autonomía mantenimiento básico ahorra 4-6 visitas técnico innecesarias/año (60-80€ cada visita). Familias autosuficientes tareas simples ahorran 240-400€/año.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'delicias', 'zaragoza', 'familia', 'economico', 'continental']
   }
 ]
 
