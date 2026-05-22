@@ -8,6 +8,7 @@ import { getDistrictLinks, generateServiceCityBreadcrumbs } from '@/lib/linking/
 import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import { getCitySEOContent } from '@/data/city-seo-content'
 import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
+import { getLightweightCityContent } from '@/lib/i18n/city-content'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
@@ -61,17 +62,35 @@ export default async function ServiceCityPage({
     notFound()
   }
 
+  // 🌍 MULTILINGUAL LIGHTWEIGHT ARCHITECTURE
+  // Spanish: Uses full enterprise SEO from city-seo-content.ts
+  // EN/RU: Uses lightweight translations 
+  const lightweightContent = getLightweightCityContent(locale, service, city)
+
+  // Locale-aware content (Spanish uses hardcoded, EN/RU uses lightweight)
+  const h1 = lightweightContent ? lightweightContent.h1 : `${service.name} en ${city.name}`
+  const coverageHeading = lightweightContent ? lightweightContent.coverageHeading : `Cobertura en ${city.name}`
+  const ourServiceHeading = lightweightContent ? lightweightContent.ourServiceHeading : `Nuestro Servicio de ${service.name} en ${city.name}`
+  const otherServicesHeading = lightweightContent ? lightweightContent.otherServicesHeading : `Otros Servicios en ${city.name}`
+  const faqHeading = lightweightContent ? lightweightContent.faqHeading : `Preguntas Frecuentes sobre ${service.name} en ${city.name}`
+  const callNowCTA = lightweightContent ? lightweightContent.callNowCTA : 'Llamar Ahora'
+  const service24hBadge = lightweightContent ? lightweightContent.service24hBadge : `Servicio 24h en ${city.name}`
+
+  // Schema names (locale-aware)
+  const schemaNameSuffix = lightweightContent ? lightweightContent.schemaNameSuffix : `en ${city.name}`
+  const schemaDescPrefix = lightweightContent ? lightweightContent.schemaDescPrefix : `en ${city.name}`
+
   const serviceSchema = generateServiceSchema({ service, city })
   const localBusinessSchema = generateLocalBusinessSchema({
-    name: `${service.name} en ${city.name} - Reparar24`,
-    description: `${service.description} en ${city.name}`,
+    name: `${service.name} ${schemaNameSuffix} - Reparar24`,
+    description: `${service.description} ${schemaDescPrefix}`,
     city: city,
   })
 
   const districtLinks = getDistrictLinks(city, service, locale)
 
-  // Get city-specific SEO content if available
-  const citySEO = getCitySEOContent(service.id, city.slug)
+  // Get city-specific SEO content if available (Spanish only)
+  const citySEO = locale === 'es' ? getCitySEOContent(service.id, city.slug) : null
 
   // Generate breadcrumbs
   const breadcrumbItems = generateServiceCityBreadcrumbs(service, city, locale)
@@ -102,7 +121,7 @@ export default async function ServiceCityPage({
                 <span className="text-6xl">{service.icon}</span>
                 <div>
                   <h1 className="text-5xl md:text-6xl font-bold">
-                    {service.name} en {city.name}
+                    {h1}
                   </h1>
                 </div>
               </div>
@@ -114,11 +133,11 @@ export default async function ServiceCityPage({
                   href="tel:+34641688524"
                   className="btn-primary bg-accent-500 hover:bg-accent-600"
                 >
-                  📞 Llamar Ahora - {service.priceRange}
+                  📞 {callNowCTA} - {service.priceRange}
                 </a>
                 {service.available24h && (
                   <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
-                    🕐 Servicio 24h en {city.name}
+                    🕐 {service24hBadge}
                   </span>
                 )}
               </div>
@@ -129,7 +148,7 @@ export default async function ServiceCityPage({
         {/* Districts Coverage */}
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8">Cobertura en {city.name}</h2>
+            <h2 className="text-3xl font-bold mb-8">{coverageHeading}</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {districtLinks.map((link, index) => (
                 <Link
@@ -148,7 +167,7 @@ export default async function ServiceCityPage({
         <section className="py-16 bg-white">
           <div className="container-custom">
             <h2 className="text-3xl font-bold mb-8 text-center">
-              Nuestro Servicio de {service.name} en {city.name}
+              {ourServiceHeading}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {service.benefits.map((benefit, index) => (
@@ -203,7 +222,7 @@ export default async function ServiceCityPage({
         {/* Other Services in City */}
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8">Otros Servicios en {city.name}</h2>
+            <h2 className="text-3xl font-bold mb-8">{otherServicesHeading}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {services
                 .filter((s) => s.id !== service.id)
@@ -218,7 +237,10 @@ export default async function ServiceCityPage({
                     >
                       <div className="text-4xl mb-3">{otherService.icon}</div>
                       <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600">
-                        {otherService.name} en {city.name}
+                        {lightweightContent 
+                          ? `${otherService.name} ${lightweightContent.schemaNameSuffix}`
+                          : `${otherService.name} en ${city.name}`
+                        }
                       </h3>
                       <p className="text-gray-600 text-sm mb-3">
                         {otherService.description}
@@ -236,12 +258,12 @@ export default async function ServiceCityPage({
         {/* Final CTA - Above SEO Content */}
         <CTASection locale={locale} />
 
-        {/* City-Specific FAQs - ENABLED FOR FONTANER​ÍA ENTERPRISE SEO */}
+        {/* City-Specific FAQs - ENABLED FOR FONTANERÍA ENTERPRISE SEO (Spanish only) */}
         {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
           <section className="py-16 bg-gray-50">
             <div className="container-custom">
               <h2 className="text-3xl font-bold mb-8 text-center">
-                Preguntas Frecuentes sobre {service.name} en {city.name}
+                {faqHeading}
               </h2>
               <div className="max-w-4xl mx-auto">
                 <CitySEOFAQList 
@@ -254,7 +276,7 @@ export default async function ServiceCityPage({
           </section>
         )}
 
-        {/* City-Specific SEO Content - Absolute Bottom Before Footer */}
+        {/* City-Specific SEO Content - Absolute Bottom Before Footer (Spanish only) */}
         {citySEO && locale === 'es' && (
           <section className="py-16 bg-white">
             <div className="container-custom">
