@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { locales, type Locale } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/dictionaries'
+import { GoogleAnalytics, GTMNoScript } from '@/components/analytics/GoogleAnalytics'
 import '../globals.css'
 
 export async function generateStaticParams() {
@@ -65,7 +66,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale}>
-      <body className="min-h-screen flex flex-col">{children}</body>
+      <head>
+        <GoogleAnalytics />
+      </head>
+      <body className="min-h-screen flex flex-col">
+        <GTMNoScript />
+        {children}
+      </body>
     </html>
   )
 }
