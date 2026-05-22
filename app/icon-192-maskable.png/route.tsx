@@ -7,7 +7,7 @@ export async function GET() {
     (
       <div
         style={{
-          background: '#2563EB',
+          background: 'white',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -17,38 +17,56 @@ export async function GET() {
         }}
       >
         <svg
-          width="150"
-          height="150"
-          viewBox="0 0 150 150"
+          width="152"
+          height="152"
+          viewBox="0 0 120 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* House roof */}
+          {/* Shield background */}
           <path
-            d="M75 25L125 60V65H115V57.5L75 30L35 57.5V65H25V60L75 25Z"
+            d="M60 10L95 25V55C95 75 80 95 60 110C40 95 25 75 25 55V25L60 10Z"
+            fill="#0078D7"
+          />
+          {/* Shield border */}
+          <path
+            d="M60 10L95 25V55C95 75 80 95 60 110C40 95 25 75 25 55V25L60 10Z"
+            stroke="#00205B"
+            strokeWidth="3"
+            fill="none"
+          />
+          {/* Inner shield frame */}
+          <path
+            d="M60 18L88 30V55C88 72 76 88 60 100C44 88 32 72 32 55V30L60 18Z"
             fill="white"
           />
-          {/* House body */}
-          <rect x="35" y="60" width="80" height="65" rx="4" fill="white" />
-          {/* Door */}
-          <rect x="60" y="90" width="30" height="35" rx="2" fill="#2563EB" />
-          {/* Window left */}
-          <rect x="42.5" y="70" width="20" height="20" rx="1.5" fill="#93C5FD" />
-          <line x1="42.5" y1="80" x2="62.5" y2="80" stroke="#2563EB" strokeWidth="2"/>
-          <line x1="52.5" y1="70" x2="52.5" y2="90" stroke="#2563EB" strokeWidth="2"/>
-          {/* Window right */}
-          <rect x="87.5" y="70" width="20" height="20" rx="1.5" fill="#93C5FD" />
-          <line x1="87.5" y1="80" x2="107.5" y2="80" stroke="#2563EB" strokeWidth="2"/>
-          <line x1="97.5" y1="70" x2="97.5" y2="90" stroke="#2563EB" strokeWidth="2"/>
-          {/* Wrench tool */}
-          <g transform="translate(110, 110) rotate(-45)">
-            <rect x="-6" y="-18" width="12" height="14" rx="2" fill="#F97316"/>
-            <circle cx="0" cy="-11" r="4" fill="#2563EB"/>
-            <rect x="-4" y="-4" width="8" height="24" rx="1.5" fill="#F97316"/>
-            <line x1="-4" y1="3" x2="4" y2="3" stroke="white" strokeWidth="1" opacity="0.6"/>
-            <line x1="-4" y1="8" x2="4" y2="8" stroke="white" strokeWidth="1" opacity="0.6"/>
-            <line x1="-4" y1="13" x2="4" y2="13" stroke="white" strokeWidth="1" opacity="0.6"/>
+          {/* House - orange roof */}
+          <path
+            d="M50 38L60 30L70 38V42H50V38Z"
+            fill="#FF8C00"
+            stroke="#00205B"
+            strokeWidth="2"
+          />
+          {/* House - body */}
+          <rect x="50" y="42" width="20" height="18" rx="1" fill="white" stroke="#00205B" strokeWidth="2"/>
+          {/* Window */}
+          <rect x="56" y="47" width="8" height="6" fill="#00205B"/>
+          {/* Chimney */}
+          <rect x="65" y="34" width="3" height="6" fill="#00205B"/>
+          {/* Crossed tools - wrench */}
+          <g transform="translate(45, 65) rotate(-45)">
+            <rect x="-2" y="-12" width="4" height="10" rx="1" fill="#C0C0C0" stroke="#00205B" strokeWidth="0.5"/>
+            <circle cx="0" cy="-7" r="2.5" fill="none" stroke="#00205B" strokeWidth="0.8"/>
+            <rect x="-1.5" y="-2" width="3" height="16" rx="0.5" fill="#C0C0C0" stroke="#00205B" strokeWidth="0.5"/>
           </g>
+          {/* Crossed tools - screwdriver */}
+          <g transform="translate(75, 65) rotate(45)">
+            <rect x="-1" y="-2" width="2" height="16" rx="0.3" fill="#C0C0C0" stroke="#00205B" strokeWidth="0.5"/>
+            <rect x="-1.5" y="14" width="3" height="8" rx="0.5" fill="#FF8C00" stroke="#00205B" strokeWidth="0.5"/>
+          </g>
+          {/* Sparkles */}
+          <path d="M40 28L41 30L40 32L39 30L40 28Z" fill="#0078D7"/>
+          <path d="M78 35L79.5 38L78 41L76.5 38L78 35Z" fill="#0078D7"/>
         </svg>
       </div>
     ),
