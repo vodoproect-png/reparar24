@@ -12,6 +12,9 @@ interface HeaderProps {
 
 export default function Header({ locale }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  
+  // Spanish uses root-level URLs, other locales use prefix
+  const localePrefix = locale === 'es' ? '' : `/${locale}`
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function Header({ locale }: HeaderProps) {
           <div className="flex md:hidden items-center justify-between gap-1">
             {/* Logo - Left (lowered slightly for baseline alignment) */}
             <Link 
-              href={`/${locale}`} 
+              href={localePrefix || '/'} 
               className="flex items-center flex-shrink-0 self-center pt-0.5"
               aria-label="Reparar24 - Inicio"
             >
@@ -55,24 +58,24 @@ export default function Header({ locale }: HeaderProps) {
 
           {/* Desktop Layout */}
           <div className="hidden md:flex items-center justify-between">
-            <Link href={`/${locale}`} className="flex items-center space-x-2">
+            <Link href={localePrefix || '/'} className="flex items-center space-x-2">
               <span className="text-2xl font-bold text-primary-600">Reparar24</span>
             </Link>
 
             <div className="flex items-center space-x-8">
-              <Link href={`/${locale}/fontanero`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              <Link href={`${localePrefix}/fontanero`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
                 Fontanería
               </Link>
-              <Link href={`/${locale}/electricista`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              <Link href={`${localePrefix}/electricista`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
                 Electricidad
               </Link>
-              <Link href={`/${locale}/desatascos`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              <Link href={`${localePrefix}/desatascos`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
                 Desatascos
               </Link>
-              <Link href={`/${locale}/aire-acondicionado`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              <Link href={`${localePrefix}/aire-acondicionado`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
                 Clima
               </Link>
-              <Link href={`/${locale}/contacto`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+              <Link href={`${localePrefix}/contacto`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
                 {locale === 'es' ? 'Contacto' : locale === 'en' ? 'Contact' : 'Контакты'}
               </Link>
             </div>

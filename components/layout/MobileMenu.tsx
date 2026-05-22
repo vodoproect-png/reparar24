@@ -51,6 +51,9 @@ function AccordionItem({ title, icon, children }: AccordionItemProps) {
 }
 
 export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps) {
+  // Spanish uses root-level URLs, other locales use prefix
+  const localePrefix = locale === 'es' ? '' : `/${locale}`
+  
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
@@ -112,7 +115,7 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
         <div className="flex-1 overflow-y-auto">
           {/* Inicio */}
           <Link
-            href={`/${locale}`}
+            href={localePrefix || '/'}
             onClick={onClose}
             className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 hover:bg-gray-50 transition-colors"
           >
@@ -124,49 +127,49 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
           <AccordionItem title="Servicios" icon="🔧">
             <div className="space-y-1">
               <Link
-                href={`/${locale}/fontanero`}
+                href={`${localePrefix}/fontanero`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 💧 Fontanería
               </Link>
               <Link
-                href={`/${locale}/electricista`}
+                href={`${localePrefix}/electricista`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 ⚡ Electricidad
               </Link>
               <Link
-                href={`/${locale}/desatascos`}
+                href={`${localePrefix}/desatascos`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 🚰 Desatascos
               </Link>
               <Link
-                href={`/${locale}/aire-acondicionado`}
+                href={`${localePrefix}/aire-acondicionado`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 ❄️ Clima
               </Link>
               <Link
-                href={`/${locale}/caldera`}
+                href={`${localePrefix}/caldera`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 🔥 Calderas
               </Link>
               <Link
-                href={`/${locale}/aire-acondicionado`}
+                href={`${localePrefix}/aire-acondicionado`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 🌬️ Aire Acondicionado
               </Link>
               <Link
-                href={`/${locale}`}
+                href={localePrefix || '/'}
                 onClick={onClose}
                 className="block py-2 px-2 mt-2 text-primary-600 font-semibold hover:underline"
               >
@@ -179,49 +182,49 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
           <AccordionItem title="Ciudades" icon="📍">
             <div className="space-y-1">
               <Link
-                href={`/${locale}/servicios/valencia`}
+                href={`${localePrefix}/servicios/valencia`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Valencia
               </Link>
               <Link
-                href={`/${locale}/servicios/torrent`}
+                href={`${localePrefix}/servicios/torrent`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Torrent
               </Link>
               <Link
-                href={`/${locale}/servicios/paterna`}
+                href={`${localePrefix}/servicios/paterna`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Paterna
               </Link>
               <Link
-                href={`/${locale}/servicios/mislata`}
+                href={`${localePrefix}/servicios/mislata`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Mislata
               </Link>
               <Link
-                href={`/${locale}/servicios/gandia`}
+                href={`${localePrefix}/servicios/gandia`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Gandía
               </Link>
               <Link
-                href={`/${locale}/servicios/sagunto`}
+                href={`${localePrefix}/servicios/sagunto`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
                 Sagunto
               </Link>
               <Link
-                href={`/${locale}`}
+                href={localePrefix || '/'}
                 onClick={onClose}
                 className="block py-2 px-2 mt-2 text-primary-600 font-semibold hover:underline"
               >
@@ -232,7 +235,7 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
 
           {/* Contacto */}
           <Link
-            href={`/${locale}/contacto`}
+            href={`${localePrefix}/contacto`}
             onClick={onClose}
             className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 hover:bg-gray-50 transition-colors"
           >
@@ -241,49 +244,6 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
               {locale === 'es' ? 'Contacto' : locale === 'en' ? 'Contact' : 'Контакты'}
             </span>
           </Link>
-
-          {/* Language Switcher */}
-          <div className="px-4 py-3 border-b border-gray-200">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-lg">🌐</span>
-              <span className="font-semibold text-gray-900">Idioma</span>
-            </div>
-            <div className="flex gap-2 mt-2">
-              <Link
-                href="/es"
-                onClick={onClose}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-                  locale === 'es'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                ES
-              </Link>
-              <Link
-                href="/en"
-                onClick={onClose}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-                  locale === 'en'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                EN
-              </Link>
-              <Link
-                href="/ru"
-                onClick={onClose}
-                className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
-                  locale === 'ru'
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                RU
-              </Link>
-            </div>
-          </div>
 
           {/* Contact CTAs */}
           <div className="px-4 py-4 space-y-2 bg-gray-50">
