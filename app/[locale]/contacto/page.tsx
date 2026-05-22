@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 }
 
 export async function generateStaticParams() {
-  const locales: Locale[] = ['es', 'en', 'ru']
+  // SPANISH-ONLY PRODUCTION: Only generate Spanish pages
+  const locales: Locale[] = ['es']
   return locales.map((locale) => ({ locale }))
 }
 

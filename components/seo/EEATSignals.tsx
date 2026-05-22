@@ -1,43 +1,50 @@
 /**
- * EEAT Signals Component
+ * EEAT Signals Component - MULTILINGUAL
  * 
  * Demonstrates Experience, Expertise, Authoritativeness, and Trust
  * for Google's Quality Rater Guidelines and AI understanding.
  * 
- * Lightweight components that can be reused across pages to strengthen
- * trustworthiness and domain authority signals.
+ * Updated to support EN/RU locales via shared-components.ts
  */
 
 import React from 'react'
+import type { Locale } from '@/lib/i18n/config'
+import { getSharedTranslations } from '@/lib/i18n/shared-components'
 
 /**
  * Service Guarantee Block
  * Signals: Trust, Transparency
  */
-export function ServiceGuaranteeBlock() {
+interface ServiceGuaranteeBlockProps {
+  locale: Locale
+}
+
+export function ServiceGuaranteeBlock({ locale }: ServiceGuaranteeBlockProps) {
+  const t = getSharedTranslations(locale)
+  
   return (
     <div className="service-guarantee bg-blue-50 border border-blue-200 rounded-lg p-6">
       <div className="flex items-start gap-4">
         <div className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1 text-2xl">🛡️</div>
         <div>
           <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-            Garantía de Servicio
+            {t.serviceGuaranteeTitle}
           </h3>
           <p className="text-neutral-700 mb-3">
-            Todos nuestros servicios incluyen garantía de satisfacción. Si no estás conforme con el trabajo realizado, lo corregimos sin coste adicional.
+            {t.serviceGuaranteeDesc}
           </p>
           <ul className="space-y-2 text-sm text-neutral-600">
             <li className="flex items-center gap-2">
               <span>✓</span>
-              <span>Profesionales certificados y asegurados</span>
+              <span>{t.certifiedProfessionals}</span>
             </li>
             <li className="flex items-center gap-2">
               <span>✓</span>
-              <span>Materiales de primera calidad</span>
+              <span>{t.qualityMaterials}</span>
             </li>
             <li className="flex items-center gap-2">
               <span>✓</span>
-              <span>Presupuesto transparente sin sorpresas</span>
+              <span>{t.transparentBudget}</span>
             </li>
           </ul>
         </div>
@@ -50,17 +57,23 @@ export function ServiceGuaranteeBlock() {
  * Response Time Block
  * Signals: Experience, Reliability
  */
-export function ResponseTimeBlock() {
+interface ResponseTimeBlockProps {
+  locale: Locale
+}
+
+export function ResponseTimeBlock({ locale }: ResponseTimeBlockProps) {
+  const t = getSharedTranslations(locale)
+  
   return (
     <div className="response-time bg-amber-50 border border-amber-200 rounded-lg p-6">
       <div className="flex items-start gap-4">
         <div className="w-8 h-8 text-amber-600 flex-shrink-0 mt-1 text-2xl">⏱️</div>
         <div>
           <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-            Tiempo de Respuesta
+            {t.responseTimeTitle}
           </h3>
           <p className="text-neutral-700">
-            <strong>30-60 minutos</strong> en la zona y área metropolitana. Servicio de emergencia 24 horas, 365 días al año.
+            {t.responseTimeDesc}
           </p>
         </div>
       </div>
@@ -75,19 +88,22 @@ export function ResponseTimeBlock() {
 interface LocalExpertiseProps {
   city: string
   yearsExperience?: number
+  locale: Locale
 }
 
-export function LocalExpertiseBlock({ city, yearsExperience = 15 }: LocalExpertiseProps) {
+export function LocalExpertiseBlock({ city, yearsExperience = 15, locale }: LocalExpertiseProps) {
+  const t = getSharedTranslations(locale)
+  
   return (
     <div className="local-expertise bg-green-50 border border-green-200 rounded-lg p-6">
       <div className="flex items-start gap-4">
         <div className="w-8 h-8 text-green-600 flex-shrink-0 mt-1 text-2xl">🏆</div>
         <div>
           <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-            Expertos Locales en {city}
+            {t.localExpertsTitle} {city}
           </h3>
           <p className="text-neutral-700">
-            Con más de <strong>{yearsExperience} años de experiencia</strong> en {city}, conocemos perfectamente las instalaciones típicas de la zona, los problemas más comunes y las soluciones más efectivas.
+            {t.localExpertsDesc(yearsExperience, city)}
           </p>
         </div>
       </div>
@@ -99,11 +115,17 @@ export function LocalExpertiseBlock({ city, yearsExperience = 15 }: LocalExperti
  * Process Transparency Block
  * Signals: Trust, Expertise
  */
-export function ProcessTransparencyBlock() {
+interface ProcessTransparencyBlockProps {
+  locale: Locale
+}
+
+export function ProcessTransparencyBlock({ locale }: ProcessTransparencyBlockProps) {
+  const t = getSharedTranslations(locale)
+  
   return (
     <div className="process-transparency">
       <h3 className="text-xl font-semibold text-neutral-900 mb-4">
-        Nuestro Proceso de Trabajo
+        {t.processTitle}
       </h3>
       <ol className="space-y-4">
         <li className="flex gap-4">
@@ -111,9 +133,9 @@ export function ProcessTransparencyBlock() {
             1
           </span>
           <div>
-            <h4 className="font-semibold text-neutral-900 mb-1">Llamada y Diagnóstico Inicial</h4>
+            <h4 className="font-semibold text-neutral-900 mb-1">{t.processStep1Title}</h4>
             <p className="text-neutral-600 text-sm">
-              Evaluamos el problema por teléfono y te orientamos sobre la urgencia y el coste aproximado.
+              {t.processStep1Desc}
             </p>
           </div>
         </li>
@@ -122,9 +144,9 @@ export function ProcessTransparencyBlock() {
             2
           </span>
           <div>
-            <h4 className="font-semibold text-neutral-900 mb-1">Desplazamiento Rápido</h4>
+            <h4 className="font-semibold text-neutral-900 mb-1">{t.processStep2Title}</h4>
             <p className="text-neutral-600 text-sm">
-              Llegamos a tu domicilio en 30-60 minutos con todas las herramientas necesarias.
+              {t.processStep2Desc}
             </p>
           </div>
         </li>
@@ -133,9 +155,9 @@ export function ProcessTransparencyBlock() {
             3
           </span>
           <div>
-            <h4 className="font-semibold text-neutral-900 mb-1">Inspección y Presupuesto</h4>
+            <h4 className="font-semibold text-neutral-900 mb-1">{t.processStep3Title}</h4>
             <p className="text-neutral-600 text-sm">
-              Inspeccionamos el problema, te explicamos la solución y te damos un presupuesto claro antes de empezar.
+              {t.processStep3Desc}
             </p>
           </div>
         </li>
@@ -144,9 +166,9 @@ export function ProcessTransparencyBlock() {
             4
           </span>
           <div>
-            <h4 className="font-semibold text-neutral-900 mb-1">Reparación Profesional</h4>
+            <h4 className="font-semibold text-neutral-900 mb-1">{t.processStep4Title}</h4>
             <p className="text-neutral-600 text-sm">
-              Realizamos el trabajo con materiales de calidad y dejamos todo limpio y funcionando.
+              {t.processStep4Desc}
             </p>
           </div>
         </li>
@@ -155,9 +177,9 @@ export function ProcessTransparencyBlock() {
             5
           </span>
           <div>
-            <h4 className="font-semibold text-neutral-900 mb-1">Garantía y Seguimiento</h4>
+            <h4 className="font-semibold text-neutral-900 mb-1">{t.processStep5Title}</h4>
             <p className="text-neutral-600 text-sm">
-              Te entregamos factura y garantía por escrito. Seguimiento post-servicio para asegurar tu satisfacción.
+              {t.processStep5Desc}
             </p>
           </div>
         </li>
@@ -171,6 +193,7 @@ export function ProcessTransparencyBlock() {
  * Can be used on service pages to demonstrate trust signals
  */
 interface EEATSectionProps {
+  locale: Locale
   city?: string
   showGuarantee?: boolean
   showResponseTime?: boolean
@@ -179,6 +202,7 @@ interface EEATSectionProps {
 }
 
 export function EEATSection({
+  locale,
   city,
   showGuarantee = true,
   showResponseTime = true,
@@ -187,10 +211,10 @@ export function EEATSection({
 }: EEATSectionProps) {
   return (
     <section className="eeat-section space-y-6 my-12">
-      {showResponseTime && <ResponseTimeBlock />}
-      {showGuarantee && <ServiceGuaranteeBlock />}
-      {showExpertise && city && <LocalExpertiseBlock city={city} />}
-      {showProcess && <ProcessTransparencyBlock />}
+      {showResponseTime && <ResponseTimeBlock locale={locale} />}
+      {showGuarantee && <ServiceGuaranteeBlock locale={locale} />}
+      {showExpertise && city && <LocalExpertiseBlock city={city} locale={locale} />}
+      {showProcess && <ProcessTransparencyBlock locale={locale} />}
     </section>
   )
 }

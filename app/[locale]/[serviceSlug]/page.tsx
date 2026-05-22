@@ -15,7 +15,8 @@ import Link from 'next/link'
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string }[] = []
   
-  const locales: Locale[] = ['es', 'en', 'ru']
+  // SPANISH-ONLY PRODUCTION: Only generate Spanish pages
+  const locales: Locale[] = ['es']
   
   locales.forEach((locale) => {
     services.forEach((service) => {

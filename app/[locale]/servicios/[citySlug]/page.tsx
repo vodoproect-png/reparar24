@@ -14,7 +14,8 @@ import { EEATSection } from '@/components/seo/EEATSignals'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; citySlug: string }[] = []
-  const locales: Locale[] = ['es', 'en', 'ru']
+  // SPANISH-ONLY PRODUCTION: Only generate Spanish pages
+  const locales: Locale[] = ['es']
   
   locales.forEach((locale) => {
     cities.forEach((city) => {
@@ -78,6 +79,7 @@ export default async function CityPage({ params }: { params: Promise<{ locale: L
         <section className="py-16 bg-white">
           <div className="container-custom">
             <EEATSection
+              locale={locale}
               city={city.name}
               showGuarantee={true}
               showResponseTime={true}

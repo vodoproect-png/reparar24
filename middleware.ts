@@ -2,41 +2,69 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 /**
- * Middleware for canonical locale routing
+ * SPANISH-ONLY PRODUCTION MIDDLEWARE
  * 
- * Spanish (es) is the default locale and uses root-level URLs without prefix.
- * This middleware:
- * 1. REWRITES root-level URLs (/, /fontanero, etc.) to /es/* internally
- * 2. REDIRECTS explicit /es/* requests to /* with 301 to maintain canonical URLs
+ * Strategic Decision: Reparar24 is Spanish-only until Spanish SEO architecture is complete.
  * 
- * English (/en/*) and Russian (/ru/*) pass through unchanged.
+ * Routing Rules:
+ * 1. Spanish uses root-level URLs: /, /fontanero, /fontanero/madrid, etc.
+ * 2. /es/* redirects 301 to /* (canonical enforcement)
+ * 3. /en/* redirects 301 to Spanish equivalent (rollback)
+ * 4. /ru/* redirects 301 to Spanish equivalent (rollback)
+ * 
+ * Multilingual implementation postponed. EN/RU pages are incomplete.
  */
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  const { pathname } =request.nextUrl
 
-  // Redirect explicit /es to / (permanent 301) - prevents direct /es access
+  // === SPANISH CANONICAL ENFORCEMENT ===
+  
+  // Redirect /es to /
   if (pathname === '/es') {
     return NextResponse.redirect(new URL('/', request.url), { status: 301 })
   }
 
-  // Redirect explicit /es/* to /* (permanent 301) - maintains canonical URLs
+  // Redirect /es/* to /* (maintain canonical Spanish URLs)
   if (pathname.startsWith('/es/')) {
     const newPath = pathname.replace('/es/', '/')
     return NextResponse.redirect(new URL(newPath, request.url), { status: 301 })
   }
 
-  // For root-level paths that could be Spanish content:
-  // Rewrite internally to /es/* so App Router can handle them
-  // This makes / serve /es/ content, /fontanero serve /es/fontanero, etc.
+  // === MULTILINGUAL ROLLBACK: REDIRECT EN/RU TO SPANISH ===
+  
+  // Redirect /en to /
+  if (pathname === '/en') {
+    return NextResponse.redirect(new URL('/', request.url), { status: 301 })
+  }
+
+  // Redirect /en/* to Spanish equivalent
+  if (pathname.startsWith('/en/')) {
+    const spanishPath = pathname.replace('/en/', '/')
+    return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+  }
+
+  // Redirect /ru to /
+  if (pathname === '/ru') {
+    return NextResponse.redirect(new URL('/', request.url), { status: 301 })
+  }
+
+  // Redirect /ru/* to Spanish equivalent
+  if (pathname.startsWith('/ru/')) {
+    const spanishPath = pathname.replace('/ru/', '/')
+    return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+  }
+
+  // === SPANISH CONTENT SERVING ===
+  
+  // For root-level paths: Rewrite internally to /es/* 
+  // (User sees /, app router serves from /es/)
   if (
     pathname === '/' ||
-    (!pathname.startsWith('/en/') && 
-     !pathname.startsWith('/ru/') &&
-     !pathname.startsWith('/_next/') &&
+    (!pathname.startsWith('/_next/') &&
      !pathname.startsWith('/api/') &&
      !pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg)$/))
   ) {
-    // Rewrite root-level URL to /es/* internally (user sees /, app sees /es/)
+    // Rewrite to /es/* internally
     const url = request.nextUrl.clone()
     url.pathname = `/es${pathname === '/' ? '' : pathname}`
     return NextResponse.rewrite(url)

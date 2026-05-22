@@ -11,24 +11,66 @@
   "cta": {
     "callNow": "Call Now",
     "whatsapp": "WhatsApp",
+    "whatsappNow": "WhatsApp Now",
     "getQuote": "Free Quote",
     "emergency": "Emergency",
-    "availableNow": "Available Now"
+    "availableNow": "Available Now",
+    "needProfessional": "Need a Professional Now?",
+    "callUs": "Call Us",
+    "contactWhatsApp": "Contact WhatsApp"
   },
   "emergency": {
     "banner": "🚨 24/7 Emergency Service",
+    "title": "24/7 Emergency Service",
     "subtitle": "Immediate attention for emergencies",
     "available": "Available 24 Hours",
     "fastResponse": "Fast Response",
-    "responseTime": "30-60 minutes"
+    "responseTime": "30-60 minutes",
+    "availableAllYear": "Emergency service available every day of the year"
   },
   "trust": {
     "certified": "Certified Professionals",
     "guarantee": "Work Guarantee",
+    "serviceGuarantee": "Service Guarantee",
+    "qualityGuarantee": "Quality Guarantee",
+    "satisfactionGuarantee": "Satisfaction Guarantee",
     "experience": "Guaranteed Experience",
     "quality": "Assured Quality",
     "freeQuote": "No Obligation Quote",
-    "transparentPricing": "Transparent Pricing"
+    "transparentPricing": "Transparent Pricing",
+    "ourGuarantees": "Our Guarantees"
+  },
+  "eeat": {
+    "serviceGuarantee": {
+      "title": "Service Guarantee",
+      "description": "All our services include satisfaction guarantee. If you're not satisfied with the work performed, we'll correct it at no additional cost.",
+      "certifiedProfessionals": "Certified and insured professionals",
+      "qualityMaterials": "Premium quality materials",
+      "transparentBudget": "Transparent budget with no surprises"
+    },
+    "responseTime": {
+      "title": "Response Time",
+      "description": "30-60 minutes in the zone and metropolitan area. 24/7 emergency service, 365 days a year.",
+      "time": "30-60 min"
+    },
+    "localExpertise": {
+      "title": "Local Experts in",
+      "description": "With over {years} years of experience in {city}, we know the typical installations in the area, the most common problems and the most effective solutions.",
+      "yearsExperience": "years of experience"
+    },
+    "process": {
+      "title": "Our Work Process",
+      "step1Title": "Call and Initial Diagnosis",
+      "step1Desc": "We evaluate the problem over the phone and guide you on the urgency and approximate cost.",
+      "step2Title": "Fast Deployment",
+      "step2Desc": "We arrive at your location in 30-60 minutes with all necessary tools.",
+      "step3Title": "Inspection and Budget",
+      "step3Desc": "We inspect the problem, explain the solution and give you a clear quote before starting.",
+      "step4Title": "Professional Repair",
+      "step4Desc": "We perform the work with quality materials and leave everything clean and working.",
+      "step5Title": "Guarantee and Follow-up",
+      "step5Desc": "We provide invoice and written guarantee. Post-service follow-up to ensure your satisfaction."
+    }
   },
   "footer": {
     "description": "Professional plumbing, electrical and repair services available 24 hours a day throughout Spain.",
@@ -48,7 +90,9 @@
     "viewServices": "View services",
     "inYourCity": "in your city",
     "districts": "districts",
-    "inhabitants": "inhabitants"
+    "inhabitants": "inhabitants",
+    "ourServices": "Our Services",
+    "call": "Call"
   },
   "district": {
     "postalCodes": "Postal Codes:",

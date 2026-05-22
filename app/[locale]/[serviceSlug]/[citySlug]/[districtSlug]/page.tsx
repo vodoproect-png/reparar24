@@ -35,7 +35,9 @@ export async function generateStaticParams() {
     districtSlug: string
   }[] = []
 
-  const locales: Locale[] = ['es', 'en', 'ru']
+  // SPANISH-ONLY PRODUCTION: Only generate Spanish pages
+  // EN/RU middleware redirects to Spanish equivalents
+  const locales: Locale[] = ['es']
 
   locales.forEach((locale) => {
     services.forEach((service) => {
@@ -345,9 +347,10 @@ export default async function ServiceCityDistrictPage({
         </section>
 
         {/* EEAT Trust Signals */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="container-custom">
             <EEATSection
+              locale={locale}
               city={city.name}
               showGuarantee={true}
               showResponseTime={true}

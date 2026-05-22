@@ -19,6 +19,11 @@ interface HomePageProps {
   }>
 }
 
+// SPANISH-ONLY PRODUCTION: Only generate Spanish homepage
+export async function generateStaticParams() {
+  return [{ locale: 'es' as Locale }]
+}
+
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
   // Dictionary available for future use
