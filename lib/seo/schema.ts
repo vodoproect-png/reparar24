@@ -85,14 +85,9 @@ export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
       'Desatascos',
       'Calefacción',
       'Aire Acondicionado'
-    ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '127',
-      bestRating: '5',
-      worstRating: '1'
-    }
+    ]
+    // aggregateRating removed - Google requires verifiable reviews backing any rating claims
+    // Only 3 sample reviews exist, insufficient for structured data rating
   }
 }
 
@@ -334,13 +329,7 @@ export function generateEnhancedServiceSchema(props: EnhancedServiceSchemaProps)
         price: service.priceRange,
         priceCurrency: 'EUR'
       }
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '89',
-      bestRating: '5',
-      worstRating: '1'
     }
+    // aggregateRating removed - Google requires verifiable reviews backing any rating claims
   }
 }
