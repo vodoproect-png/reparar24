@@ -4,26 +4,45 @@ import type { NextRequest } from 'next/server'
 /**
  * Middleware for canonical locale routing
  * 
- * Spanish (es) is the default locale and uses root-level URLs without prefix
- * English (/en) and Russian (/ru) keep their prefixes
+ * Spanish (es) is the default locale and uses root-level URLs without prefix.
+ * This middleware:
+ * 1. REWRITES root-level URLs (/, /fontanero, etc.) to /es/* internally
+ * 2. REDIRECTS explicit /es/* requests to /* with 301 to maintain canonical URLs
  * 
- * This middleware redirects any /es/* URLs to /* to maintain canonical Spanish URLs
+ * English (/en/*) and Russian (/ru/*) pass through unchanged.
  */
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  // Redirect /es to / (permanent 301)
+  // Redirect explicit /es to / (permanent 301) - prevents direct /es access
   if (pathname === '/es') {
     return NextResponse.redirect(new URL('/', request.url), { status: 301 })
   }
 
-  // Redirect /es/* to /* (permanent 301)
+  // Redirect explicit /es/* to /* (permanent 301) - maintains canonical URLs
   if (pathname.startsWith('/es/')) {
     const newPath = pathname.replace('/es/', '/')
     return NextResponse.redirect(new URL(newPath, request.url), { status: 301 })
   }
 
-  // Allow all other routes to proceed normally
+  // For root-level paths that could be Spanish content:
+  // Rewrite internally to /es/* so App Router can handle them
+  // This makes / serve /es/ content, /fontanero serve /es/fontanero, etc.
+  if (
+    pathname === '/' ||
+    (!pathname.startsWith('/en/') && 
+     !pathname.startsWith('/ru/') &&
+     !pathname.startsWith('/_next/') &&
+     !pathname.startsWith('/api/') &&
+     !pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg)$/))
+  ) {
+    // Rewrite root-level URL to /es/* internally (user sees /, app sees /es/)
+    const url = request.nextUrl.clone()
+    url.pathname = `/es${pathname === '/' ? '' : pathname}`
+    return NextResponse.rewrite(url)
+  }
+
+  // All other routes pass through
   return NextResponse.next()
 }
 
