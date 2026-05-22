@@ -49,5 +49,22 @@
     "inYourCity": "in your city",
     "districts": "districts",
     "inhabitants": "inhabitants"
+  },
+  "district": {
+    "postalCodes": "Postal Codes:",
+    "ourExperience": "Our Experience",
+    "frequentProblems": "Common Problems in",
+    "emergencies24": "24/7 Emergencies in",
+    "callUrgent": "Call Urgent",
+    "frequentQuestions": "Frequently Asked Questions",
+    "whyChooseUs": "Why Choose Us in",
+    "commonQuestions": "Common Questions",
+    "professionalService": "Professional Service in",
+    "in": "in",
+    "intro": "Professional home repair services in {district}. Fast response, certified technicians, transparent pricing.",
+    "expertiseTitle": "Our Local Expertise",
+    "noProblems": "No specific problems available",
+    "emergency": "24/7 emergency service available in {district}. Fast response for urgent repairs.",
+    "whatsapp": "I need {service} service in {district}, {city}"
   }
 }

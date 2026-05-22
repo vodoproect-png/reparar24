@@ -19,6 +19,7 @@ import {
   generateDistrictCTA,
   generateDistrictWhatsAppMessage,
 } from '@/lib/seo/semantic-content-generator'
+import { getLightweightDistrictContent } from '@/lib/i18n/district-content'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
@@ -123,15 +124,39 @@ export default async function ServiceCityDistrictPage({
   // Get district context for semantic content
   const context = getDistrictContext(city.id, district.id)
   
-  // Use unique content for pilots, or generate for non-pilots
-  const intro = generateDistrictIntro(service, city, district, context)
-  const localExpertise = generateLocalExpertiseText(service, city, district, context)
+  // 🌍 MULTILINGUAL LIGHTWEIGHT PILOT: Use lightweight content for EN/RU
+  const lightweightContent = getLightweightDistrictContent(locale, service, city, district)
+  
+  // Spanish (es): Full semantic content generator
+  // EN/RU: Lightweight translated content
+  const intro = lightweightContent ? lightweightContent.intro : generateDistrictIntro(service, city, district, context)
+  const localExpertise = lightweightContent 
+    ? {
+        title: lightweightContent.expertiseTitle,
+        paragraphs: lightweightContent.expertiseParagraphs,
+        highlights: lightweightContent.expertiseHighlights
+      }
+    : generateLocalExpertiseText(service, city, district, context)
   const faqs = (districtSEO && locale === 'es') ? districtSEO.faqs : generateDistrictFAQs(service, city, district, context)
   const problems = generateDistrictProblems(service, city, district, context, 4)
-  const h1 = generateDistrictH1(service, city, district, context)
-  const emergencyText = generateEmergencyContext(service, city, district, context)
-  const cta = generateDistrictCTA(service, city, district, context)
-  const whatsappMessage = generateDistrictWhatsAppMessage(service, city, district, context)
+  const h1 = lightweightContent 
+    ? (locale === 'en' ? `${service.name} in ${district.name}` : `${service.name} в ${district.name}`)
+    : generateDistrictH1(service, city, district, context)
+  const emergencyText = lightweightContent ? lightweightContent.emergencyText : generateEmergencyContext(service, city, district, context)
+  const cta = lightweightContent 
+    ? { primary: lightweightContent.callUrgentCTA, secondary: 'WhatsApp' }
+    : generateDistrictCTA(service, city, district, context)
+  const whatsappMessage = lightweightContent ? lightweightContent.whatsappMessage : generateDistrictWhatsAppMessage(service, city, district, context)
+  
+  // Section headings (locale-aware)
+  const postalCodesLabel = lightweightContent ? (locale === 'en' ? 'Postal Codes:' : 'Почтовые индексы:') : 'Códigos Postales:'
+  const ourExperienceLabel = lightweightContent ? (locale === 'en' ? 'Our Experience' : 'Наш опыт') : 'Nuestra Experiencia'
+  const frequentProblemsHeading = lightweightContent ? `${lightweightContent.frequentProblemsHeading} ${district.name}` : `Problemas Frecuentes en ${district.name}`
+  const emergencyHeading = lightweightContent ? `${lightweightContent.emergencyHeading} ${district.name}` : `Emergencias 24/7 en ${district.name}`
+  const faqHeading = lightweightContent ? lightweightContent.faqHeading : `Preguntas Frecuentes - ${service.name} en ${district.name}`
+  const whyChooseUsHeading = lightweightContent ? `${lightweightContent.whyChooseUsHeading} ${district.name}` : `Por Qué Elegirnos en ${district.name}`
+  const commonQuestionsHeading = lightweightContent ? lightweightContent.commonQuestionsHeading : `Preguntas Comunes - ${service.name} en ${district.name}`
+  const professionalServiceHeading = lightweightContent ? lightweightContent.professionalServiceHeading : `${service.name} Profesional en ${district.name}, ${city.name}`
 
   const serviceSchema = generateServiceSchema({ service, city })
   const localBusinessSchema = generateLocalBusinessSchema({
@@ -185,7 +210,7 @@ export default async function ServiceCityDistrictPage({
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-6">
                 <div className="flex items-center gap-2 text-sm">
                   <span>📮</span>
-                  <span>Códigos Postales: {district.postalCodes.join(', ')}</span>
+                  <span>{postalCodesLabel} {district.postalCodes.join(', ')}</span>
                 </div>
               </div>
 
@@ -220,7 +245,7 @@ export default async function ServiceCityDistrictPage({
               </div>
               
               <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">Nuestra Experiencia</h3>
+                <h3 className="font-bold text-lg mb-4">{ourExperienceLabel}</h3>
                 <ul className="space-y-3">
                   {localExpertise.highlights.map((highlight, index) => (
                     <li key={index} className="flex items-start gap-2">
@@ -239,7 +264,7 @@ export default async function ServiceCityDistrictPage({
           <section className="py-16 bg-gray-50">
             <div className="container-custom">
               <h2 className="text-3xl font-bold mb-8">
-                Problemas Frecuentes en {district.name}
+                {frequentProblemsHeading}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {problems.map((problem, index) => (
@@ -261,7 +286,7 @@ export default async function ServiceCityDistrictPage({
                 <span className="text-6xl">🚨</span>
                 <div className="flex-1">
                   <h2 className="text-2xl font-bold text-red-900 mb-2">
-                    Emergencias 24/7 en {district.name}
+                    {emergencyHeading}
                   </h2>
                   <p className="text-red-700 text-lg leading-relaxed">
                     {emergencyText}
@@ -271,7 +296,7 @@ export default async function ServiceCityDistrictPage({
                   href="tel:+34641688524"
                   className="btn-primary bg-red-600 hover:bg-red-700 text-white px-8 py-4 whitespace-nowrap"
                 >
-                  📞 Llamar Urgente
+                  📞 {cta.primary}
                 </a>
               </div>
             </div>
@@ -282,7 +307,7 @@ export default async function ServiceCityDistrictPage({
         <section className="py-16 bg-white">
           <div className="container-custom">
             <h2 className="text-3xl font-bold mb-8 text-center">
-              Preguntas Frecuentes - {service.name} en {district.name}
+              {faqHeading}
             </h2>
             <div className="max-w-3xl mx-auto space-y-6">
               {faqs.map((faq, index) => (
@@ -306,7 +331,7 @@ export default async function ServiceCityDistrictPage({
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
             <h2 className="text-3xl font-bold mb-8 text-center">
-              Por Qué Elegirnos en {district.name}
+              {whyChooseUsHeading}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {service.benefits.map((benefit, index) => (
@@ -339,7 +364,7 @@ export default async function ServiceCityDistrictPage({
           <section className="py-16 bg-gray-50">
             <div className="container-custom">
               <h2 className="text-3xl font-bold mb-8 text-center">
-                Preguntas Comunes - {service.name} en {district.name}
+                {commonQuestionsHeading}
               </h2>
               <div className="max-w-4xl mx-auto">
                 <AIAnswerList questions={commonEmergencyQuestions.es} />
@@ -354,7 +379,7 @@ export default async function ServiceCityDistrictPage({
             <div className="container-custom">
               <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-bold mb-6">
-                  {service.name} Profesional en {district.name}, {city.name}
+                  {professionalServiceHeading}
                 </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-gray-700 leading-relaxed">

@@ -49,5 +49,22 @@
     "inYourCity": "в вашем городе",
     "districts": "районов",
     "inhabitants": "жителей"
+  },
+  "district": {
+    "postalCodes": "Почтовые индексы:",
+    "ourExperience": "Наш опыт",
+    "frequentProblems": "Частые проблемы в",
+    "emergencies24": "Аварии 24/7 в",
+    "callUrgent": "Срочный звонок",
+    "frequentQuestions": "Часто задаваемые вопросы",
+    "whyChooseUs": "Почему выбрать нас в",
+    "commonQuestions": "Общие вопросы",
+    "professionalService": "Профессиональная услуга в",
+    "in": "в",
+    "intro": "Профессиональные ремонтные услуги в {district}. Быстрый отклик, сертифицированные техники, прозрачные цены.",
+    "expertiseTitle": "Наш местный опыт",
+    "noProblems": "Нет конкретных проблем",
+    "emergency": "Аварийная служба 24/7 доступна в {district}. Быстрый отклик для срочного ремонта.",
+    "whatsapp": "Мне нужна услуга {service} в {district}, {city}"
   }
 }
