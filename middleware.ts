@@ -54,15 +54,28 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
   }
 
+  // === EXCLUDE SEO & STATIC FILES FROM REWRITING ===
+  
+  // Let these pass through directly (do NOT rewrite to /es/*)
+  if (
+    pathname === '/sitemap.xml' ||
+    pathname === '/robots.txt' ||
+    pathname === '/manifest.webmanifest' ||
+    pathname.startsWith('/icon') ||
+    pathname.startsWith('/apple-icon') ||
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/api/')
+  ) {
+    return NextResponse.next()
+  }
+
   // === SPANISH CONTENT SERVING ===
   
   // For root-level paths: Rewrite internally to /es/* 
   // (User sees /, app router serves from /es/)
   if (
     pathname === '/' ||
-    (!pathname.startsWith('/_next/') &&
-     !pathname.startsWith('/api/') &&
-     !pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg)$/))
+    !pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg)$/)
   ) {
     // Rewrite to /es/* internally
     const url = request.nextUrl.clone()
