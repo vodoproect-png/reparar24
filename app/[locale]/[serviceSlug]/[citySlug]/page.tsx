@@ -11,7 +11,6 @@ import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
-import { AIAnswerList, commonEmergencyQuestions } from '@/components/seo/AIAnswerBlock'
 import { EEATSection } from '@/components/seo/EEATSignals'
 import Link from 'next/link'
 
