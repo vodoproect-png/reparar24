@@ -40,7 +40,7 @@ export default function Footer({ locale }: FooterProps) {
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link 
-                    href={`/${locale}/${service.slug}`}
+                    href={locale === 'es' ? `/${service.slug}` : `/${locale}/${service.slug}`}
                     className="hover:text-primary-400 transition-colors"
                   >
                     {service.name}
@@ -57,7 +57,7 @@ export default function Footer({ locale }: FooterProps) {
               {cities.slice(0, 6).map((city) => (
                 <li key={city.id}>
                   <Link 
-                    href={`/${locale}/servicios/${city.slug}`}
+                    href={locale === 'es' ? `/servicios/${city.slug}` : `/${locale}/servicios/${city.slug}`}
                     className="hover:text-primary-400 transition-colors"
                   >
                     {city.name}
