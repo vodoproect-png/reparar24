@@ -25,7 +25,6 @@ import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import EmergencyBanner from '@/components/conversion/EmergencyBanner'
 import WhatsAppCTA from '@/components/conversion/WhatsAppCTA'
-import { AIAnswerList, commonEmergencyQuestions } from '@/components/seo/AIAnswerBlock'
 import { EEATSection } from '@/components/seo/EEATSignals'
 
 export async function generateStaticParams() {
@@ -155,7 +154,6 @@ export default async function ServiceCityDistrictPage({
   const emergencyHeading = lightweightContent ? `${lightweightContent.emergencyHeading} ${district.name}` : `Emergencias 24/7 en ${district.name}`
   const faqHeading = lightweightContent ? lightweightContent.faqHeading : `Preguntas Frecuentes - ${service.name} en ${district.name}`
   const whyChooseUsHeading = lightweightContent ? `${lightweightContent.whyChooseUsHeading} ${district.name}` : `Por Qué Elegirnos en ${district.name}`
-  const commonQuestionsHeading = lightweightContent ? lightweightContent.commonQuestionsHeading : `Preguntas Comunes - ${service.name} en ${district.name}`
   const professionalServiceHeading = lightweightContent ? lightweightContent.professionalServiceHeading : `${service.name} Profesional en ${district.name}, ${city.name}`
 
   const serviceSchema = generateServiceSchema({ service, city })
@@ -358,20 +356,6 @@ export default async function ServiceCityDistrictPage({
             />
           </div>
         </section>
-
-        {/* AI-Optimized Q&A Section */}
-        {locale === 'es' && (
-          <section className="py-16 bg-gray-50">
-            <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                {commonQuestionsHeading}
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <AIAnswerList questions={commonEmergencyQuestions.es} />
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* Unique District SEO Text - Bottom Placement (Pilot Districts Only) */}
         {districtSEO && locale === 'es' && (
