@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { locales, type Locale } from '@/lib/i18n/config'
 import { getDictionary } from '@/lib/i18n/dictionaries'
-import { GoogleAnalytics, GTMNoScript } from '@/components/analytics/GoogleAnalytics'
+import { ConsentAwareAnalytics, ConsentAwareGTMNoScript } from '@/components/analytics/ConsentAwareAnalytics'
+import { CookieBanner } from '@/components/consent/CookieBanner'
 import '../globals.css'
 
 export async function generateStaticParams() {
@@ -86,11 +87,12 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
-        <GoogleAnalytics />
+        <ConsentAwareAnalytics />
       </head>
       <body className="min-h-screen flex flex-col">
-        <GTMNoScript />
+        <ConsentAwareGTMNoScript />
         {children}
+        <CookieBanner />
       </body>
     </html>
   )
