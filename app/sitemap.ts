@@ -8,7 +8,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://reparar24.es'
   const sitemapEntries: MetadataRoute.Sitemap = []
 
-  locales.forEach((locale) => {
+  // MULTILINGUAL INDEXATION FREEZE: Only Spanish ('es') in sitemap
+  // /en/* and /ru/* pages contain broken Spanish content
+  // Excluded from sitemap until proper translations exist
+  const indexableLocales = locales.filter(locale => locale === 'es')
+
+  indexableLocales.forEach((locale) => {
     // Spanish (es) uses root-level URLs without prefix
     // EN and RU keep their prefixes
     const localePrefix = locale === 'es' ? '' : `/${locale}`

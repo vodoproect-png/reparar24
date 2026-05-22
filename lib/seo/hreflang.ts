@@ -12,6 +12,10 @@ export interface HreflangLink {
 
 /**
  * Generate hreflang links for a given path
+ * 
+ * MULTILINGUAL INDEXATION FREEZE: Only Spanish hreflang
+ * English and Russian pages contain broken Spanish content
+ * Hreflang disabled for en/ru until proper translations exist
  */
 export function generateHreflangLinks(
   path: string,
@@ -19,8 +23,11 @@ export function generateHreflangLinks(
 ): HreflangLink[] {
   const links: HreflangLink[] = []
   
-  // Add locale-specific links
-  locales.forEach((locale) => {
+  // FREEZE: Only indexable locales (Spanish only)
+  const indexableLocales = locales.filter(locale => locale === 'es')
+  
+  // Add locale-specific links (only Spanish)
+  indexableLocales.forEach((locale) => {
     const href = locale === 'es' 
       ? `${baseUrl}/${path}`
       : `${baseUrl}/${locale}/${path}`

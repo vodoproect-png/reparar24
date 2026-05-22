@@ -18,6 +18,32 @@ const nextConfig = {
 
   // Trailing slashes for SEO
   trailingSlash: false,
+
+  // MULTILINGUAL INDEXATION FREEZE
+  // Block /en/* and /ru/* from indexing via X-Robots-Tag headers
+  // These pages contain broken Spanish content
+  async headers() {
+    return [
+      {
+        source: '/en/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+      {
+        source: '/ru/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, noarchive, nosnippet',
+          },
+        ],
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -15,6 +15,11 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params as { locale: Locale }
+  
+  // MULTILINGUAL INDEXATION FREEZE
+  // En/ru pages contain broken Spanish content - block from indexing
+  const isNonIndexable = locale !== 'es'
+  
   const metadataByLocale: Record<Locale, Metadata> = {
     es: {
       metadataBase: new URL('https://reparar24.es'),
@@ -24,6 +29,10 @@ export async function generateMetadata({
       },
       description:
         'Servicios profesionales de fontanería, electricidad, desatascos y emergencias 24 horas en toda España.',
+      robots: {
+        index: true,
+        follow: true,
+      },
     },
     en: {
       metadataBase: new URL('https://reparar24.es'),
@@ -33,6 +42,11 @@ export async function generateMetadata({
       },
       description:
         'Professional plumbing, electrical, drain cleaning and emergency services available 24 hours throughout Spain.',
+      robots: {
+        index: false,
+        follow: false,
+        nocache: true,
+      },
     },
     ru: {
       metadataBase: new URL('https://reparar24.es'),
@@ -42,6 +56,11 @@ export async function generateMetadata({
       },
       description:
         'Профессиональные сантехнические, электрические услуги и аварийный сервис 24 часа по всей Испании.',
+      robots: {
+        index: false,
+        follow: false,
+        nocache: true,
+      },
     },
   }
 
