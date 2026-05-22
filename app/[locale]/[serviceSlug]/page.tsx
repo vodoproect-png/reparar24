@@ -10,6 +10,8 @@ import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/B
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
+import { RelatedServicesBlock } from '@/components/seo/RelatedServicesBlock'
+import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -177,6 +179,22 @@ export default async function ServicePage({
             </div>
           </section>
         )}
+
+        {/* E-E-A-T Trust Signals */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <div className="max-w-4xl mx-auto">
+              <ServiceGuaranteeBlock locale={locale} />
+            </div>
+          </div>
+        </section>
+
+        {/* Related Services - Internal Linking */}
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <RelatedServicesBlock currentServiceId={service.id} locale={locale} />
+          </div>
+        </section>
 
         {/* SEO Content Section - Bottom Placement */}
         <section className="py-16 bg-white">
