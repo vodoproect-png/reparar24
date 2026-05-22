@@ -3897,6 +3897,192 @@ En Delicias familias priorizan factura gas controlada, temperatura agradable suf
       }
     ],
     semanticOwnership: ['calefaccion', 'delicias', 'zaragoza', 'familia', 'economico', 'continental']
+  },
+
+  // CALEFACCIÓN PHASE 3: Valencia L'Eixample
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'valencia',
+    districtSlug: 'leixample',
+    metadata: {
+      title: 'Calefacción L\'Eixample Valencia | Calderas y Radiadores 24h | Reparar24',
+      description: 'Servicio técnico de calefacción en L\'Eixample Valencia. Reparación calderas, instalación radiadores, mantenimiento sistemas térmicos. Atención inmediata invierno valenciano.'
+    },
+    seoText: `Especialistas en calefacción para L'Eixample Valencia, donde los inviernos suaves requieren sistemas eficientes que funcionen perfectamente durante los meses fríos. Atendemos edificios modernistas y construcciones contemporáneas del distrito con soluciones adaptadas al clima mediterráneo: calderas de condensación optimizadas para uso estacional, radiadores de bajo consumo dimensionados para inviernos templados, y sistemas de calefacción central comunitaria. Nuestros técnicos conocen las particularidades térmicas de L'Eixample, desde la Gran Vía Marqués del Turia hasta Colón, ofreciendo mantenimiento preventivo antes de temporada fría, reparaciones urgentes cuando bajan temperaturas, e instalaciones que equilibran confort invernal con consumo moderado característico del clima valenciano mediterráneo.`,
+    faqs: [
+      {
+        question: '¿Cuándo activar calefacción Eixample Valencia con clima mediterráneo suave?',
+        answer: 'En L\'Eixample Valencia, clima mediterráneo con invierno suave (8-15°C típico), activar calefacción selectivamente: diciembre-febrero mañanas frías (<10°C), noches invierno (<12°C interiores incómodo), y días lluviosos fríos (sensación térmica baja). No necesario calefacción continua como clima continental. Uso intermitente ahorra hasta 60% vs uso permanente. Temperatura confortable: 19-20°C suficiente (vs 21-22°C climas fríos). Programar termostato: encender 6:00-9:00 mañana, apagar día soleado, reactivar 20:00-23:00 noche.'
+      },
+      {
+        question: '¿Qué tipo caldera mejor Eixample Valencia con uso estacional limitado invierno?',
+        answer: 'Para L\'Eixample Valencia, uso calefacción 3-4 meses/año, caldera mixta condensación (calefacción + ACS) ideal: 1) Eficiencia alta (rendimiento 95%+) compensa inversión incluso uso limitado. 2) ACS disponible todo año (amortiza equipo). 3) Modulación potencia adapta necesidad térmica variable clima mediterráneo. 4) Menor consumo gas vs caldera estándar ahorra 25-30% factura invierno. Potencia recomendada piso 80-100m² L\'Eixample: 24kW (suficiente invierno templado, evita sobredimensionar). Marcas fiables: Vaillant, Junkers, Saunier Duval adaptadas uso intermitente.'
+      },
+      {
+        question: '¿Purgar radiadores Eixample Valencia si solo usados invierno pocos meses?',
+        answer: 'Sí, purgar radiadores L\'Eixample antes primera activación invierno esencial aunque uso limitado: aire acumulado periodo inactivo (primavera-verano-otoño) reduce eficiencia 15-25%. Síntomas aire radiador: zonas frías superiores, ruidos burbujeo, calentamiento lento. Purga simple: llave purgador abre hasta sale agua sin burbujas, cierra. Realizar octubre-noviembre antes frío. Beneficios: calentamiento uniforme habitación, menor consumo gas (radiador eficiente trabaja menos tiempo), confort térmico óptimo desde primer uso invierno. DIY tutorial YouTube familias.'
+      },
+      {
+        question: '¿Vale pena instalar termostato programable Eixample Valencia con invierno corto?',
+        answer: 'Termostato programable Eixample Valencia altamente rentable precisamente por invierno corto uso intermitente: ahorro 20-30% factura gas vs manual (encender/apagar olvidos, temperatura excesiva innecesaria). Uso óptimo: programar horarios presencia familiar (mañana 6:00-9:00, noche 20:00-23:00), temperatura reducida ausencias/trabajo, apagado días templados soleados. Inversión termostato digital programable: 60-150€. Ahorro familia L\'Eixample invierno típico (factura 400-600€/temporada): 100-150€/año. Amortización: <2 años. Modelos WiFi permiten control remoto smartphone (ajustar temperatura desde trabajo).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'leixample', 'valencia', 'mediterraneo', 'estacional', 'intermitente']
+  },
+
+  // CALEFACCIÓN PHASE 3: Sevilla Macarena
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'sevilla',
+    districtSlug: 'macarena',
+    metadata: {
+      title: 'Calefacción Macarena Sevilla | Reparación Calderas Invierno | Reparar24',
+      description: 'Técnicos calefacción en Macarena, Sevilla. Servicio calderas, radiadores, instalaciones térmicas. Especialistas clima andaluz con inviernos suaves. Urgencias 24h.'
+    },
+    seoText: `Servicio técnico especializado en calefacción para el distrito Macarena de Sevilla, adaptado al clima andaluz con inviernos suaves pero húmedos donde la calefacción es necesaria estratégicamente. Atendemos desde el casco histórico hasta la zona norte del distrito, con soluciones térmicas eficientes para viviendas tradicionales sevillanas y edificaciones modernas: calderas de bajo consumo optimizadas para uso moderado invernal, sistemas de radiadores dimensionados para clima templado, y calefacción por suelo radiante en viviendas nuevas que aprovecha baja temperatura necesaria en Sevilla. Conocemos las necesidades específicas de Macarena, ofreciendo mantenimiento pre-invierno, reparaciones rápidas durante olas de frío que afectan Sevilla, e instalaciones que equilibran confort térmico con consumo moderado característico del clima mediterráneo continental andaluz.`,
+    faqs: [
+      {
+        question: '¿Cuándo encender calefacción Macarena Sevilla con invierno andaluz templado húmedo?',
+        answer: 'Macarena Sevilla, invierno templado (5-15°C) pero húmedo (sensación térmica más fría), encender calefacción selectivamente: enero-febrero mañanas <8°C, noches frías <10°C, y días lluviosos húmedos (humedad 70-85% intensifica frío percibido). No necesario calefacción permanente. Temperatura confortable: 18-19°C suficiente clima templado (ahorra gas vs 21°C). Uso típico: 2-3 meses/año intermitente. Programación inteligente: calentar solo mañanas-noches frías, apagar mediodías soleados (temperatura exterior 15-18°C confortable). Ahorro: 50-60% vs calefacción continua.'
+      },
+      {
+        question: '¿Calefacción eléctrica mejor que gas Macarena Sevilla con poco uso invierno?',
+        answer: 'Depende vivienda tipo y uso: calefacción eléctrica (radiadores aceite, paneles radiantes, bomba calor) ventajosa Macarena si: 1) Piso pequeño (<60m²) uso ocasional (ahorra inversión caldera gas). 2) Sin instalación gas natural (evita alta acometida). 3) Calentamiento rápido habitaciones individuales vs sistema central. PERO gas natural más económico uso medio-alto: caldera gas piso 80-100m² consumo invierno 300-400€/temporada vs eléctrico 500-700€. Opción óptima clima Sevilla: bomba calor inverter (frío/calor) amortiza doble uso. Split 2500W: 150-180€/invierno eficiente.'
+      },
+      {
+        question: '¿Biomasa o pellets viable Macarena Sevilla con invierno corto uso limitado?',
+        answer: 'Calefacción biomasa/pellets Macarena Sevilla generalmente NO rentable uso limitado: 1) Inversión alta estufa/caldera pellets (2.500-5.000€) vs caldera gas (1.200-2.500€). 2) Invierno corto Sevilla (uso 2-3 meses) amortización lenta (>10 años). 3) Almacenamiento pellets requiere espacio (viviendas tradicionales Macarena limitado). 4) Mantenimiento frecuente (limpieza cenizas, revisiones). MÁS viable: viviendas unifamiliares calefacción continua, o combinación estufa pellets salón + radiadores eléctricos dormitorios (flexibilidad). Ahorro combustible pellets vs gas marginal clima templado.'
+      },
+      {
+        question: '¿Mantenimiento caldera Macarena Sevilla suficiente cada 2 años con poco uso?',
+        answer: 'NO: mantenimiento caldera obligatorio ANUAL independiente uso (normativa seguridad). Macarena Sevilla, aunque uso 2-3 meses/año, revisión anual crítica: 1) Verificar quemador funcionamiento óptimo antes temporada. 2) Limpieza intercambiador (acumulación hollín reduce eficiencia uso estacional). 3) Comprobar seguridades (detector CO, válvula presión). 4) Análisis combustión rendimiento. Costo revisión: 80-120€/año. Mantenimiento preventivo evita averías invierno (técnico disponibilidad limitada alta demanda frío). Multas omitir revisión: 300-600€. Caldera sin mantenimiento anual: seguro hogar puede rechazar cobertura averías.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'macarena', 'sevilla', 'andaluz', 'templado', 'humedo']
+  },
+
+  // CALEFACCIÓN PHASE 3: Sevilla Sur
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'sevilla',
+    districtSlug: 'sur',
+    metadata: {
+      title: 'Calefacción Sevilla Sur | Calderas y Sistemas Térmicos | Reparar24',
+      description: 'Servicio calefacción distrito Sur Sevilla. Instalación y reparación calderas, radiadores, suelo radiante. Técnicos especializados clima andaluz. Disponibles 24 horas.'
+    },
+    seoText: `Técnicos especializados en calefacción para el distrito Sur de Sevilla, donde el clima andaluz templado requiere sistemas térmicos eficientes para los meses de invierno. Atendemos toda la zona sur, desde Bellavista hasta El Plantinar, con soluciones adaptadas a viviendas residenciales modernas y barriadas tradicionales: calderas de condensación dimensionadas para uso estacional moderado, instalaciones de radiadores de bajo consumo optimizados para clima templado, calefacción por suelo radiante en urbanizaciones nuevas, y sistemas centralizados en comunidades. Entendemos las necesidades específicas del Sur sevillano, donde los inviernos suaves pero húmedos requieren calefacción selectiva y eficiente, ofreciendo mantenimiento preventivo, reparaciones urgentes durante olas de frío, instalaciones que maximizan confort térmico minimizando consumo energético en clima mediterráneo continental.`,
+    faqs: [
+      {
+        question: '¿Suelo radiante mejor que radiadores distrito Sur Sevilla con clima templado?',
+        answer: 'Suelo radiante ventajas clima templado Sur Sevilla: 1) Funciona baja temperatura (30-35°C vs 60-70°C radiadores) = eficiencia 15-20% mayor invierno suave. 2) Calor uniforme confortable (evita estratificación aire caliente techo). 3) Sin elementos visibles (estética). 4) Inercia térmica aprovecha sol andaluz (apagar sistema conserva calor horas). PERO: inversión alta (60-80€/m² instalación) vs radiadores (25-40€/m²). Amortización: 15-20 años. Recomendado: vivienda nueva/reforma integral Sur. Radiadores suficientes vivienda existente uso moderado invierno. Híbrido: suelo salón + radiadores dormitorios.'
+      },
+      {
+        question: '¿Cuánto gas consume caldera invierno típico Sur Sevilla familia media?',
+        answer: 'Consumo gas caldera invierno Sur Sevilla (clima templado, uso 2-3 meses activo): familia 4 personas, piso 90-100m², caldera condensación eficiente, calefacción intermitente (mañanas/noches frías). Consumo estimado: diciembre-febrero 200-300m³ gas natural (tarifa 2024: 0,06-0,08€/kWh). Factura calefacción temporada: 250-400€ total. Desglose: 60% calefacción, 40% ACS invierno. Variables aumentan consumo: temperatura excesiva (22-23°C vs 19°C óptimo), ventanas aislamiento deficiente (fugas térmicas 30%), caldera antigua rendimiento bajo. Ahorro familia consciente: termostato programable, temperatura moderada, mantenimiento anual.'
+      },
+      {
+        question: '¿Cambiar radiador hierro fundido antiguo por aluminio Sur Sevilla ahorra gas?',
+        answer: 'Sí, sustitución radiadores hierro fundido por aluminio moderno ahorra energía clima Sur Sevilla: 1) Aluminio calienta rápido (inercia baja responde termostato preciso, evita sobrecalentamiento). 2) Menor volumen agua sistema (caldera calienta menos agua = arranque rápido). 3) Dimensionamiento optimizado clima templado (radiador sobredimensionado antiguo desperdicia). Ahorro estimado: 10-15% consumo gas. Inversión radiador aluminio instalado: 150-300€/unidad. Vivienda 90m² (6-7 radiadores): 1.200-1.800€ total. Amortización: 8-12 años ahorro gas. Adicional: estética moderna, válvulas termostáticas individuales (control temperatura habitación).'
+      },
+      {
+        question: '¿Condensación techo paredes invierno Sur Sevilla problema calefacción insuficiente?',
+        answer: 'Condensación invierno Sur Sevilla (humedad relativa alta 70-85%) causada: 1) Calefacción insuficiente (temperatura baja + humedad = punto rocío alcanzado superficies frías). 2) Ventilación inadecuada (humedad interior acumulada). 3) Aislamiento deficiente paredes exteriores (puentes térmicos fríos). 4) Producción humedad excesiva (cocinar, secar ropa interior). Solución: calefacción adecuada mantener 18-20°C, ventilación diaria 10-15 min (renovación aire expulsa humedad), extractor baño-cocina activo, evitar secar ropa radiadores (añade humedad). Si persiste: verificar aislamiento térmico vivienda, considerar deshumidificador zonas problemáticas (30-40€ eléctrico portátil).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'sur', 'sevilla', 'residencial', 'templado', 'eficiente']
+  },
+
+  // CALEFACCIÓN PHASE 3: Málaga Teatinos
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'malaga',
+    districtSlug: 'teatinos',
+    metadata: {
+      title: 'Calefacción Teatinos Málaga | Calderas y Radiadores Costa del Sol | Reparar24',
+      description: 'Servicio técnico calefacción en Teatinos, Málaga. Instalación calderas, reparación radiadores, mantenimiento sistemas térmicos. Especialistas clima mediterráneo costero.'
+    },
+    seoText: `Especialistas en calefacción para Teatinos, Málaga, donde el clima mediterráneo costero suave requiere sistemas térmicos eficientes para los escasos días fríos del año. Atendemos el distrito universitario y residencial de Teatinos con soluciones optimizadas para uso mínimo invernal: calderas mixtas de alta eficiencia que proporcionan ACS todo el año y calefacción ocasional en invierno, sistemas de radiadores dimensionados para clima costero templado, instalaciones de bomba de calor inverter que ofrecen versatilidad frío-calor, y calefacción individualizada por habitaciones para uso selectivo. Conocemos las particularidades de Teatinos, zona moderna con edificación contemporánea bien aislada, ofreciendo soluciones que equilibran el confort térmico ocasional con consumo energético mínimo, ideal para el clima privilegiado de la Costa del Sol donde la calefacción se usa 1-2 meses al año.`,
+    faqs: [
+      {
+        question: '¿Necesario calefacción gas Teatinos Málaga con clima Costa Sol muy suave?',
+        answer: 'Teatinos Málaga, clima mediterráneo costero muy suave (temperatura media invierno 12-17°C), calefacción necesaria pero uso MÍNIMO: enero-febrero mañanas frías <10°C, noches <12°C, días nublados viento levante (sensación fría). Opciones viables: 1) Caldera gas mixta (ACS prioritario + calefacción ocasional cuando necesario). 2) Bomba calor split inverter (frío verano prioritario + calor días fríos invierno). 3) Radiadores eléctricos bajo consumo habitaciones (uso puntual dormitorios noche).  Evitar: instalación calefacción gas exclusiva (inversión alta vs uso 1-2 meses). Calefacción eléctrica puntual suficiente clima Teatinos.'
+      },
+      {
+        question: '¿Split bomba calor mejor inversión Teatinos Málaga que caldera gas uso mínimo?',
+        answer: 'Bomba calor inverter (split aire acondicionado frío/calor) generalmente MÁS rentable Teatinos: 1) Uso prioritario: refrigeración verano Costa Sol (5-6 meses/año) amortiza inversión. 2) Calefacción invierno: función secundaria días fríos puntuales (eficiente hasta 0°C exterior). 3) Instalación: 800-1.500€ equipo 3.000W vs caldera gas 1.800-2.800€. 4) Sin mantenimiento anual obligatorio (vs caldera). 5) Control habitación individual (encender solo donde necesario). Consumo invierno bomba calor: 150-250€/temporada uso moderado. Caldera gas viable SI: vivienda grande (>100m²), familia numerosa (ACS alto consumo), o preferencia calor radiante vs aire.'
+      },
+      {
+        question: '¿Edificio nuevo Teatinos con calefacción central comunitaria rentable clima Málaga?',
+        answer: 'Calefacción central comunitaria Teatinos Málaga problemática clima muy suave: 1) Horarios fijos (mañana 7-10h, tarde 18-22h) no adaptables necesidad real variable clima. 2) Días templados 16-18°C: calefacción activa innecesaria (desperdicio). 3) Cuota fija mensual independiente uso (vecinos ausentes pagan igual). 4) Sin control temperatura individual vivienda. Alternativa óptima edificios nuevos Teatinos: calefacción-refrigeración individualizada bomba calor (cada vecino controla uso/gasto según necesidad). Edificio existente calefacción central: negociar comunidad reducción horarios invierno Málaga (vs ciudades frías), instalar termostatos corte individual viviendas.'
+      },
+      {
+        question: '¿Calefacción invierno Teatinos Málaga sube mucho factura eléctrica familia típica?',
+        answer: 'Impacto calefacción eléctrica (bomba calor/radiadores) factura invierno Teatinos: familia 4 personas, piso 85m², uso moderado 1-2 meses. Consumo adicional invierno: bomba calor inverter eficiente 150-250 kWh/mes (enero-febrero) vs verano sin calefacción. Incremento factura: 40-70€/mes temporada fría (total invierno: 80-140€). Radiadores eléctricos convencionales consumen 30-40% más (más costoso). Optimizar consumo: temperatura moderada 19-20°C (cada grado +7% consumo), calentar solo habitaciones usadas, aprovechar tarifa discriminación horaria (calentar valle nocturno más barato), y apagar días soleados templados (temperatura exterior confortable).'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'teatinos', 'malaga', 'costero', 'minimo', 'ocasional']
+  },
+
+  // CALEFACCIÓN PHASE 3: Zaragoza Centro  
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'zaragoza',
+    districtSlug: 'centro',
+    metadata: {
+      title: 'Calefacción Centro Zaragoza | Calderas Urgentes Cierzo | Reparar24',
+      description: 'Servicio urgente calefacción Centro Zaragoza. Reparación calderas, radiadores, instalaciones térmicas. Especialistas clima continental aragonés con cierzo frío. 24 horas.'
+    },
+    seoText: `Servicio técnico especializado en calefacción para el Centro de Zaragoza, donde el clima continental aragonés con cierzo intenso genera inviernos fríos que requieren sistemas térmicos robustos y eficientes. Atendemos el casco histórico y centro urbano con soluciones adaptadas a edificios tradicionales y modernas comunidades: calderas de alta potencia para calefacción central dimensionadas para temperaturas bajo cero, radiadores eficientes diseñados para inviernos rigurosos continentales, sistemas de calefacción que compensan pérdidas térmicas por viento cierzo característico de Zaragoza, y reparaciones urgentes durante olas de frío ártico. Conocemos perfectamente las exigencias térmicas del Centro zaragozano, ofreciendo mantenimiento preventivo pre-invernal esencial, intervenciones rápidas cuando las temperaturas caen drásticamente con cierzo, e instalaciones que garantizan confort térmico constante durante los 4-5 meses de frío intenso del invierno aragonés continental.`,
+    faqs: [
+      {
+        question: '¿Calefacción Centro Zaragoza suficiente 20°C o necesario más por frío cierzo?',
+        answer: 'Centro Zaragoza, invierno continental frío (-2 a +8°C) con cierzo (viento 40-60 km/h intensifica sensación fría), temperatura confortable interior: 20-21°C adecuada SI vivienda bien aislada. Cierzo NO afecta interior directamente PERO aumenta pérdidas térmicas ventanas-fachadas exposición norte-noroeste. Compensación: 1) Temperatura 21°C zonas exposición cierzo (vs 19-20°C fachadas protegidas). 2) Cerrar persianas noche (barrera adicional frío). 3) Burletes ventanas (evitan infiltraciones aire frío cierzo). 4) Temperatura 22-23°C excesiva (cada grado +7% consumo gas innecesario). Termostato programable: 21°C día, 18°C noche (ahorra gas manteniendo confort).'
+      },
+      {
+        question: '¿Cuánto tiempo caldera apagada Centro Zaragoza invierno antes tubería congela helada?',
+        answer: 'Riesgo congelación tuberías Centro Zaragoza invierno crítico: temperaturas nocturnas 0 a -5°C frecuentes, cierzo intensifica frío. Calefacción apagada: tuberías instalación interior vivienda (protegidas) resisten 24-48 horas antes congelación SI temperatura exterior no extrema (<-5°C). Tuberías zonas riesgo: cámaras aire fachadas exteriores, patios interiores, trasteros sin calefacción. Prevención ausencias invierno: 1) Calefacción mínima 12-15°C permanente (antihielo protege tuberías). 2) Vaciar instalación agua si ausencia prolongada (abrir grifos, vaciar caldera). 3) Aislamiento térmico tuberías expuestas. Tubería congelada = rotura al descongelar (reparación 300-800€). Modo antihielo caldera consume mínimo vs coste reparación.'
+      },
+      {
+        question: '¿Calefacción eléctrica viable Centro Zaragoza con invierno largo frío o solo gas?',
+        answer: 'Centro Zaragoza, invierno largo (noviembre-marzo = 5 meses) y frío intenso, calefacción eléctrica generalmente NO económica uso continuo: radiadores eléctricos consumo alto (2.000W/unidad x 0,15€/kWh = costoso). Piso 80m² calefacción eléctrica invierno: 800-1.200€/temporada vs gas natural 400-600€ (caldera eficiente). Excepción viable: bomba calor aerotérmica inverter alta eficiencia (COP 3-4: produce 3-4 kW calor por 1 kW eléctrico consumido). Inversión bomba calor: 3.000-6.000€ (amortización 6-10 años ahorro vs gas). Gas natural opción óptima Centro viviendas conexión disponible: económico, fiable invierno riguroso, calor radiante confortable.'
+      },
+      {
+        question: '¿Mantenimiento caldera Centro Zaragoza antes invierno evita averías altas demandas frío?',
+        answer: 'Mantenimiento preventivo caldera octubre-noviembre Centro Zaragoza ESENCIAL: demanda técnicos pico diciembre-enero (ola frío, fallos calderas antiguas sin revisión) genera esperas 3-5 días (frío extremo mientras tanto). Revisión pre-invernal (80-120€): limpieza quemador-intercambiador (eficiencia óptima), verificación presión-vaso expansión, análisis combustión (rendimiento máximo antes uso intensivo 5 meses), comprobación seguridades. Caldera sin mantenimiento: riesgo fallo inicio invierno 40% mayor, eficiencia reducida 10-15% (consume más gas mismo calor). Programar revisión septiembre-octubre: disponibilidad técnicos inmediata, precio competitivo (vs diciembre alta demanda), caldera perfecta antes frío extremo.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'centro', 'zaragoza', 'continental', 'cierzo', 'frio']
+  },
+
+  // CALEFACCIÓN PHASE 3: Zaragoza San José
+  {
+    serviceId: 'calefaccion',
+    citySlug: 'zaragoza',
+    districtSlug: 'san-jose',
+    metadata: {
+      title: 'Calefacción San José Zaragoza | Calderas Invierno Continental | Reparar24',
+      description: 'Técnicos calefacción San José, Zaragoza. Servicio calderas, radiadores, sistemas térmicos clima continental. Reparaciones urgentes invierno aragonés. Disponibles 24h.'
+    },
+    seoText: `Especialistas en calefacción para San José, Zaragoza, distrito residencial que enfrenta los rigores del invierno continental aragonés con temperaturas bajo cero y viento cierzo característico. Atendemos toda la zona de San José con soluciones térmicas robustas adaptadas a viviendas familiares y comunidades: calderas individuales y centralizadas de alta eficiencia dimensionadas para frío intenso prolongado, instalaciones de radiadores optimizados para calefacción continua invernal, sistemas de calefacción por suelo radiante en viviendas modernas que proporcionan confort uniforme, y reparaciones urgentes durante los meses críticos de invierno. Entendemos las necesidades específicas de San José, barrio residencial con edificación mayoritariamente familiar donde el confort térmico durante los 5 meses de frío es prioritario, ofreciendo mantenimiento preventivo, instalaciones eficientes energéticamente que reducen consumo de gas, reparaciones rápidas cuando el frío aprieta, garantizando calor confortable constante para familias del distrito durante todo el invierno aragonés.`,
+    faqs: [
+      {
+        question: '¿Caldera condensación ahorra mucho San José Zaragoza con invierno largo uso intenso?',
+        answer: 'San José Zaragoza, invierno largo intenso (5 meses uso continuo), caldera condensación ahorro significativo vs convencional: rendimiento 95-105% (condensación aprovecha calor latente) vs 75-85% (atmosférica antigua). Ahorro real: 20-30% consumo gas anual. Familia típica San José, vivienda 100m², consumo actual caldera antigua: 1.800€/año gas. Con condensación: 1.260-1.440€/año (ahorro 360-540€/año). Inversión caldera condensación instalada: 2.500-3.500€. Amortización: 5-8 años. Beneficios adicionales: modulación precisa temperatura (confort óptimo), menor mantenimiento (tecnología moderna fiable), emisiones CO2 reducidas. Invierno largo Zaragoza ideal amortizar inversión condensación.'
+      },
+      {
+        question: '¿Cuánto gas consume calefacción familia San José Zaragoza invierno completo típico?',
+        answer: 'Consumo gas calefacción San José Zaragoza invierno típico continental: familia 4 personas, vivienda unifamiliar/adosado 110-130m², caldera condensación eficiente, temperatura confort 20-21°C, noviembre-marzo (5 meses). Consumo estimado: 1.100-1.400 m³ gas natural/temporada. Desglose: diciembre-febrero (frío intenso) 65% consumo, noviembre-marzo (transición) 35%. Factura total invierno: 900-1.200€ (tarifa 2024: 0,06-0,08€/kWh). Variables incrementan consumo: aislamiento térmico deficiente (+30%), ventanas antiguas (+20%), temperatura excesiva 22-23°C (+15% cada grado), caldera antigua baja eficiencia (+25%). Optimización: termostato programable, temperatura moderada, mantenimiento anual.'
+      },
+      {
+        question: '¿Sistema calefacción suelo radiante mejor radiadores tradicionales San José Zaragoza?',
+        answer: 'Suelo radiante vs radiadores San José Zaragoza invierno riguroso: Suelo radiante ventajas: 1) Calor uniforme desde suelo (confort superior, pies calientes). 2) Funciona baja temperatura 35-40°C (eficiencia +15-20% vs radiadores 65-70°C). 3) Compatible caldera condensación (rendimiento óptimo baja temperatura). 4) Sin elementos visibles (estética, espacio libre). 5) Inercia térmica alta (conserva calor horas apagado). Desventajas: 1) Inversión alta 70-90€/m² instalación (vivienda 100m²: 7.000-9.000€) vs radiadores 3.500-5.000€. 2) Inercia = respuesta lenta cambios temperatura (vs radiadores rápidos). Recomendado: vivienda nueva/reforma integral San José. Radiadores adecuados vivienda existente (inversión menor).'
+      },
+      {
+        question: '¿Vale pena cambiar caldera antigua 15 años San José Zaragoza por nueva eficiente?',
+        answer: 'Caldera 15 años San José Zaragoza: sustitución altamente recomendable. Caldera antigua (rendimiento degradado 70-75%, fallos frecuentes, repuestos caros/descatalogados, seguridad reducida) vs condensación moderna (rendimiento 95-105%, fiabilidad tecnología actual, garantía 3-5 años, control digital preciso). Ahorro consumo gas: 25-35% = familia San José consumo actual 1.600€/año → nueva 1.040-1.200€/año (ahorro 400-560€/año). Inversión: caldera condensación instalada llave mano 2.800-3.800€. Amortización: 5-7 años ahorro gas. Beneficio adicional: tranquilidad invierno (evitar avería caldera antigua momento crítico frío extremo, técnico no disponible días). Financiación disponible: 48-60 meses sin intereses distribuidores.'
+      }
+    ],
+    semanticOwnership: ['calefaccion', 'san-jose', 'zaragoza', 'residencial', 'familiar', 'riguroso']
   }
 ]
 
