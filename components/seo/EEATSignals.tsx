@@ -60,7 +60,7 @@ export function ResponseTimeBlock() {
             Tiempo de Respuesta
           </h3>
           <p className="text-neutral-700">
-            <strong>30-60 minutos</strong> en Valencia ciudad y área metropolitana. Servicio de emergencia 24 horas, 365 días al año.
+            <strong>30-60 minutos</strong> en la zona y área metropolitana. Servicio de emergencia 24 horas, 365 días al año.
           </p>
         </div>
       </div>
