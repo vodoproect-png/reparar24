@@ -7,6 +7,80 @@
 
 ## 1. PROJECT ARCHITECTURE
 
+### CANONICAL SPANISH URL POLICY ⚠️ CRITICAL
+
+**Spanish is the DEFAULT LOCALE and uses ROOT-LEVEL URLs without prefix.**
+
+**✅ PUBLIC CANONICAL URLs (what users see):**
+```
+/                           (Spanish homepage)
+/fontanero                  (Spanish service page)
+/electricista/madrid        (Spanish city page)
+/electricista/madrid/centro (Spanish district page)
+/contacto                   (Spanish contact page)
+```
+
+**❌ FORBIDDEN in public examples:**
+```
+/es                         (redirects to /)
+/es/fontanero               (redirects to /fontanero)
+/es/electricista/madrid     (redirects to /electricista/madrid)
+```
+
+**⚙️ INTERNAL IMPLEMENTATION (behind the scenes only):**
+- Middleware rewrites `/` → `/es/` internally
+- App Router serves content from `/es/*` paths
+- Users NEVER see `/es/` in browser
+- `/es/*` requests redirect 301 to `/*`
+
+**📋 IMPLEMENTATION RULES:**
+
+1. **Reports MUST use canonical URLs:**
+   ```
+   ✅ CORRECT: /electricista/madrid
+   ❌ WRONG:   /es/electricista/madrid
+   ```
+
+2. **Sitemap MUST use canonical URLs:**
+   ```
+   ✅ CORRECT: <loc>https://reparar24.es/electricista/madrid</loc>
+   ❌ WRONG:   <loc>https://reparar24.es/es/electricista/madrid</loc>
+   ```
+
+3. **Internal linking MUST use canonical URLs:**
+   ```tsx
+   ✅ CORRECT: <Link href="/electricista/madrid">
+   ❌ WRONG:   <Link href="/es/electricista/madrid">
+   ```
+
+4. **Metadata/SEO MUST reference canonical URLs:**
+   ```tsx
+   ✅ CORRECT: canonical: 'https://reparar24.es/electricista/madrid'
+   ❌ WRONG:   canonical: 'https://reparar24.es/es/electricista/madrid'
+   ```
+
+5. **English/Russian URLs use prefixes normally:**
+   ```
+   ✅ /en/electrician/madrid
+   ✅ /ru/elektrik/madrid
+   ```
+
+**🔍 VALIDATION CHECKLIST:**
+
+Before every report/implementation:
+- [ ] All public URL examples use root-level paths (no `/es/`)
+- [ ] Canonical URLs in metadata are correct
+- [ ] Internal links use root-level paths for Spanish
+- [ ] `/es/*` only mentioned as implementation detail
+- [ ] English `/en/*` and Russian `/ru/*` correctly prefixed
+
+**⚠️ CONSEQUENCES OF VIOLATION:**
+- SEO confusion (duplicate URL patterns)
+- Governance drift
+- Future implementation mistakes
+- 301 redirect chain issues
+- Incorrect external linking
+
 ### Routing Source of Truth
 - **File:** `data/cities.ts`
 - **Rule:** DO NOT MODIFY unless explicit GEO expansion approved
