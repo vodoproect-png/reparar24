@@ -29,22 +29,22 @@ export function getServiceNavigation(locale: Locale): ServiceNavigation {
       plumbing: {
         slug: 'fontanero',
         label: 'Fontanería',
-        href: `/es/fontanero`,
+        href: `/fontanero`,
       },
       electrical: {
         slug: 'electricista',
         label: 'Electricidad',
-        href: `/es/electricista`,
+        href: `/electricista`,
       },
       drainage: {
         slug: 'desatascos',
         label: 'Desatascos',
-        href: `/es/desatascos`,
+        href: `/desatascos`,
       },
       airConditioning: {
         slug: 'aire-acondicionado',
         label: 'Aire Acondicionado',
-        href: `/es/aire-acondicionado`,
+        href: `/aire-acondicionado`,
       },
     },
     en: {
