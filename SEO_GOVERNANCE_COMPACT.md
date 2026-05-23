@@ -1,5 +1,6 @@
 # SEO Governance - Compact Reference
-**Last Updated:** 2026-05-22  
+**Last Updated:** 2026-05-23  
+**Production State:** 241 pages (Spanish-only)  
 **Purpose:** Single source of truth for district SEO refinement tasks  
 **Token Optimization:** Read this file FIRST, avoid scanning old reports
 
@@ -84,14 +85,14 @@ Before every report/implementation:
 ### Routing Source of Truth
 - **File:** `data/cities.ts`
 - **Rule:** DO NOT MODIFY unless explicit GEO expansion approved
-- **Current State:** 696 pages total (3 locales × 18 services × ~13 cities + districts)
+- **Current State:** 241 pages total (Spanish-only: 238 SEO/service pages + 3 legal pages)
 - **District SEO:** Enhancement layer ONLY, not routing layer
 
 ### Page Count Baseline
 ```
-✅ Expected: 696 pages
+✅ Expected: 241 pages
 ❌ If changed: Requires explicit approval
-✓ Validation: npm run build must show 696
+✓ Validation: npm run build must show 241
 ```
 
 ---
@@ -244,7 +245,7 @@ npm run build
 ```
 **Expected Output:**
 - ✅ Compiled successfully
-- ✅ 696/696 pages generated
+- ✅ 241/241 pages generated
 - ✅ 0 TypeScript errors
 - ✅ Only pre-existing warnings OK
 
@@ -253,7 +254,7 @@ npm run build
 ✅ data/cities.ts unchanged (git diff)
 ✅ No new districts added
 ✅ No routing changes
-✅ Page count stable at 696
+✅ Page count stable at 241
 ```
 
 **3. Final Report**
@@ -337,7 +338,7 @@ data/faqs.ts                  (FAQ database)
 4. Update ONLY that service's districts
 5. Maintain semantic ownership rules
 6. Run npm run build
-7. Confirm 696 pages
+7. Confirm 241 pages
 8. Create report
 ```
 
@@ -347,7 +348,7 @@ data/faqs.ts                  (FAQ database)
 2. If not exists: STOP, need approval
 3. If exists: Add to district-seo-content.ts only
 4. Follow uniqueness rules
-5. Validate build (696 pages)
+5. Validate build (241 pages)
 ```
 
 ### Task: Fix Semantic Leakage
@@ -370,7 +371,7 @@ data/faqs.ts                  (FAQ database)
 ❌ Adding new cities/districts
 ❌ Changing routing logic
 ❌ Modifying page templates
-❌ Page count ≠ 696
+❌ Page count ≠ 241
 ❌ Cross-service term pollution
 ❌ Copy-pasting between services
 ❌ Creating doorway pages
@@ -391,7 +392,7 @@ data/faqs.ts                  (FAQ database)
 ### Task is Complete When:
 ```
 ✅ npm run build passes
-✅ 696 pages confirmed
+✅ 241 pages confirmed
 ✅ 0 new TypeScript errors
 ✅ data/cities.ts unchanged
 ✅ Semantic ownership respected

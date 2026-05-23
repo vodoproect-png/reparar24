@@ -1,0 +1,152 @@
+# Reparar24 - Cline AI Assistant Rules
+
+## PROJECT ARCHITECTURE - CRITICAL
+
+**Reparar24 is SPANISH-ONLY production.**
+
+### Current Production State
+- **Build Target**: 241 pages
+- **Architecture**: Spanish-only (multilingual rolled back)
+- **Canonical Domain**: reparar24.es
+- **Page Breakdown**:
+  - 238 SEO/service pages
+  - 3 legal pages: /privacidad, /terminos, /cookies
+
+### URL Architecture - MUST FOLLOW
+
+**✅ CORRECT Spanish Canonical URLs (root-level):**
+```
+/                         (homepage)
+/fontanero                (service page)
+/electricista/madrid      (city page)
+/desatascos/madrid/centro (district page)
+/contacto                 (contact page)
+/privacidad               (legal page)
+/terminos                 (legal page)
+/cookies                  (legal page)
+```
+
+**❌ FORBIDDEN in public URLs/examples/reports:**
+```
+/es                       (redirects to /)
+/es/fontanero             (redirects to /fontanero)
+/es/electricista/madrid   (redirects to /electricista/madrid)
+/en/*                     (redirects to Spanish equivalent)
+/ru/*                     (redirects to Spanish equivalent)
+```
+
+### Internal Technical Implementation
+
+- **App Router Structure**: `app/[locale]/` exists for technical reasons only
+- **Middleware**: Rewrites root URLs to `/es/*` internally
+- **Public Behavior**: Users NEVER see `/es/` in browser
+- **[locale] folder**: Internal implementation detail, NOT public URL strategy
+
+### Critical Rules for AI Assistant
+
+1. **ALWAYS use root-level URLs** in examples, reports, internal links
+2. **NEVER suggest /es/* URLs** in documentation or code changes
+3. **DO NOT restore multilingual** unless explicitly requested in dedicated task
+4. **DO NOT work on EN/RU translations** unless explicitly requested
+5. **DO NOT modify routing** without explicit approval
+6. **DO NOT change page count** from 241 without explicit approval
+
+### Read These Files First
+
+When starting any task:
+1. Read `SEO_GOVERNANCE_COMPACT.md` (compact governance rules)
+2. Read `PROJECT_STATE_SUMMARY.md` (current architecture state)
+3. Then proceed with task-specific files
+
+### Validation Requirements
+
+Every task MUST include:
+- **Build validation**: `npm run build` must pass
+- **Page count check**: Must generate exactly 241 pages
+- **URL audit**: No `/es/*` in internal links or public examples
+- **Report generation**: Document all changes
+
+### Forbidden Actions Without Explicit Approval
+
+❌ Adding new cities/districts  
+❌ Modifying `data/cities.ts` (routing source of truth)  
+❌ Changing routing logic in middleware  
+❌ Modifying page templates  
+❌ Restoring multilingual architecture  
+❌ Creating new SEO URL clusters  
+❌ Generating fake reviews/ratings/certifications  
+❌ Creating doorway pages  
+
+### Allowed Actions (Standard Workflow)
+
+✅ Updating `data/district-seo-content.ts` (SEO content)  
+✅ Improving existing page content  
+✅ Fixing semantic leakage between services  
+✅ Enhancing metadata (within governance rules)  
+✅ Optimizing for AI Overviews  
+✅ Spanish language improvements  
+✅ Bug fixes that maintain 241 pages  
+
+### Spanish-Only Compliance
+
+- All public URLs must be root-level (no locale prefix)
+- All internal links must use canonical Spanish URLs
+- Reports must reference correct URL format
+- EN/RU files exist but are NOT used in production
+- Sitemap includes ONLY Spanish URLs
+- Hreflang includes ONLY Spanish (es-ES, x-default)
+
+### Multilingual Status
+
+**Status**: TEMPORARILY DISABLED  
+**Reason**: Spanish SEO stabilization priority  
+**Files**: EN/RU translation files still exist (for future use)  
+**Redirects**: /en/* and /ru/* redirect 301 to Spanish equivalents  
+**Future**: Can be re-enabled in dedicated multilingual restoration phase
+
+### Key Governance Principles
+
+1. **One keyword = One page** (per service)
+2. **95%+ unique content** required
+3. **No template spam** allowed
+4. **No keyword cannibalization**
+5. **Service semantic ownership** must be respected
+6. **GEO hierarchy separation** (generic/city/district)
+7. **AI-safe writing** prioritized
+8. **Conversion focus** maintained
+
+### Build Expectations
+
+```bash
+npm run build
+```
+
+**Expected Output**:
+- ✅ Compiled successfully
+- ✅ 241/241 pages generated
+- ✅ 0 TypeScript errors
+- ✅ Pre-existing warnings acceptable
+
+### Reporting Standards
+
+Every task completion requires:
+1. **Summary report** in Markdown format
+2. **Build validation** output included
+3. **Page count verification** (must be 241)
+4. **URL compliance check** (no /es/* violations)
+5. **Changes documented** with before/after
+
+### Questions to Ask Before Starting
+
+- Does this task require modifying routing? (Need approval)
+- Does this task change page count? (Need approval)
+- Does this task involve multilingual work? (Need explicit request)
+- Can I accomplish this by modifying `data/district-seo-content.ts` only? (Preferred)
+
+---
+
+**Remember**: Spanish-only production is TEMPORARY strategic decision, not permanent architecture. The codebase retains multilingual capability for future re-enablement.
+
+**Last Updated**: 2026-05-23  
+**Current Production Pages**: 241  
+**Architecture**: Spanish-only (ES)
