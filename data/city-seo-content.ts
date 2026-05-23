@@ -56,7 +56,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'madrid',
     metadata: {
       title: 'Fontanero Madrid | Urgencias Profesionales 24 Horas',
-      description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión de agua. Atención urgente 24h en Centro, Salamanca, Chamberí, Retiro. Presupuesto gratuito.'
+      description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión. Urgencias 24h con presupuesto gratuito.'
     },
     seoText: 'Madrid presenta desafíos únicos de fontanería derivados de su densidad urbana y parque edificatorio histórico. Los edificios verticales de 5-7 plantas construidos entre 1900-1960 generan problemas de presión diferencial: la presión de red municipal (2-3 bar) apenas alcanza plantas superiores sin grupo de presión, obligando a instalaciones progresivas para garantizar suministro uniforme. En el centro histórico (Austrias, La Latina, Lavapiés), las infraestructuras centenarias conservan tuberías originales de plomo o hierro galvanizado con diámetros reducidos por acumulación interna de óxido y cal. El agua de Madrid, aunque de excelente calidad, tiene dureza moderada-alta (150-300 mg/L CaCO3) que favorece incrustaciones calcáreas en grifería, termos y electrodomésticos',
     faqs: [
@@ -126,7 +126,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'barcelona',
     metadata: {
       title: 'Fontanero en Barcelona 24h: Expertos en Eixample y Ciutat Vella',
-      description: 'Fontanero profesional en Barcelona. Especialistas en humedad, tuberías antiguas del Eixample y edificios modernistas. Urgencias 24h en Gràcia, Born, Raval y Sants. Consulta sin compromiso.'
+      description: 'Fontanero profesional en Barcelona. Expertos en Eixample, humedad y edificios antiguos. Urgencias 24h. Consulta sin compromiso.'
     },
     seoText: 'Barcelona combina arquitectura modernista única con desafíos específicos de fontanería. Los edificios del Eixample (1900-1930) conservan instalaciones originales de hierro galvanizado en patios de luces comunitarios donde la humedad ambiental alta (70-85% por proximidad al mar) acelera la corrosión. Los baños interiores que ventilan a patis compartidos acumulan humedad, generando moho y filtraciones cuando existen microfu gas en tuberías empotradas. En Ciutat Vella, los edificios medievales y barrocos catalogados requieren intervenciones respetuosas con patrimonio: localización de fugas mediante termografía sin rozas invasivas, reparaciones puntuales por videoendoscopia y materiales compatibles con estructuras históricas. La ITE (Inspección Técnica Edificios) obligatoria para inmuebles de más de 45 años evalúa estado de instalaciones, pudiendo exigir renovación de bajantes deterioradas',
     faqs: [
@@ -196,7 +196,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'valencia',
     metadata: {
       title: 'Fontanero en Valencia 24h – Servicio Urgente en Todos los Barrios',
-      description: 'Fontanero profesional en Valencia. Expertos en edificios del centro histórico y zonas costeras. Urgencias 24h en Ruzafa, Campanar, Benimaclet y toda la ciudad. Valoración gratuita.'
+      description: 'Fontanero profesional en Valencia. Expertos en edificios históricos y zonas costeras. Urgencias 24h en toda la ciudad. Valoración gratuita.'
     },
     seoText: 'Valencia presenta particularidades derivadas de su clima mediterráneo y proximidad al mar. La humedad costera (60-75%) y la brisa marina con salinidad afectan las tuberías metálicas en zonas próximas al puerto y Malvarrosa, acelerando corrosión en instalaciones expuestas. El centro histórico conserva edificios con infraestructuras antiguas donde las tuberías discurren por estructuras centenarias, requiriendo intervenciones cuidadosas. La dureza del agua municipal (150-250 mg/L CaCO3) genera acumulación de cal en grifería, termos y electrodomésticos si no se realiza mantenimiento preventivo. En barrios como Ruzafa, Benimaclet o Campanar, las reformas integrales de viviendas demandan actualización completa de fontanería adaptada a consumos modernos. Las viviendas en zonas como Nazaret o Poblats Marítims requieren atención específica por la salinidad ambiental que degrada juntas y conexiones metálicas',
     faqs: [
@@ -270,7 +270,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'sevilla',
     metadata: {
       title: 'Fontanero en Sevilla 24h | Urgencias y Reparaciones Rápidas',
-      description: 'Fontanero profesional en Sevilla. Expertos en estrés térmico de tuberías y edificios históricos. Servicio urgente 24h en todos los barrios: Triana, Nervión, Macarena. Presupuesto gratuito.'
+      description: 'Fontanero profesional en Sevilla. Expertos en calor extremo y edificios históricos. Urgencias 24h con presupuesto gratuito.'
     },
     seoText: 'Sevilla enfrenta desafíos específicos derivados de su clima extremo. Los veranos con temperaturas de 40-45°C generan dilatación térmica en tuberías expuestas y estrés en juntas, favoreciendo fugas en puntos débiles. Las tuberías de PVC en terrazas o patios se degradan aceleradamente por radiación UV directa si no están protegidas. El centro histórico (Arenal, Santa Cruz, Alameda) conserva edificios con instalaciones centenarias donde las tuberías discurren por muros de más de un metro de grosor, complicando localizaciones y reparaciones. La baja pluviometría (menos de 550mm anuales) concentra el consumo de agua en meses cálidos, sobrecargando instalaciones antiguas subdimensionadas. En barrios como Triana, Nervión o Macarena, las reformas demandan actualización de fontanería adaptada a aire acondicionado centralizado y consumos modernos',
     faqs: [
@@ -340,7 +340,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'malaga',
     metadata: {
       title: 'Fontanero en Málaga 24h | Expertos en Zonas Costeras y Centro',
-      description: 'Fontanero profesional en Málaga. Especialistas en corrosión salina, humedad costera y tuberías en zonas turísticas. Servicio urgente 24h en todos los barrios. Presupuesto gratuito.'
+      description: 'Fontanero profesional en Málaga. Especialistas en corrosión salina y zonas turísticas costeras. Urgencias 24h con presupuesto gratuito.'
     },
     seoText: 'Málaga presenta desafíos únicos por su ubicación costera mediterránea. La humedad ambiental alta (65-80%) combinada con aerosoles salinos del mar genera corrosión acelerada en tuberías metálicas, especialmente en zonas como Malagueta, Pedregalejo o El Palo donde la brisa marina impacta directamente las fachadas. Las juntas y conexiones de grifería se degradan más rápido que en ciudades de interior, requiriendo reemplazo cada 8-12 años vs 15-20 años en zonas sin salinidad. El centro histórico conserva edificios con instalaciones antiguas donde las tuberías discurren por estructuras centenarias. Las viviendas turísticas en zonas costeras demandan mantenimiento preventivo intensificado para evitar averías en temporada alta. La dureza del agua (100-200 mg/L CaCO3, variable según zona) requiere descalcificación periódica',
     faqs: [
@@ -410,7 +410,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'zaragoza',
     metadata: {
       title: 'Fontanero en Zaragoza 24h | Expertos en Cierzo y Clima Continental',
-      description: 'Fontanero profesional en Zaragoza. Especialistas en roturas por heladas, estrés del cierzo y edificios antiguos. Servicio urgente 24h en todos los barrios. Presupuesto gratuito.'
+      description: 'Fontanero profesional en Zaragoza. Especialistas en heladas, cierzo y edificios antiguos. Urgencias 24h con presupuesto gratuito.'
     },
     seoText: 'Zaragoza enfrenta desafíos únicos derivados de su clima continental extremo y el cierzo característico. Los inviernos con temperaturas de -5 a +5°C generan riesgo de congelación en tuberías expuestas en patios, terrazas o zonas no calefactadas, provocando roturas costosas cuando el agua congelada se expande. El cierzo (viento de 40-80 km/h) enfría rápidamente tuberías en fachadas norte y acelera pérdida térmica en instalaciones de agua caliente. Los veranos de 35-40°C contrastan con inv iernos gélidos, creando estrés térmico por dilatación/contracción cíclica que debilita juntas. El centro histórico (Casco Viejo, Magdalena) conserva edificios con instalaciones centenarias donde las tuberías discurren por muros gruesos. En barrios como Delicias, Las Fuentes o Universidad, las reformas demandan actualización de fontanería con aislamiento térmico reforzado',
     faqs: [
