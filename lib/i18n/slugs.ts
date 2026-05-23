@@ -82,14 +82,17 @@ export function getAllServiceSlugs(serviceId: ServiceId): string[] {
 
 /**
  * Generate service URL with localized slug
+ * Spanish (default locale) uses root-level URLs without prefix
  */
 export function getLocalizedServiceUrl(serviceId: ServiceId, locale: Locale): string {
   const slug = getLocalizedServiceSlug(serviceId, locale)
-  return `/${locale}/${slug}`
+  const prefix = locale === defaultLocale ? '' : `/${locale}`
+  return `${prefix}/${slug}`
 }
 
 /**
  * Generate service+city URL with localized slug
+ * Spanish (default locale) uses root-level URLs without prefix
  */
 export function getLocalizedServiceCityUrl(
   serviceId: ServiceId,
@@ -97,11 +100,13 @@ export function getLocalizedServiceCityUrl(
   locale: Locale
 ): string {
   const serviceSlug = getLocalizedServiceSlug(serviceId, locale)
-  return `/${locale}/${serviceSlug}/${citySlug}`
+  const prefix = locale === defaultLocale ? '' : `/${locale}`
+  return `${prefix}/${serviceSlug}/${citySlug}`
 }
 
 /**
  * Generate service+city+district URL with localized slug
+ * Spanish (default locale) uses root-level URLs without prefix
  */
 export function getLocalizedServiceCityDistrictUrl(
   serviceId: ServiceId,
@@ -110,7 +115,8 @@ export function getLocalizedServiceCityDistrictUrl(
   locale: Locale
 ): string {
   const serviceSlug = getLocalizedServiceSlug(serviceId, locale)
-  return `/${locale}/${serviceSlug}/${citySlug}/${districtSlug}`
+  const prefix = locale === defaultLocale ? '' : `/${locale}`
+  return `${prefix}/${serviceSlug}/${citySlug}/${districtSlug}`
 }
 
 /**

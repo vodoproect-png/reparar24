@@ -22,16 +22,18 @@ const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://reparar24.es'
 export const RouteHelper = {
   /**
    * Generate homepage URL for locale
+   * Spanish (default locale) uses root-level URLs without prefix
    */
   home(locale: Locale = defaultLocale): string {
-    return `/${locale}`
+    return locale === defaultLocale ? '/' : `/${locale}`
   },
 
   /**
    * Generate absolute homepage URL
    */
   absoluteHome(locale: Locale = defaultLocale): string {
-    return `${BASE_URL}/${locale}`
+    const path = locale === defaultLocale ? '' : `/${locale}`
+    return `${BASE_URL}${path}`
   },
 
   /**
@@ -68,10 +70,12 @@ export const RouteHelper = {
 
   /**
    * Generate city overview URL
+   * Spanish (default locale) uses root-level URLs without prefix
    */
   city(cityId: CityId, locale: Locale = defaultLocale): string {
     const citySlug = getLocalizedCitySlug(cityId, locale)
-    return `/${locale}/servicios/${citySlug}`
+    const prefix = locale === defaultLocale ? '' : `/${locale}`
+    return `${prefix}/servicios/${citySlug}`
   },
 
   /**
