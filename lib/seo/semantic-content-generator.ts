@@ -259,6 +259,7 @@ export function generateDistrictMetaDescription(
 
 /**
  * Generate varied H1 with semantic intent
+ * UPDATED: Include city name to ensure uniqueness across cities with same district names
  */
 export function generateDistrictH1(
   service: Service,
@@ -267,22 +268,23 @@ export function generateDistrictH1(
   context?: DistrictContext
 ): string {
   if (!context) {
-    return `${service.name} en ${district.name}`
+    return `${service.name} en ${district.name} ${city.name}`
   }
 
   const serviceContext = getServiceContext(city.id, district.id, service.id)
   
   // Vary H1 based on urgency and building type
+  // Include city name for uniqueness (PR-CY audit fix for duplicate H1s)
   if (serviceContext?.urgencyLevel === 'high' && service.available24h) {
-    return `${service.name} Urgente 24h en ${district.name}`
+    return `${service.name} Urgente 24h en ${district.name} ${city.name}`
   }
   
   if (context.buildingType === 'historic') {
-    return `${service.name} para Edificios Históricos en ${district.name}`
+    return `${service.name} para Edificios Históricos en ${district.name} ${city.name}`
   }
   
   if (context.avgBuildingAge === 'new' || context.avgBuildingAge === 'modern') {
-    return `${service.name} Especializado en ${district.name}`
+    return `${service.name} Especializado en ${district.name} ${city.name}`
   }
   
   // Default with trait modifier
@@ -290,7 +292,7 @@ export function generateDistrictH1(
                    context.traits.find(t => t.includes('comercio')) ? 'Comercial' :
                    'Profesional'
   
-  return `${service.name} ${modifier} en ${district.name}`
+  return `${service.name} ${modifier} en ${district.name} ${city.name}`
 }
 
 /**
