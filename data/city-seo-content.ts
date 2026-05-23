@@ -55,7 +55,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'fontanero',
     citySlug: 'madrid',
     metadata: {
-      title: 'Fontanero Madrid 24h | Urgencias Profesionales | Reparar24',
+      title: 'Fontanero Madrid 24h: Urgencias Profesionales – Reparar24',
       description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión de agua. Servicio urgente 24h. Presupuesto gratis. ¡Llama ya!'
     },
     seoText: 'Madrid presenta desafíos únicos de fontanería derivados de su densidad urbana y parque edificatorio histórico. Los edificios verticales de 5-7 plantas construidos entre 1900-1960 generan problemas de presión diferencial: la presión de red municipal (2-3 bar) apenas alcanza plantas superiores sin grupo de presión, obligando a instalaciones progresivas para garantizar suministro uniforme. En el centro histórico (Austrias, La Latina, Lavapiés), las infraestructuras centenarias conservan tuberías originales de plomo o hierro galvanizado con diámetros reducidos por acumulación interna de óxido y cal. El agua de Madrid, aunque de excelente calidad, tiene dureza moderada-alta (150-300 mg/L CaCO3) que favorece incrustaciones calcáreas en grifería, termos y electrodomésticos',
@@ -125,7 +125,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'fontanero',
     citySlug: 'barcelona',
     metadata: {
-      title: 'Fontanero en Barcelona 24h | Expertos en Eixample y Ciutat Vella',
+      title: 'Fontanero en Barcelona 24h – Expertos en Eixample y Ciutat Vella',
       description: 'Fontanero profesional en Barcelona. Especialistas en humedad, tuberías antiguas del Eixample y edificios modernistas. Servicio urgente 24h en todos los barrios. Presupuesto gratuito.'
     },
     seoText: 'Barcelona combina arquitectura modernista única con desafíos específicos de fontanería. Los edificios del Eixample (1900-1930) conservan instalaciones originales de hierro galvanizado en patios de luces comunitarios donde la humedad ambiental alta (70-85% por proximidad al mar) acelera la corrosión. Los baños interiores que ventilan a patis compartidos acumulan humedad, generando moho y filtraciones cuando existen microfu gas en tuberías empotradas. En Ciutat Vella, los edificios medievales y barrocos catalogados requieren intervenciones respetuosas con patrimonio: localización de fugas mediante termografía sin rozas invasivas, reparaciones puntuales por videoendoscopia y materiales compatibles con estructuras históricas. La ITE (Inspección Técnica Edificios) obligatoria para inmuebles de más de 45 años evalúa estado de instalaciones, pudiendo exigir renovación de bajantes deterioradas',
@@ -484,7 +484,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'electricista',
     citySlug: 'madrid',
     metadata: {
-      title: 'Electricista en Madrid 24h | Urgencias Eléctricas Certificadas',
+      title: 'Electricista en Madrid 24h: Urgencias Eléctricas Certificadas',
       description: 'Electricista profesional certificado en Madrid. Expertos en cuadros eléctricos, diferenciales y boletines. Atención urgencias 24h. Presupuesto gratuito.'
     },
     seoText: 'Las instalaciones eléctricas en Madrid enfrentan desafíos específicos derivados de su tejido urbano vertical y parque inmobiliario histórico. Los edificios de 5-8 plantas construidos entre 1950-1980 conservan cuadros eléctricos antiguos con fusibles cerámicos, sin magnetotérmicos modernos ni diferenciales de alta sensibilidad. En comunidades del ensanche (Salamanca, Chamberí, Retiro), la potencia contratada original (3-5 kW) resulta insuficiente para consumos actuales: climatización, electrodomésticos clase A+++, cocinas vitrocerámicas de inducción, sistemas domóticos. La red de Media Tensión de Canal de Isabel II Electricidad (actualmente Naturgy/Iberdrola) presenta estabilidad, pero picos de demanda en verano (aire acondicionado masivo) generan microcortes en zonas saturadas.',
@@ -616,7 +616,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'electricista',
     citySlug: 'valencia',
     metadata: {
-      title: 'Electricista en Valencia 24h | Urgencias y Boletines Eléct ricos',
+      title: 'Electricista en Valencia 24h: Urgencias y Boletines Eléctricos',
       description: 'Electricista profesional en Valencia. Expertos en climatización eléctrica y aire salino costero. Servicio urgente 24h en toda la ciudad. Boletines certificados.'
     },
     seoText: 'Valencia combina clima mediterráneo seco-caluroso con cercanía marítima, generando condiciones específicas para instalaciones eléctricas. Los veranos con temperaturas 35-40°C y uso intensivo de climatización (mayo-septiembre) estresan redes eléctricas residenciales diseñadas para cargas menores. Los edificios del centro histórico (Ciutat Vella, Russafa) construidos 1920-1970 conservan cuadros eléctricos antiguos sin capacidad para splits multinversor modernos (3,000-5,000W cada unidad interior). La brisa marítima transporta partículas salinas que corroen contactos eléctricos en zonas costeras (Malvarrosa, Cabanyal, El Saler), acelerando degradación mecanismos exteriores y cuadros en patios sin protección IP. La red eléctrica de Iberdrola es robusta en ciudad consolidada, pero urbanizaciones periféricas (Paterna, Mislata, Manises) con crecimiento acelerado experimentan microcortes en picos de demanda veraniegos',
@@ -886,7 +886,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'desatascos',
     citySlug: 'madrid',
     metadata: {
-      title: 'Desatascos en Madrid 24h | Urgencias en Bajantes y Tuberías',
+      title: 'Desatascos en Madrid 24h: Urgencias en Bajantes y Tuberías',
       description: 'Servicio profesional de desatascos en Madrid. Expertos en bajantes comunitarias y edificios verticales. Atención urgencias 24h con cámara de inspección.'
     },
     seoText: 'Madrid presenta desafíos específicos de desagüe derivados de su densidad urbana y edificios verticales de 5-8 plantas. Las bajantes comunitarias de edificios construidos entre 1950-1980 acumulan décadas de residuos, con diámetros reducidos por incrustaciones de cal, grasa y sedimentos. Los atascos en comunidades grandes afectan múltiples viviendas simultáneamente, requiriendo intervención profesional con equipos de alta presión. Los edificios del centro histórico (Austrias, Malasaña, Lavapiés) conservan redes de saneamiento originales con arquetas empotradas de difícil acceso. La escasa pluviometría madrileña (400mm anuales) impide que la lluvia limpie naturalmente las tuberías, favoreciendo acumulación progresiva de residuos orgánicos y minerales.',
@@ -952,7 +952,7 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'desatascos',
     citySlug: 'barcelona',
     metadata: {
-      title: 'Desatascos en Barcelona 24h | Urgencias en Eixample y Ciutat Vella',
+      title: 'Desatascos en Barcelona 24h – Urgencias en Eixample y Ciutat Vella',
       description: 'Desatascos profesionales en Barcelona. Expertos en fincas antiguas y patios de luces. Servicio urgente 24h con cámara. ITE-compliant.'
     },
     seoText: 'Barcelona enfrenta desafíos específicos de desagüe derivados de la humedad mediterránea y arquitectura del Eixample. Las fincas construidas 1900-1930 tienen bajantes que discurren por patios de luces compartidos con ventilación natural limitada, donde la humedad alta (70-85% HR) favorece formación de lodos y biofilm. Los desagües interiores que ventilan a patios acumulan grasas y cal en trazados largos con múltiples codos. En Ciutat Vella, los edificios medievales conservan redes de saneamiento centenarias con arquetas de piedra y tuberías de gres vitrificado quebradizo. Las inspecciones técnicas (ITE) obligatorias para edificios >45 años detectan frecuentemente obstrucciones crónicas que exigen limpieza profesional.',
