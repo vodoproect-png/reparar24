@@ -249,17 +249,47 @@ Como empresa de servicios de calefacción profesional, nuestros técnicos cuenta
     name: 'Limpieza de Tuberías',
     slug: 'limpieza-tuberias',
     icon: '💧',
-    description: 'Limpieza profesional de tuberías y saneamientos',
-    longDescription: 'Servicio de limpieza profesional de tuberías con camión cuba. Eliminamos atascos, residuos y aseguramos el correcto funcionamiento.',
+    description: 'Limpieza industrial y preventiva de tuberías con camión cuba. Para comunidades, hoteles, restaurantes y empresas.',
+    longDescription: `¿Necesitas limpieza preventiva profesional de tuberías y redes de saneamiento? En Reparar24 ofrecemos servicio especializado de limpieza industrial de tuberías con camión cuba de alta capacidad, orientado a comunidades de propietarios, hoteles, restaurantes, centros comerciales y empresas que requieren mantenimiento programado de sus instalaciones de saneamiento.
+
+Nuestro servicio de limpieza de tuberías con camión cuba está diseñado para mantenimiento preventivo de redes comunitarias, instalaciones hosteleras y edificios corporativos. Realizamos limpieza a alta presión de bajantes comunitarias, colectores generales, arquetas de gran volumen, redes de alcantarillado interior y sistemas de saneamiento industrial. Trabajamos con equipos profesionales de camión cuba que garantizan limpieza profunda sin necesidad de obras ni roturas.
+
+Somos especialistas en mantenimiento preventivo programado para comunidades de propietarios. Realizamos limpieza periódica de bajantes verticales comunitarias, limpieza de colectores horizontales de sótano, limpieza de arquetas generales del edificio, y limpieza de acometidas a red pública. Este mantenimiento preventivo evita atascos graves, malos olores en zonas comunes, y problemas de saneamiento que afectan a múltiples viviendas. Recomendamos limpieza preventiva anual o semestral según volumen de uso.
+
+Para hoteles y apartamentos turísticos, ofrecemos servicio de limpieza industrial de tuberías adaptado a alta ocupación. Realizamos limpieza preventiva de redes de saneamiento en temporada baja, limpieza de grasa acumulada en cocinas industriales hosteleras, mantenimiento de bajantes con alta carga de uso, y limpieza de sistemas de drenaje en zonas comunes y lavanderías. Trabajamos fuera de horario de huéspedes para no afectar operaciones.
+
+Nuestro servicio para restaurantes, bares y locales de hostelería incluye limpieza especializada de tuberías con grasa industrial acumulada. Realizamos limpieza de alta presión en redes afectadas por grasa solidificada, limpieza de separadores de grasas, mantenimiento preventivo de bajantes de cocina, y limpieza de arquetas con residuos orgánicos. Cumplimos normativa de saneamiento hostelero y emitimos certificados de limpieza para inspecciones sanitarias.
+
+Para centros comerciales, oficinas y naves industriales, ofrecemos limpieza de redes de saneamiento de gran volumen. Realizamos limpieza de colectores principales con camión cuba, limpieza de arquetas de alcantarillado interior, mantenimiento preventivo de acometidas, y limpieza de redes afectadas por residuos industriales específicos. Trabajamos con plan de mantenimiento anual para garantizar funcionamiento continuo.
+
+Ofrecemos tarifas transparentes desde 150€ para servicios básicos de comunidades pequeñas. Limpieza preventiva comunidad (bajante vertical) 150-250€, limpieza colector horizontal con camión cuba 280-450€, limpieza integral edificio comunitario 400-800€ según número de plantas, mantenimiento preventivo anual hoteles desde 600€ según capacidad, limpieza industrial restaurante 180-350€. Cada servicio incluye presupuesto personalizado sin compromiso según complejidad de instalación.
+
+Utilizamos camión cuba profesional de alta capacidad con sistema de aspiración y alta presión combinados. Nuestros equipos incluyen cámara de inspección CCTV para verificar estado de tuberías, manómetros de presión controlada, y sistemas de limpieza que no dañan tuberías antiguas. Realizamos informes técnicos con fotografías del antes y después, recomendaciones de mantenimiento futuro, y certificados de limpieza para administradores de fincas.
+
+Como empresa especializada en limpieza industrial de tuberías y saneamiento preventivo, trabajamos con administradores de fincas, gerentes de hotel, responsables de restauración, y facility managers de empresas. Ofrecemos contratos de mantenimiento preventivo anual, facturación adaptada a empresas y comunidades, y emisión de certificados para cumplimiento normativo. Todos nuestros trabajos incluyen garantía y seguro de responsabilidad civil. Confía en profesionales especializados en limpieza preventiva de gran volumen para tus instalaciones comunitarias o empresariales.`,
     benefits: [
-      'Camión cuba profesional',
-      'Alta presión',
-      'Sin obras',
-      'Inspección con cámara',
-      'Preventivo y correctivo'
+      'Camión cuba alta capacidad',
+      'Mantenimiento preventivo programado',
+      'Especialistas en comunidades y hoteles',
+      'Certificados para administradores',
+      'Contratos anuales disponibles'
     ],
-    priceRange: 'Desde 89€',
-    available24h: true,
-    keywords: ['limpieza tuberías', 'camión cuba', 'alta presión', 'saneamiento']
+    priceRange: 'Desde 150€',
+    available24h: false, // Preventive service, not emergency
+    keywords: [
+      'limpieza industrial tuberías',
+      'camión cuba comunidades',
+      'limpieza preventiva saneamiento',
+      'mantenimiento redes comunitarias',
+      'limpieza tuberías hotel',
+      'limpieza tuberías restaurante',
+      'limpieza bajantes comunidad',
+      'camión cuba alta presión',
+      'limpieza colectores edificio',
+      'saneamiento preventivo',
+      'limpieza tuberías empresas',
+      'mantenimiento alcantarillado',
+      'certificado limpieza comunidad'
+    ]
   }
 ]
