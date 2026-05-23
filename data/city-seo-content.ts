@@ -55,8 +55,8 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'fontanero',
     citySlug: 'madrid',
     metadata: {
-      title: 'Fontanero Madrid 24h: Urgencias Profesionales – Reparar24',
-      description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión de agua. Servicio urgente 24h. Presupuesto gratis. ¡Llama ya!'
+      title: 'Fontanero Madrid: Urgencias Profesionales 24 Horas',
+      description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión de agua. Servicio urgente 24h en Centro, Salamanca, Chamberí, Retiro. Consulta sin compromiso.'
     },
     seoText: 'Madrid presenta desafíos únicos de fontanería derivados de su densidad urbana y parque edificatorio histórico. Los edificios verticales de 5-7 plantas construidos entre 1900-1960 generan problemas de presión diferencial: la presión de red municipal (2-3 bar) apenas alcanza plantas superiores sin grupo de presión, obligando a instalaciones progresivas para garantizar suministro uniforme. En el centro histórico (Austrias, La Latina, Lavapiés), las infraestructuras centenarias conservan tuberías originales de plomo o hierro galvanizado con diámetros reducidos por acumulación interna de óxido y cal. El agua de Madrid, aunque de excelente calidad, tiene dureza moderada-alta (150-300 mg/L CaCO3) que favorece incrustaciones calcáreas en grifería, termos y electrodomésticos',
     faqs: [
@@ -126,7 +126,7 @@ export const citySEOContent: CitySEOContent[] = [
     citySlug: 'barcelona',
     metadata: {
       title: 'Fontanero en Barcelona 24h – Expertos en Eixample y Ciutat Vella',
-      description: 'Fontanero profesional en Barcelona. Especialistas en humedad, tuberías antiguas del Eixample y edificios modernistas. Servicio urgente 24h en todos los barrios. Presupuesto gratuito.'
+      description: 'Fontanero profesional en Barcelona. Especialistas en humedad, tuberías antiguas del Eixample y edificios modernistas. Servicio urgente 24h en Gràcia, Born, Raval y Sants. Valoración gratuita.'
     },
     seoText: 'Barcelona combina arquitectura modernista única con desafíos específicos de fontanería. Los edificios del Eixample (1900-1930) conservan instalaciones originales de hierro galvanizado en patios de luces comunitarios donde la humedad ambiental alta (70-85% por proximidad al mar) acelera la corrosión. Los baños interiores que ventilan a patis compartidos acumulan humedad, generando moho y filtraciones cuando existen microfu gas en tuberías empotradas. En Ciutat Vella, los edificios medievales y barrocos catalogados requieren intervenciones respetuosas con patrimonio: localización de fugas mediante termografía sin rozas invasivas, reparaciones puntuales por videoendoscopia y materiales compatibles con estructuras históricas. La ITE (Inspección Técnica Edificios) obligatoria para inmuebles de más de 45 años evalúa estado de instalaciones, pudiendo exigir renovación de bajantes deterioradas',
     faqs: [

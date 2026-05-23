@@ -241,5 +241,48 @@ export const faqs: FAQ[] = [
     question: '¿Qué hacer en caso de una fuga de agua?',
     answer: 'En caso de fuga: 1) Cierra la llave de paso general, 2) Corta la electricidad en la zona afectada si hay riesgo, 3) Llámanos inmediatamente. Nuestro equipo de emergencias estará contigo en menos de una hora.',
     category: 'emergencia'
+  },
+  // Limpieza de Tuberías - Preventive/Industrial Service FAQs
+  {
+    question: '¿Cuánto cuesta limpieza preventiva de tuberías para comunidad?',
+    answer: 'El servicio de limpieza industrial con camión cuba comienza desde 150€ para comunidades pequeñas. Limpieza bajante vertical 150-250€, colector horizontal 280-450€, limpieza integral edificio 400-800€ según número de plantas. Para hoteles y restaurantes ofrecemos presupuestos personalizados según instalación. Incluimos certificado de limpieza para administradores.',
+    category: 'precio',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿Cada cuánto tiempo debe hacerse limpieza preventiva de tuberías?',
+    answer: 'Recomendamos limpieza preventiva anual para comunidades residenciales estándar. Hoteles con alta ocupación: semestral. Restaurantes y locales comerciales con grasa: trimestral o semestral según volumen. Edificios históricos o con tuberías antiguas: anual obligatorio. El mantenimiento preventivo evita atascos graves, malos olores y problemas costosos que afectan a múltiples viviendas o huéspedes.',
+    category: 'mantenimiento',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿Qué diferencia hay entre desatasco urgente y limpieza preventiva de tuberías?',
+    answer: 'El desatasco urgente resuelve bloqueos puntuales ya existentes en viviendas (fregadero, inodoro). La limpieza preventiva industrial con camión cuba es mantenimiento programado para comunidades, hoteles y empresas: limpia colectores completos, bajantes verticales y arquetas antes de que se atasquen. Previene emergencias, elimina acumulaciones de grasa y residuos, y mantiene flujo óptimo en instalaciones compartidas. Son servicios complementarios con objetivos diferentes.',
+    category: 'servicio',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿Qué incluye el servicio de limpieza con camión cuba?',
+    answer: 'Nuestro servicio con camión cuba incluye: inspección previa con cámara CCTV, limpieza a alta presión de bajantes y colectores, aspiración de residuos sólidos, limpieza de arquetas de gran volumen, eliminación de grasa industrial solidificada, y informe técnico fotográfico. Emitimos certificado de limpieza para comunidades y cumplimiento normativo hostelero. Trabajamos con equipos profesionales de alta capacidad sin necesidad de obras.',
+    category: 'servicio',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿Hacéis limpieza de tuberías para hoteles y restaurantes?',
+    answer: 'Sí, somos especialistas en limpieza industrial para sector hostelero. Para hoteles: limpieza de redes con alta carga de uso, mantenimiento preventivo en temporada baja, sistemas de lavanderías y cocinas industriales. Para restaurantes: limpieza especializada de tuberías con grasa, separadores de grasas, cumplimiento normativa sanitaria, certificados para inspecciones. Trabajamos fuera de horario operativo para no afectar servicio a clientes.',
+    category: 'hosteleria',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿Se necesita autorizar la limpieza con la comunidad de propietarios?',
+    answer: 'Sí, la limpieza preventiva de colectores y bajantes comunitarias requiere autorización del presidente o administrador de fincas, ya que afecta a zonas comunes y se cobra del fondo comunitario. Proporcionamos presupuesto detallado para junta, certificado post-limpieza, y coordinamos acceso a trasteros o sótanos si es necesario. Muchas comunidades lo incluyen en plan de mantenimiento anual preventivo junto con revisión ascensores y caldera.',
+    category: 'comunidades',
+    serviceId: 'limpieza-tuberias'
+  },
+  {
+    question: '¿La limpieza preventiva evita problemas de atascos futuros?',
+    answer: 'Sí, la limpieza preventiva regular reduce drásticamente la probabilidad de atascos graves. Elimina acumulaciones progresivas de grasa, cal, jabón y residuos antes de que bloqueen completamente las tuberías. En comunidades con mantenimiento preventivo anual, los atascos urgentes se reducen 70-80%. El coste preventivo (150-800€ anual comunidad) es muy inferior a emergencias múltiples (cada atasco urgente 80-180€) más daños por inundaciones.',
+    category: 'prevencion',
+    serviceId: 'limpieza-tuberias'
   }
 ]
