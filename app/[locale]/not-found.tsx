@@ -3,7 +3,11 @@ import { getPhoneHref, getWhatsAppHref } from '@/lib/config/contact'
 
 export default function NotFound() {
   return (
-    <html>
+    <html lang="es">
+      <head>
+        <title>Página No Encontrada - Reparar24</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </head>
       <body>
         <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
           <div className="max-w-lg w-full">
@@ -35,20 +39,57 @@ export default function NotFound() {
                 </a>
               </div>
 
-              <div className="space-y-2">
-                <Link
-                  href="/"
-                  className="block text-primary-600 hover:underline"
-                >
-                  ← Volver al Inicio
-                </Link>
-                <Link
-                  href="/es"
-                  className="block text-gray-600 hover:underline"
-                >
-                  Ver Todos los Servicios
-                </Link>
+              {/* Navigation Links - Canonical Spanish URLs */}
+              <div className="border-t border-gray-200 pt-6 mb-6">
+                <p className="text-sm text-gray-600 mb-3">
+                  O explora nuestros servicios:
+                </p>
+                <div className="grid grid-cols-2 gap-2 text-sm">
+                  <Link
+                    href="/fontanero"
+                    className="text-primary-600 hover:underline"
+                  >
+                    💧 Fontanería
+                  </Link>
+                  <Link
+                    href="/electricista"
+                    className="text-primary-600 hover:underline"
+                  >
+                    ⚡ Electricidad
+                  </Link>
+                  <Link
+                    href="/desatascos"
+                    className="text-primary-600 hover:underline"
+                  >
+                    🚰 Desatascos
+                  </Link>
+                  <Link
+                    href="/aire-acondicionado"
+                    className="text-primary-600 hover:underline"
+                  >
+                    ❄️ Aire Acondicionado
+                  </Link>
+                  <Link
+                    href="/calefaccion"
+                    className="text-primary-600 hover:underline"
+                  >
+                    🔥 Calefacción
+                  </Link>
+                  <Link
+                    href="/contacto"
+                    className="text-primary-600 hover:underline"
+                  >
+                    📧 Contacto
+                  </Link>
+                </div>
               </div>
+
+              <Link
+                href="/"
+                className="block text-primary-600 hover:underline font-medium"
+              >
+                ← Volver al Inicio
+              </Link>
             </div>
           </div>
         </div>
