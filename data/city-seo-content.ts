@@ -55,8 +55,8 @@ export const citySEOContent: CitySEOContent[] = [
     serviceId: 'fontanero',
     citySlug: 'madrid',
     metadata: {
-      title: 'Fontanero en Madrid 24h | Urgencias y Reparaciones Profesionales',
-      description: 'Fontanero profesional en Madrid. Expertos en edificios verticales, presión de agua y tuberías antiguas. Servicio urgente 24h en todos los barrios. Presupuesto gratuito sin compromiso.'
+      title: 'Fontanero Madrid 24h | Urgencias Profesionales | Reparar24',
+      description: 'Fontanero profesional en Madrid. Especialistas en edificios antiguos y presión de agua. Servicio urgente 24h. Presupuesto gratis. ¡Llama ya!'
     },
     seoText: 'Madrid presenta desafíos únicos de fontanería derivados de su densidad urbana y parque edificatorio histórico. Los edificios verticales de 5-7 plantas construidos entre 1900-1960 generan problemas de presión diferencial: la presión de red municipal (2-3 bar) apenas alcanza plantas superiores sin grupo de presión, obligando a instalaciones progresivas para garantizar suministro uniforme. En el centro histórico (Austrias, La Latina, Lavapiés), las infraestructuras centenarias conservan tuberías originales de plomo o hierro galvanizado con diámetros reducidos por acumulación interna de óxido y cal. El agua de Madrid, aunque de excelente calidad, tiene dureza moderada-alta (150-300 mg/L CaCO3) que favorece incrustaciones calcáreas en grifería, termos y electrodomésticos',
     faqs: [

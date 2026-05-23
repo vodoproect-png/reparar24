@@ -79,6 +79,13 @@ const serviceRelationships: Record<string, RelatedService[]> = {
   ],
   'aire-acondicionado': [
     {
+      name: 'Calefacción',
+      slug: 'calefaccion',
+      icon: '🔥',
+      relation: 'Climatización anual',
+      description: 'Bombas de calor reversibles: frío en verano y calor en invierno'
+    },
+    {
       name: 'Electricidad',
       slug: 'electricista',
       icon: '⚡',
@@ -87,6 +94,13 @@ const serviceRelationships: Record<string, RelatedService[]> = {
     }
   ],
   calefaccion: [
+    {
+      name: 'Aire Acondicionado',
+      slug: 'aire-acondicionado',
+      icon: '❄️',
+      relation: 'Climatización anual',
+      description: 'Sistemas reversibles: calefacción en invierno y refrigeración en verano'
+    },
     {
       name: 'Fontanería',
       slug: 'fontanero',

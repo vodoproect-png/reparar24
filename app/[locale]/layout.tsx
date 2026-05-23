@@ -25,11 +25,11 @@ export async function generateMetadata({
     es: {
       metadataBase: new URL('https://reparar24.es'),
       title: {
-        default: 'Reparar24 - Servicios de Fontanería, Electricidad y Reparaciones 24/7',
+        default: 'Reparar24 | Fontanería, Electricidad y Reparaciones 24/7',
         template: '%s | Reparar24',
       },
       description:
-        'Servicios profesionales de fontanería, electricidad, desatascos y emergencias 24 horas en toda España.',
+        '¿Emergencia en casa? Fontanero y electricista 24/7 en España. Profesionales certificados desde 49€. Presupuesto gratis. ¡Llama ya!',
       robots: {
         index: true,
         follow: true,
