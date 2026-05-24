@@ -12,7 +12,6 @@ import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import { RelatedServicesBlock } from '@/components/seo/RelatedServicesBlock'
 import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
-import { SemanticServicesHub } from '@/components/seo/SemanticServicesHub'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -156,9 +155,6 @@ export default async function ServicePage({
             </div>
           </div>
         </section>
-
-        {/* Semantic Services Hub - SEO Internal Linking */}
-        <SemanticServicesHub serviceId={service.id} enabled={true} />
 
         <CTASection locale={locale} />
 
