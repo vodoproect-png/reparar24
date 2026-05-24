@@ -5,6 +5,7 @@ import { cities } from '@/data/cities'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
 import { getDistrictLinks, generateServiceCityBreadcrumbs } from '@/lib/linking/internal'
+import { getServiceCityUrl } from '@/lib/seo/url'
 import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import { getCitySEOContent } from '@/data/city-seo-content'
 import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
@@ -230,7 +231,7 @@ export default async function ServiceCityPage({
                 .filter((s) => s.id !== service.id)
                 .slice(0, 3)
                 .map((otherService) => {
-                  const otherServiceUrl = `/${locale}/${otherService.slug}/${city.slug}`
+                  const otherServiceUrl = getServiceCityUrl(otherService.slug, city.slug, locale)
                   return (
                     <Link
                       key={otherService.id}

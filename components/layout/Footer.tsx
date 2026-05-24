@@ -4,6 +4,7 @@ import { services } from '@/data/services'
 import { cities } from '@/data/cities'
 import { getPhoneHref, getPhoneDisplay, getEmail, getBusinessAddress } from '@/lib/config/contact'
 import { getCompanyInfo } from '@/lib/config/company'
+import { getServiceUrl, getCityUrl } from '@/lib/seo/url'
 
 interface FooterProps {
   locale: Locale
@@ -40,7 +41,7 @@ export default function Footer({ locale }: FooterProps) {
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link 
-                    href={locale === 'es' ? `/${service.slug}` : `/${locale}/${service.slug}`}
+                    href={getServiceUrl(service.slug, locale)}
                     className="hover:text-primary-400 transition-colors"
                   >
                     {service.name}
@@ -57,7 +58,7 @@ export default function Footer({ locale }: FooterProps) {
               {cities.slice(0, 6).map((city) => (
                 <li key={city.id}>
                   <Link 
-                    href={locale === 'es' ? `/servicios/${city.slug}` : `/${locale}/servicios/${city.slug}`}
+                    href={getCityUrl(city.slug, locale)}
                     className="hover:text-primary-400 transition-colors"
                   >
                     {city.name}

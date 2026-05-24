@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
+import { getServiceUrl } from '@/lib/seo/url'
 
 interface ServicesSectionProps {
   locale: Locale
@@ -21,7 +22,7 @@ export default function ServicesSection({ locale }: ServicesSectionProps) {
           {services.map((service) => (
             <Link 
               key={service.id}
-              href={`/${locale}/${service.slug}`}
+              href={getServiceUrl(service.slug, locale)}
               className="card group hover:-translate-y-2 transition-all duration-300"
             >
               <div className="text-5xl mb-4">{service.icon}</div>

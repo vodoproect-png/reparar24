@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Locale } from '@/lib/i18n/config'
 import { cities } from '@/data/cities'
+import { getCityUrl } from '@/lib/seo/url'
 
 interface CitiesSectionProps {
   locale: Locale
@@ -21,7 +22,7 @@ export default function CitiesSection({ locale }: CitiesSectionProps) {
           {cities.map((city) => (
             <Link
               key={city.id}
-              href={`/${locale}/servicios/${city.slug}`}
+              href={getCityUrl(city.slug, locale)}
               className="group p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl hover:from-primary-50 hover:to-primary-100 transition-all duration-300 shadow-md hover:shadow-xl"
             >
               <h3 className="text-2xl font-bold mb-2 group-hover:text-primary-600 transition-colors">

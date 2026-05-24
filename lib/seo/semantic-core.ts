@@ -301,7 +301,7 @@ export class SiloBuilder {
       level: 1,
       childrenIds: [],
       keywords: [serviceId, serviceName],
-      pageUrl: `/es/${serviceId}`,
+      pageUrl: `/${serviceId}`,
       internalLinks: [],
     }
 
@@ -314,7 +314,7 @@ export class SiloBuilder {
         parentId: rootSilo.id,
         childrenIds: [],
         keywords: [`${serviceId} ${city}`, `${serviceName} ${city}`],
-        pageUrl: `/es/${serviceId}/${city}`,
+        pageUrl: `/${serviceId}/${city}`,
         internalLinks: [rootSilo.pageUrl],
       }
 
@@ -331,7 +331,7 @@ export class SiloBuilder {
             parentId: citySilo.id,
             childrenIds: [],
             keywords: [`${serviceId} ${city} ${district}`],
-            pageUrl: `/es/${serviceId}/${city}/${district}`,
+            pageUrl: `/${serviceId}/${city}/${district}`,
             internalLinks: [rootSilo.pageUrl, citySilo.pageUrl],
           }
 
