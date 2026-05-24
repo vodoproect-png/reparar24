@@ -77,16 +77,17 @@ export function generateEnhancedServiceMetadata(
       : `${service.name} - Профессиональная услуга в Испании | ${titleSuffix}`,
   }
 
+  // OPTIMIZED: 120-155 char meta descriptions (removed longDescription - too long!)
   const descriptions: Record<Locale, string> = {
     es: city
-      ? `${service.description} en ${city.name}. ${service.longDescription} ${service.priceRange}. ¡Llama ahora!`
-      : `${service.description}. ${service.longDescription} Disponible en toda España. ${service.priceRange}.`,
+      ? `${service.name} ${service.available24h ? '24h' : 'profesional'} en ${city.name}. ${service.priceRange}. Garantía y presupuesto gratuito. ¡Llama ahora!`
+      : `${service.name} profesional en toda España. ${service.priceRange}. Servicio ${service.available24h ? '24h' : 'certificado'} con garantía. Presupuesto gratis.`,
     en: city
-      ? `${service.description} in ${city.name}. ${service.longDescription} ${service.priceRange}. Call now!`
-      : `${service.description}. ${service.longDescription} Available throughout Spain. ${service.priceRange}.`,
+      ? `${service.name} ${service.available24h ? '24h' : 'professional'} in ${city.name}. ${service.priceRange}. Warranty and free quote. Call now!`
+      : `Professional ${service.name} throughout Spain. ${service.priceRange}. ${service.available24h ? '24h' : 'Certified'} service with warranty. Free quote.`,
     ru: city
-      ? `${service.description} в ${city.name}. ${service.longDescription} ${service.priceRange}. Звоните сейчас!`
-      : `${service.description}. ${service.longDescription} Доступно по всей Испании. ${service.priceRange}.`,
+      ? `${service.name} ${service.available24h ? '24ч' : 'профессионал'} в ${city.name}. ${service.priceRange}. Гарантия и бесплатная оценка. Звоните!`
+      : `Профессиональный ${service.name} по всей Испании. ${service.priceRange}. Услуга ${service.available24h ? '24ч' : 'сертифицирована'} с гарантией.`,
   }
 
   const path = city

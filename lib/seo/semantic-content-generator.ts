@@ -236,7 +236,7 @@ export function generateDistrictFAQs(
 }
 
 /**
- * Generate varied meta description
+ * Generate varied meta description (OPTIMIZED: 120-155 char limit)
  */
 export function generateDistrictMetaDescription(
   service: Service,
@@ -244,17 +244,19 @@ export function generateDistrictMetaDescription(
   district: District,
   context?: DistrictContext
 ): string {
+  // REMOVED longDescription - was causing 300+ char meta descriptions!
+  // OPTIMIZED: Concise, unique, 120-155 characters
+  
   if (!context) {
-    return `${service.description} en ${district.name}, ${city.name}. ${service.longDescription} ${service.priceRange}. ¡Llama ahora!`
+    return `${service.name} ${service.available24h ? '24h' : 'profesional'} en ${district.name}, ${city.name}. ${service.priceRange}. Presupuesto gratis. ¡Llama ahora!`
   }
 
   const serviceContext = getServiceContext(city.id, district.id, service.id)
   const urgency = serviceContext?.urgencyLevel === 'high' ? 'Urgencias 24h' : 'Servicio profesional'
-  const trait = context.traits[0] || `edificios de ${district.name}`
+  const trait = context.traits[0]?.substring(0, 30) || district.name // Limit trait length
   
-  return `${urgency} de ${service.name} en ${trait}, ${city.name}. ` +
-    `${serviceContext ? serviceContext.commonIssues[0] + '.' : service.description} ` +
-    `${service.priceRange}. CP: ${district.postalCodes.join(', ')}.`
+  // Keep it concise: urgency + service + location + price + CTA (120-155 chars)
+  return `${urgency} de ${service.name} en ${trait}, ${city.name}. ${service.priceRange}. Llama ${service.available24h ? '24/7' : 'ahora'}.`
 }
 
 /**
