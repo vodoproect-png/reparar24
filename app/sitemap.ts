@@ -45,6 +45,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })
     })
 
+    // Fontanero child service pages (specialized services)
+    const fontaneroChildServices = [
+      'reparacion-fugas',
+      'desatascos',
+      'instalaciones',
+      'sustitucion-tuberias',
+      'calentadores-termos',
+      'mantenimiento'
+    ]
+    fontaneroChildServices.forEach((childSlug) => {
+      sitemapEntries.push({
+        url: `${baseUrl}${localePrefix}/fontanero/${childSlug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.85,
+      })
+    })
+
     // City pages
     cities.forEach((city) => {
       sitemapEntries.push({
