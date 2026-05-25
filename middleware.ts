@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { isProductionHostname } from '@/lib/config/environment'
 import { getVercelPreviewPlaceholderHTML } from '@/app/vercel-preview-placeholder'
+import { serviceSlugMap } from '@/lib/i18n/slugs'
 
 /**
  * SPANISH-ONLY PRODUCTION MIDDLEWARE + VERCEL PREVIEW LOCKDOWN
@@ -77,10 +78,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url), { status: 301 })
   }
 
-  // Redirect /en/* to Spanish equivalent
+  // Redirect /en/* to Spanish equivalent with slug mapping
   if (pathname.startsWith('/en/')) {
-    const spanishPath = pathname.replace('/en/', '/')
-    return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+    const spanishPath = mapLegacyUrlToSpanish(pathname, 'en')
+    if (spanishPath) {
+      return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+    }
+    // Fallback: strip locale prefix if mapping fails
+    const fallbackPath = pathname.replace('/en/', '/')
+    return NextResponse.redirect(new URL(fallbackPath, request.url), { status: 301 })
   }
 
   // Redirect /ru to /
@@ -88,10 +94,15 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url), { status: 301 })
   }
 
-  // Redirect /ru/* to Spanish equivalent
+  // Redirect /ru/* to Spanish equivalent with slug mapping
   if (pathname.startsWith('/ru/')) {
-    const spanishPath = pathname.replace('/ru/', '/')
-    return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+    const spanishPath = mapLegacyUrlToSpanish(pathname, 'ru')
+    if (spanishPath) {
+      return NextResponse.redirect(new URL(spanishPath, request.url), { status: 301 })
+    }
+    // Fallback: strip locale prefix if mapping fails
+    const fallbackPath = pathname.replace('/ru/', '/')
+    return NextResponse.redirect(new URL(fallbackPath, request.url), { status: 301 })
   }
 
   // === EXCLUDE SEO & STATIC FILES FROM REWRITING ===
@@ -139,6 +150,55 @@ export function middleware(request: NextRequest) {
   }
   
   return response
+}
+
+/**
+ * Map legacy EN/RU URLs to Spanish canonical URLs
+ * Handles service slug translation while preserving city/district paths
+ * 
+ * Examples:
+ * - /en/air-conditioning/sevilla/sur → /aire-acondicionado/sevilla/sur
+ * - /ru/santekhnik/sevilla/macarena → /fontanero/sevilla/macarena
+ * - /en/plumber/madrid → /fontanero/madrid
+ * - /ru/elektrik → /electricista
+ * 
+ * @param pathname - Full pathname including locale prefix (e.g., /en/air-conditioning/sevilla/sur)
+ * @param locale - Source locale ('en' or 'ru')
+ * @returns Spanish canonical path or null if service not found
+ */
+function mapLegacyUrlToSpanish(pathname: string, locale: 'en' | 'ru'): string | null {
+  // Remove locale prefix and split path segments
+  const pathWithoutLocale = pathname.replace(`/${locale}/`, '')
+  const segments = pathWithoutLocale.split('/').filter(Boolean)
+  
+  if (segments.length === 0) {
+    return '/'
+  }
+  
+  // First segment should be service slug in EN/RU
+  const foreignServiceSlug = segments[0]
+  
+  // Find Spanish service slug by matching against EN/RU slugs
+  let spanishServiceSlug: string | null = null
+  
+  for (const [serviceId, localeMap] of Object.entries(serviceSlugMap)) {
+    if (localeMap[locale] === foreignServiceSlug) {
+      spanishServiceSlug = localeMap.es
+      break
+    }
+  }
+  
+  // If service slug not found in mappings, return null (fallback to simple strip)
+  if (!spanishServiceSlug) {
+    return null
+  }
+  
+  // Reconstruct path with Spanish service slug
+  // Pattern: /{serviceSlug} or /{serviceSlug}/{city} or /{serviceSlug}/{city}/{district}
+  const remainingSegments = segments.slice(1) // city and/or district (unchanged)
+  const spanishPath = '/' + [spanishServiceSlug, ...remainingSegments].join('/')
+  
+  return spanishPath
 }
 
 /**
