@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { isProductionHostname } from '@/lib/config/environment'
+import { getVercelPreviewPlaceholderHTML } from '@/app/vercel-preview-placeholder'
 
 /**
- * SPANISH-ONLY PRODUCTION MIDDLEWARE + PREVIEW PROTECTION
+ * SPANISH-ONLY PRODUCTION MIDDLEWARE + VERCEL PREVIEW LOCKDOWN
  * 
  * Strategic Decision: Reparar24 is Spanish-only until Spanish SEO architecture is complete.
  * 
@@ -13,9 +14,14 @@ import { isProductionHostname } from '@/lib/config/environment'
  * 3. /en/* redirects 301 to Spanish equivalent (rollback)
  * 4. /ru/* redirects 301 to Spanish equivalent (rollback)
  * 
- * SEO Protection:
- * - Production (reparar24.es): FULLY INDEXABLE
- * - Preview (*.vercel.app): BLOCKED FROM INDEXING via X-Robots-Tag
+ * SEO Protection & Duplicate Content Prevention:
+ * - Production (reparar24.es): FULLY INDEXABLE - Serves full application
+ * - Preview (*.vercel.app): MINIMAL PLACEHOLDER ONLY - No production content
+ * 
+ * Preview domains serve a minimal placeholder page to prevent:
+ * - Duplicate content issues
+ * - Accidental indexing of preview URLs
+ * - Confusion between production and preview
  * 
  * Multilingual implementation postponed. EN/RU pages are incomplete.
  */
@@ -23,6 +29,33 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const hostname = request.headers.get('host')
   const isProduction = isProductionHostname(hostname)
+
+  // === VERCEL PREVIEW LOCKDOWN: Serve minimal placeholder ===
+  // For ANY *.vercel.app domain, serve placeholder instead of production content
+  // This prevents duplicate content and ensures only reparar24.es is indexed
+  if (hostname && hostname.endsWith('.vercel.app')) {
+    // Allow static assets and API routes to pass through
+    if (
+      pathname.startsWith('/_next/') ||
+      pathname.startsWith('/api/') ||
+      pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg|css|js)$/)
+    ) {
+      const response = NextResponse.next()
+      response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
+      return response
+    }
+
+    // For all other requests on vercel.app: serve placeholder
+    const placeholderHTML = getVercelPreviewPlaceholderHTML()
+    return new NextResponse(placeholderHTML, {
+      status: 200,
+      headers: {
+        'Content-Type': 'text/html; charset=utf-8',
+        'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet',
+        'Cache-Control': 'no-store, must-revalidate',
+      },
+    })
+  }
 
   // === SPANISH CANONICAL ENFORCEMENT ===
   
