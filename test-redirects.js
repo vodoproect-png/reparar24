@@ -42,6 +42,14 @@ const testCases = [
   // More district examples from the task
   ['/en/air-conditioning/madrid/salamanca', '/aire-acondicionado/madrid/salamanca'],
   ['/ru/otoplenie/barcelona/gracia', '/calefaccion/barcelona/gracia'],
+  
+  // Legacy URLs with Spanish slugs + EN/RU prefix (canonical variants)
+  ['/en/desatascos/valencia/ciutat-vella', '/desatascos/valencia/ciutat-vella'],
+  ['/ru/electricista/barcelona/sants', '/electricista/barcelona/sants'],
+  ['/en/fontanero/madrid/centro', '/fontanero/madrid/centro'],
+  ['/ru/desatascos/sevilla/macarena', '/desatascos/sevilla/macarena'],
+  ['/en/calefaccion/malaga/centro', '/calefaccion/malaga/centro'],
+  ['/ru/aire-acondicionado/valencia/extramurs', '/aire-acondicionado/valencia/extramurs'],
 ];
 
 function testRedirect(path, expectedRedirect) {

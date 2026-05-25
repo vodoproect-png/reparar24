@@ -156,11 +156,15 @@ export function middleware(request: NextRequest) {
  * Map legacy EN/RU URLs to Spanish canonical URLs
  * Handles service slug translation while preserving city/district paths
  * 
+ * Supports two cases:
+ * 1. Foreign slugs: /en/plumber/madrid → /fontanero/madrid
+ * 2. Already Spanish slugs: /en/desatascos/valencia → /desatascos/valencia
+ * 
  * Examples:
- * - /en/air-conditioning/sevilla/sur → /aire-acondicionado/sevilla/sur
- * - /ru/santekhnik/sevilla/macarena → /fontanero/sevilla/macarena
- * - /en/plumber/madrid → /fontanero/madrid
- * - /ru/elektrik → /electricista
+ * - /en/air-conditioning/sevilla/sur → /aire-acondicionado/sevilla/sur (translate)
+ * - /ru/santekhnik/sevilla/macarena → /fontanero/sevilla/macarena (translate)
+ * - /en/desatascos/valencia/ciutat-vella → /desatascos/valencia/ciutat-vella (strip prefix)
+ * - /ru/electricista/barcelona/sants → /electricista/barcelona/sants (strip prefix)
  * 
  * @param pathname - Full pathname including locale prefix (e.g., /en/air-conditioning/sevilla/sur)
  * @param locale - Source locale ('en' or 'ru')
@@ -175,14 +179,28 @@ function mapLegacyUrlToSpanish(pathname: string, locale: 'en' | 'ru'): string | 
     return '/'
   }
   
-  // First segment should be service slug in EN/RU
-  const foreignServiceSlug = segments[0]
+  // First segment might be service slug in EN/RU or already in Spanish
+  const firstSegment = segments[0]
   
-  // Find Spanish service slug by matching against EN/RU slugs
+  // Check if first segment is already a valid Spanish service slug
+  let isAlreadySpanish = false
+  for (const [serviceId, localeMap] of Object.entries(serviceSlugMap)) {
+    if (localeMap.es === firstSegment) {
+      isAlreadySpanish = true
+      break
+    }
+  }
+  
+  // If already Spanish, just strip the locale prefix
+  if (isAlreadySpanish) {
+    return '/' + pathWithoutLocale
+  }
+  
+  // Otherwise, try to translate from EN/RU to Spanish
   let spanishServiceSlug: string | null = null
   
   for (const [serviceId, localeMap] of Object.entries(serviceSlugMap)) {
-    if (localeMap[locale] === foreignServiceSlug) {
+    if (localeMap[locale] === firstSegment) {
       spanishServiceSlug = localeMap.es
       break
     }
