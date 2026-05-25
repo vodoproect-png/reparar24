@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { Locale } from '@/lib/i18n/config'
+import { getDefaultOGImage, OG_IMAGE_DIMENSIONS } from './og-image-mapper'
 
 /**
  * OpenGraph and Twitter Card utilities
@@ -23,7 +24,7 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     description,
     url,
     locale,
-    image = '/og-default.jpg',
+    image,
     type = 'website',
   } = params
 
@@ -32,6 +33,9 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     en: 'en_GB',
     ru: 'ru_RU',
   }
+
+  // Use provided image (absolute URL) or default
+  const ogImage = image || getDefaultOGImage()
 
   return {
     title,
@@ -42,9 +46,9 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     locale: localeMap[locale],
     images: [
       {
-        url: image,
-        width: 1200,
-        height: 630,
+        url: ogImage,
+        width: OG_IMAGE_DIMENSIONS.width,
+        height: OG_IMAGE_DIMENSIONS.height,
         alt: title,
       },
     ],
@@ -59,13 +63,16 @@ export function generateTwitterCard(params: {
   description: string
   image?: string
 }): Metadata['twitter'] {
-  const { title, description, image = '/og-default.jpg' } = params
+  const { title, description, image } = params
+
+  // Use provided image (absolute URL) or default
+  const twitterImage = image || getDefaultOGImage()
 
   return {
     card: 'summary_large_image',
     title,
     description,
-    images: [image],
+    images: [twitterImage],
     creator: '@reparar24',
   }
 }

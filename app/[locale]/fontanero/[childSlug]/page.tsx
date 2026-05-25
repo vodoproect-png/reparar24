@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { getServiceOGImage } from '@/lib/seo/og-image-mapper'
 
 // Define child service structure
 interface FontaneroChildService {
@@ -849,6 +850,7 @@ export async function generateMetadata({
   }
 
   const canonicalUrl = `https://reparar24.es/fontanero/${childSlug}`
+  const ogImage = getServiceOGImage('fontanero')
   
   return {
     title: childService.metaTitle,
@@ -864,6 +866,21 @@ export async function generateMetadata({
       siteName: 'Reparar24',
       locale: 'es_ES',
       type: 'website',
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: childService.metaTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: childService.metaTitle,
+      description: childService.metaDescription,
+      images: [ogImage],
+      creator: '@reparar24',
     },
     robots: {
       index: true,

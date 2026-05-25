@@ -107,41 +107,47 @@ Como empresa de servicios eléctricos profesional, nuestros electricistas cuenta
     name: 'Desatascos',
     slug: 'desatascos',
     icon: '🚰',
-    description: 'Desatascos urgentes 24h. Servicio profesional con maquinaria especializada. Sin romper, resultados inmediatos.',
-    longDescription: `¿Necesitas un desatasco urgente? En Reparar24 ofrecemos servicio profesional de desatascos disponible las 24 horas del día, los 7 días de la semana, incluidos festivos. Nuestro equipo especializado está equipado con maquinaria profesional para resolver cualquier atasco de tuberías de forma rápida y eficaz.
+    description: 'Servicio profesional de desatascos con camión cuba. Desatascos industriales, comunidades de vecinos y saneamiento. Maquinaria especializada.',
+    longDescription: `En Reparar24 somos empresa especializada en desatascos profesionales con capacidad para intervenciones de cualquier envergadura. Disponemos de camión cuba, equipos de alta presión, maquinaria industrial y tecnología de inspección avanzada para desatascos complejos que requieren soluciones profesionales.
 
-Somos especialistas en todo tipo de desatascos. Realizamos desatasco de fregaderos, lavabos, duchas y bañeras utilizando técnicas avanzadas que no requieren romper suelos ni paredes. Nuestros profesionales cuentan con sondas eléctricas, equipos de alta presión y cámaras de inspección para localizar y eliminar atascos incluso en las tuberías más difíciles de acceder.
+Nuestro servicio se enfoca en desatascos de gran escala y complejidad: comunidades de vecinos con bajantes colapsadas, edificios completos con problemas de saneamiento, locales comerciales, restaurantes, industrias, y cualquier instalación que requiera equipamiento profesional más allá de los desatascos domésticos básicos.
 
-Atendemos emergencias de desatascos en inodoros y WC atascados, un problema común que requiere atención inmediata. También realizamos desatasco de bajantes, arquetas y desagües generales. Nuestro servicio incluye inspección con cámara para identificar la causa del atasco: acumulación de residuos, objetos extraños, raíces de árboles o problemas estructurales en las tuberías.
+Realizamos desatasco de colectores generales, redes de saneamiento, bajantes comunitarias de edificios, arquetas principales y sistemas de evacuación complejos. Trabajamos con camión cuba para limpieza por aspiración e inyección a alta presión, especialmente efectivo en obstrucciones por acumulación de grasas, lodos o residuos sólidos en conducciones de gran diámetro.
 
-Ofrecemos tarifas transparentes desde 69€ para desatascos básicos. Desatasco de fregadero o lavabo 69-90€, desatasco de inodoro 80-110€, desatasco de bajantes 120-180€, y desatasco con cámara de inspección desde 150€. Cada servicio incluye presupuesto gratuito sin compromiso. El precio final depende de la complejidad del atasco y la técnica necesaria.
+Para comunidades de propietarios ofrecemos contratos de mantenimiento preventivo que incluyen revisión periódica de bajantes, limpieza programada de arquetas, inspección con cámara de circuito cerrado y detección temprana de problemas antes de que se conviertan en emergencias costosas. Proporcionamos informes técnicos detallados para administradores de fincas.
 
-Disponemos de servicio de desatascos urgentes 24/7 para emergencias: inodoros completamente obstruidos, desbordamiento de aguas residuales, atascos múltiples o problemas que afectan al funcionamiento normal del hogar. Nuestro tiempo de respuesta es rápido, con profesionales preparados para atender tu emergencia.
+Nuestro servicio industrial incluye desatasco y limpieza de tuberías en restaurantes y cocinas comerciales donde la acumulación de grasas es un problema recurrente, sistemas de evacuación en naves industriales, y desatascos en instalaciones que requieren cumplimiento de normativas específicas de saneamiento.
 
-Como empresa de desatascos profesional, utilizamos técnicas no invasivas que protegen tus instalaciones. Trabajamos con equipos de última generación: sondas eléctricas rotativas, máquinas de alta presión, sistemas de aspiración y cámaras de inspección HD. Todos nuestros trabajos incluyen garantía y seguimos protocolos de higiene y seguridad. Confía en profesionales cualificados para resolver tus problemas de tuberías atascadas.`,
+Disponemos de equipos de alta presión (hasta 200 bar) para eliminar obstrucciones resistentes, raíces de árboles que invaden conducciones enterradas, y residuos solidificados. Nuestra flota incluye camiones cuba con capacidad de hasta 10,000 litros para trabajos de gran volumen.
+
+Realizamos inspección con cámara robotizada de tuberías desde 100mm hasta 600mm de diámetro, generando informes con grabación en vídeo para diagnóstico preciso de roturas, hundimientos, conexiones irregulares o problemas estructurales en redes de saneamiento.
+
+Como empresa de desatascos profesional trabajamos para administradores de fincas, comunidades de vecinos, empresas, restaurantes, hoteles, centros comerciales e industrias que requieren servicio técnico cualificado con garantías y seguros de responsabilidad civil. Emitimos certificados y documentación técnica necesaria para inspecciones oficiales.
+
+Consulta presupuesto personalizado según envergadura del trabajo. Desatascos comunitarios desde 200€, servicio con camión cuba desde 350€, contratos de mantenimiento preventivo desde 500€/año. Cada proyecto incluye estudio técnico, presupuesto detallado y planificación para minimizar molestias.`,
     benefits: [
-      'Servicio urgente 24 horas',
-      'Sin romper suelos ni paredes',
-      'Maquinaria profesional especializada',
-      'Cámara de  inspección incluida',
-      'Garantía en todos los trabajos'
+      'Servicio con camión cuba y alta presión',
+      'Desatascos industriales y comerciales',
+      'Contratos de mantenimiento para comunidades',
+      'Inspección con cámara robotizada',
+      'Equipamiento profesional de gran capacidad'
     ],
-    priceRange: 'Desde 69€',
+    priceRange: 'Desde 200€',
     available24h: true,
     keywords: [
-      'desatascos urgentes',
-      'desatascos 24 horas',
-      'servicio de desatascos',
-      'empresa de desatascos',
-      'desatasco de tuberías',
-      'desatasco urgente',
       'desatascos profesionales',
-      'desatasco de fregadero',
-      'desatasco de lavabo',
-      'desatasco de ducha',
-      'tuberías atascadas',
+      'camión cuba',
+      'desatascos industriales',
+      'desatascos comunidades',
+      'limpieza de colectores',
+      'saneamiento profesional',
       'desatasco de bajantes',
-      'desatasco de desagües'
+      'empresa de desatascos',
+      'alta presión desatascos',
+      'mantenimiento bajantes',
+      'inspección con cámara',
+      'desatascos comerciales',
+      'limpieza arquetas'
     ]
   },
   {

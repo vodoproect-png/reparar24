@@ -5,6 +5,7 @@ import type { Locale } from '@/lib/i18n/config'
 import { getCanonicalUrl } from './url'
 import { generateOpenGraph, generateTwitterCard } from './opengraph'
 import { getHreflangMetadata } from './hreflang'
+import { getServiceOGImage, getDefaultOGImage } from './og-image-mapper'
 
 /**
  * Enhanced metadata generation with i18n support
@@ -102,6 +103,7 @@ export function generateEnhancedServiceMetadata(
       : service.keywords,
     path,
     locale,
+    image: getServiceOGImage(service.slug),
   })
 }
 
@@ -135,5 +137,6 @@ export function generateEnhancedCityMetadata(city: City, locale: Locale): Metada
     ],
     path: `servicios/${city.slug}`,
     locale,
+    image: getDefaultOGImage(),
   })
 }
