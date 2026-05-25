@@ -15,7 +15,7 @@ import { isProduction, PRODUCTION_URL } from '@/lib/config/environment'
 export default function robots(): MetadataRoute.Robots {
   const isProd = isProduction()
   
-  // PREVIEW/STAGING: Block everything
+  // PREVIEW/STAGING: Block everything (minimal output)
   if (!isProd) {
     return {
       rules: [
@@ -24,8 +24,7 @@ export default function robots(): MetadataRoute.Robots {
           disallow: '/',
         },
       ],
-      // Sitemap still points to production (for reference)
-      sitemap: `${PRODUCTION_URL}/sitemap.xml`,
+      // NO sitemap on preview - keep output minimal
     }
   }
   
