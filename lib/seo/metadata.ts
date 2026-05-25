@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Service } from '@/data/services'
 import { City } from '@/data/cities'
+import { isProduction, getCanonicalBaseUrl } from '@/lib/config/environment'
 
 interface GenerateMetadataProps {
   title: string
@@ -11,13 +12,26 @@ interface GenerateMetadataProps {
 }
 
 export function generateMetadata(props: GenerateMetadataProps): Metadata {
-  const baseUrl = 'https://reparar24.es'
+  const baseUrl = getCanonicalBaseUrl()
   const canonicalUrl = props.canonical || baseUrl
+  const isProd = isProduction()
 
   return {
     title: props.title,
     description: props.description,
     keywords: props.keywords,
+    // PREVIEW PROTECTION: Add noindex on non-production
+    ...(!isProd && { robots: {
+      index: false,
+      follow: false,
+      nocache: true,
+      googleBot: {
+        index: false,
+        follow: false,
+        noarchive: true,
+        nosnippet: true,
+      },
+    }}),
     alternates: {
       canonical: canonicalUrl,
     },

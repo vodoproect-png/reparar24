@@ -1,12 +1,35 @@
 import { MetadataRoute } from 'next'
+import { isProduction, PRODUCTION_URL } from '@/lib/config/environment'
 
 /**
- * SPANISH-ONLY PRODUCTION ROBOTS.TXT
+ * ENVIRONMENT-AWARE ROBOTS.TXT
  * 
- * Reparar24 is Spanish-only. EN/RU routes redirect to Spanish but we disallow
- * them in robots.txt for clarity (though middleware 301s them anyway).
+ * Production (reparar24.es): 
+ * - Allow all Spanish content
+ * - Disallow EN/RU (rollback), API, admin
+ * 
+ * Preview (*.vercel.app):
+ * - Disallow everything
+ * - Prevents accidental indexing of staging environments
  */
 export default function robots(): MetadataRoute.Robots {
+  const isProd = isProduction()
+  
+  // PREVIEW/STAGING: Block everything
+  if (!isProd) {
+    return {
+      rules: [
+        {
+          userAgent: '*',
+          disallow: '/',
+        },
+      ],
+      // Sitemap still points to production (for reference)
+      sitemap: `${PRODUCTION_URL}/sitemap.xml`,
+    }
+  }
+  
+  // PRODUCTION: Allow Spanish content, disallow EN/RU
   return {
     rules: [
       {
@@ -20,6 +43,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: 'https://reparar24.es/sitemap.xml',
+    sitemap: `${PRODUCTION_URL}/sitemap.xml`,
   }
 }

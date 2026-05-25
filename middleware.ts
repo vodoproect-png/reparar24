@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
+import { isProductionHostname } from '@/lib/config/environment'
 
 /**
- * SPANISH-ONLY PRODUCTION MIDDLEWARE
+ * SPANISH-ONLY PRODUCTION MIDDLEWARE + PREVIEW PROTECTION
  * 
  * Strategic Decision: Reparar24 is Spanish-only until Spanish SEO architecture is complete.
  * 
@@ -12,10 +13,16 @@ import type { NextRequest } from 'next/server'
  * 3. /en/* redirects 301 to Spanish equivalent (rollback)
  * 4. /ru/* redirects 301 to Spanish equivalent (rollback)
  * 
+ * SEO Protection:
+ * - Production (reparar24.es): FULLY INDEXABLE
+ * - Preview (*.vercel.app): BLOCKED FROM INDEXING via X-Robots-Tag
+ * 
  * Multilingual implementation postponed. EN/RU pages are incomplete.
  */
 export function middleware(request: NextRequest) {
-  const { pathname } =request.nextUrl
+  const { pathname } = request.nextUrl
+  const hostname = request.headers.get('host')
+  const isProduction = isProductionHostname(hostname)
 
   // === SPANISH CANONICAL ENFORCEMENT ===
   
@@ -80,11 +87,25 @@ export function middleware(request: NextRequest) {
     // Rewrite to /es/* internally
     const url = request.nextUrl.clone()
     url.pathname = `/es${pathname === '/' ? '' : pathname}`
-    return NextResponse.rewrite(url)
+    const response = NextResponse.rewrite(url)
+    
+    // === PREVIEW PROTECTION: Block indexing on non-production ===
+    if (!isProduction) {
+      response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
+    }
+    
+    return response
   }
 
   // All other routes pass through
-  return NextResponse.next()
+  const response = NextResponse.next()
+  
+  // === PREVIEW PROTECTION: Block indexing on non-production ===
+  if (!isProduction) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
+  }
+  
+  return response
 }
 
 /**
