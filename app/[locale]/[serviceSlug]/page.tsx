@@ -12,6 +12,7 @@ import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import { RelatedServicesBlock } from '@/components/seo/RelatedServicesBlock'
 import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
+import { ServiceHubBlock } from '@/components/seo/ServiceHubBlock'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -135,6 +136,60 @@ export default async function ServicePage({
             </div>
           </div>
         </section>
+
+        {/* Fontanero Service Hub - Specialized Services */}
+        {serviceSlug === 'fontanero' && (
+          <ServiceHubBlock
+            serviceSlug={serviceSlug}
+            locale={locale}
+            title="Servicios Especializados de Fontanería"
+            intro="Soluciones profesionales de fontanería para hogares, oficinas y comunidades. Servicio urgente 24 horas en toda España."
+            cards={[
+              {
+                title: 'Reparación de Fugas',
+                slug: 'reparacion-fugas',
+                description: 'Detección y reparación rápida de fugas de agua en viviendas, oficinas y comunidades.',
+                trust: 'Disponible 24/7 • Técnicos certificados',
+                icon: '💧'
+              },
+              {
+                title: 'Desatascos Urgentes',
+                slug: 'desatascos',
+                description: 'Eliminación rápida de atascos en bajantes, desagües, fregaderos e inodoros.',
+                trust: 'Servicio urgente • Atención inmediata',
+                icon: '🚰'
+              },
+              {
+                title: 'Instalaciones de Fontanería',
+                slug: 'instalaciones',
+                description: 'Instalación profesional de grifos, sanitarios y sistemas de agua.',
+                trust: 'Instaladores certificados',
+                icon: '🔧'
+              },
+              {
+                title: 'Sustitución de Tuberías',
+                slug: 'sustitucion-tuberias',
+                description: 'Renovación y cambio de conducciones antiguas o dañadas con materiales modernos.',
+                trust: 'Materiales de alta calidad',
+                icon: '🔩'
+              },
+              {
+                title: 'Calentadores y Termos',
+                slug: 'calentadores-termos',
+                description: 'Instalación, reparación y mantenimiento de termos y calentadores de agua.',
+                trust: 'Asistencia rápida',
+                icon: '♨️'
+              },
+              {
+                title: 'Mantenimiento Preventivo',
+                slug: 'mantenimiento',
+                description: 'Planes de mantenimiento para prevenir fugas, averías y problemas futuros.',
+                trust: 'Soluciones para hogares y empresas',
+                icon: '🛠️'
+              }
+            ]}
+          />
+        )}
 
         {/* Cities Section */}
         <section className="py-16 bg-white">
