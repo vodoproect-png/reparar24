@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     canonical: 'https://reparar24.es/privacidad',
   },
   robots: {
-    index: false,
+    index: true,
     follow: true,
   },
 }
