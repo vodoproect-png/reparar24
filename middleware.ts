@@ -58,6 +58,13 @@ export function middleware(request: NextRequest) {
     })
   }
 
+  // === LEGACY URL REDIRECTS ===
+  
+  // Redirect legacy /services to homepage (permanent redirect)
+  if (pathname === '/services') {
+    return NextResponse.redirect(new URL('/', request.url), { status: 301 })
+  }
+  
   // === SPANISH CANONICAL ENFORCEMENT ===
   
   // Redirect /es to /
