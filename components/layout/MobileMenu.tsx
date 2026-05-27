@@ -182,6 +182,20 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
           <AccordionItem title="Ciudades" icon="📍">
             <div className="space-y-1">
               <Link
+                href={`${localePrefix}/servicios/madrid`}
+                onClick={onClose}
+                className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
+              >
+                Madrid
+              </Link>
+              <Link
+                href={`${localePrefix}/servicios/barcelona`}
+                onClick={onClose}
+                className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
+              >
+                Barcelona
+              </Link>
+              <Link
                 href={`${localePrefix}/servicios/valencia`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
@@ -189,46 +203,32 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
                 Valencia
               </Link>
               <Link
-                href={`${localePrefix}/servicios/torrent`}
+                href={`${localePrefix}/servicios/sevilla`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
-                Torrent
+                Sevilla
               </Link>
               <Link
-                href={`${localePrefix}/servicios/paterna`}
+                href={`${localePrefix}/servicios/zaragoza`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
-                Paterna
+                Zaragoza
               </Link>
               <Link
-                href={`${localePrefix}/servicios/mislata`}
+                href={`${localePrefix}/servicios/malaga`}
                 onClick={onClose}
                 className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
               >
-                Mislata
-              </Link>
-              <Link
-                href={`${localePrefix}/servicios/gandia`}
-                onClick={onClose}
-                className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
-              >
-                Gandía
-              </Link>
-              <Link
-                href={`${localePrefix}/servicios/sagunto`}
-                onClick={onClose}
-                className="block py-2 px-2 rounded hover:bg-white hover:shadow-sm transition-all text-gray-700 hover:text-primary-600"
-              >
-                Sagunto
+                Málaga
               </Link>
               <Link
                 href={localePrefix || '/'}
                 onClick={onClose}
                 className="block py-2 px-2 mt-2 text-primary-600 font-semibold hover:underline"
               >
-                → Ver todas las zonas
+                → Ver todas las ciudades
               </Link>
             </div>
           </AccordionItem>
