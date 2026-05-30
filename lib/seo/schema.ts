@@ -153,16 +153,24 @@ interface BreadcrumbItem {
   url: string
 }
 
+/**
+ * Generate BreadcrumbList schema with absolute URLs
+ * Note: items should already contain absolute URLs from lib/linking/internal.ts
+ */
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      item: item.url
-    }))
+    itemListElement: items.map((item, index) => {
+      const isLast = index === items.length - 1
+      return {
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        // Google recommends omitting 'item' for the last breadcrumb (current page)
+        ...((!isLast) && { item: item.url })
+      }
+    })
   }
 }
 

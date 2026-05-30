@@ -3,6 +3,8 @@ import type { City } from '@/data/cities'
 import type { Locale } from '@/lib/i18n/config'
 import { getServiceCityUrl, getServiceUrl } from '@/lib/seo/url'
 
+const BASE_URL = 'https://reparar24.es'
+
 /**
  * Internal linking utilities for scalable SEO
  */
@@ -112,7 +114,7 @@ export function generateServiceBreadcrumbs(
   locale: Locale
 ): BreadcrumbItem[] {
   return [
-    { name: 'Inicio', url: '/' },
+    { name: 'Inicio', url: BASE_URL },
     { name: service.name, url: getServiceUrl(service.slug, locale) },
   ]
 }
@@ -123,7 +125,7 @@ export function generateServiceCityBreadcrumbs(
   locale: Locale
 ): BreadcrumbItem[] {
   return [
-    { name: 'Inicio', url: '/' },
+    { name: 'Inicio', url: BASE_URL },
     { name: service.name, url: getServiceUrl(service.slug, locale) },
     {
       name: city.name,
@@ -140,7 +142,7 @@ export function generateServiceCityDistrictBreadcrumbs(
   locale: Locale
 ): BreadcrumbItem[] {
   return [
-    { name: 'Inicio', url: '/' },
+    { name: 'Inicio', url: BASE_URL },
     { name: service.name, url: getServiceUrl(service.slug, locale) },
     {
       name: city.name,

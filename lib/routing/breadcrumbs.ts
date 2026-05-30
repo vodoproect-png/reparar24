@@ -5,6 +5,8 @@ import { RouteHelper } from './helpers'
 import { getServiceIdFromSlug, type ServiceId, type CityId } from '@/lib/i18n/slugs'
 import { getDictionary } from '@/lib/i18n/dictionaries'
 
+const BASE_URL = 'https://reparar24.es'
+
 /**
  * Scalable breadcrumb generation system
  * Supports locale-aware, SEO-friendly breadcrumbs for all page types
@@ -32,19 +34,19 @@ export interface BreadcrumbSchema {
  */
 export const BreadcrumbGenerator = {
   /**
-   * Generate homepage breadcrumb
+   * Generate homepage breadcrumb with absolute URL
    */
   home(locale: Locale): BreadcrumbItem {
     const dict = getDictionary(locale)
     return {
       label: dict.common.call || 'Inicio',
-      href: RouteHelper.home(locale),
+      href: RouteHelper.absoluteHome(locale),
       position: 1,
     }
   },
 
   /**
-   * Generate breadcrumbs for service page
+   * Generate breadcrumbs for service page with absolute URLs
    * Example: Home > Fontanería
    */
   service(service: Service, locale: Locale): BreadcrumbItem[] {
@@ -52,14 +54,14 @@ export const BreadcrumbGenerator = {
       this.home(locale),
       {
         label: service.name,
-        href: RouteHelper.service(service.slug as ServiceId, locale),
+        href: RouteHelper.absolute(RouteHelper.service(service.slug as ServiceId, locale)),
         position: 2,
       },
     ]
   },
 
   /**
-   * Generate breadcrumbs for service+city page
+   * Generate breadcrumbs for service+city page with absolute URLs
    * Example: Home > Fontanería > Madrid
    */
   serviceCity(service: Service, city: City, locale: Locale): BreadcrumbItem[] {
@@ -67,19 +69,19 @@ export const BreadcrumbGenerator = {
       this.home(locale),
       {
         label: service.name,
-        href: RouteHelper.service(service.slug as ServiceId, locale),
+        href: RouteHelper.absolute(RouteHelper.service(service.slug as ServiceId, locale)),
         position: 2,
       },
       {
         label: city.name,
-        href: RouteHelper.serviceCity(service.slug as ServiceId, city.slug as CityId, locale),
+        href: RouteHelper.absolute(RouteHelper.serviceCity(service.slug as ServiceId, city.slug as CityId, locale)),
         position: 3,
       },
     ]
   },
 
   /**
-   * Generate breadcrumbs for service+city+district page
+   * Generate breadcrumbs for service+city+district page with absolute URLs
    * Example: Home > Fontanería > Madrid > Salamanca
    */
   serviceCityDistrict(
@@ -93,29 +95,29 @@ export const BreadcrumbGenerator = {
       this.home(locale),
       {
         label: service.name,
-        href: RouteHelper.service(service.slug as ServiceId, locale),
+        href: RouteHelper.absolute(RouteHelper.service(service.slug as ServiceId, locale)),
         position: 2,
       },
       {
         label: city.name,
-        href: RouteHelper.serviceCity(service.slug as ServiceId, city.slug as CityId, locale),
+        href: RouteHelper.absolute(RouteHelper.serviceCity(service.slug as ServiceId, city.slug as CityId, locale)),
         position: 3,
       },
       {
         label: districtName,
-        href: RouteHelper.serviceCityDistrict(
+        href: RouteHelper.absolute(RouteHelper.serviceCityDistrict(
           service.slug as ServiceId,
           city.slug as CityId,
           districtSlug,
           locale
-        ),
+        )),
         position: 4,
       },
     ]
   },
 
   /**
-   * Generate breadcrumbs for city overview page
+   * Generate breadcrumbs for city overview page with absolute URLs
    * Example: Home > Servicios > Madrid
    */
   city(city: City, locale: Locale): BreadcrumbItem[] {
@@ -124,12 +126,12 @@ export const BreadcrumbGenerator = {
       this.home(locale),
       {
         label: dict.common.services || 'Servicios',
-        href: RouteHelper.home(locale),
+        href: RouteHelper.absoluteHome(locale),
         position: 2,
       },
       {
         label: city.name,
-        href: RouteHelper.city(city.slug as CityId, locale),
+        href: RouteHelper.absolute(RouteHelper.city(city.slug as CityId, locale)),
         position: 3,
       },
     ]
@@ -142,19 +144,22 @@ export const BreadcrumbGenerator = {
 export const BreadcrumbSchemaGenerator = {
   /**
    * Generate BreadcrumbList schema for SEO
+   * Breadcrumbs now contain absolute URLs, no concatenation needed
    */
-  generate(breadcrumbs: BreadcrumbItem[], baseUrl: string = 'https://reparar24.es'): BreadcrumbSchema {
+  generate(breadcrumbs: BreadcrumbItem[]): BreadcrumbSchema {
     return {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
-      itemListElement: breadcrumbs.map((crumb, index) => ({
-        '@type': 'ListItem',
-        position: crumb.position,
-        name: crumb.label,
-        ...(index < breadcrumbs.length - 1 && {
-          item: `${baseUrl}${crumb.href}`,
-        }),
-      })),
+      itemListElement: breadcrumbs.map((crumb, index) => {
+        const isLast = index === breadcrumbs.length - 1
+        return {
+          '@type': 'ListItem',
+          position: crumb.position,
+          name: crumb.label,
+          // Google recommends omitting 'item' for the last breadcrumb (current page)
+          ...((!isLast) && { item: crumb.href }),
+        }
+      }),
     }
   },
 
