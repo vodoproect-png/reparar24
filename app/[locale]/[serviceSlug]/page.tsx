@@ -14,6 +14,12 @@ import { RelatedServicesBlock } from '@/components/seo/RelatedServicesBlock'
 import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
 import { ServiceHubBlock } from '@/components/seo/ServiceHubBlock'
 import Link from 'next/link'
+// Commercial components for master template (fontanero)
+import { TrustStatsBlock } from '@/components/commercial/TrustStatsBlock'
+import { ProcessStepsBlock } from '@/components/commercial/ProcessStepsBlock'
+import { CommercialCTA } from '@/components/commercial/CommercialCTA'
+import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
+import { StructuredContentBlock } from '@/components/commercial/StructuredContentBlock'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string }[] = []
@@ -94,7 +100,7 @@ export default async function ServicePage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section */}
+        {/* Hero Section - Enhanced for Fontanero */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
           <div className="container-custom">
             <div className="max-w-4xl">
@@ -110,6 +116,16 @@ export default async function ServicePage({
                 >
                   📞 Llamar Ahora - {service.priceRange}
                 </a>
+                {serviceSlug === 'fontanero' && (
+                  <a
+                    href={`https://wa.me/34641688524?text=${encodeURIComponent('Hola, necesito un fontanero profesional. ¿Pueden ayudarme?')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary bg-green-500 hover:bg-green-600"
+                  >
+                    💬 WhatsApp
+                  </a>
+                )}
                 {service.available24h && (
                   <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
                     🕐 Disponible 24 Horas
@@ -120,22 +136,38 @@ export default async function ServicePage({
           </div>
         </section>
 
-        {/* Benefits Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8 text-center">¿Por Qué Elegirnos?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.benefits.map((benefit, index) => (
-                <div key={index} className="card">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-green-500 text-2xl mt-1">✓</span>
-                    <p className="text-lg">{benefit}</p>
+        {/* Trust Stats Block - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <TrustStatsBlock />}
+
+        {/* Process Steps - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <ProcessStepsBlock />}
+
+        {/* Benefits Section - OTHER SERVICES */}
+        {serviceSlug !== 'fontanero' && (
+          <section className="py-16 bg-gray-50">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">¿Por Qué Elegirnos?</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {service.benefits.map((benefit, index) => (
+                  <div key={index} className="card">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-green-500 text-2xl mt-1">✓</span>
+                      <p className="text-lg">{benefit}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Commercial CTA #1 - FONTANERO ONLY (after process) */}
+        {serviceSlug === 'fontanero' && (
+          <CommercialCTA 
+            title="¿Tienes una Urgencia?"
+            subtitle="Fuga de agua, grifo roto, inodoro atascado? Te atendemos ahora mismo."
+          />
+        )}
 
         {/* Fontanero Service Hub - Specialized Services */}
         {serviceSlug === 'fontanero' && (
@@ -191,6 +223,18 @@ export default async function ServicePage({
           />
         )}
 
+        {/* Pricing Table - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <PricingTableBlock />}
+
+        {/* Commercial CTA #2 - FONTANERO ONLY (after pricing) */}
+        {serviceSlug === 'fontanero' && (
+          <CommercialCTA 
+            title="Presupuesto Gratuito Sin Compromiso"
+            subtitle="Te explicamos qué hay que hacer y cuánto va a costar antes de empezar."
+            variant="secondary"
+          />
+        )}
+
         {/* Cities Section */}
         <section className="py-16 bg-white">
           <div className="container-custom">
@@ -211,7 +255,8 @@ export default async function ServicePage({
           </div>
         </section>
 
-        <CTASection locale={locale} />
+        {/* Generic CTA for other services */}
+        {serviceSlug !== 'fontanero' && <CTASection locale={locale} />}
 
         {/* Service-Specific FAQs */}
         {faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
@@ -251,16 +296,29 @@ export default async function ServicePage({
           </div>
         </section>
 
-        {/* SEO Content Section - Bottom Placement */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <div className="max-w-4xl mx-auto prose prose-lg">
-              <div className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {service.longDescription}
+        {/* Structured Content - FONTANERO ONLY (replaces SEO wall) */}
+        {serviceSlug === 'fontanero' ? (
+          <StructuredContentBlock />
+        ) : (
+          /* SEO Content Section - OTHER SERVICES (keep as is) */
+          <section className="py-16 bg-white">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto prose prose-lg">
+                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+                  {service.longDescription}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {/* Final CTA - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && (
+          <CommercialCTA 
+            title="¿Listo para Resolver Tu Problema?"
+            subtitle="Más de 15 años de experiencia. Presupuesto gratuito. Garantía de 2 años."
+          />
+        )}
       </main>
       <Footer locale={locale} />
     </>
