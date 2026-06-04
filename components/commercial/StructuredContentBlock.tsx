@@ -42,22 +42,22 @@ export function StructuredContentBlock() {
                 <span className="text-3xl mr-3">💧</span>
                 Fugas de Agua
               </h3>
-              <p className="text-gray-700 mb-4">
-                Usamos termografía infrarroja y geófonos para detectar fugas ocultas sin romper paredes enteras. 
-                Localizamos el punto exacto, reparamos y comprobamos que no haya otras zonas comprometidas.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Detección con equipos profesionales</span>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 text-xl flex-shrink-0">🔍</span>
+                  <span><strong>Detección precisa:</strong> Termografía infrarroja y geófonos</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Reparación sin obras innecesarias</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 text-xl flex-shrink-0">🚫</span>
+                  <span><strong>Sin destrozos:</strong> Localización exacta sin romper paredes</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Verificación completa de la instalación</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 text-xl flex-shrink-0">✅</span>
+                  <span><strong>Verificación completa:</strong> Comprobamos zonas comprometidas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-blue-500 text-xl flex-shrink-0">⚡</span>
+                  <span><strong>Respuesta rápida:</strong> Urgencias 24/7 en Valencia</span>
                 </li>
               </ul>
             </div>
@@ -68,22 +68,22 @@ export function StructuredContentBlock() {
                 <span className="text-3xl mr-3">🔩</span>
                 Sustitución de Tuberías
               </h3>
-              <p className="text-gray-700 mb-4">
-                Trabajamos con tubería multicapa (Pex-Al-Pex), cobre tipo B para agua caliente sanitaria (ACS), 
-                y PVC evacuación conforme normativa CTE-HS. Conocemos los diámetros apropiados para cada caso.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Materiales certificados y duraderos</span>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500 text-xl flex-shrink-0">🔧</span>
+                  <span><strong>Pex-Al-Pex:</strong> Tubería multicapa resistente</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Cumplimiento normativa CTE</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500 text-xl flex-shrink-0">♨️</span>
+                  <span><strong>Cobre tipo B:</strong> Agua caliente sanitaria (ACS)</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Instalación profesional con garantía</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500 text-xl flex-shrink-0">📋</span>
+                  <span><strong>Normativa CTE-HS:</strong> Cumplimiento garantizado</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-orange-500 text-xl flex-shrink-0">✓</span>
+                  <span><strong>Diámetros correctos:</strong> Según necesidades reales</span>
                 </li>
               </ul>
             </div>
@@ -94,22 +94,22 @@ export function StructuredContentBlock() {
                 <span className="text-3xl mr-3">🚰</span>
                 Grifos y Sanitarios
               </h3>
-              <p className="text-gray-700 mb-4">
-                Instalamos grifería monomando con cartucho cerámico, inodoros de doble descarga eficientes, 
-                y platos de ducha de resina. Coordinamos con otros profesionales en reformas integrales.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Grifería de calidad con garantía</span>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 text-xl flex-shrink-0">🔧</span>
+                  <span><strong>Grifería monomando:</strong> Cartucho cerámico 25-35mm</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Sanitarios eficientes (ahorro agua)</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 text-xl flex-shrink-0">🚽</span>
+                  <span><strong>Inodoros eficientes:</strong> Doble descarga 3/6 litros</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Instalación precisa y limpia</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 text-xl flex-shrink-0">🚿</span>
+                  <span><strong>Platos de ducha:</strong> Resina con sifón extraplano</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-green-500 text-xl flex-shrink-0">🏗️</span>
+                  <span><strong>Reformas integrales:</strong> Coordinación con otros oficios</span>
                 </li>
               </ul>
             </div>
@@ -120,77 +120,95 @@ export function StructuredContentBlock() {
                 <span className="text-3xl mr-3">♨️</span>
                 Calentadores y Termos
               </h3>
-              <p className="text-gray-700 mb-4">
-                Instalamos termos eléctricos de 50-100L con válvula de seguridad, calentadores estancos de gas 
-                natural, y revisamos ánodos de sacrificio para alargar vida útil. Boletín de gas incluido.
-              </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Instalación con certificación oficial</span>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 text-xl flex-shrink-0">⚡</span>
+                  <span><strong>Termos eléctricos:</strong> 50-100L con válvula seguridad</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Mantenimiento preventivo disponible</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 text-xl flex-shrink-0">🔥</span>
+                  <span><strong>Calentadores gas:</strong> Estancos C12/C13 certificados</span>
                 </li>
-                <li className="flex items-start">
-                  <span className="text-green-500 mr-2">✓</span>
-                  <span>Boletín de gas cuando se requiere</span>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 text-xl flex-shrink-0">🛠️</span>
+                  <span><strong>Mantenimiento:</strong> Revisión ánodos sacrificio</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-red-500 text-xl flex-shrink-0">📋</span>
+                  <span><strong>Boletín incluido:</strong> Instalaciones de gas certificadas</span>
                 </li>
               </ul>
             </div>
 
           </div>
 
-          {/* Professional certifications */}
+          {/* Professional certifications - IMPROVED: Stat grid instead of text */}
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-xl p-8 mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-center">Garantías y Normativa</h3>
-            <div className="grid md:grid-cols-3 gap-6 text-sm">
-              <div className="text-center">
-                <div className="text-3xl mb-3">🎓</div>
-                <p className="font-bold mb-2">Profesionales Certificados</p>
-                <p className="text-gray-300">
-                  Carné profesional de instalador de gas cuando trabajamoscon gas natural o butano
-                </p>
+            <h3 className="text-2xl font-bold mb-8 text-center">Garantías y Normativa</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+                <div className="text-4xl mb-3">🎓</div>
+                <div className="text-3xl font-bold mb-2">Certificados</div>
+                <ul className="text-sm text-gray-300 space-y-1 text-left mt-4">
+                  <li>• Carné instalador gas</li>
+                  <li>• Habilitación oficial</li>
+                  <li>• Formación continua</li>
+                </ul>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">📋</div>
-                <p className="font-bold mb-2">Cumplimiento Normativo</p>
-                <p className="text-gray-300">
-                  CTE DB-HS (salubridad), RITE (sistemas térmicos), todas las instalaciones conformes
-                </p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+                <div className="text-4xl mb-3">📋</div>
+                <div className="text-3xl font-bold mb-2">Normativas</div>
+                <ul className="text-sm text-gray-300 space-y-1 text-left mt-4">
+                  <li>• CTE DB-HS (salubridad)</li>
+                  <li>• RITE (térmicos)</li>
+                  <li>• Boletines oficiales</li>
+                </ul>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-3">🛡️</div>
-                <p className="font-bold mb-2">Seguro Profesional</p>
-                <p className="text-gray-300">
-                  Responsabilidad civil hasta 600.000€ por siniestro, 2 años garantía mano de obra
-                </p>
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/15 transition-colors">
+                <div className="text-4xl mb-3">🛡️</div>
+                <div className="text-2xl font-bold mb-2">600.000€</div>
+                <ul className="text-sm text-gray-300 space-y-1 text-left mt-4">
+                  <li>• Seguro RC profesional</li>
+                  <li>• 2 años garantía</li>
+                  <li>• Cobertura completa</li>
+                </ul>
               </div>
             </div>
           </div>
 
-          {/* Service area - Valencia focus */}
+          {/* Service area - Valencia focus - IMPROVED: Grid layout */}
           <div className="bg-primary-50 border-l-4 border-primary-600 rounded-lg p-8">
-            <h3 className="text-2xl font-bold mb-4 flex items-center">
+            <h3 className="text-2xl font-bold mb-6 flex items-center">
               <span className="text-3xl mr-3">🌍</span>
               Cobertura en Valencia y Área Metropolitana
             </h3>
-            <p className="text-gray-700 mb-4">
-              Con sede en el área metropolitana de Valencia, ofrecemos respuesta rápida en toda la ciudad 
-              y alrededores. Conocemos las particularidades de las instalaciones valencianas y nos adaptamos 
-              al clima mediterráneo local.
-            </p>
-            <div className="grid sm:grid-cols-2 gap-4 text-sm">
-              <div className="flex items-start">
-                <span className="text-primary-600 mr-2">📍</span>
-                <span>Valencia ciudad: 30-60 minutos</span>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+              <div className="bg-white rounded-lg p-4 border-2 border-primary-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">📍</span>
+                  <span className="font-bold text-lg">Valencia Ciudad</span>
+                </div>
+                <p className="text-sm text-gray-600">Tiempo respuesta: 30-60 min</p>
               </div>
-              <div className="flex items-start">
-                <span className="text-primary-600 mr-2">📍</span>
-                <span>Área metropolitana: 60-90 minutos</span>
+              <div className="bg-white rounded-lg p-4 border-2 border-primary-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">🏘️</span>
+                  <span className="font-bold text-lg">Paterna / Mislata</span>
+                </div>
+                <p className="text-sm text-gray-600">Cobertura inmediata</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 border-2 border-primary-200">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-2xl">🌆</span>
+                  <span className="font-bold text-lg">Torrent / Burjassot</span>
+                </div>
+                <p className="text-sm text-gray-600">Servicio 24/7</p>
               </div>
             </div>
+            <p className="text-sm text-gray-600">
+              Conocemos las particularidades de las instalaciones valencianas: 
+              edificios antiguos del centro histórico, construcciones modernas, y climatología mediterránea.
+            </p>
           </div>
 
         </div>
