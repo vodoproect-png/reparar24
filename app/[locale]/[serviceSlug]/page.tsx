@@ -217,6 +217,60 @@ export default async function ServicePage({
           />
         )}
 
+        {/* Service Hub - Child Services FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && (
+          <ServiceHubBlock
+            serviceSlug="fontanero"
+            locale={locale}
+            title="Servicios de Fontanería Especializados"
+            intro="Ofrecemos soluciones específicas para cada necesidad de fontanería con profesionales especializados y garantía de calidad."
+            cards={[
+              {
+                title: 'Reparación de Fugas',
+                slug: 'reparacion-fugas',
+                description: 'Detección y reparación de fugas de agua en tuberías, grifos y sanitarios. Termografía infrarroja para fugas ocultas sin obras.',
+                trust: 'Detección sin destrozos',
+                icon: '💧'
+              },
+              {
+                title: 'Desatascos',
+                slug: 'desatascos',
+                description: 'Desatasco de tuberías, inodoros, fregaderos y desagües con equipos profesionales. Solución rápida sin dañar instalaciones.',
+                trust: 'Equipos profesionales',
+                icon: '🚰'
+              },
+              {
+                title: 'Instalaciones',
+                slug: 'instalaciones',
+                description: 'Instalación de grifos, sanitarios, termos, calentadores y tuberías. Cumplimos normativa CTE con certificados oficiales.',
+                trust: 'Todo con certificado',
+                icon: '🔧'
+              },
+              {
+                title: 'Reformas de Baño',
+                slug: 'reformas-bano',
+                description: 'Renovación completa de baños: cambio de sanitarios, grifería, platos de ducha y azulejos. Coordinación con otros oficios.',
+                trust: 'Reformas integrales',
+                icon: '🚿'
+              },
+              {
+                title: 'Cambio de Tuberías',
+                slug: 'cambio-tuberias',
+                description: 'Sustitución de tuberías antiguas de plomo o galvanizado por multicapa o cobre. Trabajos sin destrozos innecesarios.',
+                trust: 'Mínimas obras',
+                icon: '🔩'
+              },
+              {
+                title: 'Calentadores y Termos',
+                slug: 'calentadores-termos',
+                description: 'Instalación y reparación de termos eléctricos y calentadores de gas. Boletines oficiales y garantía de instalación.',
+                trust: 'Boletín incluido',
+                icon: '♨️'
+              }
+            ]}
+          />
+        )}
+
         {/* Cities Section */}
         <section className="py-16 bg-white">
           <div className="container-custom">
