@@ -13,31 +13,38 @@ interface TrustStatsBlockProps {
 }
 
 export function TrustStatsBlock({ variant = 'generic' }: TrustStatsBlockProps) {
-  // Truthful stats only - no fabrication
-  const stats = [
+  // Hero stats - most important for conversion
+  const heroStats = [
     {
-      icon: '🏆',
-      value: '+15 años',
-      label: 'Experiencia profesional',
-      color: 'bg-blue-50 text-blue-600'
+      icon: '⚡',
+      value: '30-60 min',
+      label: 'Tiempo respuesta urgencias',
+      color: 'bg-gradient-to-br from-orange-500 to-orange-600',
+      highlight: true
     },
     {
       icon: '✅',
       value: '24/7/365',
       label: 'Disponibilidad total',
-      color: 'bg-green-50 text-green-600'
-    },
-    {
-      icon: '⚡',
-      value: '30-60 min',
-      label: 'Tiempo respuesta urgencias',
-      color: 'bg-orange-50 text-orange-600'
+      color: 'bg-gradient-to-br from-green-500 to-green-600',
+      highlight: true
     },
     {
       icon: '🛡️',
       value: '2 años',
       label: 'Garantía mano de obra',
-      color: 'bg-purple-50 text-purple-600'
+      color: 'bg-gradient-to-br from-purple-500 to-purple-600',
+      highlight: true
+    }
+  ]
+
+  // Supporting stats
+  const supportStats = [
+    {
+      icon: '🏆',
+      value: '+15 años',
+      label: 'Experiencia profesional',
+      color: 'bg-blue-50 text-blue-600'
     },
     {
       icon: '📋',
@@ -52,15 +59,9 @@ export function TrustStatsBlock({ variant = 'generic' }: TrustStatsBlockProps) {
       color: 'bg-indigo-50 text-indigo-600'
     },
     {
-      icon: '🌍',
-      value: 'Valencia',
-      label: 'Cobertura metropolitana',
-      color: 'bg-teal-50 text-teal-600'
-    },
-    {
       icon: '💰',
-      value: 'Presupuesto',
-      label: 'Gratuito sin compromiso',
+      value: 'Desde 49€',
+      label: 'Presupuesto transparente',
       color: 'bg-amber-50 text-amber-600'
     }
   ]
@@ -72,15 +73,30 @@ export function TrustStatsBlock({ variant = 'generic' }: TrustStatsBlockProps) {
           Tu Tranquilidad, Nuestra Prioridad
         </h2>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((stat, index) => (
+        {/* Hero Stats - Larger, more prominent */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
+          {heroStats.map((stat, index) => (
             <div 
               key={index} 
-              className={`${stat.color} rounded-lg p-4 md:p-5 text-center transition-transform hover:scale-105`}
+              className={`${stat.color} text-white rounded-xl p-6 md:p-8 text-center transition-transform hover:scale-105 shadow-lg`}
             >
-              <div className="text-3xl md:text-4xl mb-2">{stat.icon}</div>
-              <div className="font-bold text-lg md:text-xl mb-1">{stat.value}</div>
-              <div className="text-xs md:text-sm opacity-90">{stat.label}</div>
+              <div className="text-5xl md:text-6xl mb-3">{stat.icon}</div>
+              <div className="font-bold text-2xl md:text-3xl mb-2">{stat.value}</div>
+              <div className="text-sm md:text-base opacity-95">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Supporting Stats - Smaller grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+          {supportStats.map((stat, index) => (
+            <div 
+              key={index} 
+              className={`${stat.color} rounded-lg p-4 text-center transition-transform hover:scale-105`}
+            >
+              <div className="text-2xl md:text-3xl mb-2">{stat.icon}</div>
+              <div className="font-bold text-base md:text-lg mb-1">{stat.value}</div>
+              <div className="text-xs opacity-90">{stat.label}</div>
             </div>
           ))}
         </div>

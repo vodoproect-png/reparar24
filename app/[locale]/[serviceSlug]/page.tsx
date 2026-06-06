@@ -20,6 +20,8 @@ import { ProcessStepsBlock } from '@/components/commercial/ProcessStepsBlock'
 import { CommercialCTA } from '@/components/commercial/CommercialCTA'
 import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
 import { StructuredContentBlock } from '@/components/commercial/StructuredContentBlock'
+// Conversion components
+import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string }[] = []
@@ -100,19 +102,28 @@ export default async function ServicePage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - Enhanced for Fontanero */}
+        {/* Hero Section - Enhanced for Conversion */}
         <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
           <div className="container-custom">
             <div className="max-w-4xl">
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-6xl">{service.icon}</span>
-                <h1 className="text-5xl md:text-6xl font-bold">{service.name}</h1>
+                <h1 className="text-5xl md:text-6xl font-bold">
+                  {service.name}
+                </h1>
               </div>
-              <p className="text-2xl mb-8 text-primary-50">{service.description}</p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <p className="text-2xl mb-8 text-primary-50">
+                {serviceSlug === 'fontanero'
+                  ? 'Llegamos en 30-60 Minutos | Servicio 24/7 en Valencia | Profesionales Certificados'
+                  : service.description
+                }
+              </p>
+              
+              {/* CTAs - Only 2 primary actions */}
+              <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <a
                   href="tel:+34641688524"
-                  className="btn-primary bg-accent-500 hover:bg-accent-600"
+                  className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg font-bold px-8 py-4 shadow-xl"
                 >
                   📞 Llamar Ahora - {service.priceRange}
                 </a>
@@ -121,20 +132,53 @@ export default async function ServicePage({
                     href={`https://wa.me/34641688524?text=${encodeURIComponent('Hola, necesito un fontanero profesional. ¿Pueden ayudarme?')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn-primary bg-green-500 hover:bg-green-600"
+                    className="btn-primary bg-green-500 hover:bg-green-600 text-lg font-bold px-8 py-4 shadow-xl"
                   >
-                    💬 WhatsApp
+                    💬 Respuesta en 2 min
                   </a>
                 )}
-                {service.available24h && (
-                  <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
-                    🕐 Disponible 24 Horas
-                  </span>
-                )}
               </div>
+              
+              {/* Compact inline trust badges - fontanero only */}
+              {serviceSlug === 'fontanero' && (
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/90">
+                  <span className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Profesionales certificados
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Garantía por escrito
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Presupuesto gratuito
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <svg className="w-4 h-4 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Llegada 30-60 min
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </section>
+
+        {/* Mobile Sticky CTA - Fontanero only */}
+        {serviceSlug === 'fontanero' && (
+          <MobileStickyCTA 
+            phone="34641688524"
+            whatsappMessage="Hola, necesito un fontanero urgente. ¿Pueden ayudarme?"
+          />
+        )}
 
         {/* Trust Stats Block - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <TrustStatsBlock />}
