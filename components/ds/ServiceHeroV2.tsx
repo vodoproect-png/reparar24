@@ -133,7 +133,7 @@ export function ServiceHeroV2({
                     >
                       <Icon className="h-5 w-5 shrink-0 text-primary-600" aria-hidden="true" />
                       <span className="flex flex-col leading-tight">
-                        <span className="text-sm font-bold text-gray-900">{card.title}</span>
+                        <span className="text-xs font-bold text-gray-900 sm:text-sm">{card.title}</span>
                         <span className="text-xs text-gray-600">{card.subtitle}</span>
                       </span>
                     </div>
