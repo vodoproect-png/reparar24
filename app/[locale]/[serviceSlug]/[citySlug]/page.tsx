@@ -15,6 +15,8 @@ import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
 import { EEATSection } from '@/components/seo/EEATSignals'
 import Link from 'next/link'
+import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
+import { serviceCityToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string; citySlug: string }[] = []
@@ -115,37 +117,41 @@ export default async function ServiceCityPage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-          <div className="container-custom">
-            <div className="max-w-4xl">
-              <div className="flex items-center space-x-4 mb-4">
-                <span className="text-6xl">{service.icon}</span>
-                <div>
-                  <h1 className="text-5xl md:text-6xl font-bold">
-                    {h1}
-                  </h1>
+        {/* Hero Section - Conditional: ServiceHeroV2 for fontanero+valencia pilot, gradient for others */}
+        {service.slug === 'fontanero' && city.slug === 'valencia' ? (
+          <ServiceHeroV2 {...serviceCityToHeroProps(service, city, locale)} />
+        ) : (
+          <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl">
+                <div className="flex items-center space-x-4 mb-4">
+                  <span className="text-6xl">{service.icon}</span>
+                  <div>
+                    <h1 className="text-5xl md:text-6xl font-bold">
+                      {h1}
+                    </h1>
+                  </div>
+                </div>
+                <p className="text-2xl mb-8 text-primary-50">
+                  {service.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+34641688524"
+                    className="btn-primary bg-accent-500 hover:bg-accent-600"
+                  >
+                    📞 {callNowCTA} - {service.priceRange}
+                  </a>
+                  {service.available24h && (
+                    <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
+                      🕐 {service24hBadge}
+                    </span>
+                  )}
                 </div>
               </div>
-              <p className="text-2xl mb-8 text-primary-50">
-                {service.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="tel:+34641688524"
-                  className="btn-primary bg-accent-500 hover:bg-accent-600"
-                >
-                  📞 {callNowCTA} - {service.priceRange}
-                </a>
-                {service.available24h && (
-                  <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
-                    🕐 {service24hBadge}
-                  </span>
-                )}
-              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Districts Coverage */}
         <section className="py-16 bg-gray-50">
