@@ -9,6 +9,9 @@ import CTASection from '@/components/sections/CTASection'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import { getServiceOGImage } from '@/lib/seo/og-image-mapper'
+// PILOT: V0 Design System Hero
+import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
+import { childServiceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 // Define child service structure
 interface FontaneroChildService {
@@ -948,57 +951,8 @@ export default async function FontaneroChildServicePage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-          <div className="container-custom">
-            <div className="max-w-4xl">
-              <div className="flex items-center space-x-4 mb-6">
-                <span className="text-6xl">{childService.icon}</span>
-                <h1 className="text-5xl md:text-6xl font-bold">{childService.h1}</h1>
-              </div>
-              <p className="text-2xl mb-8 text-primary-50">{childService.description}</p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="tel:+34641688524"
-                  className="btn-primary bg-accent-500 hover:bg-accent-600"
-                >
-                  📞 Llamar Ahora - Desde 49€
-                </a>
-                <span className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg font-semibold flex items-center">
-                  🕐 Disponible 24 Horas
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Trust Badges */}
-        <section className="py-8 bg-white border-b border-gray-200">
-          <div className="container-custom">
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-              <div className="trust-badge">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>Detección Avanzada</span>
-              </div>
-              <div className="trust-badge">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>Técnicos Certificados</span>
-              </div>
-              <div className="trust-badge">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>Reparación Inmediata</span>
-              </div>
-              <div className="trust-badge">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>Servicio 24/7</span>
-              </div>
-              <div className="trust-badge">
-                <span className="text-green-500 font-bold">✓</span>
-                <span>Garantía Incluida</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* PILOT: V0 Design System Hero for Child Services */}
+        <ServiceHeroV2 {...childServiceToHeroProps(childService.name, childSlug, childService.description, locale)} />
 
         {/* Benefits Section */}
         <section className="py-16 bg-gray-50">

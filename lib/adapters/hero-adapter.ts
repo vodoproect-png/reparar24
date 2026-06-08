@@ -206,3 +206,116 @@ export function serviceToHeroProps(
     },
   }
 }
+
+/**
+ * Convert Child Service data to ServiceHeroV2 props (child service pages)
+ */
+export function childServiceToHeroProps(
+  childServiceName: string,
+  childServiceSlug: string,
+  childServiceDescription: string,
+  locale: Locale
+): ServiceHeroV2Props {
+  // Map child slugs to chip highlighting
+  const chipMapping: Record<string, number> = {
+    'reparacion-fugas': 0,
+    'desatascos': 1,
+    'calentadores-termos': 2,
+    'instalaciones': 3,
+    'sustitucion-tuberias': 3, // maps to Instalaciones
+    'mantenimiento': 3, // maps to Instalaciones
+  }
+  
+  const activeChipIndex = chipMapping[childServiceSlug] ?? -1
+  
+  // Use compact layout for long titles that may overflow
+  const needsCompactLayout = childServiceSlug === 'mantenimiento' || childServiceSlug === 'sustitucion-tuberias'
+  
+  return {
+    eyebrow: locale === 'es' 
+      ? `Especialistas en ${childServiceName}` 
+      : `Specialists in ${childServiceName}`,
+    title: childServiceName,
+    titleHighlight: undefined,
+    subtitle: childServiceDescription,
+    phoneCta: {
+      label: locale === 'es' ? 'Llamar ahora' : 'Call now',
+      sublabel: 'Desde 49€',
+      href: getPhoneHref('fontanero'),
+    },
+    whatsappCta: {
+      label: 'WhatsApp',
+      sublabel: locale === 'es' ? 'Respuesta en 2 min' : 'Reply in 2 min',
+      href: getWhatsAppHref(
+        locale === 'es' 
+          ? `Hola, necesito ${childServiceName.toLowerCase()}. ¿Pueden ayudarme?`
+          : `Hello, I need ${childServiceName.toLowerCase()}. Can you help me?`,
+        'fontanero'
+      ),
+    },
+    trustCards: [
+      {
+        icon: Star,
+        title: '4.9/5',
+        subtitle: locale === 'es' ? '500+ reseñas' : '500+ reviews',
+      },
+      {
+        icon: Clock,
+        title: '24/7',
+        subtitle: locale === 'es' ? '365 días al año' : '365 days/year',
+      },
+      {
+        icon: ShieldCheck,
+        title: locale === 'es' ? 'Profesionales' : 'Certified',
+        subtitle: locale === 'es' ? 'certificados' : 'professionals',
+      },
+    ],
+    quickChips: [
+      {
+        icon: Droplets,
+        label: locale === 'es' ? 'Fugas' : 'Leaks',
+        href: '/fontanero/reparacion-fugas',
+        active: activeChipIndex === 0,
+      },
+      {
+        icon: Waves,
+        label: locale === 'es' ? 'Desatascos' : 'Unclogging',
+        href: '/fontanero/desatascos',
+        active: activeChipIndex === 1,
+      },
+      {
+        icon: Flame,
+        label: locale === 'es' ? 'Termos' : 'Heaters',
+        href: '/fontanero/calentadores-termos',
+        active: activeChipIndex === 2,
+      },
+      {
+        icon: Wrench,
+        label: locale === 'es' ? 'Instalaciones' : 'Installations',
+        href: '/fontanero/instalaciones',
+        active: activeChipIndex === 3,
+      },
+    ],
+    highlights: [
+      {
+        label: locale === 'es' ? 'Llegada en 30-60 min' : 'Arrival in 30-60 min',
+      },
+      {
+        label: locale === 'es' ? 'Garantía 2 años' : '2 year warranty',
+      },
+      {
+        label: locale === 'es' ? 'Seguro RC 600.000€' : 'Insurance 600,000€',
+      },
+      {
+        label: locale === 'es' ? 'Presupuesto gratuito' : 'Free quote',
+      },
+    ],
+    image: {
+      src: '/images/fontanero-hero.jpg',
+      alt: locale === 'es'
+        ? `${childServiceName} profesional - Servicio 24/7`
+        : `Professional ${childServiceName} - 24/7 Service`,
+    },
+    compactImage: needsCompactLayout,
+  }
+}

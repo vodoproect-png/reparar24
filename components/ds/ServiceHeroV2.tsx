@@ -30,6 +30,8 @@ type TrustCard = {
 type QuickChip = {
   icon: LucideIcon
   label: string
+  href?: string
+  active?: boolean
 }
 
 type Highlight = {
@@ -50,6 +52,7 @@ export type ServiceHeroV2Props = {
     src: string
     alt: string
   }
+  compactImage?: boolean
 }
 
 export function ServiceHeroV2({
@@ -63,11 +66,17 @@ export function ServiceHeroV2({
   quickChips = [],
   highlights = [],
   image,
+  compactImage = false,
 }: ServiceHeroV2Props) {
+  // Adjust grid layout for long titles
+  const gridClasses = compactImage
+    ? "grid items-center gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10"
+    : "grid items-center gap-6 lg:grid-cols-2 lg:gap-10"
+    
   return (
     <section className="bg-white">
       <div className="mx-auto w-full max-w-7xl px-4 pt-2 pb-12 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
+        <div className={gridClasses}>
           {/* Left: copy + CTAs */}
           <div className="flex flex-col">
             {eyebrow ? (
@@ -149,13 +158,32 @@ export function ServiceHeroV2({
                 <div className="flex flex-wrap gap-2">
                   {quickChips.map((chip, i) => {
                     const Icon = chip.icon
+                    const isActive = chip.active || false
+                    const baseClasses = "inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium shadow-sm transition-colors"
+                    const activeClasses = isActive
+                      ? "border-primary-600 bg-primary-600 text-white hover:bg-primary-700"
+                      : "border-gray-200 bg-white text-gray-900 hover:border-primary-400 hover:bg-primary-50"
+                    
+                    if (chip.href) {
+                      return (
+                        <a
+                          key={i}
+                          href={chip.href}
+                          className={`${baseClasses} ${activeClasses}`}
+                        >
+                          <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-primary-600"}`} aria-hidden="true" />
+                          {chip.label}
+                        </a>
+                      )
+                    }
+                    
                     return (
                       <button
                         key={i}
                         type="button"
-                        className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-900 shadow-sm transition-colors hover:border-primary-400 hover:bg-primary-50"
+                        className={`${baseClasses} ${activeClasses}`}
                       >
-                        <Icon className="h-4 w-4 text-primary-600" aria-hidden="true" />
+                        <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-primary-600"}`} aria-hidden="true" />
                         {chip.label}
                       </button>
                     )

@@ -22,8 +22,9 @@ import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
 import { StructuredContentBlock } from '@/components/commercial/StructuredContentBlock'
 // Conversion components
 import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
-// PILOT: V0 Design System Hero Component
+// PILOT: V0 Design System Components
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
+import { ServicesGridV1 } from '@/components/ds/ServicesGridV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -145,6 +146,9 @@ export default async function ServicePage({
           />
         )}
 
+        {/* PILOT: V0 ServicesGridV1 - Directly after Hero (fontanero only) */}
+        {serviceSlug === 'fontanero' && <ServicesGridV1 />}
+
         {/* Trust Stats Block - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <TrustStatsBlock />}
 
@@ -179,60 +183,6 @@ export default async function ServicePage({
             title="Presupuesto Gratuito Sin Compromiso"
             subtitle="Te explicamos qué hay que hacer y cuánto va a costar antes de empezar."
             variant="secondary"
-          />
-        )}
-
-        {/* Service Hub - Child Services FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && (
-          <ServiceHubBlock
-            serviceSlug="fontanero"
-            locale={locale}
-            title="Servicios de Fontanería Especializados"
-            intro="Ofrecemos soluciones específicas para cada necesidad de fontanería con profesionales especializados y garantía de calidad."
-            cards={[
-              {
-                title: 'Reparación de Fugas',
-                slug: 'reparacion-fugas',
-                description: 'Detección y reparación de fugas de agua en tuberías, grifos y sanitarios. Termografía infrarroja para fugas ocultas sin obras.',
-                trust: 'Detección sin destrozos',
-                icon: '💧'
-              },
-              {
-                title: 'Desatascos',
-                slug: 'desatascos',
-                description: 'Desatasco de tuberías, inodoros, fregaderos y desagües con equipos profesionales. Solución rápida sin dañar instalaciones.',
-                trust: 'Equipos profesionales',
-                icon: '🚰'
-              },
-              {
-                title: 'Instalaciones',
-                slug: 'instalaciones',
-                description: 'Instalación de grifos, sanitarios, termos, calentadores y tuberías. Cumplimos normativa CTE con certificados oficiales.',
-                trust: 'Todo con certificado',
-                icon: '🔧'
-              },
-              {
-                title: 'Reformas de Baño',
-                slug: 'reformas-bano',
-                description: 'Renovación completa de baños: cambio de sanitarios, grifería, platos de ducha y azulejos. Coordinación con otros oficios.',
-                trust: 'Reformas integrales',
-                icon: '🚿'
-              },
-              {
-                title: 'Cambio de Tuberías',
-                slug: 'cambio-tuberias',
-                description: 'Sustitución de tuberías antiguas de plomo o galvanizado por multicapa o cobre. Trabajos sin destrozos innecesarios.',
-                trust: 'Mínimas obras',
-                icon: '🔩'
-              },
-              {
-                title: 'Calentadores y Termos',
-                slug: 'calentadores-termos',
-                description: 'Instalación y reparación de termos eléctricos y calentadores de gas. Boletines oficiales y garantía de instalación.',
-                trust: 'Boletín incluido',
-                icon: '♨️'
-              }
-            ]}
           />
         )}
 
