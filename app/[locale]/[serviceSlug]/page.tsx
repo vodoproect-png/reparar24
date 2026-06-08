@@ -25,6 +25,7 @@ import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
 // PILOT: V0 Design System Components
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
 import { ServicesGridV1 } from '@/components/ds/ServicesGridV1'
+import { TrustSignalsV1 } from '@/components/ds/TrustSignalsV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -149,8 +150,15 @@ export default async function ServicePage({
         {/* PILOT: V0 ServicesGridV1 - Directly after Hero (fontanero only) */}
         {serviceSlug === 'fontanero' && <ServicesGridV1 />}
 
-        {/* Trust Stats Block - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <TrustStatsBlock />}
+        {/* SEO Heading + PILOT: V0 TrustSignalsV1 (fontanero only) */}
+        {serviceSlug === 'fontanero' && (
+          <div className="container-custom mt-12 mb-6">
+            <h2 className="text-2xl font-bold text-center">
+              ¿Por qué elegir nuestros servicios de fontanería?
+            </h2>
+          </div>
+        )}
+        {serviceSlug === 'fontanero' && <TrustSignalsV1 />}
 
         {/* Process Steps - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <ProcessStepsBlock />}
