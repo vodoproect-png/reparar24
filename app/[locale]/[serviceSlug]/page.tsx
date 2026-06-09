@@ -30,6 +30,7 @@ import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import { GuaranteesCertificationsV1 } from '@/components/ds/GuaranteesCertificationsV1'
+import { TrustCtaBlueV1 } from '@/components/ds/TrustCtaBlueV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -176,6 +177,9 @@ export default async function ServicePage({
         {/* Guarantees & Certifications V1 - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <GuaranteesCertificationsV1 />}
 
+        {/* Trust CTA Blue V1 - FONTANERO ONLY (after guarantees) */}
+        {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
+
         {/* Benefits Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
           <section className="py-16 bg-gray-50">
@@ -193,15 +197,6 @@ export default async function ServicePage({
               </div>
             </div>
           </section>
-        )}
-
-        {/* Commercial CTA #2 - FONTANERO ONLY (after pricing) */}
-        {serviceSlug === 'fontanero' && (
-          <CommercialCTA 
-            title="Presupuesto Gratuito Sin Compromiso"
-            subtitle="Te explicamos qué hay que hacer y cuánto va a costar antes de empezar."
-            variant="secondary"
-          />
         )}
 
         {/* Cities Section */}
@@ -277,12 +272,7 @@ export default async function ServicePage({
         )}
 
         {/* Final CTA - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && (
-          <CommercialCTA 
-            title="¿Listo para Resolver Tu Problema?"
-            subtitle="Más de 15 años de experiencia. Presupuesto gratuito. Garantía de 2 años."
-          />
-        )}
+        {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
       </main>
       <Footer locale={locale} />
     </>
