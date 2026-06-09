@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react"
 import { Wrench, ShieldCheck, Clock, UserRound, FileText } from "lucide-react"
+import Image from "next/image"
 
 type StepColor = "blue" | "green" | "orange" | "purple"
 
@@ -24,28 +25,28 @@ const steps: ProcessStep[] = [
     color: "blue",
     title: "Contactas con nosotros",
     description: "Llámanos o escríbenos por WhatsApp. Cuéntanos tu problema y te asesoramos al instante.",
-    iconSrc: "/icons/process-3d-01-contacto.png",
+    iconSrc: "/icons/process-3d-01-contacto.webp",
   },
   {
     number: "02",
     color: "green",
     title: "Valoramos tu caso",
     description: "Evaluamos la avería y te damos un presupuesto claro y sin compromiso.",
-    iconSrc: "/icons/process-3d-02-valoracion.png",
+    iconSrc: "/icons/process-3d-02-valoracion.webp",
   },
   {
     number: "03",
     color: "orange",
     title: "Reparamos el problema",
     description: "Nuestros fontaneros certificados se desplazan y reparan de forma rápida y eficiente.",
-    iconSrc: "/icons/process-3d-03-reparacion.png",
+    iconSrc: "/icons/process-3d-03-reparacion.webp",
   },
   {
     number: "04",
     color: "purple",
     title: "Garantía y tranquilidad",
     description: "Te ofrecemos garantía de 2 años en todas nuestras reparaciones para tu total tranquilidad.",
-    iconSrc: "/icons/process-3d-04-garantia.png",
+    iconSrc: "/icons/process-3d-04-garantia.webp",
   },
 ]
 
@@ -127,11 +128,14 @@ export function ProcessStepsV3() {
                 {/* Card */}
                 <div className="-mt-6 flex h-full flex-col items-center rounded-[28px] border border-[#EAF0F9] bg-white px-6 pb-5 pt-7 text-center shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]">
                   {/* 3D icon (clipped into a circle) */}
-                  <div className="h-[112px] w-[112px] overflow-hidden rounded-full">
-                    <img
+                  <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
+                    <Image
                       src={step.iconSrc || "/placeholder.svg"}
                       alt=""
                       aria-hidden="true"
+                      width={112}
+                      height={112}
+                      loading="lazy"
                       className="h-full w-full object-cover"
                     />
                   </div>

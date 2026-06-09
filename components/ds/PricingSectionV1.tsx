@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react"
 import { Star, Check, ShieldCheck, FileText, XCircle } from "lucide-react"
+import Image from "next/image"
 
 type PriceColor = "blue" | "orange" | "green" | "red"
 
@@ -23,14 +24,14 @@ const plans: PricingPlan[] = [
     title: "Diagnóstico",
     price: "49€",
     color: "blue",
-    iconSrc: "/icons/pricing-3d-01-diagnostico.png",
+    iconSrc: "/icons/pricing-3d-01-diagnostico.webp",
     features: ["Inspección inicial", "Evaluación profesional", "Presupuesto detallado", "Sin compromiso"],
   },
   {
     title: "Reparación de fugas",
     price: "79€",
     color: "orange",
-    iconSrc: "/icons/process-3d-03-reparacion.png",
+    iconSrc: "/icons/process-3d-03-reparacion.webp",
     features: ["Localización de fuga", "Reparación inmediata", "Materiales incluidos", "Garantía 2 años"],
     featured: true,
   },
@@ -38,14 +39,14 @@ const plans: PricingPlan[] = [
     title: "Desatascos",
     price: "89€",
     color: "green",
-    iconSrc: "/icons/pricing-3d-03-desatascos.png",
+    iconSrc: "/icons/pricing-3d-03-desatascos.webp",
     features: ["Cocina", "Baño", "Bajantes", "Equipos profesionales"],
   },
   {
     title: "Urgencias 24/7",
     price: "99€",
     color: "red",
-    iconSrc: "/icons/pricing-3d-04-urgencias.png",
+    iconSrc: "/icons/pricing-3d-04-urgencias.webp",
     features: ["Atención inmediata", "Noches y festivos", "Llegada 30-60 min", "Servicio prioritario"],
   },
 ]
@@ -113,11 +114,14 @@ export function PricingSectionV1() {
                   ].join(" ")}
                 >
                   {/* 3D icon (clipped into a circle) */}
-                  <div className="h-[112px] w-[112px] overflow-hidden rounded-full">
-                    <img
+                  <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
+                    <Image
                       src={plan.iconSrc || "/placeholder.svg"}
                       alt=""
                       aria-hidden="true"
+                      width={112}
+                      height={112}
+                      loading="lazy"
                       className="h-full w-full object-cover"
                     />
                   </div>

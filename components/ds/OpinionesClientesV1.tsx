@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react"
 import { Star, CheckCircle2, Users, ShieldCheck, MapPin } from "lucide-react"
+import Image from "next/image"
 
 interface Review {
   name: string
@@ -79,16 +80,19 @@ export default function OpinionesClientesV1() {
     <section className="w-full bg-[#F4F7FC] px-4 py-10 sm:px-6 sm:py-12">
       <div className="mx-auto max-w-[1280px]">
         {/* Top rating area */}
-        <div className="flex flex-col items-center">
-          <div className="flex items-center justify-center gap-4">
-            <img
-              src="/icons/opiniones-3d-star.png"
-              alt=""
-              aria-hidden="true"
-              className="h-20 w-20 sm:h-24 sm:w-24"
-            />
-            <span className="text-5xl font-extrabold tracking-tight text-[#2563EB] sm:text-6xl">4.9/5</span>
-          </div>
+          <div className="flex flex-col items-center">
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/icons/opiniones-3d-star.webp"
+                alt=""
+                aria-hidden="true"
+                width={96}
+                height={96}
+                loading="lazy"
+                className="h-20 w-20 sm:h-24 sm:w-24"
+              />
+              <span className="text-5xl font-extrabold tracking-tight text-[#2563EB] sm:text-6xl">4.9/5</span>
+            </div>
 
           {/* Heading */}
           <h2 className="mt-4 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
