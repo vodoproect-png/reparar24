@@ -28,6 +28,7 @@ import { TrustSignalsV1 } from '@/components/ds/TrustSignalsV1'
 import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
 import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
+import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -222,26 +223,30 @@ export default async function ServicePage({
         {/* Generic CTA for other services */}
         {serviceSlug !== 'fontanero' && <CTASection locale={locale} />}
 
-        {/* Service-Specific FAQs */}
-        {faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
-          <section className="py-16 bg-gray-50">
-            <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">Preguntas Frecuentes</h2>
-              <div className="max-w-3xl mx-auto space-y-4">
-                {faqs.filter(faq => faq.serviceId === service.id).map((faq, index) => (
-                  <details key={index} className="bg-white rounded-lg shadow-md overflow-hidden group">
-                    <summary className="px-6 py-4 font-semibold text-lg cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center">
-                      <span>{faq.question}</span>
-                      <span className="text-primary-600 group-open:rotate-180 transition-transform">▼</span>
-                    </summary>
-                    <div className="px-6 pb-4 text-gray-600">
-                      {faq.answer}
-                    </div>
-                  </details>
-                ))}
+        {/* FAQ Section - FONTANERO uses V2, others use generic */}
+        {serviceSlug === 'fontanero' ? (
+          <FaqSectionV2 />
+        ) : (
+          faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
+            <section className="py-16 bg-gray-50">
+              <div className="container-custom">
+                <h2 className="text-3xl font-bold mb-8 text-center">Preguntas Frecuentes</h2>
+                <div className="max-w-3xl mx-auto space-y-4">
+                  {faqs.filter(faq => faq.serviceId === service.id).map((faq, index) => (
+                    <details key={index} className="bg-white rounded-lg shadow-md overflow-hidden group">
+                      <summary className="px-6 py-4 font-semibold text-lg cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center">
+                        <span>{faq.question}</span>
+                        <span className="text-primary-600 group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <div className="px-6 pb-4 text-gray-600">
+                        {faq.answer}
+                      </div>
+                    </details>
+                  ))}
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )
         )}
 
         {/* E-E-A-T Trust Signals */}
