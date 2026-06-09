@@ -29,6 +29,7 @@ import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
 import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
+import { GuaranteesCertificationsV1 } from '@/components/ds/GuaranteesCertificationsV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -172,6 +173,9 @@ export default async function ServicePage({
         {/* Opiniones Clientes V1 - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <OpinionesClientesV1 />}
 
+        {/* Guarantees & Certifications V1 - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <GuaranteesCertificationsV1 />}
+
         {/* Benefits Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
           <section className="py-16 bg-gray-50">
@@ -248,15 +252,6 @@ export default async function ServicePage({
             </section>
           )
         )}
-
-        {/* E-E-A-T Trust Signals */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <div className="max-w-4xl mx-auto">
-              <ServiceGuaranteeBlock locale={locale} />
-            </div>
-          </div>
-        </section>
 
         {/* Related Services - Internal Linking */}
         <section className="py-16 bg-gray-50">
