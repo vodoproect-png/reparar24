@@ -61,10 +61,10 @@ const colorStyles: Record<
   PriceColor,
   { accent: string; check: string; divider: string }
 > = {
-  blue: { accent: "text-[#2563EB]", check: "bg-[#2563EB]", divider: "bg-[#DCE8FC]" },
-  orange: { accent: "text-[#F59E0B]", check: "bg-[#F59E0B]", divider: "bg-[#FCE6C8]" },
-  green: { accent: "text-[#22C55E]", check: "bg-[#22C55E]", divider: "bg-[#D6F2E1]" },
-  red: { accent: "text-[#EF4444]", check: "bg-[#EF4444]", divider: "bg-[#FAD7D7]" },
+  blue: { accent: "text-[#0F2D75]", check: "text-[#1F2937]", divider: "bg-[#E5E7EB]" },
+  orange: { accent: "text-[#0F2D75]", check: "text-[#1F2937]", divider: "bg-[#E5E7EB]" },
+  green: { accent: "text-[#0F2D75]", check: "text-[#1F2937]", divider: "bg-[#E5E7EB]" },
+  red: { accent: "text-[#0F2D75]", check: "text-[#1F2937]", divider: "bg-[#E5E7EB]" },
 }
 
 export function PricingSectionV1() {
@@ -142,11 +142,7 @@ export function PricingSectionV1() {
                   <ul className="mt-5 flex w-full flex-col gap-3 text-left">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-3">
-                        <span
-                          className={`flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full ${styles.check}`}
-                        >
-                          <Check className="h-3 w-3 text-white" strokeWidth={3} aria-hidden="true" />
-                        </span>
+                        <Check className={`h-5 w-5 flex-shrink-0 ${styles.check}`} strokeWidth={2.5} aria-hidden="true" />
                         <span className="text-[15px] leading-snug text-[#3F4D6B]">{feature}</span>
                       </li>
                     ))}

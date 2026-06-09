@@ -89,10 +89,9 @@ export default function OpinionesClientesV1() {
             />
             <span className="text-5xl font-extrabold tracking-tight text-[#2563EB] sm:text-6xl">4.9/5</span>
           </div>
-          <StarRow className="mt-2" />
 
           {/* Heading */}
-          <h2 className="mt-5 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
+          <h2 className="mt-4 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
             Lo Que Dicen Nuestros Clientes
           </h2>
 
