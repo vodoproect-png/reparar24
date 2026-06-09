@@ -26,6 +26,8 @@ import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
 import { ServicesGridV1 } from '@/components/ds/ServicesGridV1'
 import { TrustSignalsV1 } from '@/components/ds/TrustSignalsV1'
 import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
+import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
+import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -163,6 +165,12 @@ export default async function ServicePage({
         {/* Process Steps V3 - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <ProcessStepsV3 />}
 
+        {/* Pricing Section V1 - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <PricingSectionV1 />}
+
+        {/* Opiniones Clientes V1 - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <OpinionesClientesV1 />}
+
         {/* Benefits Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
           <section className="py-16 bg-gray-50">
@@ -181,9 +189,6 @@ export default async function ServicePage({
             </div>
           </section>
         )}
-
-        {/* Pricing Table - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <PricingTableBlock />}
 
         {/* Commercial CTA #2 - FONTANERO ONLY (after pricing) */}
         {serviceSlug === 'fontanero' && (
