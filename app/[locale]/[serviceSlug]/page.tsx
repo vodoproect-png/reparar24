@@ -16,7 +16,6 @@ import { ServiceHubBlock } from '@/components/seo/ServiceHubBlock'
 import Link from 'next/link'
 // Commercial components for master template (fontanero)
 import { TrustStatsBlock } from '@/components/commercial/TrustStatsBlock'
-import { ProcessStepsBlock } from '@/components/commercial/ProcessStepsBlock'
 import { CommercialCTA } from '@/components/commercial/CommercialCTA'
 import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
 import { StructuredContentBlock } from '@/components/commercial/StructuredContentBlock'
@@ -26,6 +25,7 @@ import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
 import { ServicesGridV1 } from '@/components/ds/ServicesGridV1'
 import { TrustSignalsV1 } from '@/components/ds/TrustSignalsV1'
+import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -160,8 +160,8 @@ export default async function ServicePage({
         )}
         {serviceSlug === 'fontanero' && <TrustSignalsV1 />}
 
-        {/* Process Steps - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <ProcessStepsBlock />}
+        {/* Process Steps V3 - FONTANERO ONLY */}
+        {serviceSlug === 'fontanero' && <ProcessStepsV3 />}
 
         {/* Benefits Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
