@@ -48,7 +48,7 @@ const zones: ZoneCard[] = [
 
 export function ServiceAreasV1() {
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-10 sm:px-6 sm:py-12">
+    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
@@ -66,7 +66,7 @@ export function ServiceAreasV1() {
         </div>
 
         {/* 3x2 grid of zone cards - INFORMATIONAL ONLY (no links) */}
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {zones.map((zone) => {
             return (
               <div
@@ -104,7 +104,7 @@ export function ServiceAreasV1() {
         </div>
 
         {/* Bottom trust bar */}
-        <div className="mt-8 flex flex-col items-center gap-6 rounded-[28px] border border-[#EAF0F9] bg-white px-6 py-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] sm:px-8 lg:flex-row lg:justify-between">
+        <div className="mt-4 flex flex-col items-center gap-6 rounded-[28px] border border-[#EAF0F9] bg-white px-6 py-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] sm:px-8 lg:flex-row lg:justify-between">
           <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:text-left">
             <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#E1ECFD] text-[#2563EB] shadow-[0_8px_18px_-10px_rgba(37,99,235,0.7)]">
               <ShieldCheck className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />

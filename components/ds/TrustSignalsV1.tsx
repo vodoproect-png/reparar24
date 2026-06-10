@@ -57,8 +57,8 @@ const badgeStyles: Record<StatColor, string> = {
 
 export function TrustSignalsV1() {
   return (
-    <section className="w-full px-4 py-10 sm:px-6">
-      <div className="mx-auto max-w-[1280px] rounded-[32px] border border-[#E4ECF9] bg-[#F7FAFF] px-6 py-9 shadow-[0_20px_50px_-20px_rgba(15,45,117,0.18)] transition-shadow duration-300 hover:shadow-[0_28px_60px_-20px_rgba(15,45,117,0.28)] sm:px-10 sm:py-10">
+    <section className="w-full px-4 py-8 sm:px-6">
+      <div className="mx-auto max-w-[1280px] rounded-[32px] border border-[#E4ECF9] bg-[#F7FAFF] px-6 py-5 shadow-[0_20px_50px_-20px_rgba(15,45,117,0.18)] transition-shadow duration-300 hover:shadow-[0_28px_60px_-20px_rgba(15,45,117,0.28)] sm:px-10 sm:py-6">
         {/* Top row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => {

@@ -115,7 +115,7 @@ const trustItems: TrustItem[] = [
 
 export function ServicesGridV1() {
   return (
-    <section className="bg-[#fafbfc] px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <section className="bg-[#fafbfc] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
@@ -131,7 +131,7 @@ export function ServicesGridV1() {
         </div>
 
         {/* Service cards */}
-        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
             const Icon = service.icon
             return (
@@ -163,7 +163,7 @@ export function ServicesGridV1() {
         </div>
 
         {/* Trust bar */}
-        <div className="mt-6 rounded-2xl border border-slate-100 bg-white px-6 py-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] sm:px-8">
+        <div className="mt-4 rounded-2xl border border-slate-100 bg-white px-6 py-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] sm:px-8">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-0">
             {trustItems.map((item, index) => {
               const Icon = item.icon

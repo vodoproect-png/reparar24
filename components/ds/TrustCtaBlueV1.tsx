@@ -22,7 +22,7 @@ export function TrustCtaBlueV1({
   whatsappHref?: string
 }) {
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
+    <section className="w-full bg-[#F4F7FC] px-4 py-6 sm:px-6">
       <div className="mx-auto max-w-[1100px]">
         <div className="relative overflow-hidden rounded-[28px] border border-[#DCE7F7] bg-[#EAF1FD] px-6 py-8 shadow-[0_24px_55px_-30px_rgba(15,45,117,0.45)] sm:px-10 sm:py-10">
           <div className="flex items-center justify-between gap-6">

@@ -75,7 +75,7 @@ export function ServiceHeroV2({
     
   return (
     <section className="bg-white">
-      <div className="mx-auto w-full max-w-7xl px-4 pt-2 pb-12 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-2 pb-6 sm:px-6 lg:px-8">
         <div className={gridClasses}>
           {/* Left: copy + CTAs */}
           <div className="flex flex-col">

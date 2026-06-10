@@ -10,7 +10,6 @@ import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/B
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
-import { RelatedServicesBlock } from '@/components/seo/RelatedServicesBlock'
 import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
 import { ServiceHubBlock } from '@/components/seo/ServiceHubBlock'
 import Link from 'next/link'
@@ -18,7 +17,6 @@ import Link from 'next/link'
 import { TrustStatsBlock } from '@/components/commercial/TrustStatsBlock'
 import { CommercialCTA } from '@/components/commercial/CommercialCTA'
 import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
-import { StructuredContentBlock } from '@/components/commercial/StructuredContentBlock'
 // Conversion components
 import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
 // PILOT: V0 Design System Components
@@ -31,6 +29,8 @@ import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import { TrustCtaBlueV1 } from '@/components/ds/TrustCtaBlueV1'
 import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
+import SeoContentSectionV1 from '@/components/ds/SeoContentSectionV1'
+import RelatedServicesV1 from '@/components/ds/RelatedServicesV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -157,8 +157,16 @@ export default async function ServicePage({
 
         {/* SEO Heading + PILOT: V0 TrustSignalsV1 (fontanero only) */}
         {serviceSlug === 'fontanero' && (
-          <div className="container-custom mt-12 mb-6">
-            <h2 className="text-2xl font-bold text-center">
+          <div className="container-custom mt-8 mb-4">
+            {/* Pill badge */}
+            <div className="flex justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
+                VENTAJAS REPARAR24
+              </span>
+            </div>
+            
+            {/* Heading */}
+            <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
               ¿Por qué elegir nuestros servicios de fontanería?
             </h2>
           </div>
@@ -250,16 +258,12 @@ export default async function ServicePage({
           )
         )}
 
-        {/* Related Services - Internal Linking */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <RelatedServicesBlock currentServiceId={service.id} locale={locale} />
-          </div>
-        </section>
+        {/* Related Services V1 - FONTANERO ONLY (V0 Design System) */}
+        {serviceSlug === 'fontanero' && <RelatedServicesV1 />}
 
-        {/* Structured Content - FONTANERO ONLY (replaces SEO wall) */}
+        {/* SEO Content Section V1 - FONTANERO ONLY (v0 approved component) */}
         {serviceSlug === 'fontanero' ? (
-          <StructuredContentBlock />
+          <SeoContentSectionV1 />
         ) : (
           /* SEO Content Section - OTHER SERVICES (keep as is) */
           <section className="py-16 bg-white">

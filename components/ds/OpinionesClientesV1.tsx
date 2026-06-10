@@ -77,7 +77,7 @@ function GoogleG() {
 
 export default function OpinionesClientesV1() {
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-10 sm:px-6 sm:py-12">
+    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
         {/* Top rating area */}
           <div className="flex flex-col items-center">
@@ -106,7 +106,7 @@ export default function OpinionesClientesV1() {
         </div>
 
         {/* Reviews grid */}
-        <div className="mt-10 grid grid-cols-1 items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {reviews.map((review) => (
             <div
               key={review.name}
@@ -132,7 +132,7 @@ export default function OpinionesClientesV1() {
         </div>
 
         {/* Bottom trust bar */}
-        <div className="mt-8 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
+        <div className="mt-4 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
           <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
             {trustItems.map((item, index) => {
               const Icon = item.icon

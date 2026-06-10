@@ -82,7 +82,7 @@ const numberBadgeStyles: Record<StepColor, string> = {
 
 export function ProcessStepsV3() {
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-10 sm:px-6 sm:py-12">
+    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
         {/* Eyebrow */}
         <div className="flex justify-center">
@@ -103,7 +103,7 @@ export function ProcessStepsV3() {
         </p>
 
         {/* Steps */}
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-2">
+        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-2">
           {steps.map((step, index) => {
             const isLast = index === steps.length - 1
             return (
@@ -152,7 +152,7 @@ export function ProcessStepsV3() {
         </div>
 
         {/* Bottom trust bar */}
-        <div className="mt-4 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
+        <div className="mt-3 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
           <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
             {trustItems.map((item, index) => {
               const Icon = item.icon

@@ -48,7 +48,7 @@ export default function FaqSectionV2() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-10 sm:px-6 sm:py-12">
+    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1100px]">
         {/* Header */}
         <div className="flex flex-col items-center text-center">
@@ -65,7 +65,7 @@ export default function FaqSectionV2() {
         </div>
 
         {/* Accordion */}
-        <div className="mt-10 flex flex-col gap-3">
+        <div className="mt-4 flex flex-col gap-2">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index
             return (
@@ -103,7 +103,7 @@ export default function FaqSectionV2() {
         </div>
 
         {/* Bottom CTA card */}
-        <div className="mt-8 flex flex-col items-center gap-6 rounded-[28px] border border-[#EAF0F9] bg-white px-6 py-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-4 flex flex-col items-center gap-6 rounded-[28px] border border-[#EAF0F9] bg-white px-6 py-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] sm:px-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="text-center lg:text-left">
             <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75] sm:text-2xl">
               ¿No encuentras la respuesta?
