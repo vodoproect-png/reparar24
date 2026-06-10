@@ -144,7 +144,7 @@ export function ProcessStepsV3() {
   }
 
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
+    <section className="w-full bg-[#F4F7FC] px-4 pt-8 pb-14 sm:px-6 sm:pb-8">
       <div className="mx-auto max-w-[1280px]">
         {/* Eyebrow */}
         <div className="flex justify-center">
