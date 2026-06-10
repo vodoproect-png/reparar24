@@ -144,7 +144,7 @@ export function ProcessStepsV3() {
   }
 
   return (
-    <section className="w-full bg-[#F4F7FC] px-4 pt-8 pb-20 sm:px-6 sm:pb-8">
+    <section className="w-full bg-[#F4F7FC] px-4 pt-8 pb-8 sm:px-6 sm:pb-8">
       <div className="mx-auto max-w-[1280px]">
         {/* Eyebrow */}
         <div className="flex justify-center">
@@ -215,7 +215,7 @@ export function ProcessStepsV3() {
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
+            <div className="mt-6 mb-5 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
               {steps.map((_, index) => (
                 <button
                   key={index}
