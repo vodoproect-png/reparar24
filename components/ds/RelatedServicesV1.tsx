@@ -1,3 +1,5 @@
+"use client"
+
 import type { LucideIcon } from "lucide-react"
 import {
   Waves,
@@ -13,6 +15,7 @@ import {
   Award,
   Home,
 } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 
 type AccentColor = "blue" | "cyan" | "orange" | "green"
 
@@ -125,6 +128,65 @@ export default function RelatedServicesV1({
   cta = { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  641 688 524" },
   trustBadges = defaultTrustBadges,
 }: RelatedServicesV1Props) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const hasShownHint = useRef(false)
+
+  // Onboarding hint animation - subtle nudge on first render
+  useEffect(() => {
+    if (hasShownHint.current || !carouselRef.current) return
+    if (window.innerWidth >= 768) return // Only on mobile
+
+    hasShownHint.current = true
+    const carousel = carouselRef.current
+
+    // Subtle nudge: move left a bit, then back
+    const nudgeLeft = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(-20px)"
+    }, 300)
+
+    const nudgeBack = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(0)"
+    }, 700)
+
+    return () => {
+      clearTimeout(nudgeLeft)
+      clearTimeout(nudgeBack)
+    }
+  }, [])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distance = touchStart - touchEnd
+    const minSwipeDistance = 50
+
+    if (Math.abs(distance) < minSwipeDistance) return
+
+    if (distance > 0) {
+      // Swipe left - next slide
+      setCurrentSlide(prev => Math.min(prev + 1, cards.length - 1))
+    } else {
+      // Swipe right - previous slide
+      setCurrentSlide(prev => Math.max(prev - 1, 0))
+    }
+
+    setTouchStart(0)
+    setTouchEnd(0)
+  }
+
   return (
     <section className="w-full bg-white px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
@@ -138,51 +200,130 @@ export default function RelatedServicesV1({
           <p className="mt-4 text-lg leading-relaxed text-[#5B6B8C]">{description}</p>
         </div>
 
-        {/* Service cards */}
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {cards.map((card) => {
-            const Icon = card.icon
-            const accent = accentMap[card.color]
-            return (
-              <div
-                key={card.title}
-                className="group flex flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.4)]"
-              >
-                {/* Icon tile */}
-                <span
-                  className={`flex h-14 w-14 items-center justify-center rounded-2xl ${accent.iconBg} ${accent.iconText} transition-transform duration-300 group-hover:scale-105`}
+        {/* Service cards - Mobile Carousel / Desktop Grid */}
+        <div className="mt-4">
+          {/* Mobile Carousel (< 768px) */}
+          <div className="sm:hidden overflow-hidden">
+            <div
+              ref={carouselRef}
+              className="flex gap-4 transition-transform duration-300 ease-out"
+              style={{
+                transform: `translateX(-${currentSlide * 88}%)`,
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {cards.map((card) => {
+                const Icon = card.icon
+                const accent = accentMap[card.color]
+                return (
+                  <div
+                    key={card.title}
+                    className="flex w-[85%] flex-shrink-0 flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]"
+                  >
+                    {/* Icon tile */}
+                    <span
+                      className={`flex h-14 w-14 items-center justify-center rounded-2xl ${accent.iconBg} ${accent.iconText}`}
+                    >
+                      <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
+                    </span>
+
+                    {/* Title + description */}
+                    <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{card.title}</h3>
+                    <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">{card.description}</p>
+
+                    {/* Divider */}
+                    <span className="mt-5 h-px w-full bg-[#EEF2F9]" aria-hidden="true" />
+
+                    {/* Bullets */}
+                    <ul className="mt-5 flex flex-col gap-3">
+                      {card.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2.5 text-[15px] leading-snug text-[#3F4D68]">
+                          <Check className={`mt-0.5 h-[18px] w-[18px] shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Footer (visual only) */}
+                    <span
+                      className={`mt-6 inline-flex items-center gap-1.5 text-sm font-bold ${accent.bullet}`}
+                      aria-hidden="true"
+                    >
+                      {card.ctaLabel ?? "Más información"}
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de servicios">
+              {cards.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "w-8 bg-[#2563EB]"
+                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
+                  }`}
+                  aria-label={`Ir a servicio ${index + 1}`}
+                  aria-selected={index === currentSlide}
+                  role="tab"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Grid (>= 768px) */}
+          <div className="hidden sm:grid grid-cols-2 items-stretch gap-4 lg:grid-cols-4">
+            {cards.map((card) => {
+              const Icon = card.icon
+              const accent = accentMap[card.color]
+              return (
+                <div
+                  key={card.title}
+                  className="group flex flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.4)]"
                 >
-                  <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
-                </span>
+                  {/* Icon tile */}
+                  <span
+                    className={`flex h-14 w-14 items-center justify-center rounded-2xl ${accent.iconBg} ${accent.iconText} transition-transform duration-300 group-hover:scale-105`}
+                  >
+                    <Icon className="h-7 w-7" strokeWidth={2} aria-hidden="true" />
+                  </span>
 
-                {/* Title + description */}
-                <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{card.title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">{card.description}</p>
+                  {/* Title + description */}
+                  <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{card.title}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">{card.description}</p>
 
-                {/* Divider */}
-                <span className="mt-5 h-px w-full bg-[#EEF2F9]" aria-hidden="true" />
+                  {/* Divider */}
+                  <span className="mt-5 h-px w-full bg-[#EEF2F9]" aria-hidden="true" />
 
-                {/* Bullets */}
-                <ul className="mt-5 flex flex-col gap-3">
-                  {card.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2.5 text-[15px] leading-snug text-[#3F4D68]">
-                      <Check className={`mt-0.5 h-[18px] w-[18px] shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                  {/* Bullets */}
+                  <ul className="mt-5 flex flex-col gap-3">
+                    {card.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2.5 text-[15px] leading-snug text-[#3F4D68]">
+                        <Check className={`mt-0.5 h-[18px] w-[18px] shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                {/* Footer (visual only) */}
-                <span
-                  className={`mt-6 inline-flex items-center gap-1.5 text-sm font-bold ${accent.bullet}`}
-                  aria-hidden="true"
-                >
-                  {card.ctaLabel ?? "Más información"}
-                  <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2.5} />
-                </span>
-              </div>
-            )
-          })}
+                  {/* Footer (visual only) */}
+                  <span
+                    className={`mt-6 inline-flex items-center gap-1.5 text-sm font-bold ${accent.bullet}`}
+                    aria-hidden="true"
+                  >
+                    {card.ctaLabel ?? "Más información"}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2.5} />
+                  </span>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         {/* CTA panel */}
