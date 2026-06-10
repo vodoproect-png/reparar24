@@ -29,8 +29,8 @@ import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
 import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
-import { GuaranteesCertificationsV1 } from '@/components/ds/GuaranteesCertificationsV1'
 import { TrustCtaBlueV1 } from '@/components/ds/TrustCtaBlueV1'
+import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
 
 export async function generateStaticParams() {
@@ -174,10 +174,7 @@ export default async function ServicePage({
         {/* Opiniones Clientes V1 - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <OpinionesClientesV1 />}
 
-        {/* Guarantees & Certifications V1 - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <GuaranteesCertificationsV1 />}
-
-        {/* Trust CTA Blue V1 - FONTANERO ONLY (after guarantees) */}
+        {/* Trust CTA Blue V1 - FONTANERO ONLY */}
         {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
 
         {/* Benefits Section - OTHER SERVICES */}
@@ -199,25 +196,30 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Cities Section */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              {service.name} en Tu Ciudad
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {cityLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.href}
-                  className="p-4 bg-gray-50 hover:bg-primary-50 rounded-lg transition-colors text-center font-medium hover:text-primary-600"
-                >
-                  {link.title}
-                </Link>
-              ))}
+        {/* Service Areas - FONTANERO ONLY (V0 Design System) */}
+        {serviceSlug === 'fontanero' && <ServiceAreasV1 />}
+
+        {/* Cities Section - OTHER SERVICES */}
+        {serviceSlug !== 'fontanero' && (
+          <section className="py-16 bg-white">
+            <div className="container-custom">
+              <h2 className="text-3xl font-bold mb-8 text-center">
+                {service.name} en Tu Ciudad
+              </h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {cityLinks.map((link, index) => (
+                  <Link
+                    key={index}
+                    href={link.href}
+                    className="p-4 bg-gray-50 hover:bg-primary-50 rounded-lg transition-colors text-center font-medium hover:text-primary-600"
+                  >
+                    {link.title}
+                  </Link>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         {/* Generic CTA for other services */}
         {serviceSlug !== 'fontanero' && <CTASection locale={locale} />}
