@@ -1,6 +1,9 @@
+"use client"
+
 import type { LucideIcon } from "lucide-react"
 import { Wrench, ShieldCheck, Clock, UserRound, FileText } from "lucide-react"
 import Image from "next/image"
+import { useState, useEffect, useRef } from "react"
 
 type StepColor = "blue" | "green" | "orange" | "purple"
 
@@ -81,6 +84,65 @@ const numberBadgeStyles: Record<StepColor, string> = {
 }
 
 export function ProcessStepsV3() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const hasShownHint = useRef(false)
+
+  // Onboarding hint animation - subtle nudge on first render
+  useEffect(() => {
+    if (hasShownHint.current || !carouselRef.current) return
+    if (window.innerWidth >= 768) return // Only on mobile
+
+    hasShownHint.current = true
+    const carousel = carouselRef.current
+
+    // Subtle nudge: move left a bit, then back
+    const nudgeLeft = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(-20px)"
+    }, 300)
+
+    const nudgeBack = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(0)"
+    }, 700)
+
+    return () => {
+      clearTimeout(nudgeLeft)
+      clearTimeout(nudgeBack)
+    }
+  }, [])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distance = touchStart - touchEnd
+    const minSwipeDistance = 50
+
+    if (Math.abs(distance) < minSwipeDistance) return
+
+    if (distance > 0) {
+      // Swipe left - next slide
+      setCurrentSlide(prev => Math.min(prev + 1, steps.length - 1))
+    } else {
+      // Swipe right - previous slide
+      setCurrentSlide(prev => Math.max(prev - 1, 0))
+    }
+
+    setTouchStart(0)
+    setTouchEnd(0)
+  }
+
   return (
     <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
@@ -102,53 +164,123 @@ export function ProcessStepsV3() {
           Proceso transparente en 4 pasos. Sin complicaciones, sin sorpresas.
         </p>
 
-        {/* Steps */}
-        <div className="mt-4 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-2">
-          {steps.map((step, index) => {
-            const isLast = index === steps.length - 1
-            return (
-              <div key={step.number} className="relative">
-                {/* Dotted connector to the next card (desktop only) */}
-                {!isLast && (
-                  <span
-                    className="absolute right-[-1rem] top-[8.5rem] hidden h-px w-8 border-t-2 border-dashed border-[#9FC0F5] lg:block"
-                    aria-hidden="true"
-                  />
-                )}
-
-                {/* Number badge */}
-                <div className="relative z-10 flex justify-center">
-                  <span
-                    className={`flex h-12 w-12 items-center justify-center rounded-full border text-base font-extrabold shadow-[0_6px_16px_-8px_rgba(15,45,117,0.4)] ${numberBadgeStyles[step.color]}`}
-                  >
-                    {step.number}
-                  </span>
-                </div>
-
-                {/* Card */}
-                <div className="-mt-6 flex h-full flex-col items-center rounded-[28px] border border-[#EAF0F9] bg-white px-6 pb-5 pt-7 text-center shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]">
-                  {/* 3D icon (clipped into a circle) */}
-                  <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
-                    <Image
-                      src={step.iconSrc || "/placeholder.svg"}
-                      alt=""
-                      aria-hidden="true"
-                      width={112}
-                      height={112}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
+        {/* Steps - Mobile Carousel / Desktop Grid */}
+        <div className="mt-4">
+          {/* Mobile Carousel (< 768px) */}
+          <div className="sm:hidden overflow-hidden">
+            <div
+              ref={carouselRef}
+              className="flex gap-4 transition-transform duration-300 ease-out"
+              style={{
+                transform: `translateX(-${currentSlide * 88}%)`,
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {steps.map((step) => (
+                <div key={step.number} className="w-[85%] flex-shrink-0">
+                  {/* Number badge */}
+                  <div className="relative z-10 flex justify-center">
+                    <span
+                      className={`flex h-12 w-12 items-center justify-center rounded-full border text-base font-extrabold shadow-[0_6px_16px_-8px_rgba(15,45,117,0.4)] ${numberBadgeStyles[step.color]}`}
+                    >
+                      {step.number}
+                    </span>
                   </div>
 
-                  {/* Title */}
-                  <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{step.title}</h3>
+                  {/* Card */}
+                  <div className="-mt-6 flex h-full flex-col items-center rounded-[28px] border border-[#EAF0F9] bg-white px-6 pb-5 pt-7 text-center shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
+                    {/* 3D icon (clipped into a circle) */}
+                    <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
+                      <Image
+                        src={step.iconSrc || "/placeholder.svg"}
+                        alt=""
+                        aria-hidden="true"
+                        width={112}
+                        height={112}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
 
-                  {/* Description */}
-                  <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#5B6B8C]">{step.description}</p>
+                    {/* Title */}
+                    <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{step.title}</h3>
+
+                    {/* Description */}
+                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#5B6B8C]">{step.description}</p>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
+              ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
+              {steps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "w-8 bg-[#2563EB]"
+                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
+                  }`}
+                  aria-label={`Ir a paso ${index + 1}`}
+                  aria-selected={index === currentSlide}
+                  role="tab"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Grid (>= 768px) */}
+          <div className="hidden sm:grid grid-cols-2 gap-x-6 gap-y-4 lg:grid-cols-4 lg:gap-x-2">
+            {steps.map((step, index) => {
+              const isLast = index === steps.length - 1
+              return (
+                <div key={step.number} className="relative">
+                  {/* Dotted connector to the next card (desktop only) */}
+                  {!isLast && (
+                    <span
+                      className="absolute right-[-1rem] top-[8.5rem] hidden h-px w-8 border-t-2 border-dashed border-[#9FC0F5] lg:block"
+                      aria-hidden="true"
+                    />
+                  )}
+
+                  {/* Number badge */}
+                  <div className="relative z-10 flex justify-center">
+                    <span
+                      className={`flex h-12 w-12 items-center justify-center rounded-full border text-base font-extrabold shadow-[0_6px_16px_-8px_rgba(15,45,117,0.4)] ${numberBadgeStyles[step.color]}`}
+                    >
+                      {step.number}
+                    </span>
+                  </div>
+
+                  {/* Card */}
+                  <div className="-mt-6 flex h-full flex-col items-center rounded-[28px] border border-[#EAF0F9] bg-white px-6 pb-5 pt-7 text-center shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]">
+                    {/* 3D icon (clipped into a circle) */}
+                    <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
+                      <Image
+                        src={step.iconSrc || "/placeholder.svg"}
+                        alt=""
+                        aria-hidden="true"
+                        width={112}
+                        height={112}
+                        loading="lazy"
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{step.title}</h3>
+
+                    {/* Description */}
+                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#5B6B8C]">{step.description}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         {/* Bottom trust bar */}
