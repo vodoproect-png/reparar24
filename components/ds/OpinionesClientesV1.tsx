@@ -83,32 +83,6 @@ export default function OpinionesClientesV1() {
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
-  const hasShownHint = useRef(false)
-
-  // Onboarding hint animation - subtle nudge on first render
-  useEffect(() => {
-    if (hasShownHint.current || !carouselRef.current) return
-    if (window.innerWidth >= 768) return // Only on mobile
-
-    hasShownHint.current = true
-    const carousel = carouselRef.current
-
-    // Subtle nudge: move left a bit, then back
-    const nudgeLeft = setTimeout(() => {
-      carousel.style.transition = "transform 0.4s ease-out"
-      carousel.style.transform = "translateX(-20px)"
-    }, 300)
-
-    const nudgeBack = setTimeout(() => {
-      carousel.style.transition = "transform 0.4s ease-out"
-      carousel.style.transform = "translateX(0)"
-    }, 700)
-
-    return () => {
-      clearTimeout(nudgeLeft)
-      clearTimeout(nudgeBack)
-    }
-  }, [])
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)

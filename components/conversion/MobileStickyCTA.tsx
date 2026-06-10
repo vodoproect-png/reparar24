@@ -16,16 +16,30 @@ export default function MobileStickyCTA({
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false)
-      }
-    }
+    // Use Intersection Observer for better performance
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Show CTA when user scrolls past the observer element
+        setIsVisible(!entry.isIntersecting)
+      },
+      { rootMargin: '-300px 0px 0px 0px' }
+    )
 
-    window.addEventListener('scroll', toggleVisibility)
-    return () => window.removeEventListener('scroll', toggleVisibility)
+    // Create a sentinel element at the top
+    const sentinel = document.createElement('div')
+    sentinel.style.position = 'absolute'
+    sentinel.style.top = '0'
+    sentinel.style.width = '1px'
+    sentinel.style.height = '1px'
+    sentinel.style.pointerEvents = 'none'
+    document.body.appendChild(sentinel)
+
+    observer.observe(sentinel)
+
+    return () => {
+      observer.disconnect()
+      document.body.removeChild(sentinel)
+    }
   }, [])
 
   const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(whatsappMessage)}`

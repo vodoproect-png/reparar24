@@ -1,7 +1,8 @@
 "use client"
 
 import { MapPin, Clock, ShieldCheck, Phone } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
+import Image from "next/image"
+import { useState, useRef } from "react"
 
 interface ZoneCard {
   image: string
@@ -54,32 +55,6 @@ export function ServiceAreasV1() {
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
-  const hasShownHint = useRef(false)
-
-  // Onboarding hint animation - subtle nudge on first render
-  useEffect(() => {
-    if (hasShownHint.current || !carouselRef.current) return
-    if (window.innerWidth >= 768) return // Only on mobile
-
-    hasShownHint.current = true
-    const carousel = carouselRef.current
-
-    // Subtle nudge: move left a bit, then back
-    const nudgeLeft = setTimeout(() => {
-      carousel.style.transition = "transform 0.4s ease-out"
-      carousel.style.transform = "translateX(-20px)"
-    }, 300)
-
-    const nudgeBack = setTimeout(() => {
-      carousel.style.transition = "transform 0.4s ease-out"
-      carousel.style.transform = "translateX(0)"
-    }, 700)
-
-    return () => {
-      clearTimeout(nudgeLeft)
-      clearTimeout(nudgeBack)
-    }
-  }, [])
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -148,11 +123,13 @@ export function ServiceAreasV1() {
                 >
                   {/* City image (primary visual) */}
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#E1ECFD]">
-                    <img
+                    <Image
                       src={zone.image || "/placeholder.svg"}
                       alt={zone.alt}
+                      fill
                       loading="lazy"
-                      className="h-full w-full object-cover object-center"
+                      sizes="85vw"
+                      className="object-cover object-center"
                     />
                   </div>
 
@@ -203,11 +180,13 @@ export function ServiceAreasV1() {
               >
                 {/* City image (primary visual) */}
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#E1ECFD]">
-                  <img
+                  <Image
                     src={zone.image || "/placeholder.svg"}
                     alt={zone.alt}
+                    fill
                     loading="lazy"
-                    className="h-full w-full object-cover object-center transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center transition-transform duration-500 hover:scale-105"
                   />
                 </div>
 
