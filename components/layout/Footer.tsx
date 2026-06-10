@@ -13,8 +13,8 @@ interface FooterProps {
 export default function Footer({ locale }: FooterProps) {
   return (
     <footer className="bg-gray-900 text-gray-300 mt-auto">
-      <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container-custom py-8 md:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {/* Brand */}
           <div>
             <h3 className="text-white text-xl font-bold mb-4">Reparar24</h3>
@@ -36,8 +36,8 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Servicios</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-white font-semibold mb-3 md:mb-4">Servicios</h4>
+            <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-1.5 md:space-y-2 md:gap-y-0 text-sm">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
                   <Link 
@@ -53,8 +53,8 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Cities */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Ciudades</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-white font-semibold mb-3 md:mb-4">Ciudades</h4>
+            <ul className="grid grid-cols-2 md:grid-cols-1 gap-x-4 gap-y-1.5 md:space-y-2 md:gap-y-0 text-sm">
               {cities.slice(0, 6).map((city) => (
                 <li key={city.id}>
                   <Link 
@@ -70,8 +70,8 @@ export default function Footer({ locale }: FooterProps) {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contacto</h4>
-            <ul className="space-y-3 text-sm">
+            <h4 className="text-white font-semibold mb-3 md:mb-4">Contacto</h4>
+            <ul className="space-y-2 md:space-y-3 text-sm">
               <li>
                 <a href={getPhoneHref()} className="hover:text-primary-400 transition-colors">
                   📞 {getPhoneDisplay()}
@@ -94,7 +94,7 @@ export default function Footer({ locale }: FooterProps) {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className="border-t border-gray-800 mt-6 pt-6 md:mt-8 md:pt-8 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} {getCompanyInfo().legalName} - CIF: {getCompanyInfo().cif}</p>
           <p className="text-gray-500 mt-1 text-xs">Torrent, Valencia, España</p>
           <div className="mt-2 space-x-4">
