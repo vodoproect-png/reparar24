@@ -13,37 +13,37 @@ interface ZoneCard {
 
 const zones: ZoneCard[] = [
   {
-    image: "/cities/torrent.png",
+    image: "/cities/torrent.webp",
     alt: "Torre medieval y casco histórico de Torrent, Valencia",
     city: "Fontanero en Torrent",
     description: "Fontaneros expertos en Torrent. Atención rápida, 24/7 y sin compromiso.",
   },
   {
-    image: "/cities/paterna.png",
+    image: "/cities/paterna.webp",
     alt: "Torre árabe de Paterna sobre el casco antiguo, Valencia",
     city: "Fontanero en Paterna",
     description: "Servicio de fontanería en Paterna. Profesionales locales a tu disposición.",
   },
   {
-    image: "/cities/mislata.png",
+    image: "/cities/mislata.webp",
     alt: "Plaza y edificios del centro urbano de Mislata, Valencia",
     city: "Fontanero en Mislata",
     description: "Fontaneros en Mislata. Solucionamos averías y reformas de fontanería.",
   },
   {
-    image: "/cities/sagunto.png",
+    image: "/cities/sagunto.webp",
     alt: "Castillo en lo alto del cerro sobre el pueblo de Sagunto, Valencia",
     city: "Fontanero en Sagunto",
     description: "Atención rápida en Sagunto. Reparaciones, instalaciones y mantenimiento.",
   },
   {
-    image: "/cities/gandia.png",
+    image: "/cities/gandia.webp",
     alt: "Playa de Gandía con palmeras y mar Mediterráneo, Valencia",
     city: "Fontanero en Gandía",
     description: "Fontaneros en Gandía. Soluciones eficaces para tu hogar o negocio.",
   },
   {
-    image: "/cities/burjassot.png",
+    image: "/cities/burjassot.webp",
     alt: "Plaza histórica de Burjassot, Valencia",
     city: "Fontanero en Burjassot",
     description: "Servicio de fontanería en Burjassot. Calidad, rapidez y garantía.",
