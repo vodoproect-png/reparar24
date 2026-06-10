@@ -1,4 +1,7 @@
+"use client"
+
 import { MapPin, Clock, ShieldCheck, Phone } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
 
 interface ZoneCard {
   image: string
@@ -47,6 +50,65 @@ const zones: ZoneCard[] = [
 ]
 
 export function ServiceAreasV1() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const hasShownHint = useRef(false)
+
+  // Onboarding hint animation - subtle nudge on first render
+  useEffect(() => {
+    if (hasShownHint.current || !carouselRef.current) return
+    if (window.innerWidth >= 768) return // Only on mobile
+
+    hasShownHint.current = true
+    const carousel = carouselRef.current
+
+    // Subtle nudge: move left a bit, then back
+    const nudgeLeft = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(-20px)"
+    }, 300)
+
+    const nudgeBack = setTimeout(() => {
+      carousel.style.transition = "transform 0.4s ease-out"
+      carousel.style.transform = "translateX(0)"
+    }, 700)
+
+    return () => {
+      clearTimeout(nudgeLeft)
+      clearTimeout(nudgeBack)
+    }
+  }, [])
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distance = touchStart - touchEnd
+    const minSwipeDistance = 50
+
+    if (Math.abs(distance) < minSwipeDistance) return
+
+    if (distance > 0) {
+      // Swipe left - next slide
+      setCurrentSlide(prev => Math.min(prev + 1, zones.length - 1))
+    } else {
+      // Swipe right - previous slide
+      setCurrentSlide(prev => Math.max(prev - 1, 0))
+    }
+
+    setTouchStart(0)
+    setTouchEnd(0)
+  }
+
   return (
     <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
@@ -65,10 +127,76 @@ export function ServiceAreasV1() {
           </p>
         </div>
 
-        {/* 3x2 grid of zone cards - INFORMATIONAL ONLY (no links) */}
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {zones.map((zone) => {
-            return (
+        {/* Zone Cards - Mobile Carousel / Desktop Grid */}
+        <div className="mt-4">
+          {/* Mobile Carousel (< 768px) */}
+          <div className="sm:hidden overflow-hidden">
+            <div
+              ref={carouselRef}
+              className="flex gap-4 transition-transform duration-300 ease-out"
+              style={{
+                transform: `translateX(-${currentSlide * 88}%)`,
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
+              {zones.map((zone) => (
+                <div
+                  key={zone.city}
+                  className="w-[85%] flex-shrink-0 flex flex-col overflow-hidden rounded-[24px] border border-[#EAF0F9] bg-white shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]"
+                >
+                  {/* City image (primary visual) */}
+                  <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#E1ECFD]">
+                    <img
+                      src={zone.image || "/placeholder.svg"}
+                      alt={zone.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover object-center"
+                    />
+                  </div>
+
+                  <div className="flex flex-col px-6 pb-4 pt-3.5">
+                    {/* Title */}
+                    <h3 className="text-xl font-bold leading-tight text-[#0F2D75]">{zone.city}</h3>
+
+                    {/* Description */}
+                    <p className="mt-1 text-[15px] leading-snug text-[#5B6B8C]">{zone.description}</p>
+
+                    {/* Footer: response time only (NO CTA - informational) */}
+                    <div className="mt-3 flex items-center border-t border-[#EEF2F9] pt-3">
+                      <span className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
+                        <Clock className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
+                        30-60 min
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de zonas">
+              {zones.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === currentSlide
+                      ? "w-8 bg-[#2563EB]"
+                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
+                  }`}
+                  aria-label={`Ir a zona ${index + 1}`}
+                  aria-selected={index === currentSlide}
+                  role="tab"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop Grid (>= 768px) - NO CHANGES */}
+          <div className="hidden sm:grid grid-cols-2 gap-4 lg:grid-cols-3">
+            {zones.map((zone) => (
               <div
                 key={zone.city}
                 className="flex flex-col overflow-hidden rounded-[24px] border border-[#EAF0F9] bg-white shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]"
@@ -99,8 +227,8 @@ export function ServiceAreasV1() {
                   </div>
                 </div>
               </div>
-            )
-          })}
+            ))}
+          </div>
         </div>
 
         {/* Bottom trust bar */}
