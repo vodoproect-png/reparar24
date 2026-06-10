@@ -215,7 +215,7 @@ export function ProcessStepsV3() {
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-6 mb-5 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
+            <div className="mt-10 mb-10 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
               {steps.map((_, index) => (
                 <button
                   key={index}
