@@ -84,6 +84,11 @@ export async function generateMetadata({
   // Check for unique district SEO content (Phase 1 Pilot)
   const districtSEO = getDistrictSEOContent(service.id, city.slug, district.slug)
   
+  // Custom alt text for fontanero service
+  const imageAlt = service.slug === 'fontanero' 
+    ? 'Fontanería profesional 24 horas | Reparar24'
+    : undefined
+  
   if (districtSEO && locale === 'es') {
     // Use unique meta tags for pilot districts
     return generateEnhancedMetadata({
@@ -91,6 +96,7 @@ export async function generateMetadata({
       description: districtSEO.metadata.description,
       path: `${service.slug}/${city.slug}/${district.slug}`,
       locale,
+      imageAlt,
     })
   }
 
@@ -104,6 +110,7 @@ export async function generateMetadata({
     description,
     path: `${service.slug}/${city.slug}/${district.slug}`,
     locale,
+    imageAlt,
   })
 }
 

@@ -11,7 +11,7 @@ import { PRODUCTION_URL } from '@/lib/config/environment'
  * Service ID to OG image mapping
  */
 const SERVICE_OG_IMAGES: Record<string, string> = {
-  fontanero: '/og-fontanero.jpg',
+  fontanero: '/images/og/fontanero-og.png',
   electricista: '/og-electricista.jpg',
   desatascos: '/og-desatascos.jpg',
   'aire-acondicionado': '/og-clima.jpg',

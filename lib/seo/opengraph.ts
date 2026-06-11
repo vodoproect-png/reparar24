@@ -12,6 +12,7 @@ interface OpenGraphParams {
   url: string
   locale: Locale
   image?: string
+  imageAlt?: string
   type?: 'website' | 'article'
 }
 
@@ -25,6 +26,7 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     url,
     locale,
     image,
+    imageAlt,
     type = 'website',
   } = params
 
@@ -49,7 +51,7 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
         url: ogImage,
         width: OG_IMAGE_DIMENSIONS.width,
         height: OG_IMAGE_DIMENSIONS.height,
-        alt: title,
+        alt: imageAlt || title,
       },
     ],
   }

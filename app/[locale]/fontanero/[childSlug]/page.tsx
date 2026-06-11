@@ -89,7 +89,7 @@ export async function generateMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: serviceData.metaTitle,
+          alt: 'Fontanería profesional 24 horas | Reparar24',
         },
       ],
     },

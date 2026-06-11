@@ -18,6 +18,7 @@ interface EnhancedMetadataParams {
   path: string
   locale: Locale
   image?: string
+  imageAlt?: string
   noindex?: boolean
 }
 
@@ -29,6 +30,7 @@ export function generateEnhancedMetadata(params: EnhancedMetadataParams): Metada
     path,
     locale,
     image,
+    imageAlt,
     noindex = false,
   } = params
 
@@ -47,6 +49,7 @@ export function generateEnhancedMetadata(params: EnhancedMetadataParams): Metada
       url: canonicalUrl,
       locale,
       image,
+      imageAlt,
     }),
     twitter: generateTwitterCard({
       title,
@@ -100,6 +103,11 @@ export function generateEnhancedServiceMetadata(
     ? `${service.slug}/${city.slug}`
     : service.slug
 
+  // Custom alt text for fontanero service
+  const imageAlt = service.slug === 'fontanero' 
+    ? 'Fontanería profesional 24 horas | Reparar24'
+    : undefined
+
   return generateEnhancedMetadata({
     title: titles[locale],
     description: descriptions[locale],
@@ -109,6 +117,7 @@ export function generateEnhancedServiceMetadata(
     path,
     locale,
     image: getServiceOGImage(service.slug),
+    imageAlt,
   })
 }
 
