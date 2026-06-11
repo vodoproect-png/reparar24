@@ -27,10 +27,10 @@ export default function DistrictLinksBlock({ service, city, locale }: DistrictLi
         {/* Section Header */}
         <div className="mb-12 text-center">
           <h2 className="text-balance text-3xl font-extrabold leading-tight text-[#0F2D75] sm:text-4xl lg:text-[42px]">
-            Fontaneros por zonas en {city.name}
+            {service.name} por zonas en {city.name}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-[#5B6B8C] sm:text-lg">
-            Elige tu zona para ver el servicio de fontanería disponible en tu distrito.
+            Elige tu zona para ver el servicio disponible en tu distrito.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function DistrictLinksBlock({ service, city, locale }: DistrictLi
 
         {/* Optional helper text */}
         <p className="mt-8 text-center text-sm text-[#5B6B8C]">
-          Servicio profesional de fontanería disponible en todos los distritos de {city.name}
+          Servicio profesional disponible en todos los distritos de {city.name}
         </p>
       </div>
     </section>

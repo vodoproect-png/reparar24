@@ -190,11 +190,11 @@ export default async function ServiceCityPage({
             
             {/* Valencia ServiceAreasV1 - Only for Valencia */}
             {isValencia && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
-            
-            {/* District Internal Links Block - Fontanero only */}
-            <DistrictLinksBlock service={service} city={city} locale={locale} />
           </>
         )}
+
+        {/* District Internal Links Block - ALL SERVICES */}
+        <DistrictLinksBlock service={service} city={city} locale={locale} />
 
         {/* FAQ Section - Migrate existing FAQ content */}
         {citySEO && citySEO.faqs.length > 0 && locale === 'es' && service.slug === 'fontanero' && (
