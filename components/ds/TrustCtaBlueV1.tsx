@@ -43,7 +43,7 @@ export function TrustCtaBlueV1({
             <div className="flex min-w-0 flex-1 flex-col items-center text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-[#D6E4FB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
                 <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
-                Servicio 24/7 en Valencia
+                Servicio Profesional 24/7
               </span>
 
               <h2 className="mt-4 text-balance text-2xl font-extrabold leading-tight text-[#0F2D75] sm:text-3xl lg:text-4xl">

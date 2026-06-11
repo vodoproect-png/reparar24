@@ -1,10 +1,17 @@
-import type { LucideIcon } from "lucide-react"
 import { Star, Check, ShieldCheck, FileText, XCircle } from "lucide-react"
 import Image from "next/image"
 
 type PriceColor = "blue" | "orange" | "green" | "red"
 
-interface PricingPlan {
+type IconKey = "ShieldCheck" | "FileText" | "XCircle"
+
+const iconMap = {
+  ShieldCheck,
+  FileText,
+  XCircle,
+}
+
+export interface PricingPlan {
   title: string
   price: string
   color: PriceColor
@@ -13,50 +20,22 @@ interface PricingPlan {
   featured?: boolean
 }
 
-interface TrustItem {
-  icon: LucideIcon
+export interface TrustItem {
+  icon: IconKey
   title: string
   description: string
 }
 
-const plans: PricingPlan[] = [
-  {
-    title: "Diagnóstico",
-    price: "49€",
-    color: "blue",
-    iconSrc: "/icons/pricing-3d-01-diagnostico.webp",
-    features: ["Inspección inicial", "Evaluación profesional", "Presupuesto detallado", "Sin compromiso"],
-  },
-  {
-    title: "Reparación de fugas",
-    price: "79€",
-    color: "orange",
-    iconSrc: "/icons/process-3d-03-reparacion.webp",
-    features: ["Localización de fuga", "Reparación inmediata", "Materiales incluidos", "Garantía 2 años"],
-    featured: true,
-  },
-  {
-    title: "Desatascos",
-    price: "89€",
-    color: "green",
-    iconSrc: "/icons/pricing-3d-03-desatascos.webp",
-    features: ["Cocina", "Baño", "Bajantes", "Equipos profesionales"],
-  },
-  {
-    title: "Urgencias 24/7",
-    price: "99€",
-    color: "red",
-    iconSrc: "/icons/pricing-3d-04-urgencias.webp",
-    features: ["Atención inmediata", "Noches y festivos", "Llegada 30-60 min", "Servicio prioritario"],
-  },
-]
-
-const trustItems: TrustItem[] = [
-  { icon: ShieldCheck, title: "Presupuesto cerrado", description: "antes de empezar" },
-  { icon: FileText, title: "Factura disponible", description: "al finalizar el trabajo" },
-  { icon: ShieldCheck, title: "Garantía", description: "hasta 2 años" },
-  { icon: XCircle, title: "Sin costes ocultos", description: "ni suplementos" },
-]
+interface PricingSectionV1Props {
+  badge?: string
+  title?: string
+  subtitle?: string
+  pricingPlans?: PricingPlan[]
+  featuredBadgeText?: string
+  fromLabel?: string
+  trustItems?: TrustItem[]
+  disclaimer?: string
+}
 
 const colorStyles: Record<
   PriceColor,
@@ -68,7 +47,18 @@ const colorStyles: Record<
   red: { accent: "text-[#0F2D75]", check: "text-[#1F2937]", divider: "bg-[#E5E7EB]" },
 }
 
-export function PricingSectionV1() {
+export function PricingSectionV1({
+  badge,
+  title,
+  subtitle,
+  pricingPlans,
+  featuredBadgeText,
+  fromLabel,
+  trustItems,
+  disclaimer,
+}: PricingSectionV1Props = {}) {
+  // Strict conditional rendering - no fallback content in production
+  if (!pricingPlans?.length) return null
   return (
     <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px]">
@@ -76,23 +66,23 @@ export function PricingSectionV1() {
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
             <Star className="h-3.5 w-3.5 fill-current" strokeWidth={2.5} aria-hidden="true" />
-            Precios transparentes
+            {badge}
           </span>
         </div>
 
         {/* Heading */}
         <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-          Precios Transparentes
+          {title}
         </h2>
 
         {/* Subtitle */}
         <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
-          Sin sorpresas ni costes ocultos
+          {subtitle}
         </p>
 
         {/* Pricing cards */}
         <div className="mt-4 grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((plan) => {
+          {pricingPlans.map((plan) => {
             const styles = colorStyles[plan.color]
             return (
               <div key={plan.title} className="relative flex">
@@ -100,7 +90,7 @@ export function PricingSectionV1() {
                 {plan.featured && (
                   <span className="absolute left-1/2 top-0 z-10 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-full bg-[#F59E0B] px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-[0_8px_18px_-8px_rgba(245,158,11,0.7)]">
                     <Star className="h-3.5 w-3.5 fill-current" strokeWidth={2.5} aria-hidden="true" />
-                    Más solicitada
+                    {featuredBadgeText}
                   </span>
                 )}
 
@@ -132,7 +122,7 @@ export function PricingSectionV1() {
                   {/* Desde label with dividers */}
                   <div className="mt-3 flex w-full items-center gap-3">
                     <span className={`h-px flex-1 ${styles.divider}`} aria-hidden="true" />
-                    <span className={`text-sm font-semibold ${styles.accent}`}>Desde</span>
+                    <span className={`text-sm font-semibold ${styles.accent}`}>{fromLabel}</span>
                     <span className={`h-px flex-1 ${styles.divider}`} aria-hidden="true" />
                   </div>
 
@@ -158,10 +148,11 @@ export function PricingSectionV1() {
         </div>
 
         {/* Bottom trust bar */}
+        {trustItems && trustItems.length > 0 && (
         <div className="mt-4 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
           <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
             {trustItems.map((item, index) => {
-              const Icon = item.icon
+              const Icon = iconMap[item.icon]
               return (
                 <div
                   key={item.title}
@@ -183,11 +174,14 @@ export function PricingSectionV1() {
             })}
           </div>
         </div>
+        )}
 
         {/* Disclaimer */}
+        {disclaimer && (
         <p className="mt-6 text-center text-sm text-[#8A97B1]">
-          Precios orientativos. Cada caso es único y se presupuestará según la evaluación.
+          {disclaimer}
         </p>
+        )}
       </div>
     </section>
   )

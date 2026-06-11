@@ -4,57 +4,43 @@ import { MapPin, Clock, ShieldCheck, Phone } from "lucide-react"
 import Image from "next/image"
 import { useState, useRef } from "react"
 
-interface ZoneCard {
+export interface CityCard {
   image: string
   alt: string
   city: string
   description: string
 }
 
-const zones: ZoneCard[] = [
-  {
-    image: "/cities/torrent.webp",
-    alt: "Torre medieval y casco histórico de Torrent, Valencia",
-    city: "Fontanero en Torrent",
-    description: "Fontaneros expertos en Torrent. Atención rápida, 24/7 y sin compromiso.",
-  },
-  {
-    image: "/cities/paterna.webp",
-    alt: "Torre árabe de Paterna sobre el casco antiguo, Valencia",
-    city: "Fontanero en Paterna",
-    description: "Servicio de fontanería en Paterna. Profesionales locales a tu disposición.",
-  },
-  {
-    image: "/cities/mislata.webp",
-    alt: "Plaza y edificios del centro urbano de Mislata, Valencia",
-    city: "Fontanero en Mislata",
-    description: "Fontaneros en Mislata. Solucionamos averías y reformas de fontanería.",
-  },
-  {
-    image: "/cities/sagunto.webp",
-    alt: "Castillo en lo alto del cerro sobre el pueblo de Sagunto, Valencia",
-    city: "Fontanero en Sagunto",
-    description: "Atención rápida en Sagunto. Reparaciones, instalaciones y mantenimiento.",
-  },
-  {
-    image: "/cities/gandia.webp",
-    alt: "Playa de Gandía con palmeras y mar Mediterráneo, Valencia",
-    city: "Fontanero en Gandía",
-    description: "Fontaneros en Gandía. Soluciones eficaces para tu hogar o negocio.",
-  },
-  {
-    image: "/cities/burjassot.webp",
-    alt: "Plaza histórica de Burjassot, Valencia",
-    city: "Fontanero en Burjassot",
-    description: "Servicio de fontanería en Burjassot. Calidad, rapidez y garantía.",
-  },
-]
+interface ServiceAreasV1Props {
+  badge?: string
+  title?: string
+  subtitle?: string
+  cities?: CityCard[]
+  responseTime?: string
+  coverageTitle?: string
+  coverageDescription?: string
+  ctaText?: string
+  ctaPhone?: string
+}
 
-export function ServiceAreasV1() {
+export function ServiceAreasV1({
+  badge,
+  title,
+  subtitle,
+  cities,
+  responseTime,
+  coverageTitle,
+  coverageDescription,
+  ctaText,
+  ctaPhone,
+}: ServiceAreasV1Props = {}) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  
+  // Strict conditional rendering - no fallback content in production
+  if (!cities?.length) return null
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -74,7 +60,7 @@ export function ServiceAreasV1() {
 
     if (distance > 0) {
       // Swipe left - next slide
-      setCurrentSlide(prev => Math.min(prev + 1, zones.length - 1))
+      setCurrentSlide(prev => Math.min(prev + 1, cities.length - 1))
     } else {
       // Swipe right - previous slide
       setCurrentSlide(prev => Math.max(prev - 1, 0))
@@ -91,14 +77,13 @@ export function ServiceAreasV1() {
         <div className="flex flex-col items-center text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
             <MapPin className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
-            Zonas donde trabajamos
+            {badge}
           </span>
           <h2 className="mt-6 text-balance text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-            Fontanero cerca de ti
+            {title}
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#5B6B8C] sm:text-xl">
-            Ofrecemos servicio de fontanería profesional en Valencia y principales ciudades cercanas. Llegamos
-            rápidamente a tu zona.
+            {subtitle}
           </p>
         </div>
 
@@ -116,7 +101,7 @@ export function ServiceAreasV1() {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
             >
-              {zones.map((zone) => (
+              {cities.map((zone) => (
                 <div
                   key={zone.city}
                   className="w-[85%] flex-shrink-0 flex flex-col overflow-hidden rounded-[24px] border border-[#EAF0F9] bg-white shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]"
@@ -144,7 +129,7 @@ export function ServiceAreasV1() {
                     <div className="mt-3 flex items-center border-t border-[#EEF2F9] pt-3">
                       <span className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
                         <Clock className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
-                        30-60 min
+                        {responseTime}
                       </span>
                     </div>
                   </div>
@@ -154,7 +139,7 @@ export function ServiceAreasV1() {
 
             {/* Pagination Dots */}
             <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de zonas">
-              {zones.map((_, index) => (
+              {cities.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
@@ -173,7 +158,7 @@ export function ServiceAreasV1() {
 
           {/* Desktop Grid (>= 768px) - NO CHANGES */}
           <div className="hidden sm:grid grid-cols-2 gap-4 lg:grid-cols-3">
-            {zones.map((zone) => (
+            {cities.map((zone) => (
               <div
                 key={zone.city}
                 className="flex flex-col overflow-hidden rounded-[24px] border border-[#EAF0F9] bg-white shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]"
@@ -201,7 +186,7 @@ export function ServiceAreasV1() {
                   <div className="mt-3 flex items-center border-t border-[#EEF2F9] pt-3">
                     <span className="inline-flex items-center gap-2 text-sm font-bold text-[#2563EB]">
                       <Clock className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
-                      30-60 min
+                      {responseTime}
                     </span>
                   </div>
                 </div>
@@ -218,20 +203,20 @@ export function ServiceAreasV1() {
             </span>
             <div>
               <h3 className="text-lg font-extrabold leading-tight text-[#0F2D75]">
-                Cobertura en Valencia y alrededores
+                {coverageTitle}
               </h3>
               <p className="mt-1 text-[15px] leading-relaxed text-[#5B6B8C]">
-                Si tu ciudad no aparece en la lista, consúltanos. Cubrimos toda el área metropolitana de Valencia.
+                {coverageDescription}
               </p>
             </div>
           </div>
 
           <a
-            href="tel:+34641688524"
+            href={ctaPhone}
             className="inline-flex w-full items-center justify-center gap-2.5 rounded-2xl border-2 border-[#2563EB] px-6 py-3.5 text-base font-bold text-[#2563EB] transition-colors duration-200 hover:bg-[#2563EB] hover:text-white sm:w-auto lg:flex-shrink-0"
           >
             <Phone className="h-5 w-5 flex-shrink-0" strokeWidth={2.25} aria-hidden="true" />
-            Llámanos ahora
+            {ctaText}
           </a>
         </div>
       </div>

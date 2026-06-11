@@ -30,8 +30,17 @@ import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import { TrustCtaBlueV1 } from '@/components/ds/TrustCtaBlueV1'
 import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
 import SeoContentSectionV1 from '@/components/ds/SeoContentSectionV1'
-import RelatedServicesV1 from '@/components/ds/RelatedServicesV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
+import { fontaneroHubSeoContent, fontaneroHubFaqs } from '@/data/fontanero/hub-page-content'
+import {
+  fontaneroServicesGridContent,
+  fontaneroTrustSignalsContent,
+  fontaneroProcessStepsContent,
+  fontaneroPricingSectionContent,
+  fontaneroOpinionesClientesContent,
+} from '@/data/fontanero/page-components-content'
+// Shared Valencia GEO preset
+import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string }[] = []
@@ -152,10 +161,10 @@ export default async function ServicePage({
           />
         )}
 
-        {/* PILOT: V0 ServicesGridV1 - Directly after Hero (fontanero only) */}
-        {serviceSlug === 'fontanero' && <ServicesGridV1 />}
+        {/* PILOT: V0 ServicesGridV1 - WITH PROPS (fontanero only) */}
+        {serviceSlug === 'fontanero' && <ServicesGridV1 {...fontaneroServicesGridContent} />}
 
-        {/* SEO Heading + PILOT: V0 TrustSignalsV1 (fontanero only) */}
+        {/* SEO Heading + PILOT: V0 TrustSignalsV1 - WITH PROPS (fontanero only) */}
         {serviceSlug === 'fontanero' && (
           <div className="container-custom mt-8 mb-4">
             {/* Pill badge */}
@@ -167,23 +176,23 @@ export default async function ServicePage({
             
             {/* Heading */}
             <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-              ¿Por qué elegir nuestros servicios de fontanería?
+              ¿Por qué elegir Reparar24?
             </h2>
           </div>
         )}
-        {serviceSlug === 'fontanero' && <TrustSignalsV1 />}
+        {serviceSlug === 'fontanero' && <TrustSignalsV1 {...fontaneroTrustSignalsContent} />}
 
-        {/* Process Steps V3 - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <ProcessStepsV3 />}
+        {/* Process Steps V3 - WITH PROPS (fontanero only) */}
+        {serviceSlug === 'fontanero' && <ProcessStepsV3 {...fontaneroProcessStepsContent} />}
 
-        {/* Pricing Section V1 - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <PricingSectionV1 />}
+        {/* Pricing Section V1 - WITH PROPS (fontanero only) */}
+        {serviceSlug === 'fontanero' && <PricingSectionV1 {...fontaneroPricingSectionContent} />}
 
-        {/* Opiniones Clientes V1 - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <OpinionesClientesV1 />}
+        {/* Opiniones Clientes V1 - WITH PROPS (fontanero only) */}
+        {serviceSlug === 'fontanero' && <OpinionesClientesV1 {...fontaneroOpinionesClientesContent} />}
 
-        {/* Trust CTA Blue V1 - FONTANERO ONLY */}
-        {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
+        {/* Service Areas V1 - SHARED VALENCIA GEO COVERAGE (fontanero only) */}
+        {serviceSlug === 'fontanero' && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
 
         {/* Benefits Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
@@ -204,8 +213,7 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Service Areas - FONTANERO ONLY (V0 Design System) */}
-        {serviceSlug === 'fontanero' && <ServiceAreasV1 />}
+        {/* Service Areas - REMOVED (duplicates SeoContentSectionV1 coverage) */}
 
         {/* Cities Section - OTHER SERVICES */}
         {serviceSlug !== 'fontanero' && (
@@ -234,7 +242,7 @@ export default async function ServicePage({
 
         {/* FAQ Section - FONTANERO uses V2, others use generic */}
         {serviceSlug === 'fontanero' ? (
-          <FaqSectionV2 />
+          <FaqSectionV2 faqs={fontaneroHubFaqs} />
         ) : (
           faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
             <section className="py-16 bg-gray-50">
@@ -258,12 +266,9 @@ export default async function ServicePage({
           )
         )}
 
-        {/* Related Services V1 - FONTANERO ONLY (V0 Design System) */}
-        {serviceSlug === 'fontanero' && <RelatedServicesV1 />}
-
         {/* SEO Content Section V1 - FONTANERO ONLY (v0 approved component) */}
         {serviceSlug === 'fontanero' ? (
-          <SeoContentSectionV1 />
+          <SeoContentSectionV1 {...fontaneroHubSeoContent} />
         ) : (
           /* SEO Content Section - OTHER SERVICES (keep as is) */
           <section className="py-16 bg-white">

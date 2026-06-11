@@ -1,6 +1,5 @@
 "use client"
 
-import type { LucideIcon } from "lucide-react"
 import {
   Waves,
   Droplet,
@@ -19,8 +18,22 @@ import { useState, useEffect, useRef } from "react"
 
 type AccentColor = "blue" | "cyan" | "orange" | "green"
 
+type IconKey = "Wrench" | "ShieldCheck" | "Award" | "Clock" | "Star" | "Home" | "Waves" | "Droplet" | "Flame"
+
+const iconMap = {
+  Wrench,
+  ShieldCheck,
+  Award,
+  Clock,
+  Star,
+  Home,
+  Waves,
+  Droplet,
+  Flame,
+}
+
 interface RelatedServiceCard {
-  icon: LucideIcon
+  icon: IconKey
   title: string
   description: string
   color: AccentColor
@@ -29,7 +42,7 @@ interface RelatedServiceCard {
 }
 
 interface TrustBadge {
-  icon: LucideIcon
+  icon: IconKey
   title: string
   subtitle: string
 }
@@ -58,80 +71,23 @@ const accentMap: Record<AccentColor, { iconBg: string; iconText: string; bullet:
   green: { iconBg: "bg-[#E3F5EC]", iconText: "text-[#16A34A]", bullet: "text-[#16A34A]" },
 }
 
-/* ---------- Defaults (fontanero example — fully overridable via props) ---------- */
-const defaultCards: RelatedServiceCard[] = [
-  {
-    icon: Waves,
-    title: "Desatascos",
-    description: "Eliminamos atascos en tuberías, desagües y bajantes.",
-    color: "blue",
-    bullets: [
-      "Atascos en fregaderos y lavabos",
-      "Atascos en bañeras y duchas",
-      "Atascos en W.C. y bidés",
-      "Limpieza de tuberías y arquetas",
-    ],
-  },
-  {
-    icon: Droplet,
-    title: "Reparación de fugas",
-    description: "Detectamos y reparamos fugas de agua sin romper.",
-    color: "cyan",
-    bullets: [
-      "Fugas de agua ocultas",
-      "Fugas en tuberías y grifos",
-      "Fugas en cisternas y sanitarios",
-      "Detección con tecnología avanzada",
-    ],
-  },
-  {
-    icon: Wrench,
-    title: "Sustitución de tuberías",
-    description: "Cambiamos tuberías antiguas por nuevas y más eficientes.",
-    color: "orange",
-    bullets: [
-      "Tubería multicapa Pex-Al-Pex",
-      "Sustitución sin obra innecesaria",
-      "Mejora de presión y caudal",
-      "Cumplimiento normativa CTE-HS",
-    ],
-  },
-  {
-    icon: Flame,
-    title: "Calentadores y termos",
-    description: "Instalación, reparación y mantenimiento de equipos.",
-    color: "green",
-    bullets: [
-      "Calentadores de gas estancos",
-      "Termos eléctricos 50-100L",
-      "Revisión y mantenimiento",
-      "Instalación segura y eficiente",
-    ],
-  },
-]
-
-const defaultTrustBadges: TrustBadge[] = [
-  { icon: ShieldCheck, title: "Profesionales", subtitle: "cualificados" },
-  { icon: Clock, title: "Atención 24/7", subtitle: "365 días al año" },
-  { icon: Star, title: "Más de 15 años", subtitle: "de experiencia" },
-  { icon: Award, title: "Garantía por escrito", subtitle: "en todos los trabajos" },
-  { icon: Home, title: "Trabajamos en toda", subtitle: "Valencia y alrededores" },
-]
-
 export default function RelatedServicesV1({
-  badge = "Servicios Relacionados",
-  title = "Soluciones relacionadas con fontanería",
-  description = "Servicios que suelen ir junto a una reparación de fontanería.",
-  cards = defaultCards,
-  ctaTitle = "¿No estás seguro de qué servicio necesitas?",
-  ctaText = "Cuéntanos tu problema y te asesoramos sin compromiso.",
-  cta = { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  641 688 524" },
-  trustBadges = defaultTrustBadges,
+  badge,
+  title,
+  description,
+  cards,
+  ctaTitle,
+  ctaText,
+  cta,
+  trustBadges,
 }: RelatedServicesV1Props) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  
+  // Strict conditional rendering - no fallback content in production
+  if (!cards?.length) return null
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -189,12 +145,12 @@ export default function RelatedServicesV1({
               onTouchEnd={handleTouchEnd}
             >
               {cards.map((card) => {
-                const Icon = card.icon
+                const Icon = iconMap[card.icon]
                 const accent = accentMap[card.color]
                 return (
                   <div
                     key={card.title}
-                    className="flex w-[85%] flex-shrink-0 flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]"
+                    className="flex min-w-[280px] w-[85%] flex-shrink-0 flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]"
                   >
                     {/* Icon tile */}
                     <span
@@ -255,7 +211,7 @@ export default function RelatedServicesV1({
           {/* Desktop Grid (>= 768px) */}
           <div className="hidden sm:grid grid-cols-2 items-stretch gap-4 lg:grid-cols-4">
             {cards.map((card) => {
-              const Icon = card.icon
+              const Icon = iconMap[card.icon]
               const accent = accentMap[card.color]
               return (
                 <div
@@ -301,6 +257,7 @@ export default function RelatedServicesV1({
         </div>
 
         {/* CTA panel */}
+        {cta && (
         <div className="mt-6 flex flex-col gap-6 rounded-[28px] bg-[#EEF4FE] px-6 py-8 md:flex-row md:items-center md:justify-between md:px-10">
           <div className="flex items-center gap-5">
             <span className="hidden h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#D8E5FC] text-[#2563EB] sm:flex">
@@ -329,11 +286,13 @@ export default function RelatedServicesV1({
             </button>
           </div>
         </div>
+        )}
 
         {/* Trust badges row */}
+        {trustBadges && trustBadges.length > 0 && (
         <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-6 rounded-[24px] bg-[#F6F8FC] px-6 py-7 sm:grid-cols-3 lg:grid-cols-5 lg:px-8">
           {trustBadges.map((badgeItem) => {
-            const Icon = badgeItem.icon
+            const Icon = iconMap[badgeItem.icon]
             return (
               <div key={badgeItem.title} className="flex items-center gap-3">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E4EDFB] text-[#2563EB]">
@@ -347,6 +306,7 @@ export default function RelatedServicesV1({
             )
           })}
         </div>
+        )}
       </div>
     </section>
   )

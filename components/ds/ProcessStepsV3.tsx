@@ -1,13 +1,22 @@
 "use client"
 
-import type { LucideIcon } from "lucide-react"
 import { Wrench, ShieldCheck, Clock, UserRound, FileText } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 
 type StepColor = "blue" | "green" | "orange" | "purple"
 
-interface ProcessStep {
+type IconKey = "Wrench" | "ShieldCheck" | "Clock" | "UserRound" | "FileText"
+
+const iconMap = {
+  Wrench,
+  ShieldCheck,
+  Clock,
+  UserRound,
+  FileText,
+}
+
+export interface ProcessStep {
   number: string
   color: StepColor
   title: string
@@ -16,65 +25,20 @@ interface ProcessStep {
   iconSrc: string
 }
 
-interface TrustItem {
-  icon: LucideIcon
+export interface TrustItem {
+  icon: IconKey
   title: string
   description: string
 }
 
-const steps: ProcessStep[] = [
-  {
-    number: "01",
-    color: "blue",
-    title: "Contactas con nosotros",
-    description: "Llámanos o escríbenos por WhatsApp. Cuéntanos tu problema y te asesoramos al instante.",
-    iconSrc: "/icons/process-3d-01-contacto.webp",
-  },
-  {
-    number: "02",
-    color: "green",
-    title: "Valoramos tu caso",
-    description: "Evaluamos la avería y te damos un presupuesto claro y sin compromiso.",
-    iconSrc: "/icons/process-3d-02-valoracion.webp",
-  },
-  {
-    number: "03",
-    color: "orange",
-    title: "Reparamos el problema",
-    description: "Nuestros fontaneros certificados se desplazan y reparan de forma rápida y eficiente.",
-    iconSrc: "/icons/process-3d-03-reparacion.webp",
-  },
-  {
-    number: "04",
-    color: "purple",
-    title: "Garantía y tranquilidad",
-    description: "Te ofrecemos garantía de 2 años en todas nuestras reparaciones para tu total tranquilidad.",
-    iconSrc: "/icons/process-3d-04-garantia.webp",
-  },
-]
+interface ProcessStepsV3Props {
+  badge?: string
+  title?: string
+  subtitle?: string
+  steps?: ProcessStep[]
+  trustItems?: TrustItem[]
+}
 
-const trustItems: TrustItem[] = [
-  {
-    icon: ShieldCheck,
-    title: "Sin sorpresas",
-    description: "Presupuesto cerrado antes de empezar",
-  },
-  {
-    icon: Clock,
-    title: "Rápidos y eficientes",
-    description: "Llegamos en 30-60 min a toda Valencia",
-  },
-  {
-    icon: UserRound,
-    title: "Profesionales certificados",
-    description: "Fontaneros expertos con años de experiencia",
-  },
-  {
-    icon: FileText,
-    title: "Factura disponible",
-    description: "Recibes tu factura al finalizar el trabajo",
-  },
-]
 
 const numberBadgeStyles: Record<StepColor, string> = {
   blue: "border-[#DCE8FC] bg-white text-[#2563EB]",
@@ -83,11 +47,20 @@ const numberBadgeStyles: Record<StepColor, string> = {
   purple: "border-[#E7DCFB] bg-white text-[#8B5CF6]",
 }
 
-export function ProcessStepsV3() {
+export function ProcessStepsV3({
+  badge,
+  title,
+  subtitle,
+  steps,
+  trustItems,
+}: ProcessStepsV3Props = {}) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  
+  // Strict conditional rendering - no fallback content in production
+  if (!steps?.length || !trustItems?.length) return null
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -124,18 +97,18 @@ export function ProcessStepsV3() {
         <div className="flex justify-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
             <Wrench className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
-            Proceso transparente
+            {badge}
           </span>
         </div>
 
         {/* Heading */}
         <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-          ¿Cómo Trabajamos?
+          {title}
         </h2>
 
         {/* Subtitle */}
         <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
-          Proceso transparente en 4 pasos. Sin complicaciones, sin sorpresas.
+          {subtitle}
         </p>
 
         {/* Steps - Mobile Carousel / Desktop Grid */}
@@ -261,7 +234,7 @@ export function ProcessStepsV3() {
         <div className="mt-3 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
           <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
             {trustItems.map((item, index) => {
-              const Icon = item.icon
+              const Icon = iconMap[item.icon]
               return (
                 <div
                   key={item.title}

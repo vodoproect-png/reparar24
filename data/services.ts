@@ -17,7 +17,7 @@ export const services: Service[] = [
     name: 'Fontanería',
     slug: 'fontanero',
     icon: '🔧',
-    description: 'Fontanero urgente 24h. Reparación de fugas, instalación de grifos y sanitarios. Profesionales certificados con garantía.',
+    description: 'Fontaneros profesionales disponibles 24/7. Reparación de fugas, desatascos, instalaciones y termos con presupuesto previo.',
     longDescription: `Cuando tienes una fuga de agua en tu piso, un grifo que no cierra bien o un inodoro atascado, necesitas un fontanero que responda rápido y resuelva el problema correctamente. En Reparar24 trabajamos todos los días del año, 24 horas, porque sabemos que las averías de fontanería no esperan al lunes ni al horario de oficina.
 
 Llevamos más de 15 años arreglando problemas de fontanería en pisos, viviendas unifamiliares, locales comerciales y comunidades de vecinos. Nuestros fontaneros conocen las instalaciones típicas de los edificios españoles: tuberías de plomo antiguas que hay que sustituir, bajantes comunitarias de fibrocemento, conducciones empotradas en tabiques de pladur, y todas esas particularidades que solo entiende quien trabaja a diario en fontanería.

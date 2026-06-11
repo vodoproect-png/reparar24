@@ -1,52 +1,36 @@
-import type { LucideIcon } from "lucide-react"
 import { Clock, ShieldCheck, Shield, Award, UserCheck, FileText, Tag } from "lucide-react"
 
 type StatColor = "blue" | "green" | "orange" | "purple"
 
+type IconKey = "Clock" | "ShieldCheck" | "Shield" | "Award" | "UserCheck" | "FileText" | "Tag"
+
+const iconMap = {
+  Clock,
+  ShieldCheck,
+  Shield,
+  Award,
+  UserCheck,
+  FileText,
+  Tag,
+}
+
 interface TrustStat {
-  icon: LucideIcon
+  icon: IconKey
   color: StatColor
   headline: string
   description: string
 }
 
 interface TrustItem {
-  icon: LucideIcon
+  icon: IconKey
   label: string
 }
 
-const stats: TrustStat[] = [
-  {
-    icon: Clock,
-    color: "blue",
-    headline: "30-60 min",
-    description: "Llegada garantizada en toda Valencia",
-  },
-  {
-    icon: ShieldCheck,
-    color: "green",
-    headline: "24/7/365",
-    description: "Atención continua todo el año",
-  },
-  {
-    icon: Shield,
-    color: "orange",
-    headline: "600.000€ RC",
-    description: "Seguro de responsabilidad civil profesional",
-  },
-  {
-    icon: Award,
-    color: "purple",
-    headline: "Garantía 2 años",
-    description: "En todas nuestras reparaciones",
-  },
-]
+export interface TrustSignalsV1Props {
+  stats?: TrustStat[]
+  bottomItems?: TrustItem[]
+}
 
-const trustItems: TrustItem[] = [
-  { icon: UserCheck, label: "Fontaneros certificados" },
-  { icon: FileText, label: "Factura disponible" },
-  { icon: Tag, label: "Presupuesto gratuito" },
-]
 
 const badgeStyles: Record<StatColor, string> = {
   blue: "bg-[#E8F1FE] text-[#2563EB]",
@@ -55,14 +39,19 @@ const badgeStyles: Record<StatColor, string> = {
   purple: "bg-[#F1EBFE] text-[#8B5CF6]",
 }
 
-export function TrustSignalsV1() {
+export function TrustSignalsV1({
+  stats,
+  bottomItems,
+}: TrustSignalsV1Props = {}) {
+  // Strict conditional rendering - no fallback content in production
+  if (!stats?.length || !bottomItems?.length) return null
   return (
     <section className="w-full px-4 py-8 sm:px-6">
       <div className="mx-auto max-w-[1280px] rounded-[32px] border border-[#E4ECF9] bg-[#F7FAFF] px-6 py-5 shadow-[0_20px_50px_-20px_rgba(15,45,117,0.18)] transition-shadow duration-300 hover:shadow-[0_28px_60px_-20px_rgba(15,45,117,0.28)] sm:px-10 sm:py-6">
         {/* Top row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => {
-            const Icon = stat.icon
+            const Icon = iconMap[stat.icon]
             return (
               <div
                 key={stat.headline}
@@ -97,15 +86,15 @@ export function TrustSignalsV1() {
 
         {/* Bottom row */}
         <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-7">
-          {trustItems.map((item, index) => {
-            const Icon = item.icon
+          {bottomItems.map((item, index) => {
+            const Icon = iconMap[item.icon]
             return (
               <div key={item.label} className="flex items-center gap-7 sm:gap-7">
                 <div className="flex items-center gap-3">
                   <Icon className="h-6 w-6 text-[#2563EB]" strokeWidth={2} aria-hidden="true" />
                   <span className="text-[17px] font-bold text-[#0F2D75]">{item.label}</span>
                 </div>
-                {index !== trustItems.length - 1 && (
+                {index !== bottomItems.length - 1 && (
                   <span className="hidden h-2 w-2 rounded-full bg-[#2563EB] sm:inline-block" aria-hidden="true" />
                 )}
               </div>

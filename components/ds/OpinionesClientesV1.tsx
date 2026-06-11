@@ -1,49 +1,43 @@
 "use client"
 
-import type { LucideIcon } from "lucide-react"
 import { Star, CheckCircle2, Users, ShieldCheck, MapPin } from "lucide-react"
 import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 
+type IconKey = "Users" | "ShieldCheck" | "MapPin"
+
+const iconMap = {
+  Users,
+  ShieldCheck,
+  MapPin,
+}
+
 interface Review {
   name: string
   quote: string
+  verified?: boolean
 }
 
 interface TrustItem {
   /** Optional Lucide icon; when omitted a custom node (e.g. Google "G") is used */
-  icon?: LucideIcon
+  icon?: IconKey
   node?: "google"
   title: string
   description: string
   showStars?: boolean
 }
 
-const reviews: Review[] = [
-  {
-    name: "María González",
-    quote: "Llegaron en menos de 40 minutos y solucionaron el problema al instante. Muy profesionales.",
-  },
-  {
-    name: "Carlos Martínez",
-    quote: "Detectaron la fuga rápidamente y dejaron todo perfecto. Servicio impecable.",
-  },
-  {
-    name: "Ana Pérez",
-    quote: "Presupuesto claro y sin sorpresas. Muy recomendable.",
-  },
-  {
-    name: "Javier López",
-    quote: "Servicio muy rápido y puntual. Recomendable al 100%.",
-  },
-]
+interface OpinionesClientesV1Props {
+  rating?: string
+  reviewCount?: string
+  badge?: string
+  title?: string
+  subtitle?: string
+  reviews?: Review[]
+  trustItems?: TrustItem[]
+  verifiedLabel?: string
+}
 
-const trustItems: TrustItem[] = [
-  { node: "google", title: "4.9/5", description: "Google Reviews", showStars: true },
-  { icon: Users, title: "500+", description: "reseñas verificadas" },
-  { icon: ShieldCheck, title: "24/7", description: "Servicio disponible en Valencia" },
-  { icon: MapPin, title: "Valencia", description: "Cobertura local" },
-]
 
 function StarRow({ className = "" }: { className?: string }) {
   return (
@@ -78,11 +72,23 @@ function GoogleG() {
   )
 }
 
-export default function OpinionesClientesV1() {
+export default function OpinionesClientesV1({
+  rating,
+  reviewCount,
+  badge,
+  title,
+  subtitle,
+  reviews,
+  trustItems,
+  verifiedLabel,
+}: OpinionesClientesV1Props = {}) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
   const carouselRef = useRef<HTMLDivElement>(null)
+  
+  // Strict conditional rendering - no fallback content in production
+  if (!reviews?.length || !trustItems?.length) return null
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX)
@@ -127,17 +133,17 @@ export default function OpinionesClientesV1() {
                 loading="lazy"
                 className="h-20 w-20 sm:h-24 sm:w-24"
               />
-              <span className="text-5xl font-extrabold tracking-tight text-[#2563EB] sm:text-6xl">4.9/5</span>
+              <span className="text-5xl font-extrabold tracking-tight text-[#2563EB] sm:text-6xl">{rating}</span>
             </div>
 
           {/* Heading */}
           <h2 className="mt-4 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-            Lo Que Dicen Nuestros Clientes
+            {title}
           </h2>
 
           {/* Subtitle */}
           <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
-            Más de 500 clientes satisfechos en Valencia
+            {subtitle}
           </p>
         </div>
 
@@ -173,7 +179,7 @@ export default function OpinionesClientesV1() {
                   {/* Verified */}
                   <div className="mt-6 flex items-center gap-2.5">
                     <CheckCircle2 className="h-5 w-5 fill-[#22C55E] text-white" strokeWidth={2} aria-hidden="true" />
-                    <span className="text-sm font-semibold text-[#3F4D6B]">Cliente verificado</span>
+                    <span className="text-sm font-semibold text-[#3F4D6B]">{verifiedLabel}</span>
                   </div>
                 </div>
               ))}
@@ -218,7 +224,7 @@ export default function OpinionesClientesV1() {
                 {/* Verified */}
                 <div className="mt-6 flex items-center gap-2.5">
                   <CheckCircle2 className="h-5 w-5 fill-[#22C55E] text-white" strokeWidth={2} aria-hidden="true" />
-                  <span className="text-sm font-semibold text-[#3F4D6B]">Cliente verificado</span>
+                  <span className="text-sm font-semibold text-[#3F4D6B]">{verifiedLabel}</span>
                 </div>
               </div>
             ))}
@@ -229,7 +235,7 @@ export default function OpinionesClientesV1() {
         <div className="mt-4 rounded-[28px] border border-[#DCE7F7] bg-[#EEF4FD] px-6 py-7 shadow-[0_16px_40px_-26px_rgba(15,45,117,0.4)] sm:px-9 sm:py-8">
           <div className="grid grid-cols-1 gap-y-7 sm:grid-cols-2 lg:grid-cols-4">
             {trustItems.map((item, index) => {
-              const Icon = item.icon
+              const Icon = item.icon ? iconMap[item.icon] : undefined
               return (
                 <div
                   key={item.title}

@@ -34,9 +34,14 @@ export function serviceCityToHeroProps(
 ): ServiceHeroV2Props {
   const isFontanero = service.slug === 'fontanero'
   
+  // H1 Pattern for city pages: "Fontanero en [City] 24 Horas"
+  const titleCity = locale === 'es' 
+    ? (isFontanero ? `Fontanero en ${city.name} 24 Horas` : `${service.name} en ${city.name}`)
+    : `${service.name} in ${city.name}`
+  
   return {
     eyebrow: locale === 'es' ? `Servicio 24/7 en ${city.name}` : `24/7 Service in ${city.name}`,
-    title: locale === 'es' ? `${service.name} en ${city.name}` : `${service.name} in ${city.name}`,
+    title: titleCity,
     titleHighlight: undefined,
     subtitle: isFontanero
       ? `Fontaneros profesionales en ${city.name}. Llegamos en 30-60 minutos para resolver fugas, desatascos, termos e instalaciones con garantía.`
@@ -126,11 +131,11 @@ export function serviceToHeroProps(
   const isFontanero = service.slug === 'fontanero'
   
   return {
-    eyebrow: locale === 'es' ? 'Servicio 24/7 en Valencia' : '24/7 Service in Valencia',
-    title: service.name,
-    titleHighlight: undefined, // Can be customized per service if needed
+    eyebrow: locale === 'es' ? 'Servicio Profesional 24h' : '24/7 Professional Service',
+    title: isFontanero ? 'Fontanero 24 Horas' : `${service.name} 24 Horas`,
+    titleHighlight: undefined, // Simple, clear H1
     subtitle: isFontanero
-      ? 'Llegamos en 30-60 minutos. Solucionamos averías de fontanería con garantía y al mejor precio.'
+      ? 'Fontaneros profesionales disponibles 24h todos los días. Reparación urgente de fugas, desatascos, termos eléctricos e instalaciones de fontanería. Llegamos en 30-60 minutos cerca de ti con presupuesto previo.'
       : service.description,
     phoneCta: {
       label: locale === 'es' ? 'Llamar ahora' : 'Call now',
@@ -203,6 +208,105 @@ export function serviceToHeroProps(
       alt: locale === 'es'
         ? `${service.name} profesional - Servicio 24/7`
         : `Professional ${service.name} - 24/7 Service`,
+    },
+  }
+}
+
+/**
+ * Convert Service + City + District data to ServiceHeroV2 props for district pages
+ * H1 Pattern: "Fontanero en [District], [City] 24 Horas"
+ */
+export function serviceDistrictToHeroProps(
+  service: Service,
+  city: City,
+  district: { name: string; slug: string },
+  locale: Locale
+): ServiceHeroV2Props {
+  const isFontanero = service.slug === 'fontanero'
+  
+  // H1 Pattern for district pages: "Fontanero en [District], [City] 24 Horas"
+  const titleDistrict = locale === 'es'
+    ? (isFontanero ? `Fontanero en ${district.name}, ${city.name} 24 Horas` : `${service.name} en ${district.name}, ${city.name}`)
+    : `${service.name} in ${district.name}, ${city.name}`
+  
+  return {
+    eyebrow: locale === 'es' ? `Servicio 24/7 en ${district.name}` : `24/7 Service in ${district.name}`,
+    title: titleDistrict,
+    titleHighlight: undefined,
+    subtitle: isFontanero
+      ? `Fontaneros profesionales en ${district.name}. Llegamos en 30-60 minutos para resolver fugas, desatascos, termos e instalaciones con garantía. Atención inmediata en tu barrio.`
+      : `${service.description} Servicio profesional en ${district.name}, ${city.name} con técnicos certificados.`,
+    phoneCta: {
+      label: locale === 'es' ? 'Llamar ahora' : 'Call now',
+      sublabel: service.priceRange,
+      href: getPhoneHref(service.slug),
+    },
+    whatsappCta: {
+      label: 'WhatsApp',
+      sublabel: locale === 'es' ? 'Respuesta en 2 min' : 'Reply in 2 min',
+      href: getWhatsAppHref(
+        locale === 'es'
+          ? `Hola, necesito ${service.name.toLowerCase()} en ${district.name}, ${city.name}. ¿Pueden ayudarme?`
+          : `Hello, I need ${service.name.toLowerCase()} in ${district.name}, ${city.name}. Can you help me?`,
+        service.slug
+      ),
+    },
+    trustCards: [
+      {
+        icon: Star,
+        title: '4.9/5',
+        subtitle: locale === 'es' ? '500+ reseñas' : '500+ reviews',
+      },
+      {
+        icon: Clock,
+        title: '24/7',
+        subtitle: locale === 'es' ? '365 días al año' : '365 days/year',
+      },
+      {
+        icon: ShieldCheck,
+        title: locale === 'es' ? 'Profesionales' : 'Certified',
+        subtitle: locale === 'es' ? 'certificados' : 'professionals',
+      },
+    ],
+    quickChips: isFontanero
+      ? [
+          {
+            icon: Droplets,
+            label: locale === 'es' ? 'Fugas' : 'Leaks',
+          },
+          {
+            icon: Waves,
+            label: locale === 'es' ? 'Desatascos' : 'Unclogging',
+          },
+          {
+            icon: Flame,
+            label: locale === 'es' ? 'Termos' : 'Heaters',
+          },
+          {
+            icon: Wrench,
+            label: locale === 'es' ? 'Instalaciones' : 'Installations',
+          },
+        ]
+      : [],
+    highlights: [
+      {
+        label: locale === 'es' ? 'Llegada en 30-60 min' : 'Arrival in 30-60 min',
+      },
+      {
+        label: locale === 'es' ? 'Garantía 2 años' : '2 year warranty',
+      },
+      {
+        label: locale === 'es' ? 'Seguro RC 600.000€' : 'Insurance 600,000€',
+      },
+      {
+        label: locale === 'es' ? 'Presupuesto gratuito' : 'Free quote',
+      },
+    ],
+    image: {
+      src: '/images/fontanero-hero.jpg',
+      alt: locale === 'es'
+        ? `${service.name} profesional en ${district.name}, ${city.name} - Servicio 24/7`
+        : `Professional ${service.name} in ${district.name}, ${city.name} - 24/7 Service`,
     },
   }
 }

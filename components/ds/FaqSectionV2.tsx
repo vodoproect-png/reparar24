@@ -8,44 +8,15 @@ interface FaqItem {
   answer: string
 }
 
-const faqs: FaqItem[] = [
-  {
-    question: "¿Cuánto cuesta una reparación de fontanería?",
-    answer:
-      "El precio depende del tipo de avería y materiales necesarios. Siempre damos un presupuesto cerrado antes de empezar, sin sorpresas ni costes ocultos.",
-  },
-  {
-    question: "¿Cuánto tardáis en llegar a mi domicilio?",
-    answer: "Normalmente llegamos entre 30 y 60 minutos en Valencia y alrededores.",
-  },
-  {
-    question: "¿Atendéis urgencias 24 horas?",
-    answer: "Sí. Disponemos de servicio urgente 24/7.",
-  },
-  {
-    question: "¿Qué tipos de averías solucionáis?",
-    answer: "Fugas, atascos, roturas de tuberías, grifería, termos y mucho más.",
-  },
-  {
-    question: "¿Ofrecéis garantía en vuestros trabajos?",
-    answer: "Sí. Todos nuestros trabajos incluyen garantía.",
-  },
-  {
-    question: "¿Emitís factura de todos los servicios?",
-    answer: "Sí. Siempre entregamos factura.",
-  },
-  {
-    question: "¿Trabajáis en toda la ciudad de Valencia?",
-    answer: "Sí. Cubrimos Valencia y municipios cercanos.",
-  },
-  {
-    question: "¿Qué métodos de pago aceptáis?",
-    answer: "Aceptamos efectivo, tarjeta y transferencia.",
-  },
-]
+export interface FaqSectionV2Props {
+  faqs?: FaqItem[]
+}
 
-export default function FaqSectionV2() {
+export default function FaqSectionV2({ faqs }: FaqSectionV2Props = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  
+  // Strict conditional rendering - no fallback content in production
+  if (!faqs?.length) return null
 
   return (
     <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
@@ -57,10 +28,10 @@ export default function FaqSectionV2() {
             Preguntas frecuentes
           </span>
           <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-            Resolvemos tus dudas antes de llamar
+            Resolvemos Tus Dudas
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#5B6B8C] sm:text-xl">
-            Respuestas claras sobre nuestros servicios de fontanería en Valencia
+            Respuestas claras sobre nuestros servicios profesionales
           </p>
         </div>
 

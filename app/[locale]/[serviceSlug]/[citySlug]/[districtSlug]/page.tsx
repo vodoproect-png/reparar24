@@ -9,23 +9,30 @@ import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/sc
 import { generateServiceCityDistrictBreadcrumbs } from '@/lib/linking/internal'
 import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import {
-  generateDistrictIntro,
-  generateLocalExpertiseText,
-  generateDistrictFAQs,
-  generateDistrictProblems,
   generateDistrictH1,
   generateDistrictMetaDescription,
-  generateEmergencyContext,
-  generateDistrictCTA,
-  generateDistrictWhatsAppMessage,
 } from '@/lib/seo/semantic-content-generator'
 import { getLightweightDistrictContent } from '@/lib/i18n/district-content'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import CTASection from '@/components/sections/CTASection'
-import EmergencyBanner from '@/components/conversion/EmergencyBanner'
-import WhatsAppCTA from '@/components/conversion/WhatsAppCTA'
-import { EEATSection } from '@/components/seo/EEATSignals'
+import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
+import { serviceDistrictToHeroProps } from '@/lib/adapters/hero-adapter'
+import ServicesGridV1 from '@/components/ds/ServicesGridV1'
+import TrustSignalsV1 from '@/components/ds/TrustSignalsV1'
+import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
+import PricingSectionV1 from '@/components/ds/PricingSectionV1'
+import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
+import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
+import FaqSectionV2 from '@/components/ds/FaqSectionV2'
+import TrustCtaBlueV1 from '@/components/ds/TrustCtaBlueV1'
+import {
+  fontaneroServicesGridContent,
+  fontaneroTrustSignalsContent,
+  fontaneroProcessStepsContent,
+  fontaneroPricingSectionContent,
+  fontaneroOpinionesClientesContent,
+} from '@/data/fontanero/page-components-content'
+import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
 
 export async function generateStaticParams() {
   const params: {
@@ -122,46 +129,13 @@ export default async function ServiceCityDistrictPage({
   // Check for unique district SEO content (Phase 1 Pilot)
   const districtSEO = getDistrictSEOContent(service.id, city.slug, district.slug)
   
-  // Get district context for semantic content
-  const context = getDistrictContext(city.id, district.id)
-  
   // 🌍 MULTILINGUAL LIGHTWEIGHT PILOT: Use lightweight content for EN/RU
   const lightweightContent = getLightweightDistrictContent(locale, service, city, district)
-  
-  // Spanish (es): Full semantic content generator
-  // EN/RU: Lightweight translated content
-  const intro = lightweightContent ? lightweightContent.intro : generateDistrictIntro(service, city, district, context)
-  const localExpertise = lightweightContent 
-    ? {
-        title: lightweightContent.expertiseTitle,
-        paragraphs: lightweightContent.expertiseParagraphs,
-        highlights: lightweightContent.expertiseHighlights
-      }
-    : generateLocalExpertiseText(service, city, district, context)
-  const faqs = (districtSEO && locale === 'es') ? districtSEO.faqs : generateDistrictFAQs(service, city, district, context)
-  const problems = generateDistrictProblems(service, city, district, context, 4)
-  const h1 = lightweightContent 
-    ? (locale === 'en' ? `${service.name} in ${district.name}` : `${service.name} в ${district.name}`)
-    : generateDistrictH1(service, city, district, context)
-  const emergencyText = lightweightContent ? lightweightContent.emergencyText : generateEmergencyContext(service, city, district, context)
-  const cta = lightweightContent 
-    ? { primary: lightweightContent.callUrgentCTA, secondary: 'WhatsApp' }
-    : generateDistrictCTA(service, city, district, context)
-  const whatsappMessage = lightweightContent ? lightweightContent.whatsappMessage : generateDistrictWhatsAppMessage(service, city, district, context)
-  
-  // Section headings (locale-aware)
-  const postalCodesLabel = lightweightContent ? (locale === 'en' ? 'Postal Codes:' : 'Почтовые индексы:') : 'Códigos Postales:'
-  const ourExperienceLabel = lightweightContent ? (locale === 'en' ? 'Our Experience' : 'Наш опыт') : 'Nuestra Experiencia'
-  const frequentProblemsHeading = lightweightContent ? `${lightweightContent.frequentProblemsHeading} ${district.name}` : `Problemas Frecuentes en ${district.name}`
-  const emergencyHeading = lightweightContent ? `${lightweightContent.emergencyHeading} ${district.name}` : `Emergencias 24/7 en ${district.name}`
-  const faqHeading = lightweightContent ? lightweightContent.faqHeading : `Preguntas Frecuentes - ${service.name} en ${district.name}`
-  const whyChooseUsHeading = lightweightContent ? `${lightweightContent.whyChooseUsHeading} ${district.name}` : `Por Qué Elegirnos en ${district.name}`
-  const professionalServiceHeading = lightweightContent ? lightweightContent.professionalServiceHeading : `${service.name} Profesional en ${district.name}, ${city.name}`
 
   const serviceSchema = generateServiceSchema({ service, city })
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `${service.name} en ${district.name} - Reparar24`,
-    description: intro.substring(0, 200),
+    description: `${service.description} en ${district.name}, ${city.name}`,
     city: city,
   })
 
@@ -174,6 +148,9 @@ export default async function ServiceCityDistrictPage({
     locale
   )
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
+
+  // Check if this is Valencia district for ServiceAreasV1
+  const isValencia = city.slug === 'valencia'
 
   return (
     <>
@@ -191,183 +168,83 @@ export default async function ServiceCityDistrictPage({
       />
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
-      <EmergencyBanner />
       <main>
-        {/* Hero Section with Semantic H1 */}
-        <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
-          <div className="container-custom">
-            <div className="max-w-4xl">
-              <div className="flex items-center space-x-4 mb-4">
-                <span className="text-6xl">{service.icon}</span>
-                <div>
-                  <h1 className="text-4xl md:text-5xl font-bold">{h1}</h1>
-                  <p className="text-xl mt-2 text-primary-100">
-                    {city.name}, {city.province}
-                  </p>
-                </div>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-6">
-                <div className="flex items-center gap-2 text-sm">
-                  <span>📮</span>
-                  <span>{postalCodesLabel} {district.postalCodes.join(', ')}</span>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="tel:+34641688524"
-                  className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg px-8 py-4"
-                >
-                  📞 {cta.primary}
-                </a>
-                <WhatsAppCTA
-                  variant="inline"
-                  message={whatsappMessage}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Local Expertise Section - Semantic Content */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8">{localExpertise.title}</h2>
-            
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              <div className="lg:col-span-2 space-y-4">
-                {localExpertise.paragraphs.map((paragraph, index) => (
-                  <p key={index} className="text-lg text-gray-700 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-              
-              <div className="bg-gray-50 rounded-xl p-6">
-                <h3 className="font-bold text-lg mb-4">{ourExperienceLabel}</h3>
-                <ul className="space-y-3">
-                  {localExpertise.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start gap-2">
-                      <span className="text-green-500 mt-1">✓</span>
-                      <span className="text-sm">{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* District-Specific Problems */}
-        {problems.length > 0 && (
-          <section className="py-16 bg-gray-50">
+        {/* Hero Section - ServiceHeroV2 for fontanero only */}
+        {service.slug === 'fontanero' ? (
+          <ServiceHeroV2 {...serviceDistrictToHeroProps(service, city, district, locale)} />
+        ) : (
+          <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
             <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8">
-                {frequentProblemsHeading}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {problems.map((problem, index) => (
-                  <div key={index} className="card">
-                    <h3 className="text-xl font-bold mb-3">{problem.problem}</h3>
-                    <p className="text-gray-700">{problem.description}</p>
+              <div className="max-w-4xl">
+                <div className="flex items-center space-x-4 mb-4">
+                  <span className="text-6xl">{service.icon}</span>
+                  <div>
+                    <h1 className="text-4xl md:text-5xl font-bold">
+                      {lightweightContent 
+                        ? (locale === 'en' ? `${service.name} in ${district.name}` : `${service.name} в ${district.name}`)
+                        : `${service.name} en ${district.name}`
+                      }
+                    </h1>
+                    <p className="text-xl mt-2 text-primary-100">
+                      {city.name}, {city.province}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* Emergency Section - if applicable */}
-        {emergencyText && (
-          <section className="py-12 bg-gradient-to-r from-red-50 to-orange-50 border-y-4 border-red-200">
-            <div className="container-custom">
-              <div className="flex items-center gap-6">
-                <span className="text-6xl">🚨</span>
-                <div className="flex-1">
-                  <h2 className="text-2xl font-bold text-red-900 mb-2">
-                    {emergencyHeading}
-                  </h2>
-                  <p className="text-red-700 text-lg leading-relaxed">
-                    {emergencyText}
-                  </p>
                 </div>
-                <a
-                  href="tel:+34641688524"
-                  className="btn-primary bg-red-600 hover:bg-red-700 text-white px-8 py-4 whitespace-nowrap"
-                >
-                  📞 {cta.primary}
-                </a>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* District-Specific FAQs */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              {faqHeading}
-            </h2>
-            <div className="max-w-3xl mx-auto space-y-6">
-              {faqs.map((faq, index) => (
-                <details key={index} className="card group">
-                  <summary className="font-bold text-lg cursor-pointer list-none flex items-center justify-between">
-                    <span>{faq.question}</span>
-                    <span className="text-primary-600 group-open:rotate-180 transition-transform">
-                      ▼
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-6">
+                  <div className="flex items-center gap-2 text-sm">
+                    <span>📮</span>
+                    <span>
+                      {lightweightContent 
+                        ? (locale === 'en' ? 'Postal Codes:' : 'Почтовые индексы:')
+                        : 'Códigos Postales:'
+                      } {district.postalCodes.join(', ')}
                     </span>
-                  </summary>
-                  <p className="mt-4 text-gray-700 leading-relaxed border-t pt-4">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* General Benefits */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              {whyChooseUsHeading}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.benefits.map((benefit, index) => (
-                <div key={index} className="card">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-green-500 text-2xl mt-1">✓</span>
-                    <p className="text-lg">{benefit}</p>
                   </div>
                 </div>
-              ))}
+
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="tel:+34641688524"
+                    className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg px-8 py-4"
+                  >
+                    📞 Llamar Ahora
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
-        {/* EEAT Trust Signals */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <EEATSection
-              locale={locale}
-              city={city.name}
-              showGuarantee={true}
-              showResponseTime={true}
-              showExpertise={true}
-              showProcess={false}
-            />
-          </div>
-        </section>
+        {/* Approved Neutral Blocks - Fontanero Only */}
+        {service.slug === 'fontanero' && (
+          <>
+            <ServicesGridV1 {...fontaneroServicesGridContent} />
+            <TrustSignalsV1 {...fontaneroTrustSignalsContent} />
+            <ProcessStepsV3 {...fontaneroProcessStepsContent} />
+            <PricingSectionV1 {...fontaneroPricingSectionContent} />
+            <OpinionesClientesV1 {...fontaneroOpinionesClientesContent} />
+            
+            {/* Valencia ServiceAreasV1 - Only for Valencia districts */}
+            {isValencia && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
+          </>
+        )}
 
-        {/* Unique District SEO Text - Bottom Placement (Pilot Districts Only) */}
-        {districtSEO && locale === 'es' && (
-          <section className="py-16 bg-white border-t-2 border-gray-100">
+        {/* FAQ Section - Migrate existing FAQ content */}
+        {districtSEO && districtSEO.faqs && districtSEO.faqs.length > 0 && locale === 'es' && service.slug === 'fontanero' && (
+          <FaqSectionV2
+            faqs={districtSEO.faqs.map(faq => ({
+              question: faq.question,
+              answer: faq.answer
+            }))}
+          />
+        )}
+
+        {/* District-Specific SEO Content - Keep existing SEO text */}
+        {districtSEO && locale === 'es' && service.slug === 'fontanero' && (
+          <section className="py-16 bg-white">
             <div className="container-custom">
               <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-bold mb-6">
-                  {professionalServiceHeading}
-                </h2>
                 <div className="prose prose-lg max-w-none">
                   <p className="text-gray-700 leading-relaxed">
                     {districtSEO.seoText}
@@ -378,10 +255,10 @@ export default async function ServiceCityDistrictPage({
           </section>
         )}
 
-        <CTASection locale={locale} />
+        {/* Final CTA - TrustCtaBlueV1 for fontanero */}
+        {service.slug === 'fontanero' && <TrustCtaBlueV1 />}
       </main>
       <Footer locale={locale} />
-      <WhatsAppCTA variant="floating" message={whatsappMessage} />
     </>
   )
 }

@@ -83,126 +83,28 @@ const accentMap: Record<
   cyan: { iconBg: "bg-[#DDF2F5]", iconText: "text-[#0891B2]", bullet: "text-[#0891B2]", cta: "text-[#0891B2]" },
 }
 
-/* ---------- Defaults (fontanero example — fully overridable via props) ---------- */
-const defaultServiceCards: ServiceCard[] = [
-  {
-    icon: Droplets,
-    title: "Fugas de agua",
-    color: "blue",
-    bullets: ["Detección sin obras", "Reparación urgente 24/7", "Tuberías y cañerías", "Humedades y filtraciones"],
-    ctaLabel: "Más información",
-  },
-  {
-    icon: Wrench,
-    title: "Sustitución de tuberías",
-    color: "purple",
-    bullets: ["Tuberías de cobre y PEX", "Cambio de bajantes", "Instalaciones completas", "Materiales de primeras marcas"],
-    ctaLabel: "Más información",
-  },
-  {
-    icon: ShowerHead,
-    title: "Grifos y sanitarios",
-    color: "green",
-    bullets: ["Grifería y monomandos", "Inodoros y cisternas", "Lavabos y duchas", "Reparación y montaje"],
-    ctaLabel: "Más información",
-  },
-  {
-    icon: Flame,
-    title: "Calentadores y termos",
-    color: "red",
-    bullets: ["Calentadores de gas", "Termos eléctricos", "Mantenimiento y revisión", "Sustitución e instalación"],
-    ctaLabel: "Más información",
-  },
-  {
-    icon: Gauge,
-    title: "Desatascos",
-    color: "orange",
-    bullets: ["Desatascos de tuberías", "Limpieza de arquetas", "Cámara de inspección", "Atascos en cocina y baño"],
-    ctaLabel: "Más información",
-  },
-  {
-    icon: Zap,
-    title: "Reformas de baño",
-    color: "cyan",
-    bullets: ["Fontanería integral", "Cambio de bañera por ducha", "Alicatado y saneamiento", "Proyecto llave en mano"],
-    ctaLabel: "Más información",
-  },
-]
-
-const defaultTrustStats: TrustStat[] = [
-  { icon: Clock, label: "Respuesta rápida", value: "30-60 min" },
-  { icon: ShieldCheck, label: "Servicio 24/7", value: "365 días al año" },
-  { icon: Users, label: "Profesionales", value: "cualificados" },
-]
-
-const defaultFooterTrustItems: FooterTrustItem[] = [
-  { icon: FileText, title: "Garantía", subtitle: "2 años" },
-  { icon: BadgeCheck, title: "Certificados", subtitle: "y seguros" },
-  { icon: Receipt, title: "Facturas", subtitle: "oficiales" },
-  { icon: Umbrella, title: "Seguro RC", subtitle: "600.000€" },
-]
-
-const defaultProps: Required<
-  Omit<SeoContentSectionV1Props, "badge" | "title" | "intro" | "phone" | "localCoverage">
-> &
-  Pick<SeoContentSectionV1Props, "badge" | "title" | "intro" | "phone" | "localCoverage"> = {
-  badge: "Servicio de fontanería en Valencia",
-  title: "Servicios de Fontanería Profesional en Valencia",
-  intro: [
-    "Soluciones de fontanería seguras, eficientes y certificadas para hogares, negocios y comunidades.",
-    "En Reparar24 ofrecemos servicio de fontanería en Valencia con atención 24/7, técnicos autorizados y materiales de primeras marcas. Desde pequeñas reparaciones hasta instalaciones completas con total garantía.",
-  ],
-  serviceCards: defaultServiceCards,
-  localCoverage: {
-    title: "Fontaneros locales en Valencia y alrededores",
-    description: "Trabajamos todos los días del año, incluidos fines de semana y festivos. Llegamos rápido donde nos necesites.",
-  },
-  trustStats: defaultTrustStats,
-  benefitsTitle: "¿Por qué elegir Reparar24?",
-  benefits: [
-    "Más de 15 años de experiencia",
-    "Fontaneros autorizados y cualificados",
-    "Precios transparentes sin sorpresas",
-    "Garantía por escrito en todos los trabajos",
-    "Materiales de primeras marcas",
-  ],
-  serviceAreasTitle: "Zonas donde trabajamos",
-  serviceAreas: ["Valencia capital", "Paterna", "Mislata", "Torrent", "Burjassot", "Y toda el área metropolitana"],
-  serviceAreasCtaLabel: "Ver todas las zonas",
-  keywordsTitle: "Palabras clave principales",
-  keywordTags: [
-    "fontanero valencia",
-    "fontanería 24 horas",
-    "fugas de agua valencia",
-    "desatascos valencia",
-    "reparación de tuberías",
-    "calentadores valencia",
-    "fontanero urgente",
-  ],
-  phone: { label: "Llama ahora", number: "641 688 524" },
-  footerTrustItems: defaultFooterTrustItems,
-  footnote:
-    "Contenido optimizado para: fontanero valencia, fontanería urgente, reparación de fugas, desatascos, calentadores, fontanería 24 horas.",
-}
-
+/* ---------- Defaults (neutral fallback — fully overridable via props) ---------- */
 export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
+  // Early return if no content provided - strict conditional rendering
+  if (!props.title && !props.serviceCards && !props.localCoverage) return null
+
   const {
-    badge = defaultProps.badge,
-    title = defaultProps.title,
-    intro = defaultProps.intro,
-    serviceCards = defaultProps.serviceCards,
-    localCoverage = defaultProps.localCoverage,
-    trustStats = defaultProps.trustStats,
-    benefitsTitle = defaultProps.benefitsTitle,
-    benefits = defaultProps.benefits,
-    serviceAreasTitle = defaultProps.serviceAreasTitle,
-    serviceAreas = defaultProps.serviceAreas,
-    serviceAreasCtaLabel = defaultProps.serviceAreasCtaLabel,
-    keywordsTitle = defaultProps.keywordsTitle,
-    keywordTags = defaultProps.keywordTags,
-    phone = defaultProps.phone,
-    footerTrustItems = defaultProps.footerTrustItems,
-    footnote = defaultProps.footnote,
+    badge,
+    title,
+    intro,
+    serviceCards,
+    localCoverage,
+    trustStats,
+    benefitsTitle,
+    benefits,
+    serviceAreasTitle,
+    serviceAreas,
+    serviceAreasCtaLabel,
+    keywordsTitle,
+    keywordTags,
+    phone,
+    footerTrustItems,
+    footnote,
   } = props
 
   const telHref = phone ? `tel:+34${phone.number.replace(/\s+/g, "")}` : undefined
@@ -240,50 +142,52 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
         </div>
 
         {/* 4 — Service cards grid */}
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {serviceCards.map((card) => {
-            const Icon = card.icon
-            const accent = accentMap[card.color]
-            return (
-              <div
-                key={card.title}
-                className="flex flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]"
-              >
-                <div className="flex items-center gap-3">
-                  <span
-                    className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl ${accent.iconBg} ${accent.iconText}`}
-                  >
-                    <Icon className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />
-                  </span>
-                  <h3 className="text-lg font-bold leading-tight text-[#0F2D75]">{card.title}</h3>
+        {serviceCards?.length ? (
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {serviceCards.map((card) => {
+              const Icon = card.icon
+              const accent = accentMap[card.color]
+              return (
+                <div
+                  key={card.title}
+                  className="flex flex-col rounded-[24px] border border-[#EAF0F9] bg-white p-6 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)] transition-shadow duration-300 hover:shadow-[0_28px_55px_-22px_rgba(15,45,117,0.35)]"
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl ${accent.iconBg} ${accent.iconText}`}
+                    >
+                      <Icon className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />
+                    </span>
+                    <h3 className="text-lg font-bold leading-tight text-[#0F2D75]">{card.title}</h3>
+                  </div>
+
+                  <ul className="mt-5 flex flex-col gap-3">
+                    {card.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#5B6B8C]">
+                        <Check className={`h-4 w-4 flex-shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {card.ctaLabel ? (
+                    <a
+                      href="#contacto"
+                      className={`group mt-5 inline-flex items-center gap-1.5 text-sm font-bold ${accent.cta}`}
+                    >
+                      {card.ctaLabel}
+                      <ArrowRight
+                        className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                        strokeWidth={2.5}
+                        aria-hidden="true"
+                      />
+                    </a>
+                  ) : null}
                 </div>
-
-                <ul className="mt-5 flex flex-col gap-3">
-                  {card.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#5B6B8C]">
-                      <Check className={`h-4 w-4 flex-shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
-                      {bullet}
-                    </li>
-                  ))}
-                </ul>
-
-                {card.ctaLabel ? (
-                  <a
-                    href="#contacto"
-                    className={`group mt-5 inline-flex items-center gap-1.5 text-sm font-bold ${accent.cta}`}
-                  >
-                    {card.ctaLabel}
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                      strokeWidth={2.5}
-                      aria-hidden="true"
-                    />
-                  </a>
-                ) : null}
-              </div>
-            )
-          })}
-        </div>
+              )
+            })}
+          </div>
+        ) : null}
 
         {/* 5 — Local coverage bar */}
         {localCoverage ? (
@@ -318,76 +222,84 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
         ) : null}
 
         {/* 6 + 7 — SEO information grid */}
-        <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-3">
-          {/* Column 1 — benefits + CTA card */}
-          <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
-            <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{benefitsTitle}</h3>
-            <ul className="mt-4 flex flex-col gap-3">
-              {benefits.map((benefit) => (
-                <li key={benefit} className="flex items-start gap-2.5 text-[15px] leading-snug text-[#3A4A6B]">
-                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#2563EB]" strokeWidth={3} aria-hidden="true" />
-                  {benefit}
-                </li>
-              ))}
-            </ul>
+        {(benefits?.length || serviceAreas?.length || keywordTags?.length) ? (
+          <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-3">
+            {/* Column 1 — benefits + CTA card */}
+            {benefits?.length ? (
+              <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
+                <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{benefitsTitle}</h3>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {benefits.map((benefit) => (
+                    <li key={benefit} className="flex items-start gap-2.5 text-[15px] leading-snug text-[#3A4A6B]">
+                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#2563EB]" strokeWidth={3} aria-hidden="true" />
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
 
-            {phone ? (
-              <a
-                href={telHref}
-                className="mt-6 flex items-center gap-4 rounded-2xl bg-[#EEF4FE] px-5 py-4 transition-colors duration-200 hover:bg-[#E0EBFD]"
-              >
-                <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_10px_22px_-8px_rgba(37,99,235,0.8)]">
-                  <Phone className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-sm font-semibold text-[#5B6B8C]">{phone.label}</span>
-                  <span className="text-xl font-extrabold leading-tight text-[#0F2D75]">{phone.number}</span>
-                </span>
-              </a>
+                {phone ? (
+                  <a
+                    href={telHref}
+                    className="mt-6 flex items-center gap-4 rounded-2xl bg-[#EEF4FE] px-5 py-4 transition-colors duration-200 hover:bg-[#E0EBFD]"
+                  >
+                    <span className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#2563EB] text-white shadow-[0_10px_22px_-8px_rgba(37,99,235,0.8)]">
+                      <Phone className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />
+                    </span>
+                    <span className="flex flex-col">
+                      <span className="text-sm font-semibold text-[#5B6B8C]">{phone.label}</span>
+                      <span className="text-xl font-extrabold leading-tight text-[#0F2D75]">{phone.number}</span>
+                    </span>
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
+
+            {/* Column 2 — service areas */}
+            {serviceAreas?.length ? (
+              <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
+                <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{serviceAreasTitle}</h3>
+                <ul className="mt-4 flex flex-col gap-3">
+                  {serviceAreas.map((area) => (
+                    <li key={area} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#3A4A6B]">
+                      <MapPin className="h-4 w-4 flex-shrink-0 text-[#2563EB]" strokeWidth={2.5} aria-hidden="true" />
+                      {area}
+                    </li>
+                  ))}
+                </ul>
+                {serviceAreasCtaLabel ? (
+                  <a
+                    href="#contacto"
+                    className="group mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#2563EB]"
+                  >
+                    {serviceAreasCtaLabel}
+                    <ArrowRight
+                      className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
+                      strokeWidth={2.5}
+                      aria-hidden="true"
+                    />
+                  </a>
+                ) : null}
+              </div>
+            ) : null}
+
+            {/* Column 3 — keyword tags */}
+            {keywordTags?.length ? (
+              <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
+                <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{keywordsTitle}</h3>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {keywordTags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-[#EEF2F9] px-3.5 py-1.5 text-[13px] font-semibold text-[#3A4A6B]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ) : null}
           </div>
-
-          {/* Column 2 — service areas */}
-          <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
-            <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{serviceAreasTitle}</h3>
-            <ul className="mt-4 flex flex-col gap-3">
-              {serviceAreas.map((area) => (
-                <li key={area} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#3A4A6B]">
-                  <MapPin className="h-4 w-4 flex-shrink-0 text-[#2563EB]" strokeWidth={2.5} aria-hidden="true" />
-                  {area}
-                </li>
-              ))}
-            </ul>
-            {serviceAreasCtaLabel ? (
-              <a
-                href="#contacto"
-                className="group mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#2563EB]"
-              >
-                {serviceAreasCtaLabel}
-                <ArrowRight
-                  className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
-                  strokeWidth={2.5}
-                  aria-hidden="true"
-                />
-              </a>
-            ) : null}
-          </div>
-
-          {/* Column 3 — keyword tags */}
-          <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
-            <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{keywordsTitle}</h3>
-            <div className="mt-4 flex flex-wrap gap-2.5">
-              {keywordTags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-[#EEF2F9] px-3.5 py-1.5 text-[13px] font-semibold text-[#3A4A6B]"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        ) : null}
 
         {/* 8 — Trust footer bar */}
         {footerTrustItems?.length ? (

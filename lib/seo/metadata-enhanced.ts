@@ -66,10 +66,13 @@ export function generateEnhancedServiceMetadata(
 ): Metadata {
   const titleSuffix = locale === 'es' ? 'Reparar24' : 'Reparar24'
   
+  // SEO-optimized titles per service
   const titles: Record<Locale, string> = {
     es: city
       ? `${service.name} en ${city.name} - ${service.available24h ? 'Servicio 24h' : 'Servicio Profesional'} | ${titleSuffix}`
-      : `${service.name} - Servicio Profesional en España | ${titleSuffix}`,
+      : service.slug === 'fontanero'
+        ? 'Fontanero 24 Horas | Urgencias y Reparaciones'
+        : `${service.name} - Servicio Profesional en España | ${titleSuffix}`,
     en: city
       ? `${service.name} in ${city.name} - ${service.available24h ? '24h Service' : 'Professional Service'} | ${titleSuffix}`
       : `${service.name} - Professional Service in Spain | ${titleSuffix}`,
@@ -82,7 +85,9 @@ export function generateEnhancedServiceMetadata(
   const descriptions: Record<Locale, string> = {
     es: city
       ? `${service.name} ${service.available24h ? '24h' : 'profesional'} en ${city.name}. ${service.priceRange}. Garantía y presupuesto gratuito. ¡Llama ahora!`
-      : `${service.name} profesional en toda España. ${service.priceRange}. Servicio ${service.available24h ? '24h' : 'certificado'} con garantía. Presupuesto gratis.`,
+      : service.slug === 'fontanero'
+        ? 'Fontaneros profesionales disponibles 24/7. Reparación de fugas, desatascos, instalaciones y termos con presupuesto previo.'
+        : `${service.name} profesional en toda España. ${service.priceRange}. Servicio ${service.available24h ? '24h' : 'certificado'} con garantía. Presupuesto gratis.`,
     en: city
       ? `${service.name} ${service.available24h ? '24h' : 'professional'} in ${city.name}. ${service.priceRange}. Warranty and free quote. Call now!`
       : `Professional ${service.name} throughout Spain. ${service.priceRange}. ${service.available24h ? '24h' : 'Certified'} service with warranty. Free quote.`,

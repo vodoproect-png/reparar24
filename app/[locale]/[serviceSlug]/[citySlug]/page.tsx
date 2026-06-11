@@ -4,19 +4,31 @@ import { services } from '@/data/services'
 import { cities } from '@/data/cities'
 import { generateEnhancedServiceMetadata } from '@/lib/seo/metadata-enhanced'
 import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
-import { getDistrictLinks, generateServiceCityBreadcrumbs } from '@/lib/linking/internal'
-import { getServiceCityUrl } from '@/lib/seo/url'
+import { generateServiceCityBreadcrumbs } from '@/lib/linking/internal'
 import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import { getCitySEOContent } from '@/data/city-seo-content'
-import { CitySEOFAQList } from '@/components/seo/CitySEOFAQList'
 import { getLightweightCityContent } from '@/lib/i18n/city-content'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
-import { EEATSection } from '@/components/seo/EEATSignals'
-import Link from 'next/link'
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
 import { serviceCityToHeroProps } from '@/lib/adapters/hero-adapter'
+import ServicesGridV1 from '@/components/ds/ServicesGridV1'
+import TrustSignalsV1 from '@/components/ds/TrustSignalsV1'
+import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
+import PricingSectionV1 from '@/components/ds/PricingSectionV1'
+import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
+import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
+import FaqSectionV2 from '@/components/ds/FaqSectionV2'
+import TrustCtaBlueV1 from '@/components/ds/TrustCtaBlueV1'
+import {
+  fontaneroServicesGridContent,
+  fontaneroTrustSignalsContent,
+  fontaneroProcessStepsContent,
+  fontaneroPricingSectionContent,
+  fontaneroOpinionesClientesContent,
+} from '@/data/fontanero/page-components-content'
+import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string; citySlug: string }[] = []
@@ -91,14 +103,15 @@ export default async function ServiceCityPage({
     city: city,
   })
 
-  const districtLinks = getDistrictLinks(city, service, locale)
-
   // Get city-specific SEO content if available (Spanish only)
   const citySEO = locale === 'es' ? getCitySEOContent(service.id, city.slug) : null
 
   // Generate breadcrumbs
   const breadcrumbItems = generateServiceCityBreadcrumbs(service, city, locale)
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
+
+  // Check if this is Valencia for ServiceAreasV1
+  const isValencia = city.slug === 'valencia'
 
   return (
     <>
@@ -117,7 +130,7 @@ export default async function ServiceCityPage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - Conditional: ServiceHeroV2 for all fontanero city pages, gradient for others */}
+        {/* Hero Section - ServiceHeroV2 for fontanero only */}
         {service.slug === 'fontanero' ? (
           <ServiceHeroV2 {...serviceCityToHeroProps(service, city, locale)} />
         ) : (
@@ -153,140 +166,32 @@ export default async function ServiceCityPage({
           </section>
         )}
 
-        {/* Districts Coverage */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8">{coverageHeading}</h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {districtLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.href}
-                  className="card text-center hover:-translate-y-1 transition-all"
-                >
-                  <div className="font-semibold">{link.title}</div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Benefits Section */}
-        <section className="py-16 bg-white">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              {ourServiceHeading}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {service.benefits.map((benefit, index) => (
-                <div key={index} className="card">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-green-500 text-2xl mt-1">✓</span>
-                    <p className="text-lg">{benefit}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* EEAT Trust Signals */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <EEATSection
-              locale={locale}
-              city={city.name}
-              showGuarantee={true}
-              showResponseTime={true}
-              showExpertise={true}
-              showProcess={false}
-            />
-          </div>
-        </section>
-
-        {/* AI-Optimized Q&A Section - TEMPORARILY DISABLED FOR SEMANTIC GOVERNANCE */}
-        {/*
-          GOVERNANCE NOTE: Generic emergency FAQ layer disabled on GEO city pages.
-          Issue: commonEmergencyQuestions contains cross-service terminology.
-          Example: "fontanero" terms appearing on electricista pages.
-          
-          This creates semantic contamination and violates keyword ownership.
-          
-          Status: GENERIC_FAQ_LAYER_DISABLED
-          Will be replaced with service-specific, GEO-optimized FAQs after approval.
-        */}
-        {/* {locale === 'es' && (
-          <section className="py-16 bg-white">
-            <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                Preguntas Frecuentes - {service.name} en {city.name}
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <AIAnswerList questions={commonEmergencyQuestions.es} />
-              </div>
-            </div>
-          </section>
-        )} */}
-
-        {/* Other Services in City */}
-        <section className="py-16 bg-gray-50">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold mb-8">{otherServicesHeading}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {services
-                .filter((s) => s.id !== service.id)
-                .slice(0, 3)
-                .map((otherService) => {
-                  const otherServiceUrl = getServiceCityUrl(otherService.slug, city.slug, locale)
-                  return (
-                    <Link
-                      key={otherService.id}
-                      href={otherServiceUrl}
-                      className="card group hover:-translate-y-1 transition-all"
-                    >
-                      <div className="text-4xl mb-3">{otherService.icon}</div>
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary-600">
-                        {lightweightContent 
-                          ? `${otherService.name} ${lightweightContent.schemaNameSuffix}`
-                          : `${otherService.name} en ${city.name}`
-                        }
-                      </h3>
-                      <p className="text-gray-600 text-sm mb-3">
-                        {otherService.description}
-                      </p>
-                      <span className="text-primary-600 font-semibold">
-                        {otherService.priceRange} →
-                      </span>
-                    </Link>
-                  )
-                })}
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA - Above SEO Content */}
-        <CTASection locale={locale} />
-
-        {/* City-Specific FAQs - ENABLED FOR FONTANERÍA ENTERPRISE SEO (Spanish only) */}
-        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && (
-          <section className="py-16 bg-gray-50">
-            <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                {faqHeading}
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <CitySEOFAQList 
-                  faqs={citySEO.faqs}
-                  serviceName={service.name}
-                  cityName={city.name}
-                />
-              </div>
-            </div>
-          </section>
+        {/* Approved Neutral Blocks - Fontanero Only */}
+        {service.slug === 'fontanero' && (
+          <>
+            <ServicesGridV1 {...fontaneroServicesGridContent} />
+            <TrustSignalsV1 {...fontaneroTrustSignalsContent} />
+            <ProcessStepsV3 {...fontaneroProcessStepsContent} />
+            <PricingSectionV1 {...fontaneroPricingSectionContent} />
+            <OpinionesClientesV1 {...fontaneroOpinionesClientesContent} />
+            
+            {/* Valencia ServiceAreasV1 - Only for Valencia */}
+            {isValencia && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
+          </>
         )}
 
-        {/* City-Specific SEO Content - Absolute Bottom Before Footer (Spanish only) */}
-        {citySEO && locale === 'es' && (
+        {/* FAQ Section - Migrate existing FAQ content */}
+        {citySEO && citySEO.faqs.length > 0 && locale === 'es' && service.slug === 'fontanero' && (
+          <FaqSectionV2
+            faqs={citySEO.faqs.map(faq => ({
+              question: faq.question,
+              answer: faq.answer
+            }))}
+          />
+        )}
+
+        {/* City-Specific SEO Content - Keep existing SEO text */}
+        {citySEO && locale === 'es' && service.slug === 'fontanero' && (
           <section className="py-16 bg-white">
             <div className="container-custom">
               <div className="max-w-4xl mx-auto">
@@ -303,6 +208,13 @@ export default async function ServiceCityPage({
               </div>
             </div>
           </section>
+        )}
+
+        {/* Final CTA - TrustCtaBlueV1 for fontanero */}
+        {service.slug === 'fontanero' ? (
+          <TrustCtaBlueV1 />
+        ) : (
+          <CTASection locale={locale} />
         )}
       </main>
       <Footer locale={locale} />
