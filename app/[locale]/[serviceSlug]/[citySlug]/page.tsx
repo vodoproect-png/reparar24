@@ -19,6 +19,7 @@ import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
 import PricingSectionV1 from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
+import DistrictLinksBlock from '@/components/ds/DistrictLinksBlock'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import TrustCtaBlueV1 from '@/components/ds/TrustCtaBlueV1'
 import {
@@ -189,6 +190,9 @@ export default async function ServiceCityPage({
             
             {/* Valencia ServiceAreasV1 - Only for Valencia */}
             {isValencia && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
+            
+            {/* District Internal Links Block - Fontanero only */}
+            <DistrictLinksBlock service={service} city={city} locale={locale} />
           </>
         )}
 
