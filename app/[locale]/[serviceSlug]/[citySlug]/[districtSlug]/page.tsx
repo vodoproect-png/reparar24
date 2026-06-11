@@ -221,17 +221,15 @@ export default async function ServiceCityDistrictPage({
           <>
             <ServicesGridV1 {...fontaneroServicesGridContent} />
             
-            {/* Trust Signals Section with Neutral Heading */}
-            <section className="py-16 bg-gray-50">
-              <div className="container-custom">
-                <div className="text-center mb-12">
-                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    ¿Por Qué Elegir Reparar24?
-                  </h2>
-                  <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Compromiso con la calidad, la rapidez y la atención profesional en cada servicio.
-                  </p>
-                </div>
+            {/* Trust Signals with Heading */}
+            <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
+              <div className="mx-auto max-w-[1280px]">
+                <h2 className="text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
+                  ¿Por Qué Elegir Reparar24?
+                </h2>
+                <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
+                  Compromiso con la calidad, la rapidez y la atención profesional en cada servicio.
+                </p>
               </div>
             </section>
             <TrustSignalsV1 {...fontaneroTrustSignalsContent} />
