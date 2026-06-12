@@ -176,8 +176,8 @@ export default async function ServiceCityDistrictPage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - ServiceHeroV2 for fontanero only */}
-        {service.slug === 'fontanero' ? (
+        {/* Hero Section - ServiceHeroV2 for fontanero and electricista */}
+        {service.slug === 'fontanero' || service.slug === 'electricista' ? (
           <ServiceHeroV2 {...serviceDistrictToHeroProps(service, city, district, locale)} />
         ) : (
           <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">

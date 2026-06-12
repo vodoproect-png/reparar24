@@ -39,6 +39,9 @@ import {
   fontaneroPricingSectionContent,
   fontaneroOpinionesClientesContent,
 } from '@/data/fontanero/page-components-content'
+import {
+  electricistaHeroContent,
+} from '@/data/electricista/page-components-content'
 // Shared Valencia GEO preset
 import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
 
@@ -121,9 +124,11 @@ export default async function ServicePage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - PILOT: V0 Design System Component (fontanero only) */}
+        {/* Hero Section - PILOT: V0 Design System Component (fontanero, electricista) */}
         {serviceSlug === 'fontanero' ? (
           <ServiceHeroV2 {...serviceToHeroProps(service, locale)} />
+        ) : serviceSlug === 'electricista' ? (
+          <ServiceHeroV2 {...electricistaHeroContent} />
         ) : (
           /* Original Hero Section - Other Services */
           <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
@@ -153,7 +158,7 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Mobile Sticky CTA - Fontanero only */}
+        {/* Mobile Sticky CTA - Fontanero */}
         {serviceSlug === 'fontanero' && (
           <MobileStickyCTA 
             phone="34641688524"
@@ -161,10 +166,10 @@ export default async function ServicePage({
           />
         )}
 
-        {/* PILOT: V0 ServicesGridV1 - WITH PROPS (fontanero only) */}
+        {/* PILOT: V0 ServicesGridV1 - WITH PROPS (fontanero) */}
         {serviceSlug === 'fontanero' && <ServicesGridV1 {...fontaneroServicesGridContent} />}
 
-        {/* SEO Heading + PILOT: V0 TrustSignalsV1 - WITH PROPS (fontanero only) */}
+        {/* SEO Heading + PILOT: V0 TrustSignalsV1 - WITH PROPS (fontanero) */}
         {serviceSlug === 'fontanero' && (
           <div className="container-custom mt-8 mb-4">
             {/* Pill badge */}
@@ -182,16 +187,16 @@ export default async function ServicePage({
         )}
         {serviceSlug === 'fontanero' && <TrustSignalsV1 {...fontaneroTrustSignalsContent} />}
 
-        {/* Process Steps V3 - WITH PROPS (fontanero only) */}
+        {/* Process Steps V3 - WITH PROPS (fontanero) */}
         {serviceSlug === 'fontanero' && <ProcessStepsV3 {...fontaneroProcessStepsContent} />}
 
-        {/* Pricing Section V1 - WITH PROPS (fontanero only) */}
+        {/* Pricing Section V1 - WITH PROPS (fontanero) */}
         {serviceSlug === 'fontanero' && <PricingSectionV1 {...fontaneroPricingSectionContent} />}
 
-        {/* Opiniones Clientes V1 - WITH PROPS (fontanero only) */}
+        {/* Opiniones Clientes V1 - WITH PROPS (fontanero) */}
         {serviceSlug === 'fontanero' && <OpinionesClientesV1 {...fontaneroOpinionesClientesContent} />}
 
-        {/* Service Areas V1 - SHARED VALENCIA GEO COVERAGE (fontanero only) */}
+        {/* Service Areas V1 - SHARED VALENCIA GEO COVERAGE (fontanero) */}
         {serviceSlug === 'fontanero' && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
 
         {/* Benefits Section - OTHER SERVICES */}
@@ -240,7 +245,7 @@ export default async function ServicePage({
         {/* Generic CTA for other services */}
         {serviceSlug !== 'fontanero' && <CTASection locale={locale} />}
 
-        {/* FAQ Section - FONTANERO uses V2, others use generic */}
+        {/* FAQ Section - FONTANERO uses V2, ELECTRICISTA uses generic, others use generic */}
         {serviceSlug === 'fontanero' ? (
           <FaqSectionV2 faqs={fontaneroHubFaqs} />
         ) : (
@@ -266,7 +271,7 @@ export default async function ServicePage({
           )
         )}
 
-        {/* SEO Content Section V1 - FONTANERO ONLY (v0 approved component) */}
+        {/* SEO Content Section V1 - FONTANERO (v0 approved component) */}
         {serviceSlug === 'fontanero' ? (
           <SeoContentSectionV1 {...fontaneroHubSeoContent} />
         ) : (
@@ -282,7 +287,7 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Final CTA - FONTANERO ONLY */}
+        {/* Final CTA - FONTANERO */}
         {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
       </main>
       <Footer locale={locale} />

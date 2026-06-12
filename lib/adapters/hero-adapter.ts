@@ -19,6 +19,12 @@ import {
   Wrench 
 } from '@/components/ds/ServiceHeroV2'
 import { 
+  Zap,
+  Power,
+  Lightbulb,
+  Cable
+} from 'lucide-react'
+import { 
   getPhoneDisplay, 
   getPhoneHref, 
   getWhatsAppHref 
@@ -33,10 +39,13 @@ export function serviceCityToHeroProps(
   locale: Locale
 ): ServiceHeroV2Props {
   const isFontanero = service.slug === 'fontanero'
+  const isElectricista = service.slug === 'electricista'
   
-  // H1 Pattern for city pages: "Fontanero en [City] 24 Horas"
+  // H1 Pattern for city pages: "Fontanero en [City] 24 Horas" or "Electricista en [City]"
   const titleCity = locale === 'es' 
-    ? (isFontanero ? `Fontanero en ${city.name} 24 Horas` : `${service.name} en ${city.name}`)
+    ? (isFontanero ? `Fontanero en ${city.name} 24 Horas` : 
+       isElectricista ? `Electricista en ${city.name}` :
+       `${service.name} en ${city.name}`)
     : `${service.name} in ${city.name}`
   
   return {
@@ -45,6 +54,8 @@ export function serviceCityToHeroProps(
     titleHighlight: undefined,
     subtitle: isFontanero
       ? `Fontaneros profesionales en ${city.name}. Llegamos en 30-60 minutos para resolver fugas, desatascos, termos e instalaciones con garantía.`
+      : isElectricista
+      ? `Electricistas profesionales en ${city.name}. Llegamos en 30-60 minutos para resolver averías eléctricas, cuadros e instalaciones con garantía.`
       : `${service.description} Servicio profesional en ${city.name} con técnicos certificados.`,
     phoneCta: {
       label: locale === 'es' ? 'Llamar ahora' : 'Call now',
@@ -64,7 +75,7 @@ export function serviceCityToHeroProps(
     trustCards: [
       {
         icon: Star,
-        title: '4.9/5',
+        title: isElectricista ? '4.8/5' : '4.9/5',
         subtitle: locale === 'es' ? '500+ reseñas' : '500+ reviews',
       },
       {
@@ -97,6 +108,25 @@ export function serviceCityToHeroProps(
             label: locale === 'es' ? 'Instalaciones' : 'Installations',
           },
         ]
+      : isElectricista
+      ? [
+          {
+            icon: Zap,
+            label: locale === 'es' ? 'Averías' : 'Faults',
+          },
+          {
+            icon: Power,
+            label: locale === 'es' ? 'Cuadros' : 'Panels',
+          },
+          {
+            icon: Lightbulb,
+            label: locale === 'es' ? 'Instalaciones' : 'Installations',
+          },
+          {
+            icon: Cable,
+            label: locale === 'es' ? 'Recableado' : 'Rewiring',
+          },
+        ]
       : [],
     highlights: [
       {
@@ -113,7 +143,7 @@ export function serviceCityToHeroProps(
       },
     ],
     image: {
-      src: '/images/fontanero-hero.jpg',
+      src: isElectricista ? '/images/electricista/electricista-hero.png' : '/images/fontanero-hero.jpg',
       alt: locale === 'es'
         ? `${service.name} profesional en ${city.name} - Servicio 24/7`
         : `Professional ${service.name} in ${city.name} - 24/7 Service`,
@@ -214,7 +244,7 @@ export function serviceToHeroProps(
 
 /**
  * Convert Service + City + District data to ServiceHeroV2 props for district pages
- * H1 Pattern: "Fontanero en [District], [City] 24 Horas"
+ * H1 Pattern: "Fontanero en [District], [City] 24 Horas" or "Electricista en [District], [City]"
  */
 export function serviceDistrictToHeroProps(
   service: Service,
@@ -223,10 +253,13 @@ export function serviceDistrictToHeroProps(
   locale: Locale
 ): ServiceHeroV2Props {
   const isFontanero = service.slug === 'fontanero'
+  const isElectricista = service.slug === 'electricista'
   
-  // H1 Pattern for district pages: "Fontanero en [District], [City] 24 Horas"
+  // H1 Pattern for district pages: "Fontanero en [District], [City] 24 Horas" or "Electricista en [District], [City]"
   const titleDistrict = locale === 'es'
-    ? (isFontanero ? `Fontanero en ${district.name}, ${city.name} 24 Horas` : `${service.name} en ${district.name}, ${city.name}`)
+    ? (isFontanero ? `Fontanero en ${district.name}, ${city.name} 24 Horas` : 
+       isElectricista ? `Electricista en ${district.name}, ${city.name}` :
+       `${service.name} en ${district.name}, ${city.name}`)
     : `${service.name} in ${district.name}, ${city.name}`
   
   return {
@@ -235,6 +268,8 @@ export function serviceDistrictToHeroProps(
     titleHighlight: undefined,
     subtitle: isFontanero
       ? `Fontaneros profesionales en ${district.name}. Llegamos en 30-60 minutos para resolver fugas, desatascos, termos e instalaciones con garantía. Atención inmediata en tu barrio.`
+      : isElectricista
+      ? `Electricistas profesionales en ${district.name}. Llegamos en 30-60 minutos para resolver averías eléctricas, cuadros e instalaciones con garantía. Atención inmediata en tu barrio.`
       : `${service.description} Servicio profesional en ${district.name}, ${city.name} con técnicos certificados.`,
     phoneCta: {
       label: locale === 'es' ? 'Llamar ahora' : 'Call now',
@@ -254,7 +289,7 @@ export function serviceDistrictToHeroProps(
     trustCards: [
       {
         icon: Star,
-        title: '4.9/5',
+        title: isElectricista ? '4.8/5' : '4.9/5',
         subtitle: locale === 'es' ? '500+ reseñas' : '500+ reviews',
       },
       {
@@ -287,6 +322,25 @@ export function serviceDistrictToHeroProps(
             label: locale === 'es' ? 'Instalaciones' : 'Installations',
           },
         ]
+      : isElectricista
+      ? [
+          {
+            icon: Zap,
+            label: locale === 'es' ? 'Averías' : 'Faults',
+          },
+          {
+            icon: Power,
+            label: locale === 'es' ? 'Cuadros' : 'Panels',
+          },
+          {
+            icon: Lightbulb,
+            label: locale === 'es' ? 'Instalaciones' : 'Installations',
+          },
+          {
+            icon: Cable,
+            label: locale === 'es' ? 'Recableado' : 'Rewiring',
+          },
+        ]
       : [],
     highlights: [
       {
@@ -303,7 +357,7 @@ export function serviceDistrictToHeroProps(
       },
     ],
     image: {
-      src: '/images/fontanero-hero.jpg',
+      src: isElectricista ? '/images/electricista/electricista-hero.png' : '/images/fontanero-hero.jpg',
       alt: locale === 'es'
         ? `${service.name} profesional en ${district.name}, ${city.name} - Servicio 24/7`
         : `Professional ${service.name} in ${district.name}, ${city.name} - 24/7 Service`,
