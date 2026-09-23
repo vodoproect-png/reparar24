@@ -56,6 +56,53 @@ and verify changes technically (build/typecheck/lint) before finishing.
   ```
   Pre-existing lint warnings are fine; new errors are not.
 
+## Paid API policy — DataForSEO
+
+This is a cost/scope control for the paid DataForSEO API. It does not define
+or constrain SEO methodology — the agent still decides semantics, intent,
+cannibalization, page structure, and SEO actions independently.
+
+1. DataForSEO is a paid API. The agent may use it autonomously, without
+   asking for separate confirmation, whenever the data is genuinely needed
+   for the task at hand.
+2. Before making paid requests, first use already-available free/existing
+   data if it can answer the question: GSC, the Reparar24 repository,
+   existing semantics/content, and previously fetched data. Use DataForSEO
+   for demand validation, semantic expansion, SERP/competitive analysis,
+   and filling real gaps.
+3. Default market:
+   - Country: Spain.
+   - Language: Spanish.
+   - Primary commercial GEO: Valencia / Valencia metropolitan area /
+     relevant part of the Valencian Community.
+4. Existing GEOs outside Valencia already present in the project (Madrid,
+   Barcelona, Sevilla, Zaragoza, Málaga, etc.) may be researched when the
+   task is to evaluate their demand, economic value, cannibalization, or a
+   keep/rewrite/merge/redirect/delete decision.
+5. Do not automatically expand research to other countries, languages,
+   unrelated industries, or global keyword universes unless the specific
+   task requires it.
+6. Do not artificially cap the number of keywords analyzed with a small
+   fixed number. Instead, use DataForSEO efficiently:
+   - batch requests whenever supported;
+   - don't repeat data already fetched without a reason;
+   - use the most appropriate and cost-efficient endpoint;
+   - expand semantics iteratively, only when the previous data layer shows
+     a useful direction.
+7. Maximum actual DataForSEO spend per single autonomous task: **USD 2.00**.
+8. Track the actual cost returned by the DataForSEO API and keep a running
+   total for the current task.
+9. Once USD 2.00 is reached:
+   - stop making new paid DataForSEO requests;
+   - continue the work using already-collected data and free sources;
+   - if additional paid data would meaningfully improve the decision,
+     report exactly what should be researched and what extra budget would
+     be reasonable.
+10. Never split one logical task into multiple subtasks/sessions solely to
+    bypass the USD 2.00 limit.
+11. This limit is a cost/scope control only — it does not restrict which
+    SEO decisions the agent is allowed to make within the data available.
+
 ## What was intentionally removed
 
 The old `.clinerules`, `PROJECT_CORE.md`, and `docs/ARCHITECTURE_GUIDE.md` /
