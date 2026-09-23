@@ -48,7 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Fontanero child service pages (specialized services)
     const fontaneroChildServices = [
       'reparacion-fugas',
-      'desatascos',
+      // 'desatascos' removed: exact duplicate of the /desatascos service hub
+      // (same primary keyword, same Valencia targeting). 301 redirects to /desatascos.
       'instalaciones',
       'sustitucion-tuberias',
       'calentadores-termos',
@@ -86,20 +87,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       })
     })
 
-    // Service + City + District pages - NOW USES LOCALIZED SLUGS
-    services.forEach((service) => {
-      cities.forEach((city) => {
-        const localizedSlug = getLocalizedServiceSlug(service.slug as ServiceId, locale)
-        city.districts.forEach((district) => {
-          sitemapEntries.push({
-            url: `${baseUrl}${localePrefix}/${localizedSlug}/${city.slug}/${district.slug}`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.6,
-          })
-        })
-      })
-    })
+    // NOTE: Service + City + District pages were removed (Sep 2026 SEO audit).
+    // GSC data showed 77% of these 180 pages had zero impressions in 140 days,
+    // and DataForSEO confirmed near-zero real search volume for
+    // "{service} {district} {city}" combinations. District pages were merged
+    // into their parent service+city page via 301 redirects (see next.config.js).
   })
 
   return sitemapEntries

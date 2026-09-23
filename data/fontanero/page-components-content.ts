@@ -54,7 +54,7 @@ export const fontaneroServicesGridContent: ServicesGridV1Props = {
       iconColor: "text-emerald-600",
       title: "Desatascos",
       description: "Eliminamos atascos en tuberías, fregaderos, inodoros y desagües con equipos profesionales.",
-      href: "/fontanero/desatascos",
+      href: "/desatascos",
     },
     {
       icon: Construction,

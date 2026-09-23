@@ -71,21 +71,6 @@ export function getCityServiceLinks(
 }
 
 /**
- * Generate district links for a city (future scalability)
- */
-export function getDistrictLinks(
-  city: City,
-  service: Service,
-  locale: Locale
-): InternalLink[] {
-  return city.districts.map((district) => ({
-    href: `${getServiceCityUrl(service.slug, city.slug, locale)}/${district.slug}`,
-    title: `${service.name} en ${district.name}`,
-    description: `Servicio en ${district.name}, ${city.name}`,
-  }))
-}
-
-/**
  * Generate emergency service links (24h services)
  */
 export function getEmergencyServiceLinks(
@@ -134,23 +119,3 @@ export function generateServiceCityBreadcrumbs(
   ]
 }
 
-export function generateServiceCityDistrictBreadcrumbs(
-  service: Service,
-  city: City,
-  districtName: string,
-  districtSlug: string,
-  locale: Locale
-): BreadcrumbItem[] {
-  return [
-    { name: 'Inicio', url: BASE_URL },
-    { name: service.name, url: getServiceUrl(service.slug, locale) },
-    {
-      name: city.name,
-      url: getServiceCityUrl(service.slug, city.slug, locale),
-    },
-    {
-      name: districtName,
-      url: `${getServiceCityUrl(service.slug, city.slug, locale)}/${districtSlug}`,
-    },
-  ]
-}
