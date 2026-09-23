@@ -26,6 +26,9 @@ yarn-error.log*
 .env*.local
 .env
 
+# credentials / secrets (symlinked to protected external storage)
+.secrets
+
 # vercel
 .vercel
 
