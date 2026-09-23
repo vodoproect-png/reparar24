@@ -7,7 +7,9 @@
  * 
  * Pages:
  * - /fontanero/reparacion-fugas (PRIMARY_KW: reparación fugas agua)
- * - /fontanero/desatascos (PRIMARY_KW: desatascos)
+ * - /desatascos hub covers the "desatascos" primary keyword; no separate
+ *   /fontanero/desatascos child page (removed Sep 2026, was an exact
+ *   duplicate of the /desatascos service - redirects there now)
  * - /fontanero/instalaciones (PRIMARY_KW: instalación fontanería)
  * - /fontanero/sustitucion-tuberias (PRIMARY_KW: sustitución tuberías)
  * - /fontanero/calentadores-termos (PRIMARY_KW: termo eléctrico)
@@ -145,69 +147,6 @@ export const childServicesData: Record<string, ChildServiceData> = {
       {
         question: '¿Qué garantía ofrecéis en reparaciones de fugas?',
         answer: 'Todas nuestras reparaciones de fugas tienen garantía de 2 años en mano de obra. Los materiales usados (tuberías, manguitos, conectores) tienen garantía del fabricante que varía según marca: generalmente 10-25 años para tuberías certificadas. Si la misma fuga reaparece en el mismo punto reparado dentro de 2 años, volvemos y lo solucionamos sin coste adicional. Trabajamos solo con materiales profesionales certificados de primeras marcas, no usamos productos de ferretería domésticos. Todas las reparaciones incluyen pruebas de estanqueidad post-trabajo para verificar sellado perfecto antes de irnos.',
-      },
-    ],
-  },
-  
-  'desatascos': {
-    h1: 'Desatascos de Tuberías',
-    metaTitle: 'Desatascos de Tuberías | Servicio Urgente 24/7',
-    metaDescription: 'Servicio de desatascos para tuberías, desagües, arquetas y bajantes. Atención urgente, equipos profesionales y presupuesto claro.',
-    lockedPrimaryKw: 'desatascos',
-    secondaryKw: ['desatascos valencia', 'desatascos urgentes', 'desatascos en valencia', 'desatascos 24 horas', 'desatascos 24 horas valencia', 'desatascos 24h', 'desatascos urgentes valencia', 'empresa de desatascos', 'empresa desatascos', 'empresa desatascos valencia', 'empresas de desatascos', 'desatascos cerca de mi'],
-    seoBlockKw: ['desatascos', 'desatascos valencia', 'desatascos urgentes', 'desatascos 24 horas', 'empresa de desatascos', 'desatascos tuberias', 'desatascos de tuberías', 'desatascos de fregaderos', 'desatascos con camion cuba valencia', 'camión cuba desatascos', 'camion cuba desatascos', 'camion desatascos', 'cuba desatascos', 'arqueta desatascos', 'fontanero desatascos'],
-    faqKw: ['camión cuba desatascos precio', 'empresa de desatascos precios', 'precio desatascos urgencias', 'precio hora desatascos', 'desatascos precio', 'tarifas de desatascos'],
-    contentBrief: 'Texto centrado en desatascos de tuberías, desagües, fregaderos, WC/inodoros, arquetas, bajantes, camión cuba y urgencias 24 horas en Valencia.',
-    description: 'Servicio de desatascos para tuberías, desagües, arquetas y bajantes. Atención urgente 24/7, equipos profesionales y presupuesto claro en Valencia.',
-    seoContent: {
-      badge: 'Desatascos urgentes 24/7',
-      title: 'Servicio Profesional de Desatascos de Tuberías en Valencia',
-      intro: [
-        'Los desatascos profesionales en Valencia requieren equipamiento especializado y experiencia demostrable. Cuando tuberías, desagües, fregaderos, WC, inodoros, arquetas o bajantes presentan obstrucciones graves, nuestra empresa de desatascos responde con maquinaria industrial de última generación y técnicos cualificados disponibles para desatascos urgentes 24 horas. Operamos en toda Valencia capital y área metropolitana con llegada garantizada en menos de 60 minutos para desatascos urgentes valencia, porque entendemos que un inodoro bloqueado o un fregadero colapsado paralizan completamente la vida familiar o comercial.',
-        'Nuestro servicio de desatascos valencia combina máquinas eléctricas rotativas profesionales con espirales de hasta 50 metros, equipos de alta presión que alcanzan 200 bar para desatascos de bajantes, cámaras de inspección endoscópica que diagnostican causas estructurales, y camión cuba desatascos para vaciado completo de arquetas comunitarias saturadas. Los desatascos 24 horas valencia son nuestra especialidad: atendemos emergencias nocturnas, fines de semana y festivos incluidas Fallas, porque los atascos no esperan. El 65% de nuestros desatascos urgentes son WC completamente bloqueados, fregaderos donde el agua queda estancada con residuos, y arquetas que desbordan en zonas comunes.',
-        'Como empresa desatascos valencia profesional, rechazamos productos químicos que solo dañan tuberías sin resolver obstrucciones reales. Trabajamos exclusivamente con métodos mecánicos certificados que garantizan eliminación definitiva del atasco sin corroer instalaciones. Cada intervención incluye presupuesto claro comunicado antes de comenzar, desatasco completo verificado con prueba de agua, y garantía de 30 días. Atendemos desatascos de tuberías, desatascos de fregaderos, desatascos con camión cuba valencia, limpieza de arqueta desatascos, y cualquier obstrucción en desagües. Presupuesto transparente, llegada rápida, y servicio de desatascos cerca de mi disponible en toda Valencia.'
-      ],
-    },
-    faqs: [
-      {
-        question: '¿Cuánto cuesta un desatasco con camión cuba en Valencia?',
-        answer: 'El precio del camión cuba desatascos en Valencia oscila entre 280-450€ según volumen a extraer y complejidad del acceso. El servicio de camión cuba desatascos se requiere cuando arquetas comunitarias están saturadas con acumulación de grasas, arena y residuos compactados, pozos de registro con metros cúbicos de lodos, o limpieza profunda de colectores. El precio incluye: desplazamiento del camión cuba especializado, vaciado completo con bomba de succión de alta potencia, limpieza a presión intensiva 150 bar del interior de la arqueta, extracción de residuos sólidos adheridos, transporte a punto de tratamiento autorizado, y enjuague final. Los desatascos con camion cuba valencia son inversión necesaria en comunidades donde arquetas nunca han recibido limpieza profesional. Una cuba desatascos resuelve saturaciones que equipos convencionales no pueden abordar.',
-      },
-      {
-        question: '¿Cuáles son las tarifas de desatascos en Valencia?',
-        answer: 'Las tarifas de desatascos y precios de empresa de desatascos profesional en Valencia varían según tipo de obstrucción: Desatasco simple accesible (sifón, WC superficial) desde 65€. Desatasco con máquina eléctrica rotativa (caso más frecuente) 95-190€ según complejidad y longitud de tubería. Desatasco de bajante comunitario vertical 160-320€ según altura. Inspección con cámara diagnóstica 85-160€ adicional para detectar problema estructural. Camión cuba desatascos para arquetas saturadas 280-450€. El precio desatascos urgencias en servicio nocturno (22h-8h) o festivo añade recargo 45-65€. El desatascos precio siempre se comunica completo por teléfono antes del desplazamiento. No hay sorpresas en la facturación. Como empresa de desatascos en Valencia, ofrecemos presupuesto cerrado que incluye desplazamiento, diagnóstico, desatasco completo y verificación. El precio hora desatascos NO aplicamos: trabajamos con precio cerrado por trabajo, no por tiempo.',
-      },
-      {
-        question: '¿Cuánto cuesta un desatasco urgente nocturno o festivo?',
-        answer: 'El precio desatascos urgencias nocturnas o festivas incluye tarifa base + recargo urgencia 45-65€. Ejemplo: desatasco urgente de WC con máquina eléctrica domingo medianoche = 95€ base + 55€ recargo urgencia = 150€ total cerrado. Nuestro servicio de desatascos urgentes valencia garantiza llegada en menos de 60 minutos en Valencia capital, máximo 90 minutos área metropolitana. El recargo urgencia cubre disponibilidad de técnicos especializados en desatascos 24 horas, desplazamiento inmediato con equipos profesionales, y furgoneta equipada permanentemente operativa. Los desatascos urgentes son necesarios cuando WC rebosa en plena noche, fregadero restaurante bloqueado en servicio, o arqueta desbordando en portal. El servicio de desatascos 24 horas valencia resuelve emergencias que no pueden esperar a horario laboral, evitando daños mayores por inundación o pérdida de actividad comercial.',
-      },
-      {
-        question: '¿Trabajáis con precio hora desatascos o precio cerrado?',
-        answer: 'Trabajamos siempre con precio cerrado, nunca por precio hora desatascos. El 90% de desatascos profesionales se resuelven en 25-50 minutos con los equipos adecuados. Cobrar por horas crea incentivos perversos para trabajar lento. Nuestra empresa de desatascos ofrece precio fijo completo antes de comenzar cualquier intervención. El desatascos precio incluye: desplazamiento urgente, diagnóstico de la obstrucción, aplicación del equipo profesional necesario (máquina eléctrica, alta presión, camión cuba según caso), eliminación completa del atasco, verificación de desagüe correcto con prueba de agua, y limpieza de la zona. Así conoces exactamente el coste final antes de autorizar el trabajo. Solo si aparece complicación extraordinaria no prevista (tubería rota oculta, objeto imposible de extraer que requiere desmontaje completo) comunicamos coste adicional y pedimos confirmación antes de proceder. Transparencia total en tarifas de desatascos.',
-      },
-      {
-        question: '¿Cuál es el precio normal de un desatasco de WC o fregadero?',
-        answer: 'El desatascos precio estándar en Valencia para obstrucción típica de WC, fregadero o lavabo: desde 65€ si es accesible en sifón visible y se resuelve con desatascador profesional. Si requiere máquina eléctrica rotativa (70% de casos): 95-150€ según profundidad del atasco, longitud de tubería afectada y dificultad de acceso. El precio incluye: llegada del técnico especialista en desatascos, diagnóstico de la obstrucción, desatasco completo con equipo profesional, verificación de funcionamiento correcto, y limpieza de la zona. Los desatascos de tuberías con máquina garantizan eliminación completa de la obstrucción. NO incluye reparación de elementos rotos que descubramos (tubería fisurada, sifón agrietado): esas reparaciones se presupuestan separadamente. Los desatascos de fregaderos y desatascos de WC son intervenciones habituales resueltas eficazmente con equipamiento profesional adecuado.',
-      },
-      {
-        question: '¿Ofrecéis servicio de desatascos 24 horas en Valencia?',
-        answer: 'Sí, nuestro servicio de desatascos 24 horas valencia funciona los 365 días del año incluidos Navidad, Semana Santa y Fallas. Los atascos no respetan horarios: el 40% de atascos graves ocurren fines de semana cuando el uso intensivo de baños y cocina satura las instalaciones. Un WC atascado que rebosa, fregadero completamente bloqueado en restaurante durante servicio, o arqueta desbordando aguas fecales en portal son emergencias sanitarias urgentes. Nuestra empresa de desatascos valencia coordina llegada en menos de 60 minutos en Valencia capital con furgoneta equipada. Los desatascos 24h incluyen equipos profesionales completos. El servicio desatascos urgentes valencia añade recargo nocturno/festivo (45-65€) comunicado claramente por teléfono antes del desplazamiento. Como empresa desatascos valencia especializada, garantizamos atención inmediata cualquier día o hora con técnicos preparados y equipamiento profesional (máquinas rotativas, alta presión, camión cuba).',
-      },
-      {
-        question: '¿Por qué los desatascos profesionales no usan productos químicos?',
-        answer: 'Los productos químicos desatascadores son ineficaces, peligrosos y dañinos. Ineficaces porque solo disuelven superficialmente materia orgánica reciente, no eliminan atascos reales de grasa solidificada, objetos sólidos, raíces o papel compactado. Peligrosos porque son cáusticos extremos que causan quemaduras graves, generan gases tóxicos, y si el desagüe está bloqueado quedan estancados creando peligro químico. Dañinos porque corroen tuberías especialmente PVC, atacan juntas causando fugas futuras, y contaminan altamente el alcantarillado. Nuestra empresa desatascos valencia usa exclusivamente métodos mecánicos profesionales 100% efectivos: máquinas eléctricas rotativas con torque alto que destruyen cualquier obstrucción en tuberías, equipos de alta presión que arrastran residuos, completamente seguros para personas e instalaciones, y respetuosos con el medio ambiente. Los desatascos de tuberías profesionales resuelven el problema definitivamente sin dañar las conducciones.',
-      },
-      {
-        question: '¿Qué garantía tienen los desatascos profesionales?',
-        answer: 'Nuestra empresa de desatascos ofrece garantía de desatasco completo 30 días: si el mismo atasco reaparece en el punto exacto en plazo de 30 días desde la intervención, volvemos sin coste adicional. Esto indica que no eliminamos completamente la obstrucción inicial y asumimos responsabilidad. Si aparece atasco diferente en otro punto, o el mismo punto se atasca meses después por seguir echando grasa, toallitas o restos de comida, es atasco nuevo por mal uso no cubierto por garantía. Tras cada desatasco damos instrucciones claras sobre qué NUNCA echar: grasa caliente líquida, toallitas "biodegradables", bastoncillos, pañales, compresas, arena de gatos, restos sólidos de comida, pelos en grandes cantidades. Si al realizar desatascos de tuberías detectamos problema estructural (tubería hundida, raíces invasoras, rotura), lo comunicamos con recomendación de solución definitiva. Los desatascos valencia profesionales incluyen diagnóstico completo del origen del problema.',
-      },
-      {
-        question: '¿Por qué fallan los desatascadores domésticos y necesito empresa desatascos?',
-        answer: 'Las herramientas domésticas tienen limitaciones físicas insuperables. Desatascador ventosa manual: genera solo 0.3-0.5 bar, efectivo únicamente para atascos superficiales en sifón visible primeros 30cm, inútil para obstrucciones compactas 3-10 metros dentro de tubería. Cables manuales ferretería: máximo 3-5 metros, sin potencia rotatoria para perforar atascos duros, se doblan sin penetrar. Productos químicos: ineficaces y peligrosos como explicamos. Las máquinas profesionales de desatascos de tuberías: espirales metálicas hasta 50 metros, motor rotatorio 350-600 rpm con torque alto que destruye cualquier obstrucción, cabezales intercambiables específicos (cuchillas, picas, cepillos), y control de velocidad para no dañar tuberías. Una empresa de desatascos profesional resuelve en 30-45 minutos lo que métodos domésticos no logran en días. Los desatascos urgentes requieren equipamiento especializado que solo empresas de desatascos poseen.',
-      },
-      {
-        question: '¿Qué pasa si el atasco es causado por tubería rota o raíces?',
-        answer: 'Algunos atascos recurrentes son síntoma de problema estructural, no obstrucción simple. Causas estructurales comunes en Valencia: tubería PVC o fibrocemento rota por asentamiento del terreno acumulando arena constantemente, invasión de raíces de árboles (naranjos, palmeras) que penetran juntas buscando humedad, tubería con pendiente invertida por obras posteriores impidiendo drenaje, o bajante colapsado. Cuando realizamos desatascos de tuberías y sospechamos problema estructural (atasco reaparece cada semanas, síntomas de rotura), recomendamos inspección con cámara video especializada (85-160€ adicional). La cámara recorre el interior de la tubería mostrando exactamente el problema: rotura, fisura, raíces penetrando, objeto imposible de extraer. Con diagnóstico confirmado explicamos opciones: reparación puntual excavando solo tramo dañado, o sustitución completa si daño generalizado. Los desatascos profesionales detectan estos problemas estructurales que requieren solución definitiva más allá del desatasco temporal.',
       },
     ],
   },

@@ -19,7 +19,7 @@ import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
 import PricingSectionV1 from '@/components/ds/PricingSectionV1'
 import OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
 import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
-import DistrictLinksBlock from '@/components/ds/DistrictLinksBlock'
+import CoverageAreasV1 from '@/components/ds/CoverageAreasV1'
 import FaqSectionV2 from '@/components/ds/FaqSectionV2'
 import TrustCtaBlueV1 from '@/components/ds/TrustCtaBlueV1'
 import {
@@ -193,8 +193,8 @@ export default async function ServiceCityPage({
           </>
         )}
 
-        {/* District Internal Links Block - ALL SERVICES */}
-        <DistrictLinksBlock service={service} city={city} locale={locale} />
+        {/* Coverage Areas - text-only local trust signal, no separate district pages */}
+        <CoverageAreasV1 service={service} city={city} />
 
         {/* FAQ Section - Migrate existing FAQ content */}
         {citySEO && citySEO.faqs.length > 0 && locale === 'es' && service.slug === 'fontanero' && (

@@ -106,35 +106,3 @@ export function generateCityMetadata(city: City): Metadata {
     canonical: `https://reparar24.es/servicios/${city.slug}`,
   })
 }
-
-export function generateDistrictMetadata(city: City, districtSlug: string, serviceSlug?: string): Metadata {
-  const district = city.districts.find(d => d.slug === districtSlug)
-  
-  if (!district) {
-    return generateCityMetadata(city)
-  }
-
-  const title = `Servicios en ${district.name}, ${city.name} - 24 Horas | Reparar24`
-  const description = `Servicios de emergencia en ${district.name}, ${city.name}. Fontaneros, electricistas y desatascos disponibles 24/7. Códigos postales: ${district.postalCodes.join(', ')}.`
-  const keywords = [
-    district.name,
-    city.name,
-    'servicios',
-    'emergencias',
-    'fontanero',
-    'electricista',
-    ...district.postalCodes
-  ]
-
-  // Spanish uses root-level URLs (no /es prefix)
-  const canonical = serviceSlug
-    ? `https://reparar24.es/${serviceSlug}/${city.slug}/${district.slug}`
-    : `https://reparar24.es/servicios/${city.slug}/${district.slug}`
-
-  return generateMetadata({
-    title,
-    description,
-    keywords,
-    canonical,
-  })
-}

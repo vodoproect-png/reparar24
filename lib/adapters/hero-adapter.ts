@@ -438,7 +438,7 @@ export function childServiceToHeroProps(
       {
         icon: Waves,
         label: locale === 'es' ? 'Desatascos' : 'Unclogging',
-        href: '/fontanero/desatascos',
+        href: '/desatascos',
         active: activeChipIndex === 1,
       },
       {

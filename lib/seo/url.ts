@@ -54,19 +54,6 @@ export function getServiceCityUrl(
 }
 
 /**
- * Generate service + city + district page URL (future scalability)
- */
-export function getServiceCityDistrictUrl(
-  serviceSlug: string,
-  citySlug: string,
-  districtSlug: string,
-  locale: Locale = defaultLocale
-): string {
-  const path = `${serviceSlug}/${citySlug}/${districtSlug}`
-  return getCanonicalUrl(path, locale)
-}
-
-/**
  * Generate city overview URL
  */
 export function getCityUrl(citySlug: string, locale: Locale = defaultLocale): string {
