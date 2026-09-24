@@ -8,7 +8,9 @@ interface FAQSectionProps {
   locale: Locale
 }
 
-export default function FAQSection({ locale }: FAQSectionProps) {
+export default function FAQSection(props: FAQSectionProps) {
+  void props.locale
+
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleFAQ = (index: number) => {
@@ -16,35 +18,30 @@ export default function FAQSection({ locale }: FAQSectionProps) {
   }
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="bg-gray-50 py-20">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Preguntas Frecuentes</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-4xl font-bold md:text-5xl">Preguntas frecuentes</h2>
+          <p className="mx-auto max-w-2xl text-xl text-gray-600">
             Resolvemos tus dudas sobre nuestros servicios
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
+        <div className="mx-auto max-w-3xl space-y-4">
           {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
+            <div key={faq.question} className="overflow-hidden rounded-lg bg-white shadow-md">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-gray-50"
               >
-                <span className="font-semibold text-lg pr-8">
-                  {faq.question}
-                </span>
-                <span className="text-2xl text-primary-600 flex-shrink-0">
+                <span className="pr-8 text-lg font-semibold">{faq.question}</span>
+                <span className="flex-shrink-0 text-2xl text-primary-600">
                   {openIndex === index ? '−' : '+'}
                 </span>
               </button>
-              
+
               {openIndex === index && (
-                <div className="px-6 pb-4 text-gray-600 animate-slide-up">
+                <div className="animate-slide-up px-6 pb-4 text-gray-600">
                   {faq.answer}
                 </div>
               )}

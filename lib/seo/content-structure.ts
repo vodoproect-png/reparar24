@@ -195,8 +195,6 @@ export const ContentTemplateGenerator = {
    * Generate emergency block template
    */
   generateEmergencyTemplate(service: Service, city?: City): EmergencyBlock {
-    const location = city ? ` en ${city.name}` : ''
-    
     return {
       type: 'emergency-info',
       title: `Servicio de Emergencias 24/7`,
@@ -206,7 +204,7 @@ export const ContentTemplateGenerator = {
         availability: service.available24h
           ? '24 horas, 7 días a la semana'
           : 'Lunes a Sábado, 8:00 - 20:00',
-        contactInfo: '+34 641 68 85 24',
+        contactInfo: '+34 642 31 08 13',
       },
       metadata: {
         serviceId: service.id,
@@ -276,6 +274,8 @@ export const SEOPageGenerator = {
     city: City,
     locale: Locale = 'es'
   ): ProgrammaticPageStructure {
+    void locale
+
     const serviceNames = services.map((s) => s.name).join(' vs ')
     
     return {

@@ -56,64 +56,9 @@ const es: Dictionary = {
   },
 }
 
-// English
-const en: Dictionary = {
-  common: {
-    call: 'Call',
-    whatsapp: 'WhatsApp',
-    available24h: 'Available 24/7',
-    freeQuote: 'Free Quote',
-    emergency: 'Emergency',
-    contact: 'Contact',
-    services: 'Services',
-    cities: 'Cities',
-    about: 'About',
-  },
-  home: {
-    hero: {
-      title: '24-Hour Repair Services in Spain',
-      subtitle: 'Plumbers, electricians and professionals available 24 hours',
-      cta: 'Call Now',
-    },
-  },
-  footer: {
-    rights: 'All rights reserved',
-    privacy: 'Privacy Policy',
-    terms: 'Terms and Conditions',
-    cookies: 'Cookies',
-  },
-}
-
-// Russian
-const ru: Dictionary = {
-  common: {
-    call: 'Позвонить',
-    whatsapp: 'WhatsApp',
-    available24h: 'Доступно 24/7',
-    freeQuote: 'Бесплатная оценка',
-    emergency: 'Срочный вызов',
-    contact: 'Контакты',
-    services: 'Услуги',
-    cities: 'Города',
-    about: 'О нас',
-  },
-  home: {
-    hero: {
-      title: 'Ремонтные услуги 24 часа в Испании',
-      subtitle: 'Сантехники, электрики и специалисты доступны круглосуточно',
-      cta: 'Позвонить сейчас',
-    },
-  },
-  footer: {
-    rights: 'Все права защищены',
-    privacy: 'Политика конфиденциальности',
-    terms: 'Условия использования',
-    cookies: 'Cookies',
-  },
-}
-
-const dictionaries = { es, en, ru }
+const dictionaries = { es }
 
 export const getDictionary = (locale: Locale): Dictionary => {
-  return dictionaries[locale] || dictionaries.es
+  void locale
+  return dictionaries.es
 }

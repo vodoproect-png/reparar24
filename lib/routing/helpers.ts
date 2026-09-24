@@ -1,8 +1,7 @@
 import type { Locale } from '@/lib/i18n/config'
-import { defaultLocale } from '@/lib/i18n/config'
+import { defaultLocale, locales } from '@/lib/i18n/config'
 import type { ServiceId, CityId } from '@/lib/i18n/slugs'
 import {
-  getLocalizedServiceSlug,
   getLocalizedCitySlug,
   getLocalizedServiceUrl,
   getLocalizedServiceCityUrl,
@@ -82,6 +81,8 @@ export const RouteHelper = {
    * Generate absolute URL
    */
   absolute(path: string, locale: Locale = defaultLocale): string {
+    void locale
+
     const cleanPath = path.startsWith('/') ? path : `/${path}`
     return `${BASE_URL}${cleanPath}`
   },
@@ -122,24 +123,21 @@ export const CanonicalHelper = {
  */
 export const HreflangHelper = {
   /**
-   * Generate all hreflang URLs for a service page
+   * Generate indexable hreflang URLs for a service page.
+   * Reparar24 is Spanish-only; EN/RU are legacy redirect inputs only.
    */
-  service(serviceId: ServiceId): Record<Locale, string> {
+  service(serviceId: ServiceId): Partial<Record<Locale, string>> {
     return {
       es: RouteHelper.absolute(RouteHelper.service(serviceId, 'es')),
-      en: RouteHelper.absolute(RouteHelper.service(serviceId, 'en')),
-      ru: RouteHelper.absolute(RouteHelper.service(serviceId, 'ru')),
     }
   },
 
   /**
-   * Generate all hreflang URLs for service+city page
+   * Generate indexable hreflang URLs for service+city page.
    */
-  serviceCity(serviceId: ServiceId, cityId: CityId): Record<Locale, string> {
+  serviceCity(serviceId: ServiceId, cityId: CityId): Partial<Record<Locale, string>> {
     return {
       es: RouteHelper.absolute(RouteHelper.serviceCity(serviceId, cityId, 'es')),
-      en: RouteHelper.absolute(RouteHelper.serviceCity(serviceId, cityId, 'en')),
-      ru: RouteHelper.absolute(RouteHelper.serviceCity(serviceId, cityId, 'ru')),
     }
   },
 
@@ -150,16 +148,10 @@ export const HreflangHelper = {
     serviceId: ServiceId,
     cityId: CityId,
     districtSlug: string
-  ): Record<Locale, string> {
+  ): Partial<Record<Locale, string>> {
     return {
       es: RouteHelper.absolute(
         RouteHelper.serviceCityDistrict(serviceId, cityId, districtSlug, 'es')
-      ),
-      en: RouteHelper.absolute(
-        RouteHelper.serviceCityDistrict(serviceId, cityId, districtSlug, 'en')
-      ),
-      ru: RouteHelper.absolute(
-        RouteHelper.serviceCityDistrict(serviceId, cityId, districtSlug, 'ru')
       ),
     }
   },
@@ -170,11 +162,10 @@ export const HreflangHelper = {
  */
 export const SitemapHelper = {
   /**
-   * Generate all service URLs across all locales
+   * Generate all indexable service URLs.
    */
   allServices(serviceIds: ServiceId[]): Array<{ url: string; locale: Locale; priority: number }> {
     const urls: Array<{ url: string; locale: Locale; priority: number }> = []
-    const locales: Locale[] = ['es', 'en', 'ru']
 
     serviceIds.forEach((serviceId) => {
       locales.forEach((locale) => {
@@ -190,14 +181,13 @@ export const SitemapHelper = {
   },
 
   /**
-   * Generate all service+city URLs across all locales
+   * Generate all indexable service+city URLs.
    */
   allServiceCities(
     serviceIds: ServiceId[],
     cityIds: CityId[]
   ): Array<{ url: string; locale: Locale; priority: number }> {
     const urls: Array<{ url: string; locale: Locale; priority: number }> = []
-    const locales: Locale[] = ['es', 'en', 'ru']
 
     serviceIds.forEach((serviceId) => {
       cityIds.forEach((cityId) => {

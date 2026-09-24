@@ -7,8 +7,9 @@
 
 import Script from 'next/script'
 
-const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID
+const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || 'G-PGM6VFMXRW'
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID || 'AW-18181043849'
 
 /**
  * Google Analytics component - loads GA4 and GTM
@@ -21,6 +22,7 @@ export function GoogleAnalytics() {
   const isProduction = process.env.NODE_ENV === 'production'
   const hasGA4 = GA4_ID && GA4_ID !== 'G-XXXXXXXXXX'
   const hasGTM = GTM_ID && GTM_ID !== 'GTM-XXXXXXX' && GTM_ID !== 'GT-XXXXXXX'
+  const hasGoogleAds = GOOGLE_ADS_ID && GOOGLE_ADS_ID.startsWith('AW-')
   
   if (!isProduction) {
     return null
@@ -48,11 +50,11 @@ export function GoogleAnalytics() {
       )}
 
       {/* Google Analytics 4 */}
-      {hasGA4 && (
+      {(hasGA4 || hasGoogleAds) && (
         <>
           <Script
             strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}
+            src={`https://www.googletagmanager.com/gtag/js?id=${hasGA4 ? GA4_ID : GOOGLE_ADS_ID}`}
           />
           <Script
             id="ga4-script"
@@ -62,10 +64,11 @@ export function GoogleAnalytics() {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${GA4_ID}', {
+                ${hasGA4 ? `gtag('config', '${GA4_ID}', {
                   page_path: window.location.pathname,
                   send_page_view: true
-                });
+                });` : ''}
+                ${hasGoogleAds ? `gtag('config', '${GOOGLE_ADS_ID}');` : ''}
               `,
             }}
           />

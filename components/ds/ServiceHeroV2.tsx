@@ -70,6 +70,12 @@ export function ServiceHeroV2({
   const gridClasses = compactImage
     ? "grid items-center gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10"
     : "grid items-center gap-6 lg:grid-cols-2 lg:gap-10"
+  const fullTitle = `${title}${titleHighlight ? ` ${titleHighlight}` : ""}`
+  const titleSizeClasses = fullTitle.length > 44
+    ? "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
+    : fullTitle.length > 30
+      ? "text-5xl sm:text-5xl lg:text-6xl xl:text-7xl"
+      : "text-5xl sm:text-6xl lg:text-7xl"
     
   return (
     <section className="bg-white">
@@ -83,7 +89,7 @@ export function ServiceHeroV2({
               </span>
             ) : null}
 
-            <h1 className="text-pretty text-5xl font-extrabold leading-[1] tracking-tight text-primary-900 sm:text-6xl lg:text-7xl xl:text-8xl">
+            <h1 className={`text-pretty font-extrabold leading-[1.03] tracking-tight text-primary-900 ${titleSizeClasses}`}>
               {title}
               {titleHighlight ? (
                 <>
@@ -152,7 +158,7 @@ export function ServiceHeroV2({
             {/* Quick service chips */}
             {quickChips.length > 0 ? (
               <div className="mt-7 flex flex-wrap items-center gap-3">
-                <span className="text-sm font-semibold text-gray-900">¿Qué necesitas?</span>
+                <span className="text-sm font-semibold text-gray-900">?Que necesitas?</span>
                 <div className="flex flex-wrap gap-2">
                   {quickChips.map((chip, i) => {
                     const Icon = chip.icon
@@ -240,3 +246,4 @@ export {
   Flame,
   Wrench,
 }
+

@@ -26,7 +26,7 @@ export interface TrustItem {
   description: string
 }
 
-interface PricingSectionV1Props {
+export interface PricingSectionV1Props {
   badge?: string
   title?: string
   subtitle?: string
@@ -76,7 +76,7 @@ export function PricingSectionV1({
         </h2>
 
         {/* Subtitle */}
-        <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#4A5B7D] sm:text-xl">
           {subtitle}
         </p>
 
@@ -107,8 +107,7 @@ export function PricingSectionV1({
                   <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
                     <Image
                       src={plan.iconSrc || "/placeholder.svg"}
-                      alt=""
-                      aria-hidden="true"
+                      alt={`Icono de tarifa para ${plan.title}`}
                       width={112}
                       height={112}
                       loading="lazy"
@@ -167,7 +166,7 @@ export function PricingSectionV1({
                   </span>
                   <div>
                     <p className="text-[15px] font-bold leading-tight text-[#0F2D75]">{item.title}</p>
-                    <p className="mt-0.5 text-sm leading-snug text-[#5B6B8C]">{item.description}</p>
+                    <p className="mt-0.5 text-sm leading-snug text-[#4A5B7D]">{item.description}</p>
                   </div>
                 </div>
               )

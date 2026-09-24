@@ -8,14 +8,14 @@ export interface FAQ {
 export const faqs: FAQ[] = [
   // Fontanero-specific FAQs (GEO-neutral)
   {
-    question: '¿Cuánto cuesta contratar un fontanero urgente?',
+    question: '¿Cuánto cuestá contratar un fontanero urgente?',
     answer: 'El servicio de fontanería empieza desde 49€ (visita + diagnóstico). Reparaciones básicas 60-120€ según trabajo. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier intervención. El precio final depende del tipo de avería y materiales necesarios.',
     category: 'precio',
     serviceId: 'fontanero'
   },
   {
     question: '¿Cuánto tarda en llegar un fontanero urgente?',
-    answer: 'Nuestro servicio de fontanero urgente tiene tiempo de respuesta de 30-60 minutos en zonas urbanas. Estamos disponibles 24 horas al día, 7 días a la semana, incluidos festivos. Para emergencias graves priorizamos la atención inmediata. Llama al 641 688 524 para asistencia urgente.',
+    answer: 'Nuestro servicio de fontanero urgente tiene tiempo de respuesta de 30-60 minutos en zonas urbanas. Estamos disponibles 24 horas al día, 7 días a la semana, incluidos festivos. Para emergencias graves priorizamos la atención inmediata. Llama al 642 310 813 para asistencia urgente.',
     category: 'servicio',
     serviceId: 'fontanero'
   },
@@ -39,7 +39,7 @@ export const faqs: FAQ[] = [
   },
   // Desatascos-specific FAQs (GEO-neutral)
   {
-    question: '¿Cuánto cuesta un servicio de desatascos?',
+    question: '¿Cuánto cuestá un servicio de desatascos?',
     answer: 'El servicio de desatascos comienza desde 69€ para desatascos básicos. Desatasco de fregadero o lavabo 69-90€, desatasco de inodoro 80-110€, desatasco de bajantes 120-180€. Ofrecemos presupuesto gratuito sin compromiso. El precio final depende de la complejidad del atasco y la técnica necesaria.',
     category: 'precio',
     serviceId: 'desatascos'
@@ -82,39 +82,51 @@ export const faqs: FAQ[] = [
   },
   // Electricista-specific FAQs (GEO-neutral)
   {
-    question: '¿Cuánto cuesta contratar un electricista urgente?',
-    answer: 'El servicio eléctrico empieza desde 59€ (visita + diagnóstico). Reparación de avería eléctrica básica 70-120€, reparación de cuadro eléctrico 90-180€, instalación de enchufes 60-100€. Ofrecemos presupuesto gratuito sin compromiso. El precio final depende de la complejidad del trabajo y materiales necesarios.',
+    question: '¿Cuánto cobra un electricista?',
+    answer: 'El precio depende del tipo de trabajo. Una reparación básica o diagnóstico puede empezar desde 59€, mientras que una urgencia 24h, un cuadro eléctrico o una instalación completa requieren presupuesto según el caso. Siempre informamos del precio antes de empezar.',
     category: 'precio',
     serviceId: 'electricista'
   },
   {
-    question: '¿Qué hacer si salta el diferencial?',
-    answer: 'Si salta el diferencial: desconecta todos los aparatos eléctricos, intenta subirlo de nuevo, si vuelve a saltar no insistas. Llama a un electricista profesional para diagnosticar la causa: cortocircuito, fallo de aislamiento, o aparato defectuoso. No manipules el cuadro eléctrico sin conocimientos, puede ser peligroso.',
+    question: '¿Atendéis urgencias eléctricas 24 horas?',
+    answer: 'Sí. Atendemos urgencias eléctricas 24h para cortes de luz, cortocircuitos, fallos en el cuadro eléctrico, diferenciales que saltan y averías que requieren atención rápida.',
+    category: 'servicio',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Qué hago si salta el diferencial constantemente?',
+    answer: 'Si el diferencial salta varias veces, evita manipular la instalación y desconecta los aparatos principales. Puede deberse a una fuga eléctrica, humedad, sobrecarga o avería en algún circuito. Un electricista debe revisar el cuadro y localizar el origen del fallo.',
     category: 'emergencia',
     serviceId: 'electricista'
   },
   {
-    question: '¿Cuáles son las señales de una avería eléctrica?',
-    answer: 'Señales de avería eléctrica: diferencial que salta frecuentemente, chispas en enchufes o interruptores, olores a quemado, interruptores que se calientan, luces que parpadean, o se te va la luz sin motivo. Si detectas alguna señal, contacta con un electricista urgente para evitar riesgos mayores.',
-    category: 'informacion',
+    question: '¿Reparáis cuadros eléctricos antiguos?',
+    answer: 'Sí. Revisamos, reparamos y sustituimos cuadros eléctricos antiguos, diferenciales, magnetotérmicos y protecciones deterioradas. Si la instalación no es segura, explicamos la mejor solución antes de realizar cualquier trabajo.',
+    category: 'servicio',
     serviceId: 'electricista'
   },
   {
-    question: '¿Cuándo debo llamar a un electricista urgente?',
-    answer: 'Llama inmediatamente si: huele a quemado de origen eléctrico, ves chispas o humo, el cuadro eléctrico hace ruidos extraños, se te va la luz constantemente, o el diferencial no se puede subir. Nuestro servicio urgente 24/7 atiende emergencias eléctricas rápidamente para garantizar tu seguridad.',
-    category: 'emergencia',
+    question: '¿Hacéis instalaciónes eléctricas en reformas?',
+    answer: 'Sí. Realizamos instalaciones eléctricas para viviendas, locales, cocinas, baños, reformas y ampliaciones. Trabajamos con materiales homologados y dejamos la instalación preparada para un uso seguro.',
+    category: 'servicio',
     serviceId: 'electricista'
   },
   {
-    question: '¿Los electricistas están certificados?',
-    answer: 'Sí, todos nuestros electricistas profesionales cuentan con certificación oficial, experiencia comprobada y seguro de responsabilidad civil. Cumplimos toda la normativa eléctrica vigente. Emitimos boletín eléctrico cuando es necesario. Nuestro trabajo incluye garantía. Somos empresa de servicios eléctricos profesional certificada.',
-    category: 'profesionales',
+    question: '¿Instaláis enchufes, interruptores y puntos de luz?',
+    answer: 'Sí. Instalamos y sustituimos enchufes, interruptores, mecanismos, puntos de luz, focos y tiras LED. También podemos añadir nuevos puntos eléctricos si la instalación lo permite.',
+    category: 'servicio',
     serviceId: 'electricista'
   },
   {
-    question: '¿Qué es un boletín eléctrico y cuándo es necesario?',
-    answer: 'El boletín eléctrico es un certificado oficial que acredita que la instalación eléctrica cumple normativa vigente. Es necesario en: instalaciones nuevas, reformas importantes, cambio de potencia, o compraventa de vivienda. Nuestros electricistas certificados emiten el boletín eléctrico tras realizar la instalación o revisión.',
-    category: 'informacion',
+    question: '¿Cuánto tardáis en llegar?',
+    answer: 'En servicios urgentes, intentamos llegar en 30-60 minutos según disponibilidad y zona. Para trabajos programados, acordamos una franja horaria cómoda antes de la visita.',
+    category: 'servicio',
+    serviceId: 'electricista'
+  },
+  {
+    question: '¿Los trabajos tienen garantía?',
+    answer: 'Sí. Los trabajos realizados por Reparar24 incluyen garantía. Antes de empezar explicamos la intervención, el precio y las condiciones del servicio.',
+    category: 'garantia',
     serviceId: 'electricista'
   },
   // Calefaccion-specific FAQs (GEO-neutral)
@@ -137,7 +149,7 @@ export const faqs: FAQ[] = [
     serviceId: 'calefaccion'
   },
   {
-    question: '¿Cuánto cuesta reparar una caldera?',
+    question: '¿Cuánto cuestá reparar una caldera?',
     answer: 'El coste de reparación de calderas varía según la avería. Visita y diagnóstico desde 59€. Reparación de avería básica 80-150€, cambio de piezas comunes (termostato, electroválvula) 100-200€, reparación del circuito 150-300€. El mantenimiento anual preventivo cuesta 80-120€ y evita averías graves. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier reparación.',
     category: 'precio',
     serviceId: 'calefaccion'
@@ -180,7 +192,7 @@ export const faqs: FAQ[] = [
     serviceId: 'aire-acondicionado'
   },
   {
-    question: '¿Cuánto cuesta reparar un aire acondicionado?',
+    question: '¿Cuánto cuestá reparar un aire acondicionado?',
     answer: 'El coste de reparación de aire acondicionado varía según avería. Visita y diagnóstico desde 79€. Limpieza y mantenimiento básico 60-90€, carga de gas refrigerante 90-150€, reparación de fugas 120-200€, cambio de piezas comunes (ventilador, sonda) 100-180€. Instalación split completa desde 350€. Ofrecemos presupuesto gratuito sin compromiso antes de cualquier reparación.',
     category: 'precio',
     serviceId: 'aire-acondicionado'
@@ -193,7 +205,7 @@ export const faqs: FAQ[] = [
   },
   // General FAQs
   {
-    question: '¿Cuánto cuesta un servicio de fontanería?',
+    question: '¿Cuánto cuestá un servicio de fontanería?',
     answer: 'El coste de un servicio de fontanería comienza desde 49€ para servicios básicos. El precio final depende del tipo de trabajo, urgencia, materiales necesarios y complejidad. Ofrecemos presupuestos gratuitos sin compromiso.',
     category: 'precio'
   },
@@ -244,7 +256,7 @@ export const faqs: FAQ[] = [
   },
   // Limpieza de Tuberías - Preventive/Industrial Service FAQs
   {
-    question: '¿Cuánto cuesta limpieza preventiva de tuberías para comunidad?',
+    question: '¿Cuánto cuestá limpieza preventiva de tuberías para comunidad?',
     answer: 'El servicio de limpieza industrial con camión cuba comienza desde 150€ para comunidades pequeñas. Limpieza bajante vertical 150-250€, colector horizontal 280-450€, limpieza integral edificio 400-800€ según número de plantas. Para hoteles y restaurantes ofrecemos presupuestos personalizados según instalación. Incluimos certificado de limpieza para administradores.',
     category: 'precio',
     serviceId: 'limpieza-tuberias'

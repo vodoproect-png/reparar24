@@ -11,18 +11,18 @@ import { PRODUCTION_URL } from '@/lib/config/environment'
  * Service ID to OG image mapping
  */
 const SERVICE_OG_IMAGES: Record<string, string> = {
-  fontanero: '/images/og/fontanero-og.png',
-  electricista: '/og-electricista.jpg',
-  desatascos: '/og-desatascos.jpg',
-  'aire-acondicionado': '/og-clima.jpg',
-  calefaccion: '/og-clima.jpg',
-  'limpieza-tuberias': '/og-limpieza.jpg',
+  fontanero: '/images/og/fontanero-og.jpg',
+  electricista: '/reparar24-og.jpg',
+  desatascos: '/reparar24-og.jpg',
+  'aire-acondicionado': '/reparar24-og.jpg',
+  calefaccion: '/reparar24-og.jpg',
+  'limpieza-tuberias': '/reparar24-og.jpg',
 }
 
 /**
  * Default OG image (fallback)
  */
-const DEFAULT_OG_IMAGE = '/og-default.jpg'
+const DEFAULT_OG_IMAGE = '/reparar24-og.jpg'
 
 /**
  * Get OG image for a service

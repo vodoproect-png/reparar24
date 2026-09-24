@@ -29,14 +29,17 @@ export function getContactConfig(
   service?: string,
   city?: string
 ): ContactConfig {
+  void service
+  void city
+
   // Future enhancement: Route different numbers by service/city
   // Example: plumbing in Madrid vs electrical in Barcelona
   
-  const basePhone = process.env.NEXT_PUBLIC_PHONE || '+34641688524'
+  const basePhone = process.env.NEXT_PUBLIC_PHONE || '+34642310813'
   
   return {
     phone: basePhone,
-    phoneDisplay: '641 688 524',
+    phoneDisplay: '642 310 813',
     whatsapp: basePhone.replace('+', ''),
     email: process.env.NEXT_PUBLIC_EMAIL || 'info@reparar24.es',
   }
@@ -95,13 +98,8 @@ export function getWhatsAppMessage(context: {
 }): string {
   const { service, city, district, problem, locale = 'es' } = context
   
-  const messages: Record<string, string> = {
-    es: generateSpanishMessage(service, city, district, problem),
-    en: generateEnglishMessage(service, city, district, problem),
-    ru: generateRussianMessage(service, city, district, problem),
-  }
-  
-  return messages[locale] || messages.es
+  void locale
+  return generateSpanishMessage(service, city, district, problem)
 }
 
 function generateSpanishMessage(
@@ -124,56 +122,6 @@ function generateSpanishMessage(
     parts.push(`en ${district}, ${city}`)
   } else if (city) {
     parts.push(`en ${city}`)
-  }
-  
-  return parts.join(', ')
-}
-
-function generateEnglishMessage(
-  service?: string,
-  city?: string,
-  district?: string,
-  problem?: string
-): string {
-  const parts = ['Hello']
-  
-  if (problem) {
-    parts.push(`I have a problem: ${problem}`)
-  } else if (service) {
-    parts.push(`I need ${service}`)
-  } else {
-    parts.push('I need a service')
-  }
-  
-  if (district && city) {
-    parts.push(`in ${district}, ${city}`)
-  } else if (city) {
-    parts.push(`in ${city}`)
-  }
-  
-  return parts.join(', ')
-}
-
-function generateRussianMessage(
-  service?: string,
-  city?: string,
-  district?: string,
-  problem?: string
-): string {
-  const parts = ['Здравствуйте']
-  
-  if (problem) {
-    parts.push(`у меня проблема: ${problem}`)
-  } else if (service) {
-    parts.push(`мне нужен ${service}`)
-  } else {
-    parts.push('мне нужна услуга')
-  }
-  
-  if (district && city) {
-    parts.push(`в ${district}, ${city}`)
-  } else if (city) {
-    parts.push(`в ${city}`)
   }
   
   return parts.join(', ')

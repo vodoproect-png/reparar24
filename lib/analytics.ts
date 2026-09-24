@@ -7,6 +7,11 @@
 
 import type { Locale } from '@/lib/i18n/config'
 
+const GOOGLE_ADS_WHATSAPP_SEND_TO =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_WHATSAPP_SEND_TO || 'AW-18181043849/v2dzCIP1qMIcEIntst1D'
+const GOOGLE_ADS_PHONE_SEND_TO =
+  process.env.NEXT_PUBLIC_GOOGLE_ADS_PHONE_SEND_TO || 'AW-18181043849/JB6ZCP3jh8McEIntst1D'
+
 // ============================================================================
 // TYPES
 // ============================================================================
@@ -80,7 +85,12 @@ interface ServicePageViewParams {
  * Generic event parameters
  */
 interface GenericEventParams {
-  [key: string]: string | number | boolean | undefined
+  [key: string]: string | number | boolean | (() => void) | undefined
+}
+
+interface ConversionTrackingOptions {
+  eventCallback?: () => void
+  eventTimeoutMs?: number
 }
 
 // ============================================================================
@@ -161,12 +171,29 @@ export function trackEvent(
  * 
  * @param params - WhatsApp click parameters
  */
-export function trackWhatsAppClick(params: WhatsAppClickParams): void {
+export function trackWhatsAppClick(
+  params: WhatsAppClickParams,
+  options: ConversionTrackingOptions = {}
+): void {
   trackEvent('whatsapp_click', {
     event_category: 'conversion',
     event_label: 'WhatsApp Contact',
     ...params,
   })
+
+  if (GOOGLE_ADS_WHATSAPP_SEND_TO) {
+    trackEvent('conversion', {
+      send_to: GOOGLE_ADS_WHATSAPP_SEND_TO,
+      event_category: 'conversion',
+      event_label: 'WhatsApp Contact',
+      value: 1,
+      currency: 'EUR',
+      transport_type: 'beacon',
+      event_callback: options.eventCallback,
+      event_timeout: options.eventTimeoutMs,
+      ...params,
+    })
+  }
 }
 
 /**
@@ -174,12 +201,29 @@ export function trackWhatsAppClick(params: WhatsAppClickParams): void {
  * 
  * @param params - Phone click parameters
  */
-export function trackPhoneClick(params: PhoneClickParams): void {
+export function trackPhoneClick(
+  params: PhoneClickParams,
+  options: ConversionTrackingOptions = {}
+): void {
   trackEvent('phone_click', {
     event_category: 'conversion',
     event_label: 'Phone Contact',
     ...params,
   })
+
+  if (GOOGLE_ADS_PHONE_SEND_TO) {
+    trackEvent('conversion', {
+      send_to: GOOGLE_ADS_PHONE_SEND_TO,
+      event_category: 'conversion',
+      event_label: 'Phone Contact',
+      value: 1,
+      currency: 'EUR',
+      transport_type: 'beacon',
+      event_callback: options.eventCallback,
+      event_timeout: options.eventTimeoutMs,
+      ...params,
+    })
+  }
 }
 
 /**
@@ -392,7 +436,7 @@ export function trackServicePage(
 declare global {
   interface Window {
     gtag: (
-      command: 'config' | 'event' | 'set',
+      command: 'config' | 'event' | 'set' | 'consent',
       targetId: string | object,
       config?: object
     ) => void
