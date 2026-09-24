@@ -59,6 +59,7 @@ export default async function TermsPage({
                 <div className="bg-gray-50 p-4 rounded border border-gray-200">
                   <p><strong>Razón Social:</strong> {company.legalName}</p>
                   <p><strong>Nombre Comercial:</strong> {company.tradeName}</p>
+                  <p><strong>Marca comercial:</strong> Reparar24 es la marca comercial de {company.legalName}.</p>
                   <p><strong>CIF:</strong> {company.cif}</p>
                   <p><strong>Dirección:</strong> {address.streetAddress}, {address.postalCode} {address.addressLocality}, {address.addressRegion}</p>
                   <p><strong>Teléfono:</strong> {getPhoneDisplay()}</p>
@@ -163,7 +164,7 @@ export default async function TermsPage({
                 <h2 className="text-2xl font-bold mb-4">8. Garantías</h2>
                 <p>Ofrecemos garantía en todos nuestros trabajos:</p>
                 <ul className="list-disc pl-6 mt-4 space-y-2">
-                  <li><strong>Mano de obra:</strong> 12 meses de garantía en todos los trabajos realizados</li>
+                  <li><strong>Mano de obra:</strong> 6 meses de garantía en todos los trabajos realizados</li>
                   <li><strong>Materiales:</strong> Garantía del fabricante (varía según producto, típicamente 1-2 años)</li>
                   <li><strong>Exclusiones:</strong> La garantía no cubre daños por mal uso, modificaciones no autorizadas o desgaste normal</li>
                 </ul>

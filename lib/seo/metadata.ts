@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import { Service } from '@/data/services'
 import { City } from '@/data/cities'
 import { isProduction, getCanonicalBaseUrl } from '@/lib/config/environment'
+import { fitMetaDescription, fitSeoTitle } from '@/lib/seo/meta-length'
+import { getDefaultOGImage, OG_IMAGE_DIMENSIONS } from '@/lib/seo/og-image-mapper'
 
 interface GenerateMetadataProps {
   title: string
@@ -15,10 +17,13 @@ export function generateMetadata(props: GenerateMetadataProps): Metadata {
   const baseUrl = getCanonicalBaseUrl()
   const canonicalUrl = props.canonical || baseUrl
   const isProd = isProduction()
+  const title = fitSeoTitle(props.title)
+  const description = fitMetaDescription(props.description)
+  const image = props.image || getDefaultOGImage()
 
   return {
-    title: props.title,
-    description: props.description,
+    title,
+    description,
     keywords: props.keywords,
     // PREVIEW PROTECTION: Add noindex on non-production
     ...(!isProd && { robots: {
@@ -36,26 +41,26 @@ export function generateMetadata(props: GenerateMetadataProps): Metadata {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: props.title,
-      description: props.description,
+      title,
+      description,
       url: canonicalUrl,
       siteName: 'Reparar24',
       type: 'website',
       locale: 'es_ES',
-      images: props.image ? [
+      images: [
         {
-          url: props.image,
-          width: 1200,
-          height: 630,
-          alt: props.title,
+          url: image,
+          width: OG_IMAGE_DIMENSIONS.width,
+          height: OG_IMAGE_DIMENSIONS.height,
+          alt: title,
         }
-      ] : undefined,
+      ],
     },
     twitter: {
       card: 'summary_large_image',
-      title: props.title,
-      description: props.description,
-      images: props.image ? [props.image] : undefined,
+      title,
+      description,
+      images: [image],
     },
   }
 }

@@ -1,0 +1,179 @@
+{
+  "service": "aire-acondicionado",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect full commercial, geo and informational demand for the /aire-acondicionado category.",
+    "Blog/informational seeds are collected as future content opportunities and must not be promoted to service pages.",
+    "Provider outputs must stay in .tmp review folders until classified and approved.",
+    "Avoid overlap with calefaccion unless intent is clearly heat pump / bomba de calor under climate systems."
+  ],
+  "groups": [
+    {
+      "target": "hub-commercial",
+      "seeds": [
+        "aire acondicionado",
+        "servicio aire acondicionado",
+        "empresa aire acondicionado",
+        "tecnico aire acondicionado",
+        "aire acondicionado cerca de mi",
+        "climatizacion",
+        "empresa climatizacion",
+        "servicio climatizacion"
+      ]
+    },
+    {
+      "target": "repair",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "reparacion aire acondicionado",
+        "reparar aire acondicionado",
+        "averia aire acondicionado",
+        "tecnico reparacion aire acondicionado",
+        "aire acondicionado no enfria",
+        "aire acondicionado pierde agua",
+        "aire acondicionado hace ruido",
+        "aire acondicionado huele mal",
+        "aire acondicionado no enciende",
+        "aire acondicionado se apaga solo"
+      ]
+    },
+    {
+      "target": "installation",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "instalacion aire acondicionado",
+        "instalar aire acondicionado",
+        "instalacion split",
+        "instalar split",
+        "instalador aire acondicionado",
+        "montaje aire acondicionado",
+        "precio instalacion aire acondicionado",
+        "presupuesto aire acondicionado",
+        "aire acondicionado split",
+        "aire acondicionado multisplit"
+      ]
+    },
+    {
+      "target": "maintenance",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "mantenimiento aire acondicionado",
+        "revision aire acondicionado",
+        "limpieza aire acondicionado",
+        "limpieza filtros aire acondicionado",
+        "limpieza split aire acondicionado",
+        "mantenimiento climatizacion",
+        "contrato mantenimiento aire acondicionado",
+        "puesta a punto aire acondicionado"
+      ]
+    },
+    {
+      "target": "gas-refrigerant",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "carga gas aire acondicionado",
+        "recarga gas aire acondicionado",
+        "fuga gas aire acondicionado",
+        "gas refrigerante aire acondicionado",
+        "precio carga gas aire acondicionado",
+        "detectar fuga aire acondicionado",
+        "reparar fuga aire acondicionado",
+        "r32 aire acondicionado",
+        "r410 aire acondicionado"
+      ]
+    },
+    {
+      "target": "equipment-types",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "aire acondicionado conductos",
+        "instalacion aire acondicionado por conductos",
+        "reparacion aire acondicionado conductos",
+        "aire acondicionado cassette",
+        "aire acondicionado portatil",
+        "bomba de calor aire acondicionado",
+        "aerotermia aire acondicionado",
+        "climatizacion vivienda",
+        "climatizacion local comercial"
+      ]
+    },
+    {
+      "target": "geo-city",
+      "approvalPolicy": "map-to-city-layer",
+      "seeds": [
+        "aire acondicionado madrid",
+        "aire acondicionado barcelona",
+        "aire acondicionado valencia",
+        "aire acondicionado sevilla",
+        "aire acondicionado malaga",
+        "aire acondicionado zaragoza",
+        "instalacion aire acondicionado madrid",
+        "reparacion aire acondicionado madrid",
+        "instalacion aire acondicionado valencia",
+        "reparacion aire acondicionado valencia"
+      ]
+    },
+    {
+      "target": "geo-district",
+      "approvalPolicy": "map-to-district-layer",
+      "seeds": [
+        "aire acondicionado centro madrid",
+        "aire acondicionado salamanca madrid",
+        "aire acondicionado chamberi",
+        "aire acondicionado eixample barcelona",
+        "aire acondicionado gracia barcelona",
+        "aire acondicionado ciutat vella barcelona",
+        "aire acondicionado ruzafa",
+        "aire acondicionado ciutat vella valencia",
+        "aire acondicionado triana sevilla",
+        "aire acondicionado nervion sevilla",
+        "aire acondicionado centro malaga",
+        "aire acondicionado centro zaragoza"
+      ]
+    },
+    {
+      "target": "pricing",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-faq-and-commercial-seo-sections",
+      "seeds": [
+        "precio aire acondicionado",
+        "precio instalar aire acondicionado",
+        "cuanto cuesta instalar aire acondicionado",
+        "precio mantenimiento aire acondicionado",
+        "precio reparacion aire acondicionado",
+        "precio carga gas aire acondicionado",
+        "tarifa tecnico aire acondicionado",
+        "presupuesto instalacion aire acondicionado"
+      ]
+    },
+    {
+      "target": "blog-aire-acondicionado",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "como limpiar filtros aire acondicionado",
+        "porque mi aire acondicionado no enfria",
+        "porque pierde agua el aire acondicionado",
+        "cada cuanto hacer mantenimiento aire acondicionado",
+        "que temperatura poner aire acondicionado",
+        "aire acondicionado inverter que es",
+        "split o conductos que es mejor",
+        "bomba de calor consume mucho",
+        "mal olor aire acondicionado solucion",
+        "como ahorrar con aire acondicionado",
+        "frigorias por metro cuadrado",
+        "gas r32 o r410 diferencia"
+      ]
+    }
+  ]
+}

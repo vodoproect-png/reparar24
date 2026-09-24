@@ -1,0 +1,173 @@
+{
+  "service": "electricista",
+  "surface": "blog",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect all informational semantics for future blog clustering.",
+    "If commercial intent appears, keep it in commercial backlog for future service pages.",
+    "Do not write articles from this file directly. Cluster and approve first.",
+    "Keep outputs in .tmp/keyword-providers and .tmp/blog until reviewed and clustered."
+  ],
+  "groups": [
+    {
+      "target": "urgencias-electricas",
+      "owner": "/electricista/urgencias-electricas",
+      "seeds": [
+        "que hacer si salta el diferencial",
+        "que hacer si hay un cortocircuito en casa",
+        "olor a quemado instalacion electrica",
+        "se ha ido la luz en casa que hacer",
+        "enchufe quemado que hacer",
+        "electricidad salta por la noche"
+      ]
+    },
+    {
+      "target": "instalaciones-electricas",
+      "owner": "/electricista/instalaciones-electricas",
+      "seeds": [
+        "como hacer instalacion electrica vivienda",
+        "esquema instalacion electrica vivienda",
+        "normativa instalacion electrica vivienda",
+        "cuanto cuesta instalacion electrica vivienda",
+        "cuando renovar instalacion electrica",
+        "instalacion electrica en reforma"
+      ]
+    },
+    {
+      "target": "cuadros-electricos",
+      "owner": "/electricista/cuadros-electricos",
+      "seeds": [
+        "cuadro electrico antiguo que hacer",
+        "como saber si cuadro electrico esta mal",
+        "cuanto cuesta cambiar cuadro electrico",
+        "diferencial salta causas",
+        "magnetotermico salta",
+        "cuadro electrico huele a quemado"
+      ]
+    },
+    {
+      "target": "iluminacion-led",
+      "owner": "/electricista/iluminacion-led",
+      "seeds": [
+        "como instalar tiras led",
+        "luces led parpadean",
+        "porque parpadea una bombilla led",
+        "cuanto cuesta instalar iluminacion led",
+        "iluminacion led cocina ideas",
+        "transformador led no funciona"
+      ]
+    },
+    {
+      "target": "enchufes-interruptores",
+      "owner": "/electricista/enchufes-interruptores",
+      "seeds": [
+        "enchufe no funciona",
+        "enchufe hace chispas",
+        "como cambiar enchufe",
+        "como cambiar interruptor",
+        "interruptor no funciona",
+        "enchufe se calienta"
+      ]
+    },
+    {
+      "target": "averias-electricas",
+      "owner": "/electricista/reparacion-averias-electricas",
+      "seeds": [
+        "averia electrica en casa",
+        "por que se va la luz",
+        "cortocircuito en casa causas",
+        "como detectar fallo electrico",
+        "luz parpadea en casa",
+        "disyuntor salta"
+      ]
+    },
+    {
+      "target": "pequenos-trabajos-electricos",
+      "owner": "/electricista/pequenos-trabajos-electricos",
+      "seeds": [
+        "como instalar lampara de techo",
+        "como cambiar lampara",
+        "timbre no funciona",
+        "como cambiar telefonillo",
+        "como instalar ventilador de techo",
+        "pequenos arreglos electricos"
+      ]
+    },
+    {
+      "target": "cargador-coche-electrico",
+      "owner": "/electricista/cargador-coche-electrico",
+      "seeds": [
+        "cuanto cuesta instalar cargador coche electrico",
+        "como instalar wallbox en garaje comunitario",
+        "punto de recarga coche electrico normativa",
+        "que potencia necesito para cargar coche electrico",
+        "cargador coche electrico no carga",
+        "instalar cargador coche electrico en casa"
+      ]
+    },
+    {
+      "target": "domotica",
+      "owner": "/electricista/domotica",
+      "seeds": [
+        "que es domotica en casa",
+        "como domotizar una casa",
+        "cuanto cuesta instalar domotica en casa",
+        "domotica persianas electricas",
+        "domotica luces casa",
+        "sistema domotico no funciona"
+      ]
+    },
+    {
+      "target": "mantenimiento-electrico",
+      "owner": "/electricista/mantenimiento-electrico",
+      "seeds": [
+        "mantenimiento electrico vivienda",
+        "mantenimiento electrico comunidad",
+        "checklist mantenimiento electrico",
+        "cada cuanto revisar instalacion electrica",
+        "mantenimiento preventivo electrico",
+        "contrato mantenimiento electrico comunidad"
+      ]
+    },
+    {
+      "target": "revision-electrica",
+      "owner": "/electricista/revision-electrica",
+      "seeds": [
+        "revision electrica vivienda",
+        "como revisar instalacion electrica",
+        "revision periodica instalacion electrica",
+        "revision electrica antes de comprar piso",
+        "prueba diferencial electrico",
+        "cuando hacer revision electrica"
+      ]
+    },
+    {
+      "target": "boletin-electrico",
+      "owner": "/electricista",
+      "seeds": [
+        "que es boletin electrico",
+        "cuanto cuesta boletin electrico",
+        "cuando hace falta boletin electrico",
+        "boletin electrico caduca",
+        "como conseguir boletin electrico",
+        "certificado instalacion electrica"
+      ]
+    },
+    {
+      "target": "legalizacion-electrica",
+      "owner": "/electricista",
+      "seeds": [
+        "legalizar instalacion electrica",
+        "legalizacion instalacion electrica precio",
+        "cuando legalizar instalacion electrica",
+        "instalacion electrica sin boletin",
+        "proyecto electrico obligatorio",
+        "certificado electrico vivienda"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "service": "desatascos",
+  "surface": "blog",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect all informational semantics for future blog clustering.",
+    "Keep domestic blockage semantics under /desatascos blog if intent is informational.",
+    "If commercial intent appears, keep it in commercial backlog for future service pages.",
+    "Do not write articles from this file directly. Cluster and approve first."
+  ],
+  "groups": [
+    {
+      "target": "tuberias-atascadas",
+      "owner": "/desatascos/desatasco-tuberias",
+      "seeds": [
+        "como desatascar tuberia",
+        "como desatascar una tuberia muy obstruida",
+        "tuberia atascada que hacer",
+        "como saber si una tuberia esta atascada",
+        "por que se atascan las tuberias",
+        "como evitar atascos tuberias"
+      ]
+    },
+    {
+      "target": "fregadero-atascado",
+      "owner": "/desatascos/desatascar-fregadero",
+      "seeds": [
+        "como desatascar fregadero",
+        "fregadero no traga agua",
+        "por que se atasca el fregadero",
+        "desatascar fregadero con agua estancada",
+        "remedios caseros para desatascar fregadero",
+        "mal olor fregadero"
+      ]
+    },
+    {
+      "target": "wc-inodoro-atascado",
+      "owner": "/desatascos/desatascar-wc",
+      "seeds": [
+        "como desatascar wc",
+        "que hacer si se atasca el wc",
+        "inodoro atascado que hacer",
+        "wc atascado agua sube",
+        "por que se atasca el wc",
+        "toallitas atascan tuberias"
+      ]
+    },
+    {
+      "target": "lavabo-ducha-atascados",
+      "owner": "/desatascos/desatascar-lavabo-ducha",
+      "seeds": [
+        "como desatascar lavabo",
+        "como desatascar ducha",
+        "ducha no traga agua",
+        "lavabo no traga agua",
+        "desague ducha atascado",
+        "pelos atascan ducha"
+      ]
+    },
+    {
+      "target": "arquetas-bajantes",
+      "owner": "/desatascos/desatasco-tuberias",
+      "seeds": [
+        "como saber si una arqueta esta atascada",
+        "arqueta atascada que hacer",
+        "cada cuanto limpiar arquetas",
+        "bajante atascada sintomas",
+        "mal olor bajante comunidad",
+        "limpieza bajantes comunidad"
+      ]
+    },
+    {
+      "target": "camion-cuba",
+      "owner": "/desatascos/camion-cuba",
+      "seeds": [
+        "cuando hace falta camion cuba",
+        "que es un camion cuba",
+        "camion cuba desatascos para que sirve",
+        "desatasco alta presion cuando usar",
+        "camion cuba precio desatasco",
+        "atasco arqueta camion cuba"
+      ]
+    },
+    {
+      "target": "fosas-septicas",
+      "owner": "/desatascos/limpieza-fosas-septicas",
+      "seeds": [
+        "cada cuanto limpiar fosa septica",
+        "como saber si fosa septica esta llena",
+        "fosa septica huele mal",
+        "vaciado fosa septica precio",
+        "mantenimiento fosa septica",
+        "limpieza fosa septica como se hace"
+      ]
+    },
+    {
+      "target": "olores-desagues",
+      "owner": "/desatascos",
+      "seeds": [
+        "mal olor desague",
+        "por que huele mal el desague",
+        "olor a alcantarilla en casa",
+        "mal olor tuberias baño",
+        "mal olor cocina desague",
+        "como quitar olor desague"
+      ]
+    },
+    {
+      "target": "productos-y-errores",
+      "owner": "/desatascos",
+      "seeds": [
+        "sosa caustica tuberias",
+        "es malo usar sosa caustica en tuberias",
+        "desatascador casero funciona",
+        "bicarbonato vinagre desatascar tuberias",
+        "errores al desatascar tuberias",
+        "productos desatascadores dañan tuberias"
+      ]
+    },
+    {
+      "target": "camara-diagnostico",
+      "owner": "/desatascos/desatasco-tuberias",
+      "seeds": [
+        "inspeccion tuberias camara cuando hace falta",
+        "camara inspeccion tuberias precio",
+        "como detectar atasco con camara",
+        "atascos repetidos tuberias",
+        "raices en tuberias sintomas",
+        "tuberia rota o atascada"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "service": "calefaccion",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect full commercial, geo and informational demand for the /calefaccion category.",
+    "Blog/informational seeds are collected as future content opportunities and must not be promoted to service pages.",
+    "Provider outputs must stay in .tmp review folders until classified and approved.",
+    "Avoid overlap with aire-acondicionado unless intent is clearly heat pump / climate system rather than heating service."
+  ],
+  "groups": [
+    {
+      "target": "hub-commercial",
+      "seeds": [
+        "calefaccion",
+        "servicio calefaccion",
+        "empresa calefaccion",
+        "tecnico calefaccion",
+        "calefaccion cerca de mi",
+        "reparacion calefaccion",
+        "calefaccion urgente",
+        "instalacion calefaccion"
+      ]
+    },
+    {
+      "target": "boilers-calderas",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "reparacion calderas",
+        "reparacion caldera gas",
+        "tecnico calderas",
+        "servicio tecnico calderas",
+        "caldera no funciona",
+        "caldera no enciende",
+        "caldera pierde agua",
+        "caldera hace ruido",
+        "caldera baja presion",
+        "averia caldera"
+      ]
+    },
+    {
+      "target": "maintenance-review",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "mantenimiento calefaccion",
+        "mantenimiento caldera",
+        "revision caldera",
+        "revision calefaccion",
+        "contrato mantenimiento caldera",
+        "puesta a punto calefaccion",
+        "limpieza caldera",
+        "certificado mantenimiento caldera"
+      ]
+    },
+    {
+      "target": "radiators",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "reparacion radiadores",
+        "instalacion radiadores",
+        "cambiar radiador",
+        "radiador no calienta",
+        "radiadores que no calientan",
+        "purgar radiadores",
+        "fuga radiador",
+        "valvula radiador",
+        "detentor radiador",
+        "radiador pierde agua"
+      ]
+    },
+    {
+      "target": "heating-installation",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "instalacion calefaccion",
+        "instalar calefaccion",
+        "instalacion calefaccion gas",
+        "instalacion calefaccion radiadores",
+        "presupuesto calefaccion",
+        "precio instalacion calefaccion",
+        "instalador calefaccion",
+        "montaje calefaccion"
+      ]
+    },
+    {
+      "target": "underfloor-heating",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "suelo radiante",
+        "instalacion suelo radiante",
+        "reparacion suelo radiante",
+        "mantenimiento suelo radiante",
+        "suelo radiante agua",
+        "precio suelo radiante",
+        "calefaccion suelo radiante"
+      ]
+    },
+    {
+      "target": "central-heating-communities",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "calefaccion central",
+        "mantenimiento calefaccion central",
+        "reparacion calefaccion central",
+        "calefaccion comunidades",
+        "caldera comunidad vecinos",
+        "sala calderas comunidad",
+        "averia calefaccion comunidad",
+        "empresa mantenimiento calefaccion comunidades"
+      ]
+    },
+    {
+      "target": "thermostats-valves",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "instalar termostato calefaccion",
+        "cambiar termostato calefaccion",
+        "termostato caldera",
+        "valvulas termostaticas radiadores",
+        "instalar valvulas termostaticas",
+        "cambiar valvula radiador",
+        "termostato no funciona calefaccion"
+      ]
+    },
+    {
+      "target": "geo-city",
+      "approvalPolicy": "map-to-city-layer",
+      "seeds": [
+        "calefaccion madrid",
+        "calefaccion barcelona",
+        "calefaccion valencia",
+        "calefaccion sevilla",
+        "calefaccion malaga",
+        "calefaccion zaragoza",
+        "reparacion calefaccion madrid",
+        "reparacion calderas madrid",
+        "instalacion calefaccion madrid",
+        "mantenimiento caldera madrid",
+        "calefaccion valencia",
+        "reparacion calefaccion valencia"
+      ]
+    },
+    {
+      "target": "geo-district",
+      "approvalPolicy": "map-to-district-layer",
+      "seeds": [
+        "calefaccion centro madrid",
+        "calefaccion salamanca madrid",
+        "calefaccion chamberi",
+        "calefaccion chamartin",
+        "calefaccion eixample barcelona",
+        "calefaccion gracia barcelona",
+        "calefaccion ciutat vella barcelona",
+        "calefaccion ruzafa",
+        "calefaccion ciutat vella valencia",
+        "calefaccion triana sevilla",
+        "calefaccion nervion sevilla",
+        "calefaccion centro zaragoza"
+      ]
+    },
+    {
+      "target": "pricing",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-faq-and-commercial-seo-sections",
+      "seeds": [
+        "precio reparacion calefaccion",
+        "precio reparacion caldera",
+        "cuanto cuesta reparar caldera",
+        "precio mantenimiento caldera",
+        "precio revision caldera",
+        "precio instalar calefaccion",
+        "cuanto cuesta instalar radiadores",
+        "presupuesto calefaccion"
+      ]
+    },
+    {
+      "target": "blog-calefaccion",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "como purgar radiadores",
+        "porque no calienta un radiador",
+        "porque baja la presion de la caldera",
+        "que hacer si la caldera no enciende",
+        "cada cuanto revisar caldera",
+        "calefaccion central como funciona",
+        "suelo radiante ventajas inconvenientes",
+        "temperatura calefaccion recomendada",
+        "como ahorrar calefaccion",
+        "radiadores o suelo radiante que es mejor",
+        "termostato calefaccion como funciona",
+        "valvulas termostaticas como funcionan"
+      ]
+    }
+  ]
+}

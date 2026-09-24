@@ -1,0 +1,171 @@
+{
+  "service": "aire-acondicionado",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect informational demand for the /aire-acondicionado blog backlog.",
+    "Commercial intent must be separated into the future service-page backlog.",
+    "Owner points to the commercial page that each future article should support."
+  ],
+  "groups": [
+    {
+      "target": "no-enfria",
+      "owner": "/aire-acondicionado/reparacion-aire-acondicionado",
+      "seeds": [
+        "aire acondicionado no enfria que hacer",
+        "porque mi aire acondicionado no enfria",
+        "split no enfria",
+        "aire acondicionado enfria poco",
+        "aire acondicionado no enfria de dia",
+        "aire acondicionado no echa aire frio"
+      ]
+    },
+    {
+      "target": "pierde-agua-gotea",
+      "owner": "/aire-acondicionado/reparacion-aire-acondicionado",
+      "seeds": [
+        "porque pierde agua el aire acondicionado",
+        "aire acondicionado gotea",
+        "aire acondicionado tira agua",
+        "split pierde agua por dentro",
+        "agua cae de aire acondicionado interior",
+        "desague aire acondicionado obstruido"
+      ]
+    },
+    {
+      "target": "mantenimiento-limpieza",
+      "owner": "/aire-acondicionado/mantenimiento-aire-acondicionado",
+      "seeds": [
+        "como limpiar filtros aire acondicionado",
+        "cada cuanto limpiar filtros aire acondicionado",
+        "cada cuanto hacer mantenimiento aire acondicionado",
+        "limpieza aire acondicionado interior",
+        "como limpiar split aire acondicionado",
+        "mantenimiento aire acondicionado cuando"
+      ]
+    },
+    {
+      "target": "mal-olor",
+      "owner": "/aire-acondicionado/reparacion-aire-acondicionado",
+      "seeds": [
+        "mal olor aire acondicionado solucion",
+        "porque huele mal el aire acondicionado",
+        "aire acondicionado huele a humedad",
+        "aire acondicionado huele a vinagre",
+        "como quitar mal olor aire acondicionado",
+        "desinfectar aire acondicionado"
+      ]
+    },
+    {
+      "target": "ruido-vibracion",
+      "owner": "/aire-acondicionado/reparacion-aire-acondicionado",
+      "seeds": [
+        "aire acondicionado hace ruido",
+        "aire acondicionado vibra",
+        "split hace ruido",
+        "unidad exterior aire acondicionado hace ruido",
+        "aire acondicionado hace ruido al apagar",
+        "aire acondicionado hace ruido de agua"
+      ]
+    },
+    {
+      "target": "no-enciende-se-apaga-error",
+      "owner": "/aire-acondicionado/reparacion-aire-acondicionado",
+      "seeds": [
+        "aire acondicionado no enciende",
+        "aire acondicionado se apaga solo",
+        "aire acondicionado no funciona",
+        "aire acondicionado error",
+        "aire acondicionado no arranca",
+        "aire acondicionado salta diferencial"
+      ]
+    },
+    {
+      "target": "gas-refrigerante",
+      "owner": "/aire-acondicionado/carga-gas-aire-acondicionado",
+      "seeds": [
+        "como saber si falta gas aire acondicionado",
+        "aire acondicionado sin gas sintomas",
+        "cada cuanto cargar gas aire acondicionado",
+        "gas r32 o r410 diferencia",
+        "fuga gas aire acondicionado sintomas",
+        "aire acondicionado hace hielo"
+      ]
+    },
+    {
+      "target": "instalacion-potencia-precio",
+      "owner": "/aire-acondicionado/instalacion-aire-acondicionado",
+      "seeds": [
+        "cuanto cuesta instalar aire acondicionado",
+        "donde colocar aire acondicionado",
+        "frigorias por metro cuadrado",
+        "que potencia aire acondicionado necesito",
+        "instalar aire acondicionado en piso",
+        "permiso comunidad aire acondicionado"
+      ]
+    },
+    {
+      "target": "split-multisplit",
+      "owner": "/aire-acondicionado/instalacion-split",
+      "seeds": [
+        "split o multisplit que elegir",
+        "split o conductos que es mejor",
+        "que es aire acondicionado split",
+        "aire acondicionado multisplit ventajas",
+        "donde colocar split dormitorio",
+        "split no calienta"
+      ]
+    },
+    {
+      "target": "conductos",
+      "owner": "/aire-acondicionado/aire-acondicionado-conductos",
+      "seeds": [
+        "aire acondicionado por conductos ventajas",
+        "conductos no enfria una habitacion",
+        "mantenimiento aire por conductos",
+        "limpiar conductos aire acondicionado",
+        "mal olor conductos aire acondicionado",
+        "precio aire acondicionado por conductos"
+      ]
+    },
+    {
+      "target": "bomba-calor",
+      "owner": "/aire-acondicionado/bomba-calor",
+      "seeds": [
+        "bomba de calor consume mucho",
+        "bomba de calor no calienta",
+        "bomba de calor o aire acondicionado",
+        "aire acondicionado con bomba de calor que es",
+        "bomba de calor inverter que es",
+        "modo calor aire acondicionado no funciona"
+      ]
+    },
+    {
+      "target": "ahorro-uso",
+      "owner": "/aire-acondicionado",
+      "seeds": [
+        "que temperatura poner aire acondicionado",
+        "como ahorrar con aire acondicionado",
+        "modo dry aire acondicionado para que sirve",
+        "modo sleep aire acondicionado",
+        "aire acondicionado consume mucho",
+        "como usar aire acondicionado en verano"
+      ]
+    },
+    {
+      "target": "preinstalacion-cassette",
+      "owner": "/aire-acondicionado/preinstalacion-aire-acondicionado",
+      "seeds": [
+        "preinstalacion aire acondicionado que es",
+        "como saber si tengo preinstalacion aire acondicionado",
+        "desague preinstalacion aire acondicionado",
+        "aire acondicionado cassette que es",
+        "cassette aire acondicionado no enfria",
+        "mantenimiento cassette aire acondicionado"
+      ]
+    }
+  ]
+}

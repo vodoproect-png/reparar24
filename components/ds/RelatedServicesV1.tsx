@@ -14,7 +14,7 @@ import {
   Award,
   Home,
 } from "lucide-react"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 
 type AccentColor = "blue" | "cyan" | "orange" | "green"
 
@@ -127,7 +127,7 @@ export default function RelatedServicesV1({
           <h2 className="mt-5 text-pretty text-3xl font-extrabold leading-tight text-[#0F2D75] sm:text-4xl md:text-5xl">
             {title}
           </h2>
-          <p className="mt-4 text-lg leading-relaxed text-[#5B6B8C]">{description}</p>
+          <p className="mt-4 text-lg leading-relaxed text-[#4A5B7D]">{description}</p>
         </div>
 
         {/* Service cards - Mobile Carousel / Desktop Grid */}
@@ -161,7 +161,7 @@ export default function RelatedServicesV1({
 
                     {/* Title + description */}
                     <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{card.title}</h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">{card.description}</p>
+                    <p className="mt-2 text-[15px] leading-relaxed text-[#4A5B7D]">{card.description}</p>
 
                     {/* Divider */}
                     <span className="mt-5 h-px w-full bg-[#EEF2F9]" aria-hidden="true" />
@@ -190,20 +190,24 @@ export default function RelatedServicesV1({
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de servicios">
+            <div className="mt-4 flex justify-center gap-1" role="tablist" aria-label="Navegación de servicios">
               {cards.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "w-8 bg-[#2563EB]"
-                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
-                  }`}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
                   aria-label={`Ir a servicio ${index + 1}`}
                   aria-selected={index === currentSlide}
                   role="tab"
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "w-8 bg-[#2563EB]"
+                        : "w-2.5 bg-[#9CA3AF]"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -227,7 +231,7 @@ export default function RelatedServicesV1({
 
                   {/* Title + description */}
                   <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{card.title}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">{card.description}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-[#4A5B7D]">{card.description}</p>
 
                   {/* Divider */}
                   <span className="mt-5 h-px w-full bg-[#EEF2F9]" aria-hidden="true" />
@@ -265,7 +269,7 @@ export default function RelatedServicesV1({
             </span>
             <div>
               <h3 className="text-xl font-bold leading-snug text-[#0F2D75] sm:text-2xl">{ctaTitle}</h3>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-[#5B6B8C]">{ctaText}</p>
+              <p className="mt-1.5 text-[15px] leading-relaxed text-[#4A5B7D]">{ctaText}</p>
             </div>
           </div>
 
@@ -300,7 +304,7 @@ export default function RelatedServicesV1({
                 </span>
                 <div className="leading-tight">
                   <p className="text-sm font-bold text-[#0F2D75]">{badgeItem.title}</p>
-                  <p className="text-[13px] text-[#5B6B8C]">{badgeItem.subtitle}</p>
+                  <p className="text-[13px] text-[#4A5B7D]">{badgeItem.subtitle}</p>
                 </div>
               </div>
             )

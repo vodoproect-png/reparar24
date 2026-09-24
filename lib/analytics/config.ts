@@ -12,7 +12,7 @@ export const analyticsConfig = {
   
   // Google Analytics 4 Measurement ID
   // Replace with actual GA4 ID from Google Analytics account
-  ga4Id: process.env.NEXT_PUBLIC_GA4_ID || 'G-XXXXXXXXXX',
+  ga4Id: process.env.NEXT_PUBLIC_GA4_ID || 'G-PGM6VFMXRW',
   
   // Enable/disable analytics in development
   enableInDevelopment: process.env.NODE_ENV === 'production',

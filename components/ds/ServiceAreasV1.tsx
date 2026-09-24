@@ -82,7 +82,7 @@ export function ServiceAreasV1({
           <h2 className="mt-6 text-balance text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
             {title}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#5B6B8C] sm:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#4A5B7D] sm:text-xl">
             {subtitle}
           </p>
         </div>
@@ -123,7 +123,7 @@ export function ServiceAreasV1({
                     <h3 className="text-xl font-bold leading-tight text-[#0F2D75]">{zone.city}</h3>
 
                     {/* Description */}
-                    <p className="mt-1 text-[15px] leading-snug text-[#5B6B8C]">{zone.description}</p>
+                    <p className="mt-1 text-[15px] leading-snug text-[#4A5B7D]">{zone.description}</p>
 
                     {/* Footer: response time only (NO CTA - informational) */}
                     <div className="mt-3 flex items-center border-t border-[#EEF2F9] pt-3">
@@ -138,20 +138,24 @@ export function ServiceAreasV1({
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de zonas">
+            <div className="mt-4 flex justify-center gap-1" role="tablist" aria-label="Navegación de zonas">
               {cities.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "w-8 bg-[#2563EB]"
-                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
-                  }`}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
                   aria-label={`Ir a zona ${index + 1}`}
                   aria-selected={index === currentSlide}
                   role="tab"
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "w-8 bg-[#2563EB]"
+                        : "w-2.5 bg-[#9CA3AF]"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -180,7 +184,7 @@ export function ServiceAreasV1({
                   <h3 className="text-xl font-bold leading-tight text-[#0F2D75]">{zone.city}</h3>
 
                   {/* Description */}
-                  <p className="mt-1 text-[15px] leading-snug text-[#5B6B8C]">{zone.description}</p>
+                  <p className="mt-1 text-[15px] leading-snug text-[#4A5B7D]">{zone.description}</p>
 
                   {/* Footer: response time only (NO CTA - informational) */}
                   <div className="mt-3 flex items-center border-t border-[#EEF2F9] pt-3">
@@ -205,7 +209,7 @@ export function ServiceAreasV1({
               <h3 className="text-lg font-extrabold leading-tight text-[#0F2D75]">
                 {coverageTitle}
               </h3>
-              <p className="mt-1 text-[15px] leading-relaxed text-[#5B6B8C]">
+              <p className="mt-1 text-[15px] leading-relaxed text-[#4A5B7D]">
                 {coverageDescription}
               </p>
             </div>

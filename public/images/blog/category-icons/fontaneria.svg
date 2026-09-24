@@ -1,0 +1,18 @@
+<svg width="176" height="176" viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="24" y1="18" x2="150" y2="154"><stop stop-color="#F6FAFF"/><stop offset="1" stop-color="#E8F2FF"/></linearGradient>
+    <linearGradient id="blue" x1="34" y1="37" x2="136" y2="126"><stop stop-color="#74C4FF"/><stop offset=".55" stop-color="#246BEE"/><stop offset="1" stop-color="#0B3EA8"/></linearGradient>
+    <linearGradient id="metal" x1="82" y1="95" x2="133" y2="141"><stop stop-color="#F9FCFF"/><stop offset=".5" stop-color="#BDCCE0"/><stop offset="1" stop-color="#7C91AF"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1B4FB8" flood-opacity=".18"/></filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0B3EA8" flood-opacity=".18"/></filter>
+  </defs>
+  <rect x="16" y="16" width="144" height="144" rx="32" fill="url(#tile)" filter="url(#shadow)"/>
+  <g filter="url(#soft)">
+    <path d="M38 77h62c18 0 32 14 32 32v8h-27v-8c0-3-2-6-6-6H38V77z" fill="url(#blue)"/>
+    <ellipse cx="38" cy="90" rx="18" ry="25" fill="url(#blue)"/>
+    <ellipse cx="38" cy="90" rx="8" ry="12" fill="#DFF2FF"/>
+    <path d="M84 48c13 19 23 33 23 49a23 23 0 1 1-46 0c0-16 10-30 23-49z" fill="url(#blue)"/>
+    <path d="M78 91c2 8 9 13 17 13" stroke="#DFF2FF" stroke-width="6" stroke-linecap="round"/>
+    <path d="M112 111l22 22m-4-34l-30 30" stroke="url(#metal)" stroke-width="11" stroke-linecap="round"/>
+  </g>
+</svg>

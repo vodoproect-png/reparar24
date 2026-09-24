@@ -5,57 +5,52 @@ interface CTASectionProps {
   locale: Locale
 }
 
-export default function CTASection({ locale }: CTASectionProps) {
+export default function CTASection(props: CTASectionProps) {
+  void props.locale
+
   return (
-    <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
+    <section className="bg-gradient-to-br from-primary-600 to-primary-800 py-20 text-white">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            ¿Necesitas un Profesional Ahora?
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="mb-6 text-4xl font-bold md:text-5xl">
+            ¿Necesitas un profesional ahora?
           </h2>
-          <p className="text-xl md:text-2xl mb-8 text-primary-50">
-            Estamos disponibles 24/7 para atender tus emergencias. 
-            Respuesta rápida garantizada en toda España.
+          <p className="mb-8 text-xl text-primary-50 md:text-2xl">
+            Estamos disponibles 24/7 para atender tus emergencias. Respuesta rápida garantizada en toda España.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href={getPhoneHref()} 
-              className="bg-accent-500 hover:bg-accent-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <a
+              href={getPhoneHref()}
+              className="inline-block rounded-lg bg-accent-500 px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-accent-600 hover:shadow-xl"
             >
               📞 Llamar al {getPhoneDisplay()}
             </a>
-            <a 
-              href={getWhatsAppHref()} 
+            <a
+              href={getWhatsAppHref()}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 inline-block shadow-lg hover:shadow-xl"
+              className="inline-block rounded-lg bg-green-500 px-8 py-4 text-lg font-bold text-white shadow-lg transition-all duration-200 hover:bg-green-600 hover:shadow-xl"
             >
               💬 WhatsApp
             </a>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-4xl mb-3">🕐</div>
-              <h3 className="font-bold text-xl mb-2">Disponibilidad 24/7</h3>
-              <p className="text-primary-100">
-                Servicio de emergencias disponible todos los días del año
-              </p>
+          <div className="mt-12 grid grid-cols-1 gap-6 text-left md:grid-cols-3">
+            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+              <div className="mb-3 text-4xl">🕐</div>
+              <h3 className="mb-2 text-xl font-bold">Disponibilidad 24/7</h3>
+              <p className="text-primary-100">Servicio de emergencias disponible todos los días del año</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-4xl mb-3">💰</div>
-              <h3 className="font-bold text-xl mb-2">Presupuesto Gratuito</h3>
-              <p className="text-primary-100">
-                Sin compromiso y con precios transparentes
-              </p>
+            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+              <div className="mb-3 text-4xl">💶</div>
+              <h3 className="mb-2 text-xl font-bold">Presupuesto gratuito</h3>
+              <p className="text-primary-100">Sin compromiso y con precios transparentes</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <div className="text-4xl mb-3">✅</div>
-              <h3 className="font-bold text-xl mb-2">Garantía de Calidad</h3>
-              <p className="text-primary-100">
-                Todos nuestros trabajos incluyen garantía
-              </p>
+            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
+              <div className="mb-3 text-4xl">✓</div>
+              <h3 className="mb-2 text-xl font-bold">Garantía de calidad</h3>
+              <p className="text-primary-100">Todos nuestros trabajos incluyen garantía</p>
             </div>
           </div>
         </div>

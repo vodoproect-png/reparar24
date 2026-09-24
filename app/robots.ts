@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { isProduction, PRODUCTION_URL } from '@/lib/config/environment'
+import { PRODUCTION_URL } from '@/lib/config/environment'
 
 /**
  * STRICT ENVIRONMENT-AWARE ROBOTS.TXT
@@ -8,7 +8,7 @@ import { isProduction, PRODUCTION_URL } from '@/lib/config/environment'
  * 
  * Production (reparar24.es ONLY):
  * - Allow all Spanish content
- * - Disallow EN/RU (rollback), API, admin
+ * - Disallow API and admin
  * - Include sitemap reference
  * 
  * Preview/Staging/Local (*.vercel.app, localhost):
@@ -19,23 +19,10 @@ import { isProduction, PRODUCTION_URL } from '@/lib/config/environment'
  * - MINIMAL output only
  */
 export default function robots(): MetadataRoute.Robots {
-  const isProd = isProduction()
-  
-  // ===== PREVIEW/STAGING/LOCAL: STRICT LOCKDOWN =====
-  // Output ONLY: User-agent: * / Disallow: /
-  if (!isProd) {
-    return {
-      rules: [
-        {
-          userAgent: '*',
-          disallow: '/',
-        },
-      ],
-    }
-  }
-  
-  // ===== PRODUCTION ONLY: FULL DIRECTIVES =====
-  // This branch executes ONLY on reparar24.es
+  // robots.txt is generated at build time, so it must not depend on request-time
+  // hostname detection. Preview domains are protected by middleware before this
+  // route is reached; the production artifact should always expose crawlable
+  // directives for reparar24.es.
   return {
     rules: [
       {
@@ -44,8 +31,24 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/admin/',
-          '/en/',   // Multilingual rollback: English not indexable
-          '/ru/',   // Multilingual rollback: Russian not indexable
+        ],
+      },
+      {
+        userAgent: [
+          'GPTBot',
+          'OAI-SearchBot',
+          'ChatGPT-User',
+          'ClaudeBot',
+          'Claude-SearchBot',
+          'Claude-User',
+          'PerplexityBot',
+          'Perplexity-User',
+          'Googlebot',
+        ],
+        allow: '/',
+        disallow: [
+          '/api/',
+          '/admin/',
         ],
       },
     ],

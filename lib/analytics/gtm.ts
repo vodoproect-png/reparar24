@@ -6,6 +6,18 @@
 
 import { analyticsConfig, isAnalyticsEnabled } from './config'
 
+export type DataLayerValue = string | number | boolean | null | undefined | Date | DataLayerValue[] | {
+  [key: string]: DataLayerValue
+}
+
+export type DataLayerEvent = Record<string, DataLayerValue>
+
+declare global {
+  interface Window {
+    dataLayer?: DataLayerEvent[]
+  }
+}
+
 /**
  * Get GTM script for <head>
  */
@@ -32,7 +44,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>`
 /**
  * Push event to GTM dataLayer
  */
-export function pushToDataLayer(data: Record<string, any>): void {
+export function pushToDataLayer(data: DataLayerEvent): void {
   if (!isAnalyticsEnabled()) {
     if (analyticsConfig.debug) {
       console.log('[GTM Debug]', data)
@@ -40,9 +52,9 @@ export function pushToDataLayer(data: Record<string, any>): void {
     return
   }
   
-  if (typeof window !== 'undefined' && 'dataLayer' in window) {
-    (window as any).dataLayer = (window as any).dataLayer || []
-    ;(window as any).dataLayer.push(data)
+  if (typeof window !== 'undefined') {
+    window.dataLayer = window.dataLayer || []
+    window.dataLayer.push(data)
     
     if (analyticsConfig.debug) {
       console.log('[GTM]', data)

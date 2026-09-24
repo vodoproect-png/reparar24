@@ -1,0 +1,156 @@
+{
+  "service": "limpieza-tuberias",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "groups": [
+    {
+      "target": "hub",
+      "seeds": [
+        "limpieza de tuberias",
+        "limpieza tuberias",
+        "limpiar tuberias",
+        "limpieza profesional tuberias",
+        "empresa limpieza tuberias",
+        "servicio limpieza tuberias",
+        "limpieza preventiva tuberias",
+        "mantenimiento tuberias",
+        "limpieza redes saneamiento",
+        "limpieza saneamiento"
+      ]
+    },
+    {
+      "target": "bajantes-comunidades",
+      "seeds": [
+        "limpieza de bajantes",
+        "limpieza bajantes comunidad",
+        "limpieza bajantes comunidades",
+        "limpieza bajantes edificio",
+        "mantenimiento bajantes comunidad",
+        "limpieza tuberias comunidad vecinos",
+        "limpieza tuberias comunidades",
+        "limpieza saneamiento comunidades",
+        "limpieza bajantes con camion cuba",
+        "limpieza bajantes alta presion"
+      ]
+    },
+    {
+      "target": "colectores-arquetas",
+      "seeds": [
+        "limpieza colectores",
+        "limpieza de colectores",
+        "limpieza colectores saneamiento",
+        "limpieza arquetas",
+        "limpieza de arquetas",
+        "limpieza arquetas comunidad",
+        "limpieza arquetas saneamiento",
+        "limpieza acometida saneamiento",
+        "limpieza alcantarillado privado",
+        "mantenimiento arquetas"
+      ]
+    },
+    {
+      "target": "camion-cuba-alta-presion",
+      "seeds": [
+        "camion cuba limpieza tuberias",
+        "camion cuba comunidades",
+        "camion cuba alta presion",
+        "limpieza tuberias camion cuba",
+        "limpieza tuberias alta presion",
+        "hidrocurado tuberias",
+        "hidrocurado saneamiento",
+        "limpieza tuberias agua a presion",
+        "limpieza tuberias sin obras",
+        "limpieza tuberias con agua a presion"
+      ]
+    },
+    {
+      "target": "camara-inspeccion",
+      "seeds": [
+        "inspeccion tuberias camara",
+        "camara inspeccion tuberias",
+        "inspeccion tuberias saneamiento",
+        "videoinspeccion tuberias",
+        "inspeccion con camara tuberias",
+        "camara tuberias precio",
+        "inspeccion bajantes camara",
+        "localizar atasco tuberia camara",
+        "diagnostico tuberias camara",
+        "informe camara tuberias"
+      ]
+    },
+    {
+      "target": "hosteleria-empresas",
+      "seeds": [
+        "limpieza tuberias restaurante",
+        "limpieza tuberias restaurantes",
+        "limpieza tuberias hotel",
+        "limpieza tuberias hoteles",
+        "limpieza tuberias cocina industrial",
+        "limpieza separador de grasas",
+        "limpieza separadores de grasas",
+        "mantenimiento separador grasas",
+        "limpieza tuberias empresas",
+        "limpieza saneamiento empresas"
+      ]
+    },
+    {
+      "target": "precios",
+      "seeds": [
+        "precio limpieza tuberias",
+        "limpieza tuberias precio",
+        "cuanto cuesta limpieza tuberias",
+        "precio limpieza bajantes",
+        "precio limpieza arquetas",
+        "precio camion cuba comunidad",
+        "precio hidrocurado tuberias",
+        "precio inspeccion tuberias camara"
+      ]
+    },
+    {
+      "target": "geo-city",
+      "seeds": [
+        "limpieza tuberias madrid",
+        "limpieza tuberias barcelona",
+        "limpieza tuberias valencia",
+        "limpieza tuberias sevilla",
+        "limpieza tuberias zaragoza",
+        "limpieza tuberias malaga",
+        "limpieza bajantes madrid",
+        "limpieza arquetas barcelona",
+        "camion cuba valencia",
+        "hidrocurado tuberias madrid"
+      ]
+    },
+    {
+      "target": "geo-district",
+      "seeds": [
+        "limpieza tuberias centro madrid",
+        "limpieza tuberias salamanca madrid",
+        "limpieza tuberias eixample barcelona",
+        "limpieza tuberias gracia barcelona",
+        "limpieza tuberias ciutat vella valencia",
+        "limpieza tuberias ruzafa valencia",
+        "limpieza tuberias casco antiguo sevilla",
+        "limpieza tuberias actur zaragoza",
+        "limpieza tuberias ciudad jardin malaga",
+        "limpieza tuberias carretera de cadiz malaga"
+      ]
+    },
+    {
+      "target": "blog-info",
+      "seeds": [
+        "cada cuanto limpiar tuberias",
+        "como limpiar tuberias",
+        "como limpiar tuberias de casa",
+        "como limpiar bajantes comunidad",
+        "como prevenir atascos tuberias",
+        "mal olor tuberias comunidad",
+        "mantenimiento preventivo saneamiento",
+        "limpieza tuberias con sosa caustica",
+        "limpiar tuberias con bicarbonato",
+        "que es hidrocurado"
+      ]
+    }
+  ]
+}

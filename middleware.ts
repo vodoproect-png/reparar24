@@ -1,8 +1,44 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { isProductionHostname } from '@/lib/config/environment'
-import { getVercelPreviewPlaceholderHTML } from '@/app/vercel-preview-placeholder'
-import { serviceSlugMap } from '@/lib/i18n/slugs'
+
+const PRODUCTION_DOMAIN = 'reparar24.es'
+
+const SPANISH_SERVICE_SLUGS = new Set([
+  'fontanero',
+  'electricista',
+  'desatascos',
+  'aire-acondicionado',
+  'calefaccion',
+  'limpieza-tuberias',
+])
+
+const LEGACY_SERVICE_SLUGS: Record<'en' | 'ru', Record<string, string>> = {
+  en: {
+    plumber: 'fontanero',
+    electrician: 'electricista',
+    'drain-cleaning': 'desatascos',
+    'air-conditioning': 'aire-acondicionado',
+    heating: 'calefaccion',
+    'pipe-cleaning': 'limpieza-tuberias',
+  },
+  ru: {
+    santekhnik: 'fontanero',
+    elektrik: 'electricista',
+    'prochistka-trub': 'desatascos',
+    konditsionirovanie: 'aire-acondicionado',
+    otoplenie: 'calefaccion',
+    'ochistka-trub': 'limpieza-tuberias',
+  },
+}
+
+function isProductionHostname(hostname: string | null): boolean {
+  if (!hostname) return false
+  return hostname.split(':')[0] === PRODUCTION_DOMAIN
+}
+
+function getVercelPreviewPlaceholderHTML(): string {
+  return `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="robots" content="noindex,nofollow,noarchive,nosnippet" /><title>Reparar24 - Preview</title><style>body{font-family:Arial,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;margin:0;background:#f3f7ff;color:#0f2b6f}.box{max-width:420px;padding:32px;border:1px solid #dbe7ff;border-radius:16px;background:#fff;text-align:center;box-shadow:0 16px 40px rgba(15,43,111,.12)}a{color:#2563eb;font-weight:700}</style></head><body><main class="box"><h1>Reparar24</h1><p>Preview environment. This page is not indexed.</p><p><a href="https://reparar24.es">Visit reparar24.es</a></p></main></body></html>`
+}
 
 /**
  * SPANISH-ONLY PRODUCTION MIDDLEWARE + VERCEL PREVIEW LOCKDOWN
@@ -72,10 +108,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/', request.url), { status: 301 })
   }
 
-  // Redirect /es/* to /* (maintain canonical Spanish URLs)
+  // Keep /es/* available for internal rewrites from root-level Spanish URLs.
+  // Direct /es/* access is a technical route only; sitemap/canonicals use root-level URLs.
   if (pathname.startsWith('/es/')) {
-    const newPath = pathname.replace('/es/', '/')
-    return NextResponse.redirect(new URL(newPath, request.url), { status: 301 })
+    const response = NextResponse.next()
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
+    return response
   }
 
   // === MULTILINGUAL ROLLBACK: REDIRECT EN/RU TO SPANISH ===
@@ -127,27 +165,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.next()
   }
 
-  // === SPANISH CONTENT SERVING ===
-  
-  // For root-level paths: Rewrite internally to /es/* 
-  // (User sees /, app router serves from /es/)
-  if (
-    pathname === '/' ||
-    !pathname.match(/\.(ico|png|jpg|jpeg|gif|webp|svg)$/)
-  ) {
-    // Rewrite to /es/* internally
-    const url = request.nextUrl.clone()
-    url.pathname = `/es${pathname === '/' ? '' : pathname}`
-    const response = NextResponse.rewrite(url)
-    
-    // === PREVIEW PROTECTION: Block indexing on non-production ===
-    if (!isProduction) {
-      response.headers.set('X-Robots-Tag', 'noindex, nofollow, noarchive, nosnippet')
-    }
-    
-    return response
-  }
-
   // All other routes pass through
   const response = NextResponse.next()
   
@@ -189,29 +206,11 @@ function mapLegacyUrlToSpanish(pathname: string, locale: 'en' | 'ru'): string | 
   // First segment might be service slug in EN/RU or already in Spanish
   const firstSegment = segments[0]
   
-  // Check if first segment is already a valid Spanish service slug
-  let isAlreadySpanish = false
-  for (const [serviceId, localeMap] of Object.entries(serviceSlugMap)) {
-    if (localeMap.es === firstSegment) {
-      isAlreadySpanish = true
-      break
-    }
-  }
-  
-  // If already Spanish, just strip the locale prefix
-  if (isAlreadySpanish) {
+  if (SPANISH_SERVICE_SLUGS.has(firstSegment)) {
     return '/' + pathWithoutLocale
   }
   
-  // Otherwise, try to translate from EN/RU to Spanish
-  let spanishServiceSlug: string | null = null
-  
-  for (const [serviceId, localeMap] of Object.entries(serviceSlugMap)) {
-    if (localeMap[locale] === firstSegment) {
-      spanishServiceSlug = localeMap.es
-      break
-    }
-  }
+  const spanishServiceSlug = LEGACY_SERVICE_SLUGS[locale][firstSegment]
   
   // If service slug not found in mappings, return null (fallback to simple strip)
   if (!spanishServiceSlug) {
@@ -232,13 +231,13 @@ function mapLegacyUrlToSpanish(pathname: string, locale: 'en' | 'ru'): string | 
  */
 export const config = {
   matcher: [
-    /*
-     * Match all request paths except:
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     * - public folder files (*.svg, *.png, etc.)
-     */
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+    {
+      source: '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|ico)$).*)',
+      has: [{ type: 'header', key: 'host', value: '.*\\.vercel\\.app' }],
+    },
+    '/services',
+    '/es/:path*',
+    '/en/:path*',
+    '/ru/:path*',
   ],
 }

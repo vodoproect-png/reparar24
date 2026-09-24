@@ -1,0 +1,87 @@
+{
+  "service": "fontanero",
+  "surface": "blog",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Supplemental informational semantics for approved fontanero child pages not covered by wave 1.",
+    "Commercial intent discovered here must go to future commercial backlog, not directly into blog articles."
+  ],
+  "groups": [
+    {
+      "target": "instalaciones-fontaneria",
+      "owner": "/fontanero/instalaciones",
+      "seeds": [
+        "como hacer instalacion fontaneria bano",
+        "medidas instalacion fontaneria bano",
+        "instalacion fontaneria en pladur",
+        "esquema instalacion fontaneria vivienda",
+        "normativa instalacion fontaneria vivienda",
+        "cuanto cuesta instalacion fontaneria bano"
+      ]
+    },
+    {
+      "target": "bajantes",
+      "owner": "/fontanero/bajantes",
+      "seeds": [
+        "como saber si una bajante esta rota",
+        "bajante comunitaria huele mal",
+        "reparar bajante sin obras",
+        "cambiar bajantes comunidad precio",
+        "fuga en bajante comunidad",
+        "inspeccion bajantes camara"
+      ]
+    },
+    {
+      "target": "inodoros",
+      "owner": "/fontanero/instalacion-cambio-inodoros",
+      "seeds": [
+        "como instalar un inodoro",
+        "como cambiar un inodoro",
+        "cuanto cuesta cambiar un inodoro",
+        "instalar inodoro suspendido",
+        "inodoro pierde agua por la base",
+        "medidas instalacion inodoro"
+      ]
+    },
+    {
+      "target": "lavabos",
+      "owner": "/fontanero/instalacion-lavabos",
+      "seeds": [
+        "como instalar lavabo",
+        "como cambiar lavabo",
+        "como cambiar sifon lavabo",
+        "cambiar desague lavabo",
+        "lavabo gotea por debajo",
+        "lavabo no desagua bien"
+      ]
+    },
+    {
+      "target": "mamparas-ducha",
+      "owner": "/fontanero/mamparas-ducha",
+      "seeds": [
+        "como instalar mampara de ducha",
+        "como cambiar mampara de ducha",
+        "mampara ducha no cierra bien",
+        "mampara ducha pierde agua",
+        "arreglar mampara ducha",
+        "precio instalar mampara ducha"
+      ]
+    },
+    {
+      "target": "reparacion-duchas",
+      "owner": "/fontanero/reparacion-duchas",
+      "seeds": [
+        "ducha gotea",
+        "como cambiar columna de ducha",
+        "como cambiar flexo ducha",
+        "cambiar desague ducha",
+        "ducha no traga agua",
+        "plato ducha pierde agua"
+      ]
+    }
+  ]
+}

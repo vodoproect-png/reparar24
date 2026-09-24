@@ -2,12 +2,11 @@
 
 /**
  * Cookie Consent Banner Component
- * 
- * GDPR/LSSI compliant cookie consent banner for Spanish production
- * Lightweight, non-intrusive UI
+ *
+ * Compact GDPR/LSSI consent banner for Spanish production.
  */
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { hasConsentChoice, saveConsent } from '@/lib/consent/storage'
 
@@ -15,9 +14,7 @@ export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Only show banner if user hasn't made a choice
-    const hasChoice = hasConsentChoice()
-    setIsVisible(!hasChoice)
+    setIsVisible(!hasConsentChoice())
   }, [])
 
   const handleAccept = () => {
@@ -36,41 +33,36 @@ export function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-primary-600 shadow-2xl z-50"
+      className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-3xl rounded-xl border border-slate-200 bg-white/96 shadow-xl shadow-slate-900/12 backdrop-blur md:bottom-5"
       role="dialog"
       aria-label="Consentimiento de cookies"
     >
-      <div className="container-custom py-4 px-4 md:px-6">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-          
-          {/* Message */}
-          <div className="flex-1 text-sm text-gray-700">
-            <p className="font-semibold mb-1">🍪 Utilizamos cookies</p>
-            <p>
-              Utilizamos cookies técnicas necesarias y, con tu consentimiento, cookies analíticas para mejorar el sitio.{' '}
-              <Link href="/cookies" className="text-primary-600 hover:underline font-medium">
-                Más información
-              </Link>
-            </p>
-          </div>
+      <div className="flex flex-col gap-3 px-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-4">
+        <div className="min-w-0 text-sm leading-snug text-slate-600">
+          <p className="font-semibold text-slate-900">Cookies analíticas</p>
+          <p>
+            Usamos cookies necesarias y, si aceptas, medición para mejorar el sitio.{' '}
+            <Link href="/cookies" className="font-semibold text-primary-600 hover:underline">
+              Más información sobre cookies
+            </Link>
+          </p>
+        </div>
 
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
-            <button
-              onClick={handleReject}
-              className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-              aria-label="Rechazar cookies analíticas"
-            >
-              Rechazar
-            </button>
-            <button
-              onClick={handleAccept}
-              className="px-4 py-2 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors shadow-md"
-              aria-label="Aceptar cookies analíticas"
-            >
-              Aceptar
-            </button>
-          </div>
+        <div className="flex shrink-0 gap-2.5">
+          <button
+            onClick={handleReject}
+            className="min-h-11 flex-1 rounded-lg bg-slate-100 px-4 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-200 sm:flex-none"
+            aria-label="Rechazar cookies analíticas"
+          >
+            Rechazar
+          </button>
+          <button
+            onClick={handleAccept}
+            className="min-h-11 flex-1 rounded-lg bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 sm:flex-none"
+            aria-label="Aceptar cookies analíticas"
+          >
+            Aceptar
+          </button>
         </div>
       </div>
     </div>

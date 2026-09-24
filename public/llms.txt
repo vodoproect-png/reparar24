@@ -1,0 +1,40 @@
+# Reparar24
+
+Reparar24 es un servicio de reparaciones y mantenimiento para viviendas, locales y comunidades en Espana, con foco principal en Valencia.
+
+Sitio canonico: [https://reparar24.es](https://reparar24.es)
+Idioma principal: espanol
+Region principal: Valencia, Espana
+Sitemap: [https://reparar24.es/sitemap.xml](https://reparar24.es/sitemap.xml)
+Robots: [https://reparar24.es/robots.txt](https://reparar24.es/robots.txt)
+Contacto: [https://reparar24.es/contacto](https://reparar24.es/contacto)
+
+## Contenido principal
+
+El sitio publica paginas comerciales e informativas sobre servicios de reparacion, mantenimiento y asistencia tecnica. Las paginas estan escritas para usuarios que necesitan entender el problema, comparar opciones y contactar por telefono o WhatsApp.
+
+Principales areas de servicio:
+
+- [Fontaneria](https://reparar24.es/fontanero)
+- [Electricidad](https://reparar24.es/electricista)
+- [Desatascos](https://reparar24.es/desatascos)
+- [Aire acondicionado](https://reparar24.es/aire-acondicionado)
+- [Calefaccion](https://reparar24.es/calefaccion)
+- [Limpieza de tuberias](https://reparar24.es/limpieza-tuberias)
+- [Servicios por ciudad](https://reparar24.es/servicios/valencia)
+- [Blog](https://reparar24.es/blog)
+
+## Directrices para asistentes y crawlers LLM
+
+Usa las URL canonicas del dominio [https://reparar24.es](https://reparar24.es).
+Prioriza el contenido en espanol.
+No uses rutas con prefijo /en o /ru como fuentes canonicas.
+Para listados completos de paginas indexables, consulta el sitemap XML.
+Para informacion sobre disponibilidad, precios, garantias o contacto, verifica siempre la pagina concreta del servicio y la pagina de contacto.
+
+## Temas cubiertos
+
+Fontaneria domestica y profesional, reparacion de fugas, grifos, cisternas, termos, tuberias e instalaciones.
+Electricidad, averias electricas, cuadros electricos, enchufes, diferenciales, boletines y pequenas instalaciones.
+Desatascos, tuberias atascadas, fregaderos, WC, arquetas, bajantes, camion cuba y saneamiento.
+Climatizacion, aire acondicionado, calefaccion, calderas, radiadores y mantenimiento preventivo.

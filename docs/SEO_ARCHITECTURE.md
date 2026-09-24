@@ -268,6 +268,7 @@ const faqContent = await generateFAQ({
 - Schema markup verified
 - Internal linking automatic
 - Duplicate detection
+- Google/index exact-match uniqueness check before production
 
 ### Phase 4: Seasonal/Emergency Pages
 
@@ -289,6 +290,7 @@ const faqContent = await generateFAQ({
 2. **Template variation** - Different section combinations
 3. **Localized content** - City/district specificity
 4. **Problem clustering** - Semantic differentiation
+5. **External uniqueness check** - Before deployment, search exact long fragments from intro, SEO text, and FAQ in Google/index. If indexed exact-match duplicates are found, rewrite the text before production.
 
 ### Thin Content Prevention
 
@@ -467,6 +469,7 @@ npm run build
 - ✅ Schema markup
 - ✅ Internal linking
 - ✅ Mobile-optimized
+- ✅ Google/index exact-match uniqueness checked before production
 
 ---
 

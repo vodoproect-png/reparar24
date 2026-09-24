@@ -15,6 +15,14 @@ export interface InternalLink {
   description?: string
 }
 
+function getCanonicalServiceCityHref(service: Service, city: City, locale: Locale): string {
+  if (city.slug === 'valencia') {
+    return getServiceUrl(service.slug, locale)
+  }
+
+  return getServiceCityUrl(service.slug, city.slug, locale)
+}
+
 /**
  * Generate related service links for a given service
  */
@@ -44,7 +52,7 @@ export function getServiceCityLinks(
   limit?: number
 ): InternalLink[] {
   const cityLinks = cities.map((city) => ({
-    href: getServiceCityUrl(service.slug, city.slug, locale),
+    href: getCanonicalServiceCityHref(service, city, locale),
     title: `${service.name} en ${city.name}`,
     description: `${service.description} en ${city.name}`,
   }))
@@ -62,7 +70,7 @@ export function getCityServiceLinks(
   limit?: number
 ): InternalLink[] {
   const serviceLinks = services.map((service) => ({
-    href: getServiceCityUrl(service.slug, city.slug, locale),
+    href: getCanonicalServiceCityHref(service, city, locale),
     title: `${service.name} en ${city.name}`,
     description: service.description,
   }))
@@ -129,7 +137,7 @@ export function generateServiceCityBreadcrumbs(
     { name: service.name, url: getServiceUrl(service.slug, locale) },
     {
       name: city.name,
-      url: getServiceCityUrl(service.slug, city.slug, locale),
+      url: getCanonicalServiceCityHref(service, city, locale),
     },
   ]
 }
@@ -146,7 +154,7 @@ export function generateServiceCityDistrictBreadcrumbs(
     { name: service.name, url: getServiceUrl(service.slug, locale) },
     {
       name: city.name,
-      url: getServiceCityUrl(service.slug, city.slug, locale),
+      url: getCanonicalServiceCityHref(service, city, locale),
     },
     {
       name: districtName,

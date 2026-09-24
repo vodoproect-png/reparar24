@@ -1,0 +1,154 @@
+{
+  "service": "aire-acondicionado-wave2",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Wave 2 expands commercial service-intent for aire-acondicionado after initial child pages.",
+    "Classify product-only, marketplace, brand-only and car AC queries away from commercial service pages.",
+    "Informational queries are collected for future blog backlog only."
+  ],
+  "groups": [
+    {
+      "target": "bomba-calor",
+      "status": "commercial-review",
+      "approvalPolicy": "create-child-page-only-if-service-intent-is-clear",
+      "seeds": [
+        "bomba de calor aire acondicionado",
+        "aire acondicionado con bomba de calor",
+        "split bomba de calor",
+        "instalacion bomba de calor aire acondicionado",
+        "reparacion bomba de calor aire acondicionado",
+        "mantenimiento bomba de calor aire acondicionado",
+        "bomba calor frio calor",
+        "aire acondicionado frio calor instalacion"
+      ]
+    },
+    {
+      "target": "cassette-techo",
+      "status": "commercial-review",
+      "approvalPolicy": "create-child-page-only-if-service-intent-is-clear",
+      "seeds": [
+        "aire acondicionado cassette",
+        "instalacion aire acondicionado cassette",
+        "reparacion aire acondicionado cassette",
+        "mantenimiento aire acondicionado cassette",
+        "aire acondicionado techo",
+        "split de techo",
+        "instalacion split techo",
+        "cassette climatizacion"
+      ]
+    },
+    {
+      "target": "preinstalacion",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-installation-or-create-child-if-strong",
+      "seeds": [
+        "preinstalacion aire acondicionado",
+        "preinstalacion aire acondicionado conductos",
+        "instalar aire acondicionado con preinstalacion",
+        "aprovechar preinstalacion aire acondicionado",
+        "reparar preinstalacion aire acondicionado",
+        "tuberias preinstalacion aire acondicionado",
+        "desague preinstalacion aire acondicionado"
+      ]
+    },
+    {
+      "target": "limpieza-conductos",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-maintenance-or-create-child-if-strong",
+      "seeds": [
+        "limpieza conductos aire acondicionado",
+        "limpiar conductos aire acondicionado",
+        "mantenimiento conductos aire acondicionado",
+        "desinfeccion conductos aire acondicionado",
+        "limpieza rejillas aire acondicionado",
+        "mal olor conductos aire acondicionado",
+        "limpieza climatizacion conductos"
+      ]
+    },
+    {
+      "target": "local-oficina-comunidad",
+      "status": "commercial-review",
+      "approvalPolicy": "map-to-hub-or-create-b2b-child-if-strong",
+      "seeds": [
+        "aire acondicionado local comercial",
+        "instalacion aire acondicionado local comercial",
+        "reparacion aire acondicionado local comercial",
+        "aire acondicionado oficina",
+        "instalacion aire acondicionado oficina",
+        "mantenimiento aire acondicionado oficina",
+        "aire acondicionado comunidad vecinos",
+        "mantenimiento climatizacion comunidades"
+      ]
+    },
+    {
+      "target": "repair-symptoms",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-repair-page-or-future-blog",
+      "seeds": [
+        "aire acondicionado gotea",
+        "aire acondicionado tira agua",
+        "aire acondicionado no calienta",
+        "aire acondicionado no arranca",
+        "aire acondicionado salta diferencial",
+        "aire acondicionado se congela",
+        "aire acondicionado no echa aire",
+        "aire acondicionado hace hielo",
+        "aire acondicionado error",
+        "aire acondicionado no funciona"
+      ]
+    },
+    {
+      "target": "pricing-expanded",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-faq-and-pricing-sections",
+      "seeds": [
+        "precio instalar split",
+        "precio instalar aire acondicionado split",
+        "precio instalacion multisplit",
+        "precio aire acondicionado conductos",
+        "precio instalacion aire acondicionado conductos",
+        "precio mantenimiento aire acondicionado conductos",
+        "precio reparacion aire acondicionado",
+        "precio tecnico aire acondicionado"
+      ]
+    },
+    {
+      "target": "blog-expanded",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "aire acondicionado no enfria que hacer",
+        "por que gotea el aire acondicionado",
+        "como quitar mal olor aire acondicionado",
+        "como saber si falta gas aire acondicionado",
+        "cuantas frigorias necesito",
+        "split o multisplit que elegir",
+        "aire acondicionado por conductos ventajas",
+        "bomba de calor o aire acondicionado"
+      ]
+    },
+    {
+      "target": "geo-expanded",
+      "approvalPolicy": "map-to-city-or-district-layer",
+      "seeds": [
+        "instalacion aire acondicionado sevilla",
+        "reparacion aire acondicionado sevilla",
+        "mantenimiento aire acondicionado sevilla",
+        "instalacion aire acondicionado malaga",
+        "reparacion aire acondicionado malaga",
+        "mantenimiento aire acondicionado malaga",
+        "instalacion aire acondicionado zaragoza",
+        "reparacion aire acondicionado zaragoza",
+        "mantenimiento aire acondicionado zaragoza",
+        "aire acondicionado ruzafa valencia",
+        "aire acondicionado eixample barcelona",
+        "aire acondicionado centro madrid"
+      ]
+    }
+  ]
+}

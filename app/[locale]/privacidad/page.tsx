@@ -59,6 +59,7 @@ export default async function PrivacyPage({
                 <div className="bg-gray-50 p-4 rounded border border-gray-200">
                   <p><strong>Razón Social:</strong> {company.legalName}</p>
                   <p><strong>Nombre Comercial:</strong> {company.tradeName}</p>
+                  <p><strong>Marca comercial:</strong> Reparar24 es la marca comercial de {company.legalName}.</p>
                   <p><strong>CIF:</strong> {company.cif}</p>
                   <p><strong>Dirección:</strong> {address.streetAddress}, {address.postalCode} {address.addressLocality}, {address.addressRegion}</p>
                   <p><strong>Teléfono:</strong> {getPhoneDisplay()}</p>

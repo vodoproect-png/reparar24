@@ -10,6 +10,7 @@
  */
 
 import type { ServicesGridV1Props } from '@/components/ds/ServicesGridV1'
+import type { ServicesDirectoryV2Props } from '@/components/ds/ServicesDirectoryV2'
 import type { TrustSignalsV1Props } from '@/components/ds/TrustSignalsV1'
 import type { RelatedServicesV1Props } from '@/components/ds/RelatedServicesV1'
 import type OpinionesClientesV1 from '@/components/ds/OpinionesClientesV1'
@@ -20,6 +21,8 @@ import {
   Construction,
   Flame,
   Wrench,
+  Gauge,
+  ShowerHead,
   Toilet,
   Clock,
   ShieldCheck,
@@ -81,7 +84,87 @@ export const fontaneroServicesGridContent: ServicesGridV1Props = {
       href: "/fontanero/sustitucion-tuberias",
     },
     {
+      icon: Wrench,
+      iconBg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      title: "Reparaci\u00f3n de Bajantes",
+      description: "Reparamos y cambiamos bajantes de PVC o comunidad, con diagn\u00f3stico y presupuesto previo.",
+      href: "/fontanero/bajantes",
+    },
+    {
+      icon: ShowerHead,
+      iconBg: "bg-sky-50",
+      iconColor: "text-sky-600",
+      title: "Bañera por Ducha",
+      description: "Sustituimos bañeras por platos de ducha antideslizantes con acabado limpio y garantía.",
+      href: "/fontanero/cambio-banera-por-ducha",
+    },
+    {
       icon: Toilet,
+      iconBg: "bg-red-50",
+      iconColor: "text-red-500",
+      title: "Reparación de Cisternas",
+      description: "Arreglamos cisternas que pierden agua, no cargan o tienen el mecanismo averiado.",
+      href: "/fontanero/reparacion-cisternas",
+    },
+    {
+      icon: Toilet,
+      iconBg: "bg-rose-50",
+      iconColor: "text-rose-600",
+      title: "Cambio de Inodoros",
+      description: "Instalamos y cambiamos inodoros, sanitarios y WC con sellado, conexión y prueba final.",
+      href: "/fontanero/instalacion-cambio-inodoros",
+    },
+    {
+      icon: Droplet,
+      iconBg: "bg-sky-50",
+      iconColor: "text-sky-600",
+      title: "Lavabos y Desagües",
+      description: "Cambio e instalación de lavabos, sifones, válvulas y desagües con prueba de estanqueidad.",
+      href: "/fontanero/instalacion-lavabos",
+    },
+    {
+      icon: ShowerHead,
+      iconBg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      title: "Mamparas de Ducha",
+      description: "Instalamos, cambiamos y reparamos mamparas de ducha con ajuste, sellado y garantía.",
+      href: "/fontanero/mamparas-ducha",
+    },
+    {
+      icon: Wrench,
+      iconBg: "bg-cyan-50",
+      iconColor: "text-cyan-600",
+      title: "Cambio y Reparación de Grifos",
+      description: "Cambiamos y reparamos grifos de cocina, ducha y lavabo, incluyendo goteos y monomandos.",
+      href: "/fontanero/cambio-reparacion-grifos",
+    },
+    {
+      icon: ShowerHead,
+      iconBg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      title: "Reparaci\u00f3n de Duchas",
+      description: "Cambio y reparaci\u00f3n de duchas, columnas, flexos, desag\u00fces y goteos.",
+      href: "/fontanero/reparacion-duchas",
+    },
+    {
+      icon: Gauge,
+      iconBg: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+      title: "Grupos de Presión",
+      description: "Instalación y reparación de grupos de presión y bombas de agua para viviendas y comunidades.",
+      href: "/fontanero/grupos-presion-agua",
+    },
+    {
+      icon: Droplet,
+      iconBg: "bg-teal-50",
+      iconColor: "text-teal-600",
+      title: "Descalcificadores y Ósmosis",
+      description: "Mantenimiento, reparación e instalación de descalcificadores y equipos de ósmosis inversa.",
+      href: "/fontanero/descalcificadores-osmosis",
+    },
+    {
+      icon: Wrench,
       iconBg: "bg-red-50",
       iconColor: "text-red-500",
       title: "Mantenimiento Preventivo",
@@ -101,7 +184,7 @@ export const fontaneroServicesGridContent: ServicesGridV1Props = {
       icon: ShieldCheck,
       iconBg: "bg-emerald-50",
       iconColor: "text-emerald-600",
-      title: "Garantía 2 años",
+      title: "Garantía 6 meses",
       subtitle: "En todos nuestros trabajos",
     },
     {
@@ -121,7 +204,152 @@ export const fontaneroServicesGridContent: ServicesGridV1Props = {
   ],
 }
 
+export const fontaneroServicesDirectoryContent: ServicesDirectoryV2Props = {
+  badge: "Servicios de fontanería en Valencia",
+  title: "Servicios de fontanero para vivienda, local y comunidad",
+  subtitle: "Organizamos urgencias, reparaciones, instalaciones y mantenimiento de fontanería para que encuentres rápido el servicio que necesitas.",
+  phoneHref: "tel:+34642310813",
+  phoneLabel: "642 310 813",
+  whatsappHref: "https://wa.me/34642310813?text=Hola%2C%20necesito%20un%20fontanero%20en%20Valencia.%20%C2%BFPueden%20ayudarme%3F",
+  whatsappLabel: "WhatsApp",
+  searchPlaceholder: "Buscar servicio de fontanería",
+  summaryCountLabel: "16 servicios de fontanería",
+  summaryDescription: "Urgencias, fugas, bajantes, duchas, desatascos, instalaciones, sanitarios, lavabos, mamparas, grifos y equipos de agua para vivienda, local o comunidad.",
+  trustItems: [
+    { icon: "Clock", label: "Atención 24h" },
+    { icon: "ShieldCheck", label: "Garantía" },
+    { icon: "Award", label: "Técnicos cualificados" },
+    { icon: "CreditCard", label: "Presupuesto claro" },
+  ],
+  groups: [
+    {
+      id: "urgencias-reparaciones",
+      label: "Urgencias y reparaciones",
+      icon: "Droplets",
+      services: [
+        {
+          icon: "Droplets",
+          title: "Reparación de Fugas",
+          description: "Detección y reparación de fugas de agua visibles u ocultas con diagnóstico profesional.",
+          href: "/fontanero/reparacion-fugas",
+          featured: true,
+        },
+        {
+          icon: "Wrench",
+          title: "Cambio y Reparación de Grifos",
+          description: "Reparamos grifos que gotean y cambiamos grifos de cocina, ducha, lavabo y bañera.",
+          href: "/fontanero/cambio-reparacion-grifos",
+          featured: true,
+        },
+        {
+          icon: "ShowerHead",
+          title: "Reparaci\u00f3n de Duchas",
+          description: "Cambio y reparaci\u00f3n de duchas, columnas, flexos, desag\u00fces y goteos.",
+          href: "/fontanero/reparacion-duchas",
+        },
+        {
+          icon: "Toilet",
+          title: "Reparación de Cisternas",
+          description: "Solucionamos cisternas que pierden agua, no cargan o tienen mecanismo averiado.",
+          href: "/fontanero/reparacion-cisternas",
+        },
+        {
+          icon: "Wrench",
+          title: "Reparaci\u00f3n de Bajantes",
+          description: "Reparaci\u00f3n y cambio de bajantes de PVC o comunidad, incluso sin obra cuando es viable.",
+          href: "/fontanero/bajantes",
+        },
+        {
+          icon: "Droplets",
+          title: "Desatascos",
+          description: "Desatascos de tuberías, fregaderos, WC, arquetas y bajantes con equipo profesional.",
+          href: "/desatascos",
+          featured: true,
+        },
+      ],
+    },
+    {
+      id: "instalaciones",
+      label: "Instalaciones",
+      icon: "Construction",
+      services: [
+        {
+          icon: "Construction",
+          title: "Instalaciones de Fontanería",
+          description: "Instalación de fontanería en baños, cocinas, reformas, locales y viviendas.",
+          href: "/fontanero/instalaciones",
+          featured: true,
+        },
+        {
+          icon: "Toilet",
+          title: "Instalación y Cambio de Inodoros",
+          description: "Cambio de inodoros, sanitarios y WC con retirada, conexión, sellado y prueba final.",
+          href: "/fontanero/instalacion-cambio-inodoros",
+        },
+        {
+          icon: "ShowerHead",
+          title: "Cambiar Bañera por Ducha",
+          description: "Sustitución de bañera por plato de ducha con instalación profesional y garantía.",
+          href: "/fontanero/cambio-banera-por-ducha",
+        },
+        {
+          icon: "Droplets",
+          title: "Instalación y Reparación de Lavabos",
+          description: "Cambio de lavabos, desagües, sifones, válvulas y sellado con prueba final.",
+          href: "/fontanero/instalacion-lavabos",
+        },
+        {
+          icon: "ShowerHead",
+          title: "Mamparas de Ducha",
+          description: "Instalación, cambio y reparación de mamparas con ajuste, sellado y garantía.",
+          href: "/fontanero/mamparas-ducha",
+        },
+        {
+          icon: "Wrench",
+          title: "Cambio de Tuberías",
+          description: "Sustitución de tuberías antiguas por instalaciones seguras y materiales actuales.",
+          href: "/fontanero/sustitucion-tuberias",
+        },
+      ],
+    },
+    {
+      id: "equipos-mantenimiento",
+      label: "Equipos y mantenimiento",
+      icon: "Gauge",
+      services: [
+        {
+          icon: "Flame",
+          title: "Termos y Calentadores",
+          description: "Instalación, reparación y sustitución de termos eléctricos y calentadores de agua.",
+          href: "/fontanero/calentadores-termos",
+        },
+        {
+          icon: "Gauge",
+          title: "Grupos de Presión",
+          description: "Instalación y reparación de grupos de presión y bombas de agua para viviendas y comunidades.",
+          href: "/fontanero/grupos-presion-agua",
+        },
+        {
+          icon: "Droplets",
+          title: "Descalcificadores y Ósmosis",
+          description: "Mantenimiento, reparación e instalación de descalcificadores y ósmosis inversa.",
+          href: "/fontanero/descalcificadores-osmosis",
+        },
+        {
+          icon: "ClipboardCheck",
+          title: "Mantenimiento Preventivo",
+          description: "Revisiones periódicas para evitar fugas, atascos, averías y desgaste de la instalación.",
+          href: "/fontanero/mantenimiento",
+        },
+      ],
+    },
+  ],
+}
+
 export const fontaneroTrustSignalsContent: TrustSignalsV1Props = {
+  badge: "Garantías Reparar24",
+  title: "Por qué elegir Reparar24",
+  subtitle: "Trabajos de fontanería con atención rápida, técnicos cualificados, presupuesto claro y garantía por escrito.",
   stats: [
     {
       icon: "Clock",
@@ -144,7 +372,7 @@ export const fontaneroTrustSignalsContent: TrustSignalsV1Props = {
     {
       icon: "Award",
       color: "purple",
-      headline: "Garantía 2 años",
+      headline: "Garantía 6 meses",
       description: "En todas nuestras reparaciones",
     },
   ],
@@ -237,7 +465,7 @@ export const fontaneroProcessStepsContent: ProcessStepsV3Props = {
       number: "04",
       color: "purple",
       title: "Garantía y tranquilidad",
-      description: "Te ofrecemos garantía de 2 años en todas nuestras reparaciones para tu total tranquilidad.",
+      description: "Te ofrecemos garantía de 6 meses en todas nuestras reparaciones para tu total tranquilidad.",
       iconSrc: "/icons/process-3d-04-garantia.webp",
     },
   ],
@@ -282,7 +510,7 @@ export const fontaneroPricingSectionContent: PricingSectionV1Props = {
       price: "79€",
       color: "orange",
       iconSrc: "/icons/process-3d-03-reparacion.webp",
-      features: ["Localización de fuga", "Reparación inmediata", "Materiales incluidos", "Garantía 2 años"],
+      features: ["Localización de fuga", "Reparación inmediata", "Materiales incluidos", "Garantía 6 meses"],
       featured: true,
     },
     {
@@ -305,7 +533,7 @@ export const fontaneroPricingSectionContent: PricingSectionV1Props = {
   trustItems: [
     { icon: "ShieldCheck", title: "Presupuesto cerrado", description: "antes de empezar" },
     { icon: "FileText", title: "Factura disponible", description: "al finalizar el trabajo" },
-    { icon: "ShieldCheck", title: "Garantía", description: "hasta 2 años" },
+    { icon: "ShieldCheck", title: "Garantía", description: "6 meses" },
     { icon: "XCircle", title: "Sin costes ocultos", description: "ni suplementos" },
   ],
   disclaimer: "Precios orientativos. Cada caso es único y se presupuestará según la evaluación.",
@@ -362,12 +590,12 @@ export const fontaneroOpinionesClientesContent: OpinionesClientesV1Props = {
     },
   ],
   trustItems: [
-    { node: "google", title: "4.8/5", description: "Google Reviews", showStars: true },
+    { icon: "Users", title: "4.8/5", description: "Opiniones de clientes", showStars: true },
     { icon: "Users", title: "2.500+", description: "Clientes satisfechos" },
     { icon: "ShieldCheck", title: "Disponibles 24/7", description: "365 días al año" },
     { icon: "MapPin", title: "Valencia", description: "y alrededores" },
   ],
-  verifiedLabel: "Cliente verificado",
+  verifiedLabel: "Cliente atendido",
 }
 
 export const fontaneroRelatedServicesContent: RelatedServicesV1Props = {
@@ -426,7 +654,7 @@ export const fontaneroRelatedServicesContent: RelatedServicesV1Props = {
   ],
   ctaTitle: "¿No estás seguro de qué servicio necesitas?",
   ctaText: "Cuéntanos tu problema y te asesoramos sin compromiso.",
-  cta: { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  641 688 524" },
+  cta: { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  642 310 813" },
   trustBadges: [
     { icon: "ShieldCheck", title: "Profesionales", subtitle: "cualificados" },
     { icon: "Clock", title: "Atención 24/7", subtitle: "365 días al año" },

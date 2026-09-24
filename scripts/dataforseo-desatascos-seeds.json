@@ -1,0 +1,163 @@
+{
+  "service": "desatascos",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Reuse already collected fontanero cross-service desatascos outputs; duplicate protection must skip matching seeds.",
+    "Collect commercial, geo and informational demand for the top-level /desatascos category.",
+    "Blog/informational seeds are collected as future content opportunities and must not be promoted to service pages.",
+    "Provider outputs must stay in .tmp review folders until classified and approved."
+  ],
+  "groups": [
+    {
+      "target": "hub-commercial",
+      "seeds": [
+        "desatascos",
+        "empresa desatascos",
+        "empresa de desatascos",
+        "desatascos 24 horas",
+        "desatascos urgentes",
+        "desatascador",
+        "desatascos cerca de mi",
+        "desatascos profesionales"
+      ]
+    },
+    {
+      "target": "geo-city",
+      "approvalPolicy": "map-to-city-layer",
+      "seeds": [
+        "desatascos madrid",
+        "desatascos barcelona",
+        "desatascos valencia",
+        "desatascos sevilla",
+        "desatascos malaga",
+        "desatascos zaragoza"
+      ]
+    },
+    {
+      "target": "geo-urgent",
+      "approvalPolicy": "map-to-city-layer",
+      "seeds": [
+        "desatascos urgentes madrid",
+        "desatascos urgentes barcelona",
+        "desatascos urgentes valencia",
+        "desatascos urgentes sevilla",
+        "desatascos urgentes malaga",
+        "desatascos urgentes zaragoza",
+        "desatascos 24 horas madrid",
+        "desatascos 24 horas barcelona",
+        "desatascos 24 horas valencia",
+        "desatascos 24 horas sevilla",
+        "desatascos 24 horas malaga",
+        "desatascos 24 horas zaragoza"
+      ]
+    },
+    {
+      "target": "geo-district",
+      "approvalPolicy": "map-to-district-layer",
+      "seeds": [
+        "desatascos centro madrid",
+        "desatascos salamanca madrid",
+        "desatascos chamberi",
+        "desatascos eixample barcelona",
+        "desatascos ciutat vella barcelona",
+        "desatascos gracia barcelona",
+        "desatascos ruzafa",
+        "desatascos ciutat vella valencia",
+        "desatascos poblats maritims",
+        "desatascos triana sevilla",
+        "desatascos nervion sevilla",
+        "desatascos centro malaga",
+        "desatascos centro zaragoza",
+        "desatascos casco viejo zaragoza"
+      ]
+    },
+    {
+      "target": "domestic-blockages",
+      "status": "commercial-review",
+      "approvalPolicy": "decide-owner-between-fontanero-and-desatascos",
+      "seeds": [
+        "desatascar wc",
+        "desatascar inodoro",
+        "desatascar fregadero",
+        "desatascar lavabo",
+        "desatascar ducha",
+        "desatascar tuberia",
+        "desatascar desague",
+        "atasco wc",
+        "atasco fregadero",
+        "inodoro atascado"
+      ]
+    },
+    {
+      "target": "professional-blockages",
+      "status": "commercial-child-candidate",
+      "approvalPolicy": "map-to-existing-or-create-child-page",
+      "seeds": [
+        "desatasco bajantes",
+        "desatasco arquetas",
+        "limpieza arquetas",
+        "desatasco colectores",
+        "limpieza alcantarillado",
+        "desatascos comunidades",
+        "desatascos restaurantes",
+        "limpieza separador grasas",
+        "separador de grasas restaurante",
+        "limpieza fosas septicas"
+      ]
+    },
+    {
+      "target": "equipment-technique",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-hub-or-child-supporting-sections",
+      "seeds": [
+        "camion cuba",
+        "camion cuba desatascos",
+        "cuba desatascos",
+        "camion cuba valencia",
+        "camion cuba madrid",
+        "inspeccion tuberias camara",
+        "camara inspeccion tuberias",
+        "hidrocurado tuberias",
+        "desatascos alta presion"
+      ]
+    },
+    {
+      "target": "pricing",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-faq-and-commercial-seo-sections",
+      "seeds": [
+        "precio desatasco",
+        "precios desatascos",
+        "tarifas desatascos",
+        "cuanto cuesta desatascar tuberia",
+        "precio camion cuba",
+        "precio desatascar wc",
+        "precio desatascar fregadero"
+      ]
+    },
+    {
+      "target": "blog-desatascos",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "como desatascar tuberia",
+        "como desatascar fregadero",
+        "como desatascar wc",
+        "como desatascar ducha",
+        "como evitar atascos tuberias",
+        "por que se atasca el fregadero",
+        "que hacer si se atasca el wc",
+        "sosa caustica tuberias",
+        "desatascador casero",
+        "mal olor desague",
+        "cada cuanto limpiar arquetas",
+        "toallitas atascan tuberias"
+      ]
+    }
+  ]
+}

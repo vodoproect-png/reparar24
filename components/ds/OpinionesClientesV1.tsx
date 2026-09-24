@@ -2,7 +2,7 @@
 
 import { Star, CheckCircle2, Users, ShieldCheck, MapPin } from "lucide-react"
 import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 
 type IconKey = "Users" | "ShieldCheck" | "MapPin"
 
@@ -27,7 +27,7 @@ interface TrustItem {
   showStars?: boolean
 }
 
-interface OpinionesClientesV1Props {
+export interface OpinionesClientesV1Props {
   rating?: string
   reviewCount?: string
   badge?: string
@@ -74,8 +74,6 @@ function GoogleG() {
 
 export default function OpinionesClientesV1({
   rating,
-  reviewCount,
-  badge,
   title,
   subtitle,
   reviews,
@@ -126,8 +124,7 @@ export default function OpinionesClientesV1({
             <div className="flex items-center justify-center gap-4">
               <Image
                 src="/icons/opiniones-3d-star.webp"
-                alt=""
-                aria-hidden="true"
+                alt={`Valoracion media ${rating} de clientes Reparar24`}
                 width={96}
                 height={96}
                 loading="lazy"
@@ -142,7 +139,7 @@ export default function OpinionesClientesV1({
           </h2>
 
           {/* Subtitle */}
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#4A5B7D] sm:text-xl">
             {subtitle}
           </p>
         </div>
@@ -172,7 +169,7 @@ export default function OpinionesClientesV1({
                   <h3 className="mt-4 text-lg font-bold leading-snug text-[#0F2D75]">{review.name}</h3>
 
                   {/* Quote */}
-                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[#5B6B8C]">
+                  <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[#4A5B7D]">
                     {`"${review.quote}"`}
                   </p>
 
@@ -186,20 +183,24 @@ export default function OpinionesClientesV1({
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-6 flex justify-center gap-2" role="tablist" aria-label="Navegación de reseñas">
+            <div className="mt-4 flex justify-center gap-1" role="tablist" aria-label="Navegación de reseñas">
               {reviews.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "w-8 bg-[#2563EB]"
-                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
-                  }`}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
                   aria-label={`Ir a reseña ${index + 1}`}
                   aria-selected={index === currentSlide}
                   role="tab"
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "w-8 bg-[#2563EB]"
+                        : "w-2.5 bg-[#9CA3AF]"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -217,7 +218,7 @@ export default function OpinionesClientesV1({
                 <h3 className="mt-4 text-lg font-bold leading-snug text-[#0F2D75]">{review.name}</h3>
 
                 {/* Quote */}
-                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[#5B6B8C]">
+                <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[#4A5B7D]">
                   {`"${review.quote}"`}
                 </p>
 
@@ -254,7 +255,7 @@ export default function OpinionesClientesV1({
                   </span>
                   <div>
                     <p className="text-xl font-extrabold leading-tight text-[#0F2D75]">{item.title}</p>
-                    <p className="mt-0.5 text-sm leading-snug text-[#5B6B8C]">{item.description}</p>
+                    <p className="mt-0.5 text-sm leading-snug text-[#4A5B7D]">{item.description}</p>
                     {item.showStars && <StarRow className="mt-1.5 [&_svg]:h-3.5 [&_svg]:w-3.5" />}
                   </div>
                 </div>

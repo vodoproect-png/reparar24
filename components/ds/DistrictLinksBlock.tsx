@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ArrowRight, MapPin } from 'lucide-react'
 import type { City } from '@/data/cities'
 import type { Service } from '@/data/services'
 import type { Locale } from '@/lib/i18n/config'
@@ -8,67 +9,85 @@ interface DistrictLinksBlockProps {
   service: Service
   city: City
   locale: Locale
+  variant?: 'default' | 'compact'
+  title?: string
+  description?: string
 }
 
 /**
- * DistrictLinksBlock - Internal linking to district pages
- * 
- * Purpose: Links from city pages to their district pages for internal SEO
- * Usage: Fontanero city pages only (not on district or hub pages)
- * 
- * Design: Clean cards grid following Design System V1 styling
+ * Internal links from city/hub pages to district landing pages.
  */
-export default function DistrictLinksBlock({ service, city, locale }: DistrictLinksBlockProps) {
+export default function DistrictLinksBlock({
+  service,
+  city,
+  locale,
+  variant = 'default',
+  title,
+  description,
+}: DistrictLinksBlockProps) {
   const districtLinks = getDistrictLinks(city, service, locale)
+  const isCompact = variant === 'compact'
 
   return (
-    <section className="w-full bg-white px-4 py-16 sm:px-6">
+    <section className={`w-full bg-white px-4 sm:px-6 ${isCompact ? 'py-10' : 'py-16'}`}>
       <div className="mx-auto max-w-[1280px]">
-        {/* Section Header */}
-        <div className="mb-12 text-center">
-          <h2 className="text-balance text-3xl font-extrabold leading-tight text-[#0F2D75] sm:text-4xl lg:text-[42px]">
-            {service.name} por zonas en {city.name}
+        <div className={`${isCompact ? 'mb-7' : 'mb-12'} text-center`}>
+          <h2
+            className={`text-balance font-extrabold leading-tight text-[#0F2D75] ${
+              isCompact ? 'text-2xl sm:text-3xl lg:text-4xl' : 'text-3xl sm:text-4xl lg:text-[42px]'
+            }`}
+          >
+            {title ?? `${service.name} por zonas en ${city.name}`}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-base text-[#5B6B8C] sm:text-lg">
-            Elige tu zona para ver el servicio disponible en tu distrito.
+          <p
+            className={`mx-auto mt-4 max-w-2xl text-balance text-[#4A5B7D] ${
+              isCompact ? 'text-sm sm:text-base' : 'text-base sm:text-lg'
+            }`}
+          >
+            {description ?? 'Elige tu zona para ver el servicio disponible en tu distrito.'}
           </p>
         </div>
 
-        {/* District Links Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className={`grid sm:grid-cols-2 lg:grid-cols-3 ${isCompact ? 'gap-3' : 'gap-6'}`}>
           {districtLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative overflow-hidden rounded-xl border-2 border-[#E2E8F0] bg-white p-6 transition-all duration-300 hover:border-[#0F2D75] hover:shadow-lg"
+              className={`group relative overflow-hidden rounded-xl border-2 border-[#E2E8F0] bg-white transition-all duration-300 hover:border-[#0F2D75] hover:shadow-lg ${
+                isCompact ? 'p-4' : 'p-6'
+              }`}
             >
               <div className="flex items-start space-x-4">
-                {/* Icon */}
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#0F2D75] text-2xl transition-transform duration-300 group-hover:scale-110">
-                  📍
+                <div
+                  className={`flex shrink-0 items-center justify-center rounded-lg bg-[#0F2D75] text-white transition-transform duration-300 group-hover:scale-110 ${
+                    isCompact ? 'h-10 w-10' : 'h-12 w-12'
+                  }`}
+                >
+                  <MapPin className={isCompact ? 'h-5 w-5' : 'h-6 w-6'} aria-hidden="true" />
                 </div>
 
-                {/* Content */}
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-lg font-bold text-[#0F2D75] group-hover:text-[#FF6B35] transition-colors duration-300">
+                <div className="min-w-0 flex-1">
+                  <h3
+                    className={`font-bold text-[#0F2D75] transition-colors duration-300 group-hover:text-[#FF6B35] ${
+                      isCompact ? 'text-base' : 'text-lg'
+                    }`}
+                  >
                     {link.title}
                   </h3>
-                  <p className="mt-1 text-sm text-[#5B6B8C] line-clamp-2">
+                  <p className={`mt-1 line-clamp-2 text-[#4A5B7D] ${isCompact ? 'text-xs' : 'text-sm'}`}>
                     {link.description}
                   </p>
                 </div>
 
-                {/* Arrow indicator */}
-                <div className="text-[#0F2D75] opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-1">
-                  →
+                <div className="text-[#0F2D75] opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">
+                  <ArrowRight className="h-5 w-5" aria-hidden="true" />
                 </div>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Optional helper text */}
-        <p className="mt-8 text-center text-sm text-[#5B6B8C]">
+        <p className="mt-8 text-center text-sm text-[#4A5B7D]">
           Servicio profesional disponible en todos los distritos de {city.name}
         </p>
       </div>

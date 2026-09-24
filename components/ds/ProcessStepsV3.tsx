@@ -2,7 +2,7 @@
 
 import { Wrench, ShieldCheck, Clock, UserRound, FileText } from "lucide-react"
 import Image from "next/image"
-import { useState, useEffect, useRef } from "react"
+import { useState, useRef } from "react"
 
 type StepColor = "blue" | "green" | "orange" | "purple"
 
@@ -31,7 +31,7 @@ export interface TrustItem {
   description: string
 }
 
-interface ProcessStepsV3Props {
+export interface ProcessStepsV3Props {
   badge?: string
   title?: string
   subtitle?: string
@@ -107,7 +107,7 @@ export function ProcessStepsV3({
         </h2>
 
         {/* Subtitle */}
-        <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
+        <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#4A5B7D] sm:text-xl">
           {subtitle}
         </p>
 
@@ -142,8 +142,7 @@ export function ProcessStepsV3({
                     <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
                       <Image
                         src={step.iconSrc || "/placeholder.svg"}
-                        alt=""
-                        aria-hidden="true"
+                        alt={`Paso ${step.number}: ${step.title}`}
                         width={112}
                         height={112}
                         loading="lazy"
@@ -155,27 +154,31 @@ export function ProcessStepsV3({
                     <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{step.title}</h3>
 
                     {/* Description */}
-                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#5B6B8C]">{step.description}</p>
+                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#4A5B7D]">{step.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Pagination Dots */}
-            <div className="mt-10 mb-10 flex justify-center gap-2" role="tablist" aria-label="Navegación de pasos">
+            <div className="mb-6 mt-6 flex justify-center gap-1" role="tablist" aria-label="Navegación de pasos">
               {steps.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "w-8 bg-[#2563EB]"
-                      : "w-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]"
-                  }`}
+                  className="flex h-11 w-11 items-center justify-center rounded-full"
                   aria-label={`Ir a paso ${index + 1}`}
                   aria-selected={index === currentSlide}
                   role="tab"
-                />
+                >
+                  <span
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      index === currentSlide
+                        ? "w-8 bg-[#2563EB]"
+                        : "w-2.5 bg-[#9CA3AF]"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           </div>
@@ -209,8 +212,7 @@ export function ProcessStepsV3({
                     <div className="h-[112px] w-[112px] overflow-hidden rounded-full relative">
                       <Image
                         src={step.iconSrc || "/placeholder.svg"}
-                        alt=""
-                        aria-hidden="true"
+                        alt={`Paso ${step.number}: ${step.title}`}
                         width={112}
                         height={112}
                         loading="lazy"
@@ -222,7 +224,7 @@ export function ProcessStepsV3({
                     <h3 className="mt-5 text-xl font-bold leading-snug text-[#0F2D75]">{step.title}</h3>
 
                     {/* Description */}
-                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#5B6B8C]">{step.description}</p>
+                    <p className="mt-2.5 max-w-[16rem] text-[15px] leading-relaxed text-[#4A5B7D]">{step.description}</p>
                   </div>
                 </div>
               )
@@ -249,7 +251,7 @@ export function ProcessStepsV3({
                   </span>
                   <div>
                     <p className="text-[15px] font-bold leading-tight text-[#0F2D75]">{item.title}</p>
-                    <p className="mt-1 text-sm leading-snug text-[#5B6B8C]">{item.description}</p>
+                    <p className="mt-1 text-sm leading-snug text-[#4A5B7D]">{item.description}</p>
                   </div>
                 </div>
               )

@@ -1,0 +1,124 @@
+{
+  "service": "fontanero",
+  "surface": "blog",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Informational semantics only for future blog clustering.",
+    "Do not promote these keywords directly to commercial service pages.",
+    "Keep outputs in .tmp/keyword-providers and .tmp/blog until reviewed and clustered."
+  ],
+  "groups": [
+    {
+      "target": "fugas-agua",
+      "owner": "/fontanero/reparacion-fugas",
+      "seeds": [
+        "como detectar fuga de agua",
+        "como saber si tengo una fuga de agua",
+        "que hacer si hay una fuga de agua",
+        "como localizar una fuga de agua en una tuberia enterrada",
+        "detectar fuga de agua sin romper",
+        "precio detectar fuga de agua"
+      ]
+    },
+    {
+      "target": "grifos",
+      "owner": "/fontanero/cambio-reparacion-grifos",
+      "seeds": [
+        "como arreglar grifo que gotea",
+        "como reparar un grifo monomando que gotea",
+        "porque gotea un grifo",
+        "como cambiar un grifo",
+        "precio cambiar grifo",
+        "grifo no cierra bien"
+      ]
+    },
+    {
+      "target": "cisternas-inodoros",
+      "owner": "/fontanero/reparacion-cisternas",
+      "seeds": [
+        "como arreglar cisterna que pierde agua",
+        "porque pierde agua la cisterna",
+        "como cambiar mecanismo cisterna",
+        "cisterna no carga agua",
+        "inodoro pierde agua",
+        "precio cambiar mecanismo cisterna"
+      ]
+    },
+    {
+      "target": "termos-calentadores",
+      "owner": "/fontanero/calentadores-termos",
+      "seeds": [
+        "como vaciar termo electrico",
+        "porque el termo electrico pierde agua",
+        "termo electrico no calienta",
+        "como instalar termo electrico",
+        "precio cambiar termo electrico",
+        "calentador gas no enciende"
+      ]
+    },
+    {
+      "target": "tuberias",
+      "owner": "/fontanero/sustitucion-tuberias",
+      "seeds": [
+        "cuando cambiar tuberias de casa",
+        "como saber si las tuberias estan mal",
+        "tuberias antiguas vivienda",
+        "como quitar cal de tuberias",
+        "como limpiar tuberias de agua",
+        "precio cambiar tuberias casa"
+      ]
+    },
+    {
+      "target": "bano-ducha-lavabo",
+      "owner": "/fontanero/cambio-banera-por-ducha",
+      "seeds": [
+        "precio cambiar banera por ducha",
+        "como instalar plato de ducha",
+        "como instalar lavabo sobre encimera",
+        "como instalar desague lavabo",
+        "cambiar inodoro precio",
+        "precio instalar inodoro"
+      ]
+    },
+    {
+      "target": "presion-agua",
+      "owner": "/fontanero/grupos-presion-agua",
+      "seeds": [
+        "como aumentar presion de agua en casa",
+        "por que hay poca presion de agua",
+        "bomba de agua no arranca",
+        "grupo de presion agua problemas",
+        "precio grupo de presion agua domestico",
+        "como instalar bomba de agua para aumentar presion"
+      ]
+    },
+    {
+      "target": "osmosis-descalcificadores",
+      "owner": "/fontanero/descalcificadores-osmosis",
+      "seeds": [
+        "como saber si necesito descalcificador",
+        "mantenimiento osmosis inversa",
+        "osmosis no sale agua",
+        "descalcificador no consume sal",
+        "precio instalar osmosis inversa",
+        "cuando cambiar filtros osmosis"
+      ]
+    },
+    {
+      "target": "mantenimiento-fontaneria",
+      "owner": "/fontanero/mantenimiento",
+      "seeds": [
+        "mantenimiento fontaneria vivienda",
+        "revision fontaneria vivienda",
+        "mantenimiento preventivo fontaneria",
+        "revision tuberias vivienda",
+        "mantenimiento fontaneria comunidad",
+        "cuando revisar instalacion fontaneria"
+      ]
+    }
+  ]
+}

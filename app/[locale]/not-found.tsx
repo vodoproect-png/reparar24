@@ -1,99 +1,50 @@
 import Link from 'next/link'
-import { getPhoneHref, getWhatsAppHref } from '@/lib/config/contact'
+import Header from '@/components/layout/Header'
+import Footer from '@/components/layout/Footer'
+import { getPhoneHref, getPhoneDisplay } from '@/lib/config/contact'
 
-export default function NotFound() {
+export default function LocaleNotFound() {
   return (
-    <html lang="es">
-      <head>
-        <title>Página No Encontrada - Reparar24</title>
-        <meta name="robots" content="noindex, nofollow" />
-      </head>
-      <body>
-        <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
-          <div className="max-w-lg w-full">
-            <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-              <div className="text-6xl mb-4">🔍</div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Página No Encontrada
-              </h1>
-              <p className="text-gray-600 mb-6">
-                Lo sentimos, no pudimos encontrar la página que buscas.
-                ¿Necesitas ayuda urgente?
-              </p>
-
-              {/* CTAs - Preserve conversion focus */}
-              <div className="space-y-3 mb-6">
-                <a
-                  href={getPhoneHref()}
-                  className="btn-primary w-full inline-block"
-                >
-                  📞 Llamar Ahora
-                </a>
-                <a
-                  href={getWhatsAppHref('Necesito ayuda')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-whatsapp w-full inline-block"
-                >
-                  💬 WhatsApp
-                </a>
-              </div>
-
-              {/* Navigation Links - Canonical Spanish URLs */}
-              <div className="border-t border-gray-200 pt-6 mb-6">
-                <p className="text-sm text-gray-600 mb-3">
-                  O explora nuestros servicios:
-                </p>
-                <div className="grid grid-cols-2 gap-2 text-sm">
-                  <Link
-                    href="/fontanero"
-                    className="text-primary-600 hover:underline"
-                  >
-                    💧 Fontanería
-                  </Link>
-                  <Link
-                    href="/electricista"
-                    className="text-primary-600 hover:underline"
-                  >
-                    ⚡ Electricidad
-                  </Link>
-                  <Link
-                    href="/desatascos"
-                    className="text-primary-600 hover:underline"
-                  >
-                    🚰 Desatascos
-                  </Link>
-                  <Link
-                    href="/aire-acondicionado"
-                    className="text-primary-600 hover:underline"
-                  >
-                    ❄️ Aire Acondicionado
-                  </Link>
-                  <Link
-                    href="/calefaccion"
-                    className="text-primary-600 hover:underline"
-                  >
-                    🔥 Calefacción
-                  </Link>
-                  <Link
-                    href="/contacto"
-                    className="text-primary-600 hover:underline"
-                  >
-                    📧 Contacto
-                  </Link>
-                </div>
-              </div>
-
-              <Link
-                href="/"
-                className="block text-primary-600 hover:underline font-medium"
-              >
-                ← Volver al Inicio
+    <>
+      <Header locale="es" />
+      <main className="flex-1 bg-white">
+        <section className="container-custom py-16 lg:py-24">
+          <div className="max-w-3xl">
+            <span className="inline-flex rounded-full bg-primary-50 px-4 py-2 text-sm font-bold uppercase tracking-wide text-primary-600">
+              Error 404
+            </span>
+            <h1 className="mt-6 text-5xl font-black leading-tight text-primary-900 lg:text-7xl">
+              Pagina no encontrada
+            </h1>
+            <p className="mt-6 max-w-2xl text-xl text-slate-600">
+              La pagina que buscas no esta disponible. Elige un servicio principal o contacta
+              con Reparar24 para recibir ayuda.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link href="/" className="btn-primary">
+                Volver al inicio
               </Link>
+              <a href={getPhoneHref()} className="btn-emergency">
+                Llamar {getPhoneDisplay()}
+              </a>
             </div>
           </div>
-        </div>
-      </body>
-    </html>
+
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {[
+              { href: '/fontanero', title: 'Fontaneria', text: 'Servicio de fontaneros en Valencia.' },
+              { href: '/electricista', title: 'Electricidad', text: 'Electricistas para vivienda y local.' },
+              { href: '/aire-acondicionado', title: 'Clima', text: 'Instalacion y reparacion de equipos.' },
+            ].map((item) => (
+              <Link key={item.href} href={item.href} className="card-flat">
+                <h2 className="text-2xl text-primary-900">{item.title}</h2>
+                <p className="mt-2 text-base text-slate-600">{item.text}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      </main>
+      <Footer locale="es" />
+    </>
   )
 }

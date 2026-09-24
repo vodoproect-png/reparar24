@@ -13,8 +13,8 @@
 
 import type { Service } from '@/data/services'
 import type { City, District } from '@/data/cities'
-import { getDistrictContext, getServiceContext, type DistrictContext } from '@/data/district-context'
-import { getProblemsByService, type Problem } from '@/data/problems'
+import { getServiceContext, type DistrictContext } from '@/data/district-context'
+import { getProblemsByService } from '@/data/problems'
 
 /**
  * Generate semantically varied introductory text
@@ -182,7 +182,6 @@ export function generateDistrictFAQs(
   const serviceContext = getServiceContext(city.id, district.id, service.id)
 
   // FAQ 1: Price - vary by district characteristics
-  const priceContext = context?.traits[0] || 'la zona'
   faqs.push({
     question: `¿Cuánto cuesta el servicio de ${service.name.toLowerCase()} en ${district.name}?`,
     answer: context?.buildingType === 'historic' 
@@ -372,6 +371,8 @@ export function generateDistrictWhatsAppMessage(
   district: District,
   context?: DistrictContext
 ): string {
+  void context
+
   const serviceContext = getServiceContext(city.id, district.id, service.id)
   
   if (serviceContext?.urgencyLevel === 'high') {

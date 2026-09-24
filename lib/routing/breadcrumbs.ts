@@ -2,10 +2,8 @@ import type { Locale } from '@/lib/i18n/config'
 import type { Service } from '@/data/services'
 import type { City } from '@/data/cities'
 import { RouteHelper } from './helpers'
-import { getServiceIdFromSlug, type ServiceId, type CityId } from '@/lib/i18n/slugs'
+import { type ServiceId, type CityId } from '@/lib/i18n/slugs'
 import { getDictionary } from '@/lib/i18n/dictionaries'
-
-const BASE_URL = 'https://reparar24.es'
 
 /**
  * Scalable breadcrumb generation system

@@ -1,0 +1,18 @@
+<svg width="176" height="176" viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tile" x1="24" y1="18" x2="150" y2="154"><stop stop-color="#F6FAFF"/><stop offset="1" stop-color="#E8F2FF"/></linearGradient>
+    <linearGradient id="blue" x1="44" y1="35" x2="130" y2="142"><stop stop-color="#77C6FF"/><stop offset=".57" stop-color="#246BEE"/><stop offset="1" stop-color="#0B3EA8"/></linearGradient>
+    <linearGradient id="metal" x1="46" y1="71" x2="129" y2="143"><stop stop-color="#F9FCFF"/><stop offset=".5" stop-color="#C7D5E8"/><stop offset="1" stop-color="#8AA0BE"/></linearGradient>
+    <linearGradient id="orange" x1="34" y1="32" x2="140" y2="75"><stop stop-color="#FFD08A"/><stop offset=".55" stop-color="#FF8A1F"/><stop offset="1" stop-color="#D85C00"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#1B4FB8" flood-opacity=".18"/></filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#0B3EA8" flood-opacity=".18"/></filter>
+  </defs>
+  <rect x="16" y="16" width="144" height="144" rx="32" fill="url(#tile)" filter="url(#shadow)"/>
+  <g filter="url(#soft)">
+    <path d="M54 62c0-19 15-34 34-34s34 15 34 34v18H54V62z" fill="url(#blue)"/>
+    <rect x="43" y="73" width="90" height="66" rx="16" fill="url(#metal)"/>
+    <rect x="59" y="89" width="58" height="32" rx="9" fill="#EAF7FF"/>
+    <path d="M38 34c-9 15-9 28 0 40M139 34c9 15 9 28 0 40" stroke="url(#orange)" stroke-width="11" stroke-linecap="round"/>
+    <path d="M62 147h52" stroke="#9EC9FF" stroke-width="12" stroke-linecap="round"/>
+  </g>
+</svg>

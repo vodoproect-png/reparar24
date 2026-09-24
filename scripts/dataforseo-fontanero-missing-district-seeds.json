@@ -1,0 +1,87 @@
+{
+  "service": "fontanero",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 50,
+  "notes": [
+    "Targeted collection for fontanero fallback district routes only.",
+    "Standard Queue only. Do not use Live Mode.",
+    "Promote only confirmed commercial geo demand to district SEO content.",
+    "Districts without confirmed keywords remain skipped."
+  ],
+  "groups": [
+    {
+      "target": "barcelona-sarria",
+      "page": "/fontanero/barcelona/sarria",
+      "seeds": [
+        "fontanero sarria barcelona",
+        "fontanero sant gervasi barcelona",
+        "fontanero urgente sarria sant gervasi"
+      ]
+    },
+    {
+      "target": "valencia-extramurs",
+      "page": "/fontanero/valencia/extramurs",
+      "seeds": [
+        "fontanero extramurs valencia",
+        "fontanero urgente extramurs",
+        "fontaneros extramurs valencia"
+      ]
+    },
+    {
+      "target": "valencia-poblats-maritims",
+      "page": "/fontanero/valencia/poblats-maritims",
+      "seeds": [
+        "fontanero poblats maritims valencia",
+        "fontanero malvarrosa valencia",
+        "fontanero nazaret valencia"
+      ]
+    },
+    {
+      "target": "sevilla-casco-antiguo",
+      "page": "/fontanero/sevilla/casco-antiguo",
+      "seeds": [
+        "fontanero casco antiguo sevilla",
+        "fontanero centro historico sevilla",
+        "fontanero santa cruz sevilla"
+      ]
+    },
+    {
+      "target": "sevilla-sur",
+      "page": "/fontanero/sevilla/sur",
+      "seeds": [
+        "fontanero sevilla sur",
+        "fontanero distrito sur sevilla",
+        "fontanero bellavista sevilla"
+      ]
+    },
+    {
+      "target": "zaragoza-san-jose",
+      "page": "/fontanero/zaragoza/san-jose",
+      "seeds": [
+        "fontanero san jose zaragoza",
+        "fontaneros zaragoza san jose",
+        "fontanero urgente san jose zaragoza"
+      ]
+    },
+    {
+      "target": "malaga-ciudad-jardin",
+      "page": "/fontanero/malaga/ciudad-jardin",
+      "seeds": [
+        "fontanero ciudad jardin malaga",
+        "fontanero urgente ciudad jardin malaga",
+        "fontaneros ciudad jardin malaga"
+      ]
+    },
+    {
+      "target": "malaga-carretera-cadiz",
+      "page": "/fontanero/malaga/carretera-cadiz",
+      "seeds": [
+        "fontanero carretera de cadiz malaga",
+        "fontanero carretera cadiz malaga",
+        "fontanero huelin malaga"
+      ]
+    }
+  ]
+}

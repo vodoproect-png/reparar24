@@ -1,152 +1,173 @@
 # Reparar24 - Cline AI Assistant Rules
 
-## PROJECT ARCHITECTURE - CRITICAL
+## Project Architecture - Critical
 
-**Reparar24 is SPANISH-ONLY production.**
+Reparar24 is Spanish-only in production.
 
 ### Current Production State
-- **Build Target**: 241 pages
-- **Architecture**: Spanish-only (multilingual rolled back)
-- **Canonical Domain**: reparar24.es
-- **Page Breakdown**:
-  - 238 SEO/service pages
-  - 3 legal pages: /privacidad, /terminos, /cookies
 
-### URL Architecture - MUST FOLLOW
+- Build target: 258 pages after current electricista child-service expansion
+- Architecture: Spanish-only public URLs, internal `app/[locale]` implementation
+- Canonical domain: `reparar24.es`
+- Public URLs must be root-level, without `/es`
+- Page count may change only through the approved page-registry conveyor
 
-**✅ CORRECT Spanish Canonical URLs (root-level):**
-```
-/                         (homepage)
-/fontanero                (service page)
-/electricista/madrid      (city page)
-/desatascos/madrid/centro (district page)
-/contacto                 (contact page)
-/privacidad               (legal page)
-/terminos                 (legal page)
-/cookies                  (legal page)
-```
+### Correct Spanish Canonical URLs
 
-**❌ FORBIDDEN in public URLs/examples/reports:**
-```
-/es                       (redirects to /)
-/es/fontanero             (redirects to /fontanero)
-/es/electricista/madrid   (redirects to /electricista/madrid)
-/en/*                     (redirects to Spanish equivalent)
-/ru/*                     (redirects to Spanish equivalent)
+```text
+/
+/fontanero
+/electricista
+/electricista/domotica
+/electricista/madrid
+/desatascos/madrid/centro
+/contacto
+/privacidad
+/terminos
+/cookies
 ```
 
-### Internal Technical Implementation
+### Forbidden Public URL Examples
 
-- **App Router Structure**: `app/[locale]/` exists for technical reasons only
-- **Middleware**: Rewrites root URLs to `/es/*` internally
-- **Public Behavior**: Users NEVER see `/es/` in browser
-- **[locale] folder**: Internal implementation detail, NOT public URL strategy
-
-### Critical Rules for AI Assistant
-
-1. **ALWAYS use root-level URLs** in examples, reports, internal links
-2. **NEVER suggest /es/* URLs** in documentation or code changes
-3. **DO NOT restore multilingual** unless explicitly requested in dedicated task
-4. **DO NOT work on EN/RU translations** unless explicitly requested
-5. **DO NOT modify routing** without explicit approval
-6. **DO NOT change page count** from 241 without explicit approval
-
-### Read These Files First
-
-When starting any task:
-1. Read `SEO_GOVERNANCE_COMPACT.md` (compact governance rules)
-2. Read `PROJECT_STATE_SUMMARY.md` (current architecture state)
-3. Then proceed with task-specific files
-
-### Validation Requirements
-
-Every task MUST include:
-- **Build validation**: `npm run build` must pass
-- **Page count check**: Must generate exactly 241 pages
-- **URL audit**: No `/es/*` in internal links or public examples
-- **Report generation**: Document all changes
-
-### Forbidden Actions Without Explicit Approval
-
-❌ Adding new cities/districts  
-❌ Modifying `data/cities.ts` (routing source of truth)  
-❌ Changing routing logic in middleware  
-❌ Modifying page templates  
-❌ Restoring multilingual architecture  
-❌ Creating new SEO URL clusters  
-❌ Generating fake reviews/ratings/certifications  
-❌ Creating doorway pages  
-
-### Allowed Actions (Standard Workflow)
-
-✅ Updating `data/district-seo-content.ts` (SEO content)  
-✅ Improving existing page content  
-✅ Fixing semantic leakage between services  
-✅ Enhancing metadata (within governance rules)  
-✅ Optimizing for AI Overviews  
-✅ Spanish language improvements  
-✅ Bug fixes that maintain 241 pages  
-
-### Spanish-Only Compliance
-
-- All public URLs must be root-level (no locale prefix)
-- All internal links must use canonical Spanish URLs
-- Reports must reference correct URL format
-- EN/RU files exist but are NOT used in production
-- Sitemap includes ONLY Spanish URLs
-- Hreflang includes ONLY Spanish (es-ES, x-default)
-
-### Multilingual Status
-
-**Status**: TEMPORARILY DISABLED  
-**Reason**: Spanish SEO stabilization priority  
-**Files**: EN/RU translation files still exist (for future use)  
-**Redirects**: /en/* and /ru/* redirect 301 to Spanish equivalents  
-**Future**: Can be re-enabled in dedicated multilingual restoration phase
-
-### Key Governance Principles
-
-1. **One keyword = One page** (per service)
-2. **95%+ unique content** required
-3. **No template spam** allowed
-4. **No keyword cannibalization**
-5. **Service semantic ownership** must be respected
-6. **GEO hierarchy separation** (generic/city/district)
-7. **AI-safe writing** prioritized
-8. **Conversion focus** maintained
-
-### Build Expectations
-
-```bash
-npm run build
+```text
+/es
+/es/fontanero
+/es/electricista
+/en/*
+/ru/*
 ```
 
-**Expected Output**:
-- ✅ Compiled successfully
-- ✅ 241/241 pages generated
-- ✅ 0 TypeScript errors
-- ✅ Pre-existing warnings acceptable
+`/es/*` is an internal technical route only. Do not use it in reports, links, examples, sitemap logic, or public docs.
 
-### Reporting Standards
+## Read First
 
-Every task completion requires:
-1. **Summary report** in Markdown format
-2. **Build validation** output included
-3. **Page count verification** (must be 241)
-4. **URL compliance check** (no /es/* violations)
-5. **Changes documented** with before/after
+Before adding scripts, routes, pages, or components:
 
-### Questions to Ask Before Starting
+1. Read `docs/CONVEYOR_RULES.md`.
+2. Read current SEO governance docs if present.
+3. Inspect the task-specific files before changing anything.
 
-- Does this task require modifying routing? (Need approval)
-- Does this task change page count? (Need approval)
-- Does this task involve multilingual work? (Need explicit request)
-- Can I accomplish this by modifying `data/district-seo-content.ts` only? (Preferred)
+## Ponytail-Style Conveyor Rule
 
----
+Before writing new code, ask:
 
-**Remember**: Spanish-only production is TEMPORARY strategic decision, not permanent architecture. The codebase retains multilingual capability for future re-enablement.
+1. Does this need to exist?
+2. Can an existing conveyor layer solve it?
+3. Can an existing script be extended?
+4. Can an existing DS component be reused?
+5. If new code is needed, write the smallest version that passes validation.
 
-**Last Updated**: 2026-05-23  
-**Current Production Pages**: 241  
-**Architecture**: Spanish-only (ES)
+This rule reduces code, but it never bypasses SEO governance.
+
+## SEO Conveyor
+
+Production child service pages must pass through:
+
+```text
+semantic-map -> clusters -> page-registry -> seo-map -> production content -> route/sitemap -> validators
+```
+
+Do not create pages from:
+
+- raw Ahrefs data
+- future clusters only
+- weak or dirty service intent
+- product/store/manufacturer intent
+- informational-only intent
+- boletin/certificado/legalizacion clusters inside `electricista`
+
+## Validation Requirements
+
+Every code/content task must include the relevant checks:
+
+- `npm run validate:semantic:self-test` for page-registry/content governance
+- `npm run preview:seo-impact -- --service <service> --slug <slug>` before promoting a child service
+- `npm run build` before deploy
+- page count must match current page-registry-driven production count
+
+Pre-existing ESLint warnings are acceptable if build passes and no new behavioral issue is introduced.
+
+## Content Rules
+
+- One keyword territory = one page.
+- 95%+ unique content required.
+- Before deploy, check important SEO text with Google/index exact-match searches.
+- Before publishing, indexing, sitemap inclusion, or deploy, every new or meaningfully rewritten SEO text must pass Text.ru and Copyscape. Internal uniqueness is only a pre-check; never set `external-passed` without actual external reports.
+- Content reports must include key occurrences: keyword, role, exact normalized count, density, missing terms, and overused terms. Do not report only uniqueness/water/spam.
+- Never use `noindex` as a workaround. Unchecked content stays internal/unrendered by status; public production URLs should be indexable or not public yet.
+- Every new published blog article, service card, or product/service-like card must have its own visual asset or topic-specific card scene before release; do not rely on generic fallback visuals.
+- Spanish question-style titles, H1s, metadata, FAQ questions, and visible article headings must use proper Spanish punctuation with opening and closing question marks: `¿...?`. Never publish malformed `Вї` mojibake or English-only `...?` question formatting.
+- No keyword cannibalization.
+- No template spam.
+- No fake reviews, fake certifications, fake ratings, or fake guarantees.
+- FAQ, metadata, and body content must align with approved keyword ownership.
+
+## Blog Article Conveyor - Daily Rule
+
+When the user says "продолжаем писать статьи", "пишем статьи на сегодня", or similar, continue the blog conveyor without re-asking for the workflow.
+
+Daily target:
+
+- Write and publish 6 blog articles per batch/day.
+- Choose 1 article from each service queue when available: `fontaneria`, `electricista`, `desatascos`, `aire-acondicionado`, `calefaccion`, `limpieza-tuberias`.
+- Source clusters only from `data/blog/informational-cluster-backlog.json` or `data/blog/informational-cluster-backlog.csv`.
+- Published/used clusters are tracked in `data/blog/published-informational-clusters.json` and `data/blog/published-informational-clusters.csv`.
+- After publishing, always run `npm run blog:sync-clusters` so used clusters leave the backlog and enter the published ledger.
+
+Publication/indexing rule:
+
+- Articles are written directly into the site data layer and should be live/indexable immediately after deployment.
+- Do not put new ready articles into `noindex`.
+- Do not keep finished articles hidden as drafts unless the user explicitly asks to pause publication.
+- If a live article has an issue, fix it live in the next edit/deploy cycle.
+- Every new article must have a unique topic-specific card visual before deploy. Keep the approved vertical split blog-card style, but do not reuse the generic fallback scene for new articles.
+- For any question-intent article, write `title`, `h1`, metadata/SEO title, FAQ questions and question-like headings with correct Spanish punctuation: `¿...?`.
+
+Mandatory quality checks for every article batch:
+
+- Run Text.ru for every new article and report: uniqueness, water, spam/over-spam, and key occurrences.
+- Run Copyscape where applicable before publication/deploy, especially for batch releases and important commercial-supporting articles.
+- Report key occurrences for each article: primary keyword, secondary/approved terms, exact normalized count, density, missing terms, and overused terms.
+- Do not increase keyword density for its own sake; improve coverage with synonyms, entities, subtopics, FAQ, and internal links.
+- Water target: aim for 0-1%, using competitor benchmark context.
+- Do not force text length to a lower bound; length depends on intent, keyword set, completeness, usefulness, water, and spam.
+
+Required checks after a batch:
+
+- `npm run blog:sync-clusters`
+- `npm run audit:blog`
+- `npm run audit:blog-preflight`
+- `npm run audit:blog-text`
+- `npm run build`
+
+Deployment remains manual: deploy only when the user explicitly asks.
+
+## Design/System Rules
+
+- Reuse existing DS components before creating new ones.
+- For electricista child services, prefer the shared category service directory over page-specific duplicate grids.
+- Do not create landing-page-style decorative sections for operational service pages.
+- Mobile CTA and service discovery must remain usable.
+
+## Forbidden Without Explicit Approval
+
+- Adding new cities or districts.
+- Modifying `data/cities.ts`.
+- Changing routing logic in `middleware.ts` or `next.config.js`.
+- Restoring multilingual architecture.
+- Creating new SEO URL clusters outside the conveyor.
+- Creating doorway pages.
+- Generating fake trust signals.
+
+## Reporting Standards
+
+Every completion report must include:
+
+1. What changed.
+2. What was not changed.
+3. Validation results.
+4. Page count impact.
+5. Next logical step.
+
+Last updated: 2026-06-14.
+Current production pages: 258.

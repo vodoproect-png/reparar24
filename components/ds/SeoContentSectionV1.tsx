@@ -1,22 +1,10 @@
 import type { LucideIcon } from "lucide-react"
 import {
   Zap,
-  Droplets,
-  Wrench,
-  Flame,
-  ShowerHead,
-  Gauge,
   MapPin,
-  Clock,
-  ShieldCheck,
-  Users,
   Check,
   ArrowRight,
   Phone,
-  FileText,
-  BadgeCheck,
-  Receipt,
-  Umbrella,
 } from "lucide-react"
 
 type AccentColor = "blue" | "green" | "orange" | "red" | "purple" | "cyan"
@@ -100,8 +88,6 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
     serviceAreasTitle,
     serviceAreas,
     serviceAreasCtaLabel,
-    keywordsTitle,
-    keywordTags,
     phone,
     footerTrustItems,
     footnote,
@@ -131,7 +117,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
                   className={
                     i === 0
                       ? "text-pretty text-lg font-medium leading-relaxed text-[#3A4A6B] sm:text-xl"
-                      : "text-pretty text-[15px] leading-relaxed text-[#5B6B8C]"
+                      : "text-pretty text-[15px] leading-relaxed text-[#4A5B7D]"
                   }
                 >
                   {paragraph}
@@ -163,7 +149,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
 
                   <ul className="mt-5 flex flex-col gap-3">
                     {card.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#5B6B8C]">
+                      <li key={bullet} className="flex items-center gap-2.5 text-[15px] leading-snug text-[#4A5B7D]">
                         <Check className={`h-4 w-4 flex-shrink-0 ${accent.bullet}`} strokeWidth={3} aria-hidden="true" />
                         {bullet}
                       </li>
@@ -198,7 +184,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
               </span>
               <div>
                 <h3 className="text-lg font-extrabold leading-tight text-[#0F2D75]">{localCoverage.title}</h3>
-                <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-[#5B6B8C]">{localCoverage.description}</p>
+                <p className="mt-1 max-w-xl text-[15px] leading-relaxed text-[#4A5B7D]">{localCoverage.description}</p>
               </div>
             </div>
 
@@ -212,7 +198,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
                         <Icon className="h-5 w-5" strokeWidth={2.25} aria-hidden="true" />
                       </span>
                       <span className="mt-2 text-sm font-bold leading-tight text-[#0F2D75]">{stat.label}</span>
-                      <span className="text-xs leading-tight text-[#5B6B8C]">{stat.value}</span>
+                      <span className="text-xs leading-tight text-[#4A5B7D]">{stat.value}</span>
                     </div>
                   )
                 })}
@@ -222,7 +208,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
         ) : null}
 
         {/* 6 + 7 — SEO information grid */}
-        {(benefits?.length || serviceAreas?.length || keywordTags?.length) ? (
+        {(benefits?.length || serviceAreas?.length) ? (
           <div className="mt-3 grid grid-cols-1 gap-4 lg:grid-cols-3">
             {/* Column 1 — benefits + CTA card */}
             {benefits?.length ? (
@@ -246,7 +232,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
                       <Phone className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" />
                     </span>
                     <span className="flex flex-col">
-                      <span className="text-sm font-semibold text-[#5B6B8C]">{phone.label}</span>
+                      <span className="text-sm font-semibold text-[#4A5B7D]">{phone.label}</span>
                       <span className="text-xl font-extrabold leading-tight text-[#0F2D75]">{phone.number}</span>
                     </span>
                   </a>
@@ -281,23 +267,6 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
                 ) : null}
               </div>
             ) : null}
-
-            {/* Column 3 — keyword tags */}
-            {keywordTags?.length ? (
-              <div className="flex flex-col rounded-[28px] border border-[#EAF0F9] bg-white p-7 shadow-[0_20px_45px_-24px_rgba(15,45,117,0.25)]">
-                <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75]">{keywordsTitle}</h3>
-                <div className="mt-4 flex flex-wrap gap-2.5">
-                  {keywordTags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full bg-[#EEF2F9] px-3.5 py-1.5 text-[13px] font-semibold text-[#3A4A6B]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ) : null}
           </div>
         ) : null}
 
@@ -313,7 +282,7 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
                   </span>
                   <span className="flex flex-col leading-tight">
                     <span className="text-sm font-extrabold text-[#0F2D75]">{item.title}</span>
-                    <span className="text-[13px] text-[#5B6B8C]">{item.subtitle}</span>
+                    <span className="text-[13px] text-[#4A5B7D]">{item.subtitle}</span>
                   </span>
                 </div>
               )
@@ -333,3 +302,4 @@ export function SeoContentSectionV1(props: SeoContentSectionV1Props = {}) {
 }
 
 export default SeoContentSectionV1
+

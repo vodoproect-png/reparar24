@@ -1,0 +1,159 @@
+{
+  "service": "calefaccion",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect informational demand for the /calefaccion blog backlog.",
+    "Commercial intent must be separated into the future service-page backlog.",
+    "Owner points to the commercial page that each future article should support."
+  ],
+  "groups": [
+    {
+      "target": "caldera-no-enciende",
+      "owner": "/calefaccion/reparacion-calderas",
+      "seeds": [
+        "que hacer si la caldera no enciende",
+        "caldera no arranca",
+        "caldera no funciona",
+        "caldera no calienta agua",
+        "caldera se bloquea",
+        "caldera error que hacer"
+      ]
+    },
+    {
+      "target": "presion-caldera",
+      "owner": "/calefaccion/reparacion-calderas",
+      "seeds": [
+        "porque baja la presion de la caldera",
+        "presion baja caldera",
+        "caldera pierde presion",
+        "subir presion caldera",
+        "caldera sube mucho la presion",
+        "presion caldera correcta"
+      ]
+    },
+    {
+      "target": "caldera-pierde-agua-ruido",
+      "owner": "/calefaccion/reparacion-calderas",
+      "seeds": [
+        "caldera pierde agua",
+        "caldera gotea",
+        "caldera hace ruido",
+        "caldera suena raro",
+        "caldera hace ruido al encender",
+        "caldera pierde agua por valvula seguridad"
+      ]
+    },
+    {
+      "target": "mantenimiento-revision-caldera",
+      "owner": "/calefaccion/mantenimiento-calderas",
+      "seeds": [
+        "cada cuanto revisar caldera",
+        "mantenimiento caldera obligatorio",
+        "revision caldera obligatoria",
+        "cuando hacer mantenimiento caldera",
+        "que incluye mantenimiento caldera",
+        "limpieza caldera gas"
+      ]
+    },
+    {
+      "target": "radiadores-no-calientan",
+      "owner": "/calefaccion/radiadores-calefaccion",
+      "seeds": [
+        "como purgar radiadores",
+        "porque no calienta un radiador",
+        "radiador no calienta",
+        "radiador calienta arriba y abajo no",
+        "radiador frio abajo",
+        "radiadores no calientan bien"
+      ]
+    },
+    {
+      "target": "radiadores-fugas-valvulas",
+      "owner": "/calefaccion/radiadores-calefaccion",
+      "seeds": [
+        "radiador pierde agua",
+        "fuga radiador calefaccion",
+        "valvula radiador pierde agua",
+        "detentor radiador que es",
+        "valvula termostatica radiador no funciona",
+        "como cambiar valvula radiador"
+      ]
+    },
+    {
+      "target": "instalacion-calefaccion-coste",
+      "owner": "/calefaccion/instalacion-calefaccion",
+      "seeds": [
+        "cuanto cuesta instalar calefaccion",
+        "precio instalacion calefaccion",
+        "cuanto cuesta instalar radiadores",
+        "que calefaccion poner en casa",
+        "calefaccion por radiadores como funciona",
+        "instalar calefaccion en piso antiguo"
+      ]
+    },
+    {
+      "target": "suelo-radiante",
+      "owner": "/calefaccion/suelo-radiante",
+      "seeds": [
+        "suelo radiante ventajas inconvenientes",
+        "suelo radiante no calienta",
+        "suelo radiante consume mucho",
+        "suelo radiante o radiadores que es mejor",
+        "suelo radiante agua como funciona",
+        "mantenimiento suelo radiante"
+      ]
+    },
+    {
+      "target": "calefaccion-central-comunidad",
+      "owner": "/calefaccion/calefaccion-central-comunidades",
+      "seeds": [
+        "calefaccion central como funciona",
+        "calefaccion central comunidad vecinos",
+        "radiadores frios calefaccion central",
+        "contador individual calefaccion central",
+        "cuando encienden calefaccion central",
+        "equilibrado calefaccion central"
+      ]
+    },
+    {
+      "target": "termostatos-valvulas",
+      "owner": "/calefaccion/termostatos-valvulas",
+      "seeds": [
+        "termostato calefaccion como funciona",
+        "termostato caldera no funciona",
+        "donde colocar termostato calefaccion",
+        "valvulas termostaticas como funcionan",
+        "como regular valvulas termostaticas",
+        "termostato no enciende calefaccion"
+      ]
+    },
+    {
+      "target": "aerotermia-calefaccion",
+      "owner": "/calefaccion/aerotermia-calefaccion",
+      "seeds": [
+        "aerotermia calefaccion como funciona",
+        "aerotermia con radiadores funciona",
+        "aerotermia o caldera gas",
+        "aerotermia suelo radiante consumo",
+        "bomba de calor para calefaccion",
+        "aerotermia ventajas inconvenientes"
+      ]
+    },
+    {
+      "target": "ahorro-uso-calefaccion",
+      "owner": "/calefaccion",
+      "seeds": [
+        "temperatura calefaccion recomendada",
+        "como ahorrar calefaccion",
+        "calefaccion consume mucho",
+        "como usar calefaccion eficientemente",
+        "calefaccion no calienta suficiente",
+        "cuando encender calefaccion"
+      ]
+    }
+  ]
+}

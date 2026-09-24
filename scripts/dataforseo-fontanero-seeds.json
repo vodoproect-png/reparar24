@@ -1,0 +1,190 @@
+{
+  "service": "fontanero",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Seeds are grouped by existing approved fontanero semantic territories.",
+    "Desatascos is present for boundary review only because /desatascos is a separate top-level service.",
+    "Future child candidates are collected for demand sizing only; page creation still requires page-registry approval.",
+    "Blog seeds are collected as content opportunities and must not be promoted to service pages.",
+    "Provider outputs must stay in .tmp review folders until classified and approved."
+  ],
+  "groups": [
+    {
+      "target": "hub",
+      "seeds": [
+        "fontanero",
+        "fontanero valencia",
+        "fontanero urgente valencia",
+        "fontanero 24 horas valencia"
+      ]
+    },
+    {
+      "target": "reparacion-fugas",
+      "seeds": [
+        "reparacion fugas agua valencia",
+        "fuga de agua valencia",
+        "detectar fuga agua valencia",
+        "reparar fuga tuberia valencia",
+        "detector fugas valencia"
+      ]
+    },
+    {
+      "target": "desatascos",
+      "ownerService": "desatascos",
+      "relationship": "cross-service-boundary",
+      "approvalPolicy": "exclude-from-automatic-fontanero-promotion",
+      "seeds": [
+        "desatascos valencia",
+        "desatascos urgentes valencia",
+        "desatascos 24 horas valencia",
+        "desatascar tuberia valencia",
+        "desatascar fregadero valencia"
+      ]
+    },
+    {
+      "target": "instalaciones",
+      "seeds": [
+        "instalacion fontaneria valencia",
+        "instalar grifo valencia",
+        "instalacion bano valencia",
+        "instalacion sanitarios valencia",
+        "fontanero instalador valencia"
+      ]
+    },
+    {
+      "target": "sustitucion-tuberias",
+      "seeds": [
+        "sustitucion tuberias valencia",
+        "cambio tuberias valencia",
+        "renovar tuberias valencia",
+        "cambiar tuberias vivienda valencia",
+        "sustitucion bajantes valencia"
+      ]
+    },
+    {
+      "target": "calentadores-termos",
+      "seeds": [
+        "termo electrico valencia",
+        "reparacion termo electrico valencia",
+        "instalacion termo electrico valencia",
+        "cambiar termo electrico valencia",
+        "calentador agua valencia"
+      ]
+    },
+    {
+      "target": "mantenimiento",
+      "seeds": [
+        "mantenimiento fontaneria valencia",
+        "revision fontaneria valencia",
+        "mantenimiento tuberias valencia",
+        "mantenimiento comunidad fontaneria valencia",
+        "contrato mantenimiento fontaneria"
+      ]
+    },
+    {
+      "target": "grifos",
+      "status": "future-candidate",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "cambiar grifo valencia",
+        "instalar grifo valencia",
+        "reparar grifo valencia",
+        "grifo que gotea valencia",
+        "fontanero cambiar grifo"
+      ]
+    },
+    {
+      "target": "cisternas-inodoros",
+      "status": "future-candidate",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "reparar cisterna valencia",
+        "cambiar mecanismo cisterna valencia",
+        "cisterna pierde agua valencia",
+        "instalar inodoro valencia",
+        "reparar inodoro valencia"
+      ]
+    },
+    {
+      "target": "duchas-lavabos",
+      "status": "future-candidate",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "instalar ducha valencia",
+        "cambiar plato ducha valencia",
+        "reparar ducha valencia",
+        "instalar lavabo valencia",
+        "cambiar lavabo valencia"
+      ]
+    },
+    {
+      "target": "bombas-grupos-presion",
+      "status": "future-candidate",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "bomba de agua vivienda valencia",
+        "reparar bomba de agua valencia",
+        "grupo presion agua valencia",
+        "instalar grupo de presion valencia",
+        "fontanero bomba agua"
+      ]
+    },
+    {
+      "target": "descalcificadores-osmosis",
+      "status": "future-candidate",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "instalar descalcificador valencia",
+        "reparar descalcificador valencia",
+        "mantenimiento descalcificador valencia",
+        "instalar osmosis valencia",
+        "reparar osmosis valencia"
+      ]
+    },
+    {
+      "target": "precios-fontanero",
+      "status": "commercial-support",
+      "approvalPolicy": "map-to-existing-pages-first",
+      "seeds": [
+        "precio fontanero valencia",
+        "tarifas fontanero valencia",
+        "cuanto cuesta fontanero valencia",
+        "fontanero barato valencia",
+        "presupuesto fontaneria valencia"
+      ]
+    },
+    {
+      "target": "fontanero-geo",
+      "status": "geo-expansion",
+      "approvalPolicy": "map-to-city-or-district-layer",
+      "seeds": [
+        "fontanero madrid",
+        "fontanero barcelona",
+        "fontanero sevilla",
+        "fontanero malaga",
+        "fontanero zaragoza",
+        "fontanero alicante"
+      ]
+    },
+    {
+      "target": "blog-fontaneria",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "como detectar fuga de agua",
+        "como reparar fuga de agua",
+        "como cambiar un grifo",
+        "como arreglar cisterna que pierde agua",
+        "porque no sale agua caliente",
+        "como instalar termo electrico",
+        "como evitar atascos tuberias",
+        "que hacer si se rompe una tuberia"
+      ]
+    }
+  ]
+}

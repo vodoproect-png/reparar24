@@ -29,7 +29,7 @@ export interface BankingInfo {
  */
 export function getCompanyInfo(): CompanyInfo {
   return {
-    legalName: 'Reparar24 S.L.',
+    legalName: 'ATG S.L.',
     tradeName: 'Reparar24',
     cif: 'B72597370',
     nie: 'Y9860156R',

@@ -1,10 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { locales, type Locale } from '@/lib/i18n/config'
-import { getDictionary } from '@/lib/i18n/dictionaries'
-import { ConsentAwareAnalytics, ConsentAwareGTMNoScript } from '@/components/analytics/ConsentAwareAnalytics'
-import { CookieBanner } from '@/components/consent/CookieBanner'
-import '../globals.css'
+import { locales, isActiveLocale, type Locale } from '@/lib/i18n/config'
+
+export const dynamicParams = false
 
 export async function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
@@ -16,17 +14,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>
 }): Promise<Metadata> {
   const { locale } = await params as { locale: Locale }
-  
-  // MULTILINGUAL INDEXATION FREEZE
-  // En/ru pages contain broken Spanish content - block from indexing
-  const isNonIndexable = locale !== 'es'
-  
+
   const metadataByLocale: Record<Locale, Metadata> = {
     es: {
       metadataBase: new URL('https://reparar24.es'),
       title: {
         default: 'Reparar24 | Fontanería, Electricidad y Reparaciones 24/7',
-        template: '%s | Reparar24',
+        template: '%s',
       },
       description:
         '¿Emergencia en casa? Fontanero y electricista 24/7 en España. Profesionales certificados desde 49€. Presupuesto gratis. ¡Llama ya!',
@@ -39,7 +33,7 @@ export async function generateMetadata({
       metadataBase: new URL('https://reparar24.es'),
       title: {
         default: 'Reparar24 - Plumbing, Electrical and Repair Services 24/7',
-        template: '%s | Reparar24',
+        template: '%s',
       },
       description:
         'Professional plumbing, electrical, drain cleaning and emergency services available 24 hours throughout Spain.',
@@ -52,11 +46,11 @@ export async function generateMetadata({
     ru: {
       metadataBase: new URL('https://reparar24.es'),
       title: {
-        default: 'Reparar24 - Сантехнические, электрические и ремонтные услуги 24/7',
-        template: '%s | Reparar24',
+        default: 'Reparar24 - Servicios de reparación 24/7',
+        template: '%s',
       },
       description:
-        'Профессиональные сантехнические, электрические услуги и аварийный сервис 24 часа по всей Испании.',
+        'Servicios profesionales de fontanería, electricidad y reparaciones urgentes 24/7 en España.',
       robots: {
         index: false,
         follow: false,
@@ -65,7 +59,7 @@ export async function generateMetadata({
     },
   }
 
-  return metadataByLocale[locale]
+  return metadataByLocale[locale] ?? metadataByLocale.es
 }
 
 export default async function LocaleLayout({
@@ -76,24 +70,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params as { locale: Locale }
-  // Validate locale
-  if (!locales.includes(locale)) {
+
+  if (!isActiveLocale(locale)) {
     notFound()
   }
 
-  // Dictionary available for future use
-  // const dict = getDictionary(params.locale)
-
-  return (
-    <html lang={locale}>
-      <head>
-        <ConsentAwareAnalytics />
-      </head>
-      <body className="min-h-screen flex flex-col">
-        <ConsentAwareGTMNoScript />
-        {children}
-        <CookieBanner />
-      </body>
-    </html>
-  )
+  return children
 }

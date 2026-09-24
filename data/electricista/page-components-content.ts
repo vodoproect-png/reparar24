@@ -9,121 +9,74 @@
  * Created: 2026-06-12 - Foundation Architecture Phase
  */
 
+import type { ServicesDirectoryV2Props } from '@/components/ds/ServicesDirectoryV2'
 import type { ServicesGridV1Props } from '@/components/ds/ServicesGridV1'
 import type { TrustSignalsV1Props } from '@/components/ds/TrustSignalsV1'
 import type { RelatedServicesV1Props } from '@/components/ds/RelatedServicesV1'
-import type { ServiceHeroV2Props } from '@/components/ds/ServiceHeroV2'
-import type { LucideIcon } from 'lucide-react'
 import {
   Zap,
   Lightbulb,
   Power,
-  Activity,
   Cable,
   ShieldAlert,
   Clock,
   ShieldCheck,
   Award,
   CreditCard,
-  UserCheck,
-  FileText,
-  Tag,
-  Shield,
-  UserRound,
-  Star,
-  XCircle,
-  Home,
 } from 'lucide-react'
-
-export const electricistaHeroContent: ServiceHeroV2Props = {
-  eyebrow: "Servicio 24/7 en Valencia",
-  title: "Electricista",
-  subtitle: "Llegamos en 30-60 minutos. Solucionamos averías eléctricas con garantía y al mejor precio.",
-  phoneCta: {
-    label: "Llamar ahora",
-    sublabel: "Desde 59€",
-    href: "tel:+34641688524",
-  },
-  whatsappCta: {
-    label: "WhatsApp",
-    sublabel: "Respuesta en 2 min",
-    href: "https://wa.me/34641688524",
-  },
-  trustCards: [
-    { icon: Star, title: "4.8/5", subtitle: "500+ reseñas" },
-    { icon: Clock, title: "24/7", subtitle: "365 días al año" },
-    { icon: ShieldCheck, title: "Profesionales", subtitle: "certificados" },
-  ],
-  quickChips: [
-    { icon: Zap, label: "Averías" },
-    { icon: Power, label: "Cuadros" },
-    { icon: Lightbulb, label: "Instalaciones" },
-    { icon: Cable, label: "Recableado" },
-  ],
-  highlights: [
-    { label: "Llegada en 30-60 min" },
-    { label: "Garantía 2 años" },
-    { label: "Seguro RC 600.000€" },
-    { label: "Presupuesto gratuito" },
-  ],
-  image: {
-    src: "/images/electricista/electricista-hero.png",
-    alt: "Electricista profesional junto a furgoneta de servicio",
-  },
-}
 
 export const electricistaServicesGridContent: ServicesGridV1Props = {
   badge: "Servicios Profesionales",
   title: "Nuestros Servicios de Electricidad",
-  subtitle: "Soluciones profesionales para tu hogar o negocio. Trabajos con garantía y atención personalizada.",
+  subtitle: "Soluciones profesionales para tu hogar o negocio. Trabajos con garantia y atencion personalizada.",
   services: [
     {
-      icon: Zap,
-      iconBg: "bg-amber-50",
-      iconColor: "text-amber-600",
-      title: "Reparación de Averías",
-      description: "Diagnóstico y reparación de cortocircuitos, saltos de diferencial, y fallos eléctricos urgentes.",
-      href: "#",
+      icon: ShieldAlert,
+      iconBg: "bg-red-50",
+      iconColor: "text-red-500",
+      title: "Urgencias Electricas",
+      description: "Electricistas disponibles 24h para cortes de luz, cortocircuitos y averias urgentes.",
+      href: "/electricista/urgencias-electricas",
+    },
+    {
+      icon: Lightbulb,
+      iconBg: "bg-blue-50",
+      iconColor: "text-blue-600",
+      title: "Instalaciones Electricas",
+      description: "Instalacion electrica en viviendas, locales y reformas con materiales homologados.",
+      href: "/electricista/instalaciones-electricas",
     },
     {
       icon: Power,
-      iconBg: "bg-blue-50",
-      iconColor: "text-blue-600",
-      title: "Cuadros Eléctricos",
-      description: "Actualización y reparación de cuadros eléctricos con protecciones modernas y boletín eléctrico.",
-      href: "#",
+      iconBg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+      title: "Cuadros Electricos",
+      description: "Reparacion, sustitucion y ampliacion de cuadros electricos, diferenciales y magnetotermicos.",
+      href: "/electricista/cuadros-electricos",
     },
     {
       icon: Lightbulb,
       iconBg: "bg-yellow-50",
       iconColor: "text-yellow-600",
-      title: "Instalaciones",
-      description: "Instalación de enchufes, interruptores, iluminación LED, y puntos de luz con certificado oficial.",
-      href: "#",
-    },
-    {
-      icon: Activity,
-      iconBg: "bg-orange-50",
-      iconColor: "text-orange-500",
-      title: "Inspecciones Eléctricas",
-      description: "Revisión completa de instalaciones eléctricas con termografía y emisión de boletín eléctrico.",
-      href: "#",
+      title: "Iluminacion LED",
+      description: "Instalacion de iluminacion LED interior, exterior, jardines, cocinas y comunidades.",
+      href: "/electricista/iluminacion-led",
     },
     {
       icon: Cable,
-      iconBg: "bg-emerald-50",
-      iconColor: "text-emerald-600",
-      title: "Recableado Completo",
-      description: "Sustitución de instalaciones antiguas de aluminio por cobre. Actualización normativa REBT.",
-      href: "#",
+      iconBg: "bg-violet-50",
+      iconColor: "text-violet-600",
+      title: "Enchufes e Interruptores",
+      description: "Instalacion y sustitucion de enchufes, interruptores, puntos de luz y mecanismos electricos.",
+      href: "/electricista/enchufes-interruptores",
     },
     {
-      icon: ShieldAlert,
-      iconBg: "bg-red-50",
-      iconColor: "text-red-500",
-      title: "Emergencias 24/7",
-      description: "Atención urgente para cortocircuitos, apagones, y situaciones de riesgo eléctrico.",
-      href: "#",
+      icon: Zap,
+      iconBg: "bg-amber-50",
+      iconColor: "text-amber-600",
+      title: "Reparacion de Averias Electricas",
+      description: "Diagnostico y reparacion de fallos electricos, plomos que saltan y problemas de corriente.",
+      href: "/electricista/averias-electricas",
     },
   ],
   trustItems: [
@@ -138,7 +91,7 @@ export const electricistaServicesGridContent: ServicesGridV1Props = {
       icon: ShieldCheck,
       iconBg: "bg-emerald-50",
       iconColor: "text-emerald-600",
-      title: "Garantía 2 años",
+      title: "Garantia 6 meses",
       subtitle: "En todos nuestros trabajos",
     },
     {
@@ -146,7 +99,7 @@ export const electricistaServicesGridContent: ServicesGridV1Props = {
       iconBg: "bg-orange-50",
       iconColor: "text-orange-500",
       title: "Profesionales certificados",
-      subtitle: "Técnicos cualificados",
+      subtitle: "Tecnicos cualificados",
     },
     {
       icon: CreditCard,
@@ -158,36 +111,174 @@ export const electricistaServicesGridContent: ServicesGridV1Props = {
   ],
 }
 
+export const electricistaServicesDirectoryContent: ServicesDirectoryV2Props = {
+  badge: "Servicios electricos en Valencia",
+  title: "Servicios de electricista para vivienda, local y comunidad",
+  subtitle: "Organizamos las urgencias, averias, instalaciones y trabajos electricos habituales para que encuentres rapido el servicio que necesitas.",
+  phoneHref: "tel:+34642310813",
+  phoneLabel: "642 310 813",
+  whatsappHref: "https://wa.me/34642310813?text=Hola%2C%20necesito%20un%20electricista%20en%20Valencia.%20%C2%BFPueden%20ayudarme%3F",
+  whatsappLabel: "WhatsApp",
+  searchPlaceholder: "Buscar servicio electrico",
+  trustItems: [
+    { icon: "Clock", label: "Atencion 24h" },
+    { icon: "ShieldCheck", label: "Garantia" },
+    { icon: "Award", label: "Tecnicos cualificados" },
+    { icon: "CreditCard", label: "Presupuesto claro" },
+  ],
+  groups: [
+    {
+      id: "urgencias-averias",
+      label: "Urgencias y averias",
+      icon: "ShieldAlert",
+      services: [
+        {
+          icon: "ShieldAlert",
+          title: "Urgencias Electricas",
+          description: "Electricistas disponibles 24h para cortes de luz, cortocircuitos y averias urgentes.",
+          href: "/electricista/urgencias-electricas",
+          featured: true,
+        },
+        {
+          icon: "Zap",
+          title: "Reparacion de Averias Electricas",
+          description: "Diagnostico y reparacion de fallos electricos, plomos que saltan y problemas de corriente.",
+          href: "/electricista/averias-electricas",
+          featured: true,
+        },
+      ],
+    },
+    {
+      id: "instalaciones",
+      label: "Instalaciones",
+      icon: "Lightbulb",
+      services: [
+        {
+          icon: "Lightbulb",
+          title: "Instalaciones Electricas",
+          description: "Instalacion electrica en viviendas, locales y reformas con materiales homologados.",
+          href: "/electricista/instalaciones-electricas",
+          featured: true,
+        },
+        {
+          icon: "Power",
+          title: "Cuadros Electricos",
+          description: "Reparacion, sustitucion y ampliacion de cuadros electricos, diferenciales y magnetotermicos.",
+          href: "/electricista/cuadros-electricos",
+        },
+        {
+          icon: "Cable",
+          title: "Enchufes e Interruptores",
+          description: "Instalacion y sustitucion de enchufes, interruptores, puntos de luz y mecanismos electricos.",
+          href: "/electricista/enchufes-interruptores",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Puesta a Tierra",
+          description: "Revision y mejora de la toma de tierra para instalaciones electricas mas seguras.",
+          status: "consult",
+        },
+      ],
+    },
+    {
+      id: "iluminacion-trabajos",
+      label: "Iluminacion y trabajos pequenos",
+      icon: "Wrench",
+      services: [
+        {
+          icon: "Lightbulb",
+          title: "Iluminacion LED",
+          description: "Instalacion de iluminacion LED interior, exterior, jardines, cocinas y comunidades.",
+          href: "/electricista/iluminacion-led",
+        },
+        {
+          icon: "Wrench",
+          title: "Pequenos Trabajos Electricos",
+          description: "Cambio de lamparas, sustitucion de enchufes, puntos de luz y reparaciones electricas rapidas.",
+          href: "/electricista/pequenos-trabajos-electricos",
+        },
+      ],
+    },
+    {
+      id: "especializadas",
+      label: "Especializadas",
+      icon: "Activity",
+      services: [
+        {
+          icon: "Car",
+          title: "Cargador de Coche Electrico",
+          description: "Instalacion de punto de recarga para vehiculo electrico en vivienda, garaje o comunidad.",
+          href: "/electricista/cargador-coche-electrico",
+        },
+        {
+          icon: "Wifi",
+          title: "Domotica",
+          description: "Automatizacion de iluminacion, persianas, control electrico y sistemas inteligentes.",
+          href: "/electricista/domotica",
+        },
+        {
+          icon: "Tv",
+          title: "Videoportero y Portero Automatico",
+          description: "Instalacion y sustitucion de porteros automaticos, telefonillos y videoporteros.",
+          status: "consult",
+        },
+      ],
+    },
+    {
+      id: "mantenimiento",
+      label: "Mantenimiento",
+      icon: "ClipboardCheck",
+      services: [
+        {
+          icon: "ClipboardCheck",
+          title: "Mantenimiento Electrico",
+          description: "Mantenimiento preventivo y correctivo para viviendas, locales y comunidades.",
+          href: "/electricista/mantenimiento-electrico",
+        },
+        {
+          icon: "ShieldCheck",
+          title: "Revision Electrica",
+          description: "Comprobacion del cuadro, cableado, protecciones, enchufes y puntos de luz.",
+          href: "/electricista/revision-electrica",
+        },
+      ],
+    },
+  ],
+}
+
 export const electricistaTrustSignalsContent: TrustSignalsV1Props = {
+  badge: "Ventajas Reparar24",
+  title: "?Por Que Elegir Nuestro Electricista?",
+  subtitle: "Atencion rapida, trabajo seguro y presupuesto claro para urgencias, averias e instalaciones electricas.",
   stats: [
     {
       icon: "Clock",
       color: "blue",
-      headline: "30-60 min",
-      description: "Llegada garantizada en Valencia y alrededores",
+      headline: "Atencion 24h",
+      description: "Electricistas disponibles todos los dias para urgencias, cortes de luz y averias electricas.",
+    },
+    {
+      icon: "Clock",
+      color: "green",
+      headline: "Llegada rapida",
+      description: "Desplazamiento rapido para servicios urgentes segun disponibilidad en tu zona.",
     },
     {
       icon: "ShieldCheck",
-      color: "green",
-      headline: "24/7/365",
-      description: "Atención continua todo el año",
-    },
-    {
-      icon: "Shield",
       color: "orange",
-      headline: "600.000€ RC",
-      description: "Seguro de responsabilidad civil profesional",
+      headline: "Trabajo seguro",
+      description: "Reparaciones e instalaciones realizadas con materiales electricos homologados.",
     },
     {
       icon: "Award",
       color: "purple",
-      headline: "Garantía 2 años",
-      description: "En todas nuestras reparaciones",
+      headline: "Garantia profesional",
+      description: "Todos los trabajos se realizan con garantia y presupuesto claro antes de empezar.",
     },
   ],
   bottomItems: [
     { icon: "UserCheck", label: "Profesionales certificados" },
-    { icon: "FileText", label: "Boletín eléctrico incluido" },
+    { icon: "ShieldCheck", label: "Materiales homologados" },
     { icon: "Tag", label: "Presupuesto gratuito" },
   ],
 }
@@ -246,58 +337,58 @@ interface PricingSectionV1Props {
 
 export const electricistaProcessStepsContent: ProcessStepsV3Props = {
   badge: "Proceso transparente",
-  title: "¿Cómo Trabajamos?",
+  title: "?Como Trabajamos?",
   subtitle: "Proceso transparente en 4 pasos. Sin complicaciones, sin sorpresas.",
   steps: [
     {
       number: "01",
       color: "blue",
       title: "Contactas con nosotros",
-      description: "Llámanos o escríbenos por WhatsApp. Cuéntanos tu problema eléctrico y te asesoramos al instante.",
+      description: "Llamanos o escribenos por WhatsApp y cuentanos si tienes un corte de luz, cortocircuito, averia o instalacion electrica pendiente.",
       iconSrc: "/icons/process-3d-01-contacto.webp",
     },
     {
       number: "02",
       color: "green",
-      title: "Valoramos tu caso",
-      description: "Evaluamos la avería con equipos profesionales y te damos un presupuesto claro y sin compromiso.",
+      title: "Diagnostico electrico",
+      description: "Un electricista revisa el cuadro, diferencial, enchufes, cableado o punto afectado para detectar el origen del problema.",
       iconSrc: "/icons/process-3d-02-valoracion.webp",
     },
     {
       number: "03",
       color: "orange",
-      title: "Reparamos el problema",
-      description: "Nuestros electricistas certificados se desplazan y reparan de forma rápida y segura.",
+      title: "Presupuesto claro",
+      description: "Te explicamos la solucion y el precio antes de empezar, sin costes ocultos ni trabajos innecesarios.",
       iconSrc: "/icons/process-3d-03-reparacion.webp",
     },
     {
       number: "04",
       color: "purple",
-      title: "Garantía y tranquilidad",
-      description: "Te ofrecemos garantía de 2 años y boletín eléctrico cuando es necesario para tu total tranquilidad.",
+      title: "Reparacion segura",
+      description: "Realizamos el trabajo con materiales homologados, dejamos la instalacion funcionando y aplicamos garantia.",
       iconSrc: "/icons/process-3d-04-garantia.webp",
     },
   ],
   trustItems: [
     {
       icon: "ShieldCheck",
-      title: "Sin sorpresas",
-      description: "Presupuesto cerrado antes de empezar",
+      title: "Diagnostico profesional",
+      description: "Identificamos el origen del problema",
     },
     {
-      icon: "Clock",
-      title: "Rápidos y eficientes",
-      description: "Llegamos en 30-60 min a Valencia",
+      icon: "Wrench",
+      title: "Materiales homologados",
+      description: "Cumplimiento normativa vigente",
     },
     {
-      icon: "UserRound",
-      title: "Profesionales certificados",
-      description: "Técnicos expertos con años de experiencia",
+      icon: "ShieldCheck",
+      title: "Trabajo seguro",
+      description: "Instalacion electrica protegida",
     },
     {
       icon: "FileText",
-      title: "Boletín eléctrico",
-      description: "Emitimos certificado cuando es necesario",
+      title: "Garantia incluida",
+      description: "En todos nuestros trabajos",
     },
   ],
 }
@@ -308,44 +399,57 @@ export const electricistaPricingSectionContent: PricingSectionV1Props = {
   subtitle: "Sin sorpresas ni costes ocultos",
   pricingPlans: [
     {
-      title: "Diagnóstico",
+      title: "Reparacion de Averias",
       price: "59€",
       color: "blue",
       iconSrc: "/icons/pricing-3d-01-diagnostico.webp",
-      features: ["Inspección con equipos", "Evaluación profesional", "Presupuesto detallado", "Sin compromiso"],
+      features: ["Diagnostico profesional", "Reparacion segura", "Materiales homologados", "Garantia incluida"],
     },
     {
-      title: "Reparación de avería",
+      title: "Urgencias Electricas 24h",
       price: "89€",
-      color: "orange",
-      iconSrc: "/icons/process-3d-03-reparacion.webp",
-      features: ["Localización del fallo", "Reparación inmediata", "Materiales incluidos", "Garantía 2 años"],
+      color: "red",
+      iconSrc: "/icons/pricing-3d-04-urgencias.webp",
+      features: ["Servicio 24/7", "Llegada rapida", "Atencion prioritaria", "Presupuesto antes de reparar"],
       featured: true,
     },
     {
-      title: "Cuadro eléctrico",
+      title: "Cuadros Electricos",
       price: "120€",
       color: "green",
-      iconSrc: "/icons/pricing-3d-03-desatascos.webp",
-      features: ["Protecciones modernas", "Diferenciales y magnetotérmicos", "Normativa REBT", "Boletín incluido"],
+      iconSrc: "/icons/process-3d-02-valoracion.webp",
+      features: ["Diferenciales y automaticos", "Proteccion actualizada", "Cumplimiento normativa", "Trabajo garantizado"],
     },
     {
-      title: "Urgencias 24/7",
-      price: "99€",
-      color: "red",
-      iconSrc: "/icons/pricing-3d-04-urgencias.webp",
-      features: ["Atención inmediata", "Noches y festivos", "Llegada 30-60 min", "Servicio prioritario"],
+      title: "Instalaciones Electricas",
+      price: "150€",
+      color: "orange",
+      iconSrc: "/icons/process-3d-03-reparacion.webp",
+      features: ["Viviendas y locales", "Cableado y puntos de luz", "Material certificado", "Instalacion segura"],
+    },
+    {
+      title: "Enchufes e Interruptores",
+      price: "45€",
+      color: "blue",
+      iconSrc: "/icons/pricing-3d-01-diagnostico.webp",
+      features: ["Enchufes e interruptores", "Nuevos puntos electricos", "Sustitucion de mecanismos", "Acabado limpio"],
+    },
+    {
+      title: "Iluminacion LED",
+      price: "60€",
+      color: "orange",
+      iconSrc: "/icons/process-3d-03-reparacion.webp",
+      features: ["Iluminacion interior", "Iluminacion exterior", "Tiras LED y focos", "Ahorro energetico"],
     },
   ],
-  featuredBadgeText: "Más solicitada",
+  featuredBadgeText: "Mas solicitada",
   fromLabel: "Desde",
   trustItems: [
     { icon: "ShieldCheck", title: "Presupuesto cerrado", description: "antes de empezar" },
-    { icon: "FileText", title: "Boletín eléctrico", description: "cuando es necesario" },
-    { icon: "ShieldCheck", title: "Garantía", description: "hasta 2 años" },
+    { icon: "ShieldCheck", title: "Garantia", description: "6 meses" },
     { icon: "XCircle", title: "Sin costes ocultos", description: "ni suplementos" },
   ],
-  disclaimer: "Precios orientativos. Cada caso es único y se presupuestará según la evaluación.",
+  disclaimer: "Precios orientativos. Cada caso es unico y se presupuestara segun la evaluacion.",
 }
 
 // OpinionesClientesV1 props interface
@@ -375,100 +479,134 @@ interface OpinionesClientesV1Props {
 export const electricistaOpinionesClientesContent: OpinionesClientesV1Props = {
   rating: "4.8/5",
   title: "Lo Que Dicen Nuestros Clientes",
-  subtitle: "Opiniones reales de clientes satisfechos con nuestro servicio eléctrico",
+  subtitle: "Opiniones reales de clientes satisfechos con nuestro servicio electrico",
   reviews: [
     {
-      name: "Pedro L.",
-      quote: "Saltaba el diferencial constantemente y vinieron en menos de una hora. Encontraron el problema y lo solucionaron rápido. Muy profesionales.",
+      name: "Carlos M.",
+      quote: "Se fue la luz por la noche y necesitabamos un electricista urgente. Llegaron rapido, localizaron el fallo en el cuadro y dejaron todo funcionando con seguridad.",
       verified: true,
     },
     {
-      name: "Laura M.",
-      quote: "Actualización completa del cuadro eléctrico con boletín incluido. Explicaron todo claramente y el precio justo. Recomendables 100%.",
+      name: "Laura G.",
+      quote: "Nos cambiaron el cuadro electrico antiguo y revisaron los diferenciales. Trabajo limpio, explicacion clara y presupuesto cerrado antes de empezar.",
       verified: true,
     },
     {
-      name: "José R.",
-      quote: "Emergencia nocturna por cortocircuito. Llegaron en 40 minutos, repararon de forma segura. Excelente servicio urgente.",
+      name: "Miguel R.",
+      quote: "Contratamos una instalacion electrica para una reforma. Fueron puntuales, usaron materiales homologados y dejaron todos los puntos funcionando correctamente.",
       verified: true,
     },
     {
-      name: "Carmen S.",
-      quote: "Instalación de nuevos enchufes y luces LED en toda la casa. Trabajo limpio, profesional y garantizado. Muy contentos.",
+      name: "Ana P.",
+      quote: "Instalaron nuevos enchufes y luces LED en varias habitaciones. El acabado quedo muy bien y nos explicaron como optimizar el consumo.",
       verified: true,
     },
   ],
   trustItems: [
-    { node: "google", title: "4.8/5", description: "Google Reviews", showStars: true },
+    { icon: "Users", title: "4.8/5", description: "Opiniones de clientes", showStars: true },
     { icon: "Users", title: "2.500+", description: "Clientes satisfechos" },
-    { icon: "ShieldCheck", title: "Disponibles 24/7", description: "365 días al año" },
+    { icon: "ShieldCheck", title: "24/7", description: "Disponibles" },
     { icon: "MapPin", title: "Valencia", description: "y alrededores" },
   ],
-  verifiedLabel: "Cliente verificado",
+  verifiedLabel: "Cliente atendido",
 }
 
 export const electricistaRelatedServicesContent: RelatedServicesV1Props = {
   badge: "Servicios Relacionados",
   title: "Otros Servicios Que Ofrecemos",
-  description: "Servicios complementarios para resolver todas tus necesidades eléctricas.",
+  description: "Servicios complementarios para resolver todas tus necesidades electricas.",
   cards: [
     {
       icon: "Wrench",
-      title: "Reparación de averías",
-      description: "Diagnóstico y solución de fallos eléctricos urgentes.",
+      title: "Reparacion de averias",
+      description: "Diagnostico y solucion de fallos electricos urgentes.",
       color: "blue",
       bullets: [
         "Cortocircuitos y saltos de diferencial",
         "Apagones parciales en vivienda",
-        "Cables seccionados o dañados",
-        "Fallos en cuadro eléctrico",
+        "Cables seccionados o danados",
+        "Fallos en cuadro electrico",
       ],
     },
     {
       icon: "ShieldCheck",
-      title: "Cuadros eléctricos",
-      description: "Actualización con protecciones modernas normativa REBT.",
+      title: "Cuadros electricos",
+      description: "Actualizacion con protecciones modernas normativa REBT.",
       color: "cyan",
       bullets: [
         "Diferenciales de 30mA",
-        "Magnetotérmicos por circuito",
+        "Magnetotermicos por circuito",
         "Protector de sobretensiones",
-        "Boletín eléctrico incluido",
+        "Protecciones electricas actualizadas",
       ],
     },
     {
       icon: "Waves",
       title: "Recableado completo",
-      description: "Sustitución de instalaciones antiguas por cobre moderno.",
+      description: "Sustitucion de instalaciones antiguas por cobre moderno.",
       color: "orange",
       bullets: [
-        "Eliminación de aluminio antiguo",
+        "Eliminacion de aluminio antiguo",
         "Cable de cobre homologado",
         "Cumplimiento normativa actual",
-        "Actualización completa segura",
+        "Actualizacion completa segura",
       ],
     },
     {
       icon: "Flame",
       title: "Instalaciones",
-      description: "Instalación profesional de enchufes, luces e interruptores.",
+      description: "Instalacion profesional de enchufes, luces e interruptores.",
       color: "green",
       bullets: [
         "Enchufes y tomas de corriente",
-        "Iluminación LED eficiente",
+        "Iluminacion LED eficiente",
         "Interruptores y conmutadores",
         "Puntos de luz adicionales",
       ],
     },
   ],
-  ctaTitle: "¿No estás seguro de qué servicio necesitas?",
-  ctaText: "Cuéntanos tu problema eléctrico y te asesoramos sin compromiso.",
-  cta: { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  641 688 524" },
+  ctaTitle: "?No estas seguro de que servicio necesitas?",
+  ctaText: "Cuentanos tu problema electrico y te asesoramos sin compromiso.",
+  cta: { whatsappLabel: "WhatsApp", callLabel: "Llamar ahora  642 310 813" },
   trustBadges: [
     { icon: "ShieldCheck", title: "Profesionales", subtitle: "certificados oficialmente" },
-    { icon: "Clock", title: "Atención 24/7", subtitle: "365 días al año" },
-    { icon: "Star", title: "Más de 14 años", subtitle: "de experiencia" },
-    { icon: "Award", title: "Boletín eléctrico", subtitle: "cuando es necesario" },
+    { icon: "Clock", title: "Atencion 24/7", subtitle: "365 dias al ano" },
+    { icon: "Star", title: "Mas de 14 anos", subtitle: "de experiencia" },
+    { icon: "Award", title: "Trabajo seguro", subtitle: "materiales homologados" },
     { icon: "Home", title: "Trabajamos en toda", subtitle: "Valencia y alrededores" },
+  ],
+}
+
+/**
+ * Final CTA Content - TrustCtaBlueV1
+ * SOURCE: electricista-semantic-map.ts + electricista-clusters.ts
+ * 
+ * Approved Services (Semantic Layer):
+ * - urgencias-electricas
+ * - instalaciones-electricas
+ * - cuadros-electricos
+ * - iluminacion-led
+ * - enchufes-interruptores
+ * - averias-electricas
+ * 
+ * EXCLUDED: boletines, certificados, CIE (future category /boletines)
+ */
+export const electricistaTrustCtaContent = {
+  badge: "Electricistas Valencia",
+  title: "?Necesitas un Electricista en Valencia?",
+  subtitle: "Atendemos urgencias electricas 24h, averias, instalaciones electricas, cuadros electricos, iluminacion LED y enchufes e interruptores con presupuesto claro y garantia profesional.",
+  primaryCta: {
+    label: "Llamar Ahora",
+    href: "tel:+34642310813",
+  },
+  secondaryCta: {
+    label: "WhatsApp",
+    href: "https://wa.me/34642310813",
+  },
+  trustItems: [
+    "? Atencion 24h",
+    "? Presupuesto claro",
+    "? Materiales homologados",
+    "? Garantia profesional",
   ],
 }

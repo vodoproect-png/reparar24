@@ -8,7 +8,7 @@ interface CallNowButtonProps {
 }
 
 export default function CallNowButton({
-  phone = '+34641688524',
+  phone = '+34642310813',
   text = 'Llamar Ahora',
   variant = 'primary',
   size = 'md',

@@ -21,7 +21,7 @@ export function CommercialCTA({
   variant = 'primary',
   showWhatsApp = true
 }: CommercialCTAProps) {
-  const phone = '+34641688524'
+  const phone = '+34642310813'
   const whatsappMessage = encodeURIComponent('Hola, necesito un fontanero profesional. ¿Pueden ayudarme?')
   
   const bgClass = variant === 'primary' 

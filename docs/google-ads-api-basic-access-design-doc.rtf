@@ -1,0 +1,38 @@
+{\rtf1\ansi\deff0
+{\fonttbl{\f0 Arial;}}
+\fs24
+\b Google Ads API Basic Access Design Document\par
+\b0\par
+\b Company:\b0 Reparar24\par
+\b Website:\b0 https://reparar24.es\par
+\b Tool name:\b0 Reparar24 Keyword Collector\par
+\b Access requested:\b0 Basic access\par
+\par
+\b 1. Purpose\par
+\b0
+The tool is an internal keyword research and SEO planning utility for the Reparar24 website. It is used to collect keyword ideas, approximate search volume, competition, and related search terms for service pages such as electricista, fontanero, desatascos, and other local repair services.\par
+\par
+\b 2. Google Ads API Services Used\par
+\b0
+The tool uses the Google Ads API KeywordPlanIdeaService, specifically the generateKeywordIdeas method. The output is used only for SEO content planning and semantic clustering. The tool does not create, update, pause, or delete campaigns, ad groups, ads, keywords, bids, budgets, or conversion tracking settings.\par
+\par
+\b 3. Users and Access\par
+\b0
+The tool is used only by internal users working on Reparar24 SEO and content operations. It is not available to the general public, clients, or third parties. API credentials are stored in local environment variables and are not exposed in browser code or public repositories.\par
+\par
+\b 4. Data Flow\par
+\b0
+Internal users provide seed keywords and optional parameters such as language, country, and result limit. The tool sends requests to Google Ads API and saves raw provider output to a local temporary review directory. The data is normalized into the existing SEO workflow format and then manually reviewed before any production content or page registry changes are made.\par
+\par
+\b 5. Safeguards\par
+\b0
+The tool does not modify production pages automatically. It writes provider output to local review files first. Existing validation scripts enforce semantic layer consistency before any SEO data can be promoted to production. API keys, OAuth secrets, refresh tokens, and developer tokens are not logged to the console.\par
+\par
+\b 6. Third-Party Account Management\par
+\b0
+The tool is not used to manage third-party Google Ads accounts. It is not an agency platform and does not provide access to external users. It is used only for the Reparar24 website and related internal SEO planning.\par
+\par
+\b 7. Advertising Automation\par
+\b0
+The tool does not automate ad serving, campaign creation, bidding, budget changes, remarketing, audience management, or conversion tracking. Its only planned API usage is keyword research through KeywordPlanIdeaService.\par
+}

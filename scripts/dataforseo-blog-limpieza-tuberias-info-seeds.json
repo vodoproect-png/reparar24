@@ -1,0 +1,123 @@
+{
+  "service": "limpieza-tuberias",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Standard Queue only. Do not use Live Mode.",
+    "Collect informational demand for the /limpieza-tuberias blog backlog.",
+    "Commercial intent must be separated into the future service-page backlog.",
+    "Owner points to the commercial page that each future article should support."
+  ],
+  "groups": [
+    {
+      "target": "mantenimiento-preventivo",
+      "owner": "/limpieza-tuberias",
+      "seeds": [
+        "cada cuanto limpiar tuberias",
+        "mantenimiento preventivo saneamiento",
+        "como prevenir atascos tuberias",
+        "limpieza preventiva tuberias",
+        "mantenimiento tuberias comunidad",
+        "cuando limpiar tuberias"
+      ]
+    },
+    {
+      "target": "limpiar-tuberias-casa",
+      "owner": "/limpieza-tuberias",
+      "seeds": [
+        "como limpiar tuberias",
+        "como limpiar tuberias de casa",
+        "limpiar tuberias con bicarbonato",
+        "limpieza tuberias con sosa caustica",
+        "limpiar tuberias con vinagre",
+        "productos para limpiar tuberias"
+      ]
+    },
+    {
+      "target": "bajantes-comunidad",
+      "owner": "/limpieza-tuberias/limpieza-bajantes",
+      "seeds": [
+        "como limpiar bajantes comunidad",
+        "cada cuanto limpiar bajantes",
+        "mantenimiento bajantes comunidad",
+        "mal olor bajantes comunidad",
+        "bajante comunidad atascada",
+        "limpieza bajantes edificio"
+      ]
+    },
+    {
+      "target": "arquetas-colectores-olores",
+      "owner": "/limpieza-tuberias/limpieza-arquetas-colectores",
+      "seeds": [
+        "cada cuanto limpiar arquetas",
+        "mal olor arquetas comunidad",
+        "arqueta huele mal",
+        "mantenimiento arquetas",
+        "limpieza colectores saneamiento",
+        "arquetas con lodos"
+      ]
+    },
+    {
+      "target": "camara-inspeccion",
+      "owner": "/limpieza-tuberias/inspeccion-camara-tuberias",
+      "seeds": [
+        "cuando usar camara tuberias",
+        "que detecta camara tuberias",
+        "inspeccion tuberias camara precio",
+        "videoinspeccion tuberias que es",
+        "camara para localizar atasco",
+        "informe camara tuberias"
+      ]
+    },
+    {
+      "target": "alta-presion-hidrocurado",
+      "owner": "/limpieza-tuberias/limpieza-alta-presion-camion-cuba",
+      "seeds": [
+        "que es hidrocurado",
+        "hidrocurado tuberias que es",
+        "limpieza tuberias alta presion",
+        "cuando usar camion cuba",
+        "camion cuba para arquetas",
+        "limpieza tuberias sin obras"
+      ]
+    },
+    {
+      "target": "hosteleria-grasas",
+      "owner": "/limpieza-tuberias/limpieza-tuberias-empresas",
+      "seeds": [
+        "cada cuanto limpiar separador de grasas",
+        "mantenimiento separador grasas",
+        "limpieza tuberias restaurante",
+        "tuberias cocina industrial grasa",
+        "mal olor tuberias restaurante",
+        "limpieza tuberias hotel"
+      ]
+    },
+    {
+      "target": "comunidades-saneamiento",
+      "owner": "/limpieza-tuberias/limpieza-tuberias-comunidades",
+      "seeds": [
+        "mantenimiento saneamiento comunidad",
+        "limpieza tuberias comunidad vecinos",
+        "atascos repetidos comunidad",
+        "mal olor tuberias comunidad",
+        "plan mantenimiento saneamiento comunidad",
+        "limpieza red saneamiento comunidad"
+      ]
+    },
+    {
+      "target": "precios-informativos",
+      "owner": "/limpieza-tuberias",
+      "seeds": [
+        "cuanto cuesta limpiar tuberias",
+        "precio limpieza tuberias",
+        "precio limpieza bajantes",
+        "precio limpieza arquetas",
+        "precio hidrocurado tuberias",
+        "precio inspeccion tuberias camara"
+      ]
+    }
+  ]
+}

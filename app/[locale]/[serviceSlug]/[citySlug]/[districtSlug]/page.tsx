@@ -5,7 +5,7 @@ import { cities } from '@/data/cities'
 import { getDistrictContext } from '@/data/district-context'
 import { getDistrictSEOContent } from '@/data/district-seo-content'
 import { generateEnhancedMetadata } from '@/lib/seo/metadata-enhanced'
-import { generateServiceSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
+import { generateServiceSchema, generateLocalBusinessSchema, generateFAQSchema } from '@/lib/seo/schema'
 import { generateServiceCityDistrictBreadcrumbs } from '@/lib/linking/internal'
 import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/Breadcrumbs'
 import {
@@ -15,9 +15,11 @@ import {
 import { getLightweightDistrictContent } from '@/lib/i18n/district-content'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
+import CTASection from '@/components/sections/CTASection'
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
 import { serviceDistrictToHeroProps } from '@/lib/adapters/hero-adapter'
 import ServicesGridV1 from '@/components/ds/ServicesGridV1'
+import ServicesDirectoryV2 from '@/components/ds/ServicesDirectoryV2'
 import TrustSignalsV1 from '@/components/ds/TrustSignalsV1'
 import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
 import PricingSectionV1 from '@/components/ds/PricingSectionV1'
@@ -32,6 +34,27 @@ import {
   fontaneroPricingSectionContent,
   fontaneroOpinionesClientesContent,
 } from '@/data/fontanero/page-components-content'
+import {
+  electricistaServicesGridContent,
+  electricistaTrustSignalsContent,
+  electricistaProcessStepsContent,
+  electricistaPricingSectionContent,
+  electricistaOpinionesClientesContent,
+} from '@/data/electricista/page-components-content'
+import {
+  desatascosServicesDirectoryContent,
+  desatascosTrustSignalsContent,
+  desatascosProcessStepsContent,
+  desatascosPricingSectionContent,
+  desatascosOpinionesClientesContent,
+} from '@/data/desatascos/page-components-content'
+import {
+  aireAcondicionadoServicesDirectoryContent,
+  aireAcondicionadoTrustSignalsContent,
+  aireAcondicionadoProcessStepsContent,
+  aireAcondicionadoPricingSectionContent,
+  aireAcondicionadoOpinionesClientesContent,
+} from '@/data/aire-acondicionado/page-components-content'
 import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
 
 export async function generateStaticParams() {
@@ -135,16 +158,33 @@ export default async function ServiceCityDistrictPage({
 
   // Check for unique district SEO content (Phase 1 Pilot)
   const districtSEO = getDistrictSEOContent(service.id, city.slug, district.slug)
+  const rendersServiceSeoContent =
+    service.slug === 'fontanero' ||
+    service.slug === 'electricista' ||
+    service.slug === 'desatascos' ||
+    service.slug === 'aire-acondicionado' ||
+    service.slug === 'calefaccion' ||
+    service.slug === 'limpieza-tuberias'
   
   // 🌍 MULTILINGUAL LIGHTWEIGHT PILOT: Use lightweight content for EN/RU
   const lightweightContent = getLightweightDistrictContent(locale, service, city, district)
 
-  const serviceSchema = generateServiceSchema({ service, city })
+  const canonicalUrl = `https://reparar24.es/${service.slug}/${city.slug}/${district.slug}`
+  const serviceSchema = generateServiceSchema({ service, city, url: canonicalUrl })
   const localBusinessSchema = generateLocalBusinessSchema({
     name: `${service.name} en ${district.name} - Reparar24`,
     description: `${service.description} en ${district.name}, ${city.name}`,
     city: city,
+    url: canonicalUrl,
   })
+  const faqSchema = districtSEO && districtSEO.faqs.length > 0
+    ? generateFAQSchema({
+        questions: districtSEO.faqs.map((faq) => ({
+          question: faq.question,
+          answer: faq.answer,
+        })),
+      })
+    : null
 
   // Generate breadcrumbs
   const breadcrumbItems = generateServiceCityDistrictBreadcrumbs(
@@ -173,11 +213,17 @@ export default async function ServiceCityDistrictPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - ServiceHeroV2 for fontanero and electricista */}
-        {service.slug === 'fontanero' || service.slug === 'electricista' ? (
+        {/* Hero Section - ServiceHeroV2 for approved DS services */}
+        {rendersServiceSeoContent ? (
           <ServiceHeroV2 {...serviceDistrictToHeroProps(service, city, district, locale)} />
         ) : (
           <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
@@ -188,8 +234,8 @@ export default async function ServiceCityDistrictPage({
                   <div>
                     <h1 className="text-4xl md:text-5xl font-bold">
                       {lightweightContent 
-                        ? (locale === 'en' ? `${service.name} in ${district.name}` : `${service.name} в ${district.name}`)
-                        : `${service.name} en ${district.name}`
+                        ? `${service.name} en ${district.name}`
+                        : `${service.name} en ${district.name}, ${city.name}`
                       }
                     </h1>
                     <p className="text-xl mt-2 text-primary-100">
@@ -203,7 +249,7 @@ export default async function ServiceCityDistrictPage({
                     <span>📮</span>
                     <span>
                       {lightweightContent 
-                        ? (locale === 'en' ? 'Postal Codes:' : 'Почтовые индексы:')
+                        ? 'Códigos postales:'
                         : 'Códigos Postales:'
                       } {district.postalCodes.join(', ')}
                     </span>
@@ -212,7 +258,7 @@ export default async function ServiceCityDistrictPage({
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="tel:+34641688524"
+                    href="tel:+34642310813"
                     className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg px-8 py-4"
                   >
                     📞 Llamar Ahora
@@ -223,22 +269,10 @@ export default async function ServiceCityDistrictPage({
           </section>
         )}
 
-        {/* Approved Neutral Blocks - Fontanero Only */}
+        {/* Approved DS Blocks - Fontanero, Electricista and Desatascos */}
         {service.slug === 'fontanero' && (
           <>
             <ServicesGridV1 {...fontaneroServicesGridContent} />
-            
-            {/* Trust Signals with Heading */}
-            <section className="w-full bg-[#F4F7FC] px-4 py-8 sm:px-6">
-              <div className="mx-auto max-w-[1280px]">
-                <h2 className="text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-                  ¿Por Qué Elegir Reparar24?
-                </h2>
-                <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#5B6B8C] sm:text-xl">
-                  Compromiso con la calidad, la rapidez y la atención profesional en cada servicio.
-                </p>
-              </div>
-            </section>
             <TrustSignalsV1 {...fontaneroTrustSignalsContent} />
             <ProcessStepsV3 {...fontaneroProcessStepsContent} />
             <PricingSectionV1 {...fontaneroPricingSectionContent} />
@@ -248,9 +282,36 @@ export default async function ServiceCityDistrictPage({
             {isValencia && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
           </>
         )}
+        {service.slug === 'electricista' && (
+          <>
+            <ServicesGridV1 {...electricistaServicesGridContent} />
+            <TrustSignalsV1 {...electricistaTrustSignalsContent} />
+            <ProcessStepsV3 {...electricistaProcessStepsContent} />
+            <PricingSectionV1 {...electricistaPricingSectionContent} />
+            <OpinionesClientesV1 {...electricistaOpinionesClientesContent} />
+          </>
+        )}
+        {service.slug === 'desatascos' && (
+          <>
+            <ServicesDirectoryV2 {...desatascosServicesDirectoryContent} />
+            <TrustSignalsV1 {...desatascosTrustSignalsContent} />
+            <ProcessStepsV3 {...desatascosProcessStepsContent} />
+            <PricingSectionV1 {...desatascosPricingSectionContent} />
+            <OpinionesClientesV1 {...desatascosOpinionesClientesContent} />
+          </>
+        )}
+        {service.slug === 'aire-acondicionado' && (
+          <>
+            <ServicesDirectoryV2 {...aireAcondicionadoServicesDirectoryContent} />
+            <TrustSignalsV1 {...aireAcondicionadoTrustSignalsContent} />
+            <ProcessStepsV3 {...aireAcondicionadoProcessStepsContent} />
+            <PricingSectionV1 {...aireAcondicionadoPricingSectionContent} />
+            <OpinionesClientesV1 {...aireAcondicionadoOpinionesClientesContent} />
+          </>
+        )}
 
         {/* FAQ Section - Migrate existing FAQ content */}
-        {districtSEO && districtSEO.faqs && districtSEO.faqs.length > 0 && locale === 'es' && service.slug === 'fontanero' && (
+        {districtSEO && districtSEO.faqs && districtSEO.faqs.length > 0 && locale === 'es' && rendersServiceSeoContent && (
           <FaqSectionV2
             faqs={districtSEO.faqs.map(faq => ({
               question: faq.question,
@@ -260,7 +321,7 @@ export default async function ServiceCityDistrictPage({
         )}
 
         {/* District-Specific SEO Content - Keep existing SEO text */}
-        {districtSEO && locale === 'es' && service.slug === 'fontanero' && (
+        {districtSEO && locale === 'es' && rendersServiceSeoContent && (
           <section className="py-16 bg-white">
             <div className="container-custom">
               <div className="max-w-4xl mx-auto">
@@ -274,8 +335,12 @@ export default async function ServiceCityDistrictPage({
           </section>
         )}
 
-        {/* Final CTA - TrustCtaBlueV1 for fontanero */}
-        {service.slug === 'fontanero' && <TrustCtaBlueV1 />}
+        {/* Final CTA - TrustCtaBlueV1 for DS services */}
+        {rendersServiceSeoContent ? (
+          <TrustCtaBlueV1 />
+        ) : (
+          <CTASection locale={locale} />
+        )}
       </main>
       <Footer locale={locale} />
     </>

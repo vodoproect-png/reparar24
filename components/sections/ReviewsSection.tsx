@@ -1,34 +1,34 @@
 import type { Locale } from '@/lib/i18n/config'
+import { Star } from 'lucide-react'
 
 interface ReviewsSectionProps {
   locale: Locale
 }
 
-export default function ReviewsSection({ locale }: ReviewsSectionProps) {
+export default function ReviewsSection({ locale: _locale }: ReviewsSectionProps) {
+  void _locale
+
   const reviews = [
     {
-      name: 'María González',
+      name: 'Vivienda particular',
       city: 'Madrid',
-      service: 'Fontanería',
+      service: 'Fontaneria',
       rating: 5,
-      comment: 'Excelente servicio. Llegaron en 40 minutos y solucionaron la fuga inmediatamente. Muy profesionales.',
-      date: '2024-03-15'
+      comment: 'Llegaron en 40 minutos y solucionaron la fuga sin complicaciones. Trabajo limpio y presupuesto claro.',
     },
     {
-      name: 'Carlos Martínez',
+      name: 'Piso familiar',
       city: 'Barcelona',
       service: 'Electricidad',
       rating: 5,
-      comment: 'Electricista muy competente. Resolvió el problema eléctrico rápidamente y a buen precio.',
-      date: '2024-03-10'
+      comment: 'Localizaron el fallo electrico rapido y dejaron la instalacion funcionando con seguridad.',
     },
     {
-      name: 'Ana López',
+      name: 'Local comercial',
       city: 'Valencia',
       service: 'Desatascos',
       rating: 5,
-      comment: 'Servicio rápido y eficaz. Problema resuelto sin obras. Lo recomiendo 100%.',
-      date: '2024-03-08'
+      comment: 'Atendieron la urgencia sin cerrar el negocio mas tiempo del necesario. Buena comunicacion.',
     },
   ]
 
@@ -38,7 +38,7 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Opiniones de Clientes</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Miles de clientes satisfechos en toda España
+            Casos habituales de clientes atendidos en servicios del hogar
           </p>
         </div>
 
@@ -56,8 +56,8 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
               </div>
 
               <div className="flex mb-3">
-                {[...Array(review.rating)].map((_, i) => (
-                  <span key={i} className="text-yellow-400 text-xl">★</span>
+                {Array.from({ length: review.rating }).map((_, i) => (
+                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" strokeWidth={0} aria-hidden="true" />
                 ))}
               </div>
 
@@ -69,7 +69,7 @@ export default function ReviewsSection({ locale }: ReviewsSectionProps) {
                 <span className="bg-primary-50 text-primary-700 px-3 py-1 rounded-full font-medium">
                   {review.service}
                 </span>
-                <span>{new Date(review.date).toLocaleDateString(locale)}</span>
+                <span>Cliente atendido</span>
               </div>
             </div>
           ))}

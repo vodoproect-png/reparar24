@@ -206,7 +206,7 @@ function validatePostalCodes(): ValidationResult {
 function validateSlugs(): ValidationResult {
   const errors: string[] = []
   const warnings: string[] = []
-  const locales = ['es', 'en', 'ru']
+  const locales = ['es']
 
   for (const [serviceId, slugMap] of Object.entries(serviceSlugMap)) {
     for (const locale of locales) {

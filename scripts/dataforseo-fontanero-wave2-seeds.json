@@ -1,0 +1,261 @@
+{
+  "service": "fontanero",
+  "provider": "dataforseo",
+  "country": "es",
+  "language": "es",
+  "limit": 100,
+  "notes": [
+    "Second wave: service x intent x geo expansion.",
+    "Standard Queue only. Do not use Live Mode.",
+    "Desatascos is excluded here because /desatascos is a separate top-level service.",
+    "Seeds are for demand sizing and routing into existing pages, geo pages, future candidates, or blog opportunities.",
+    "Provider outputs must stay in .tmp review folders until classified and approved."
+  ],
+  "groups": [
+    {
+      "target": "fontanero-emergency",
+      "intent": "emergency",
+      "approvalPolicy": "map-to-hub-or-geo-layer",
+      "seeds": [
+        "fontanero urgente madrid",
+        "fontanero urgente barcelona",
+        "fontanero urgente valencia",
+        "fontanero urgente sevilla",
+        "fontanero urgente malaga",
+        "fontanero urgente zaragoza",
+        "fontanero 24 horas madrid",
+        "fontanero 24 horas barcelona",
+        "fontanero 24 horas valencia",
+        "fontanero 24 horas sevilla",
+        "fontanero cerca de mi",
+        "fontanero urgente cerca de mi"
+      ]
+    },
+    {
+      "target": "precios-fontanero",
+      "intent": "commercial",
+      "approvalPolicy": "map-to-existing-pages-first",
+      "seeds": [
+        "precio fontanero madrid",
+        "precio fontanero barcelona",
+        "precio fontanero valencia",
+        "tarifas fontanero madrid",
+        "tarifas fontanero barcelona",
+        "tarifas fontanero valencia",
+        "cuanto cuesta un fontanero",
+        "cuanto cobra un fontanero por hora",
+        "fontanero barato madrid",
+        "fontanero barato barcelona",
+        "fontanero barato valencia",
+        "presupuesto fontaneria"
+      ]
+    },
+    {
+      "target": "reparacion-fugas",
+      "intent": "problem-commercial",
+      "seeds": [
+        "reparacion fuga agua madrid",
+        "reparacion fuga agua barcelona",
+        "reparacion fuga agua valencia",
+        "fuga de agua urgente",
+        "fontanero fuga de agua",
+        "detectar fuga de agua sin romper",
+        "localizar fuga de agua",
+        "detector fugas agua madrid",
+        "detector fugas agua barcelona",
+        "detector fugas agua valencia",
+        "reparar tuberia rota",
+        "tuberia rota urgente"
+      ]
+    },
+    {
+      "target": "calentadores-termos",
+      "intent": "equipment-service",
+      "seeds": [
+        "reparacion termo electrico madrid",
+        "reparacion termo electrico barcelona",
+        "reparacion termo electrico valencia",
+        "instalacion termo electrico madrid",
+        "instalacion termo electrico barcelona",
+        "instalacion termo electrico valencia",
+        "cambiar termo electrico",
+        "termo electrico no calienta",
+        "termo electrico pierde agua",
+        "calentador gas no enciende",
+        "reparar calentador gas",
+        "instalar calentador gas"
+      ]
+    },
+    {
+      "target": "instalaciones",
+      "intent": "installation",
+      "seeds": [
+        "instalacion fontaneria madrid",
+        "instalacion fontaneria barcelona",
+        "instalacion fontaneria valencia",
+        "fontanero instalador madrid",
+        "fontanero instalador barcelona",
+        "fontanero instalador valencia",
+        "instalar grifo madrid",
+        "instalar grifo barcelona",
+        "instalar grifo valencia",
+        "instalar sanitario",
+        "instalacion baño fontaneria",
+        "instalacion cocina fontaneria"
+      ]
+    },
+    {
+      "target": "sustitucion-tuberias",
+      "intent": "renovation",
+      "seeds": [
+        "sustitucion tuberias madrid",
+        "sustitucion tuberias barcelona",
+        "sustitucion tuberias valencia",
+        "cambiar tuberias piso",
+        "cambiar tuberias vivienda",
+        "renovar tuberias antiguas",
+        "cambiar tuberias de plomo",
+        "sustituir bajante comunidad",
+        "cambiar bajante comunidad",
+        "reparacion bajantes",
+        "tuberias antiguas vivienda",
+        "instalacion tuberia multicapa"
+      ]
+    },
+    {
+      "target": "mantenimiento",
+      "intent": "maintenance",
+      "seeds": [
+        "mantenimiento fontaneria madrid",
+        "mantenimiento fontaneria barcelona",
+        "mantenimiento fontaneria valencia",
+        "revision fontaneria vivienda",
+        "revision tuberias vivienda",
+        "mantenimiento fontaneria comunidad",
+        "contrato mantenimiento fontaneria comunidad",
+        "empresa mantenimiento fontaneria",
+        "mantenimiento bajantes comunidad",
+        "revision instalacion fontaneria",
+        "mantenimiento preventivo fontaneria",
+        "fontanero comunidades"
+      ]
+    },
+    {
+      "target": "duchas-lavabos",
+      "status": "future-candidate",
+      "intent": "renovation-installation",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "cambio bañera por ducha madrid",
+        "cambio bañera por ducha barcelona",
+        "cambio bañera por ducha valencia",
+        "cambiar bañera por plato de ducha",
+        "precio cambiar bañera por ducha",
+        "instalar plato de ducha",
+        "cambiar plato de ducha",
+        "reparar ducha",
+        "instalar lavabo",
+        "cambiar lavabo",
+        "fontanero ducha",
+        "fontanero lavabo"
+      ]
+    },
+    {
+      "target": "cisternas-inodoros",
+      "status": "future-candidate",
+      "intent": "repair-installation",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "reparar cisterna madrid",
+        "reparar cisterna barcelona",
+        "reparar cisterna valencia",
+        "cisterna pierde agua",
+        "cisterna no carga agua",
+        "cambiar mecanismo cisterna",
+        "precio cambiar mecanismo cisterna",
+        "instalar inodoro",
+        "cambiar inodoro",
+        "reparar inodoro",
+        "fontanero cisterna",
+        "fontanero inodoro"
+      ]
+    },
+    {
+      "target": "grifos",
+      "status": "future-candidate",
+      "intent": "repair-installation",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "cambiar grifo madrid",
+        "cambiar grifo barcelona",
+        "cambiar grifo valencia",
+        "reparar grifo madrid",
+        "reparar grifo barcelona",
+        "reparar grifo valencia",
+        "grifo gotea",
+        "grifo no cierra",
+        "cambiar grifo cocina",
+        "cambiar grifo ducha",
+        "precio cambiar grifo",
+        "fontanero grifo"
+      ]
+    },
+    {
+      "target": "bombas-grupos-presion",
+      "status": "future-candidate",
+      "intent": "equipment-service",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "reparar bomba de agua madrid",
+        "reparar bomba de agua barcelona",
+        "reparar bomba de agua valencia",
+        "instalar bomba de agua",
+        "bomba de agua vivienda",
+        "grupo presion agua",
+        "instalar grupo de presion",
+        "reparar grupo de presion",
+        "bomba agua no arranca",
+        "fontanero bomba agua"
+      ]
+    },
+    {
+      "target": "descalcificadores-osmosis",
+      "status": "future-candidate",
+      "intent": "equipment-service",
+      "approvalPolicy": "collect-demand-only",
+      "seeds": [
+        "instalar osmosis madrid",
+        "instalar osmosis barcelona",
+        "instalar osmosis valencia",
+        "reparar osmosis",
+        "mantenimiento osmosis",
+        "instalar descalcificador madrid",
+        "instalar descalcificador barcelona",
+        "instalar descalcificador valencia",
+        "reparar descalcificador",
+        "mantenimiento descalcificador"
+      ]
+    },
+    {
+      "target": "blog-fontaneria",
+      "ownerSurface": "blog",
+      "status": "content-opportunity",
+      "intent": "informational",
+      "approvalPolicy": "do-not-create-service-pages",
+      "seeds": [
+        "como saber si tengo una fuga de agua",
+        "que hacer si hay una fuga de agua",
+        "como arreglar grifo que gotea",
+        "como cambiar mecanismo cisterna",
+        "como vaciar termo electrico",
+        "porque el termo electrico pierde agua",
+        "porque la cisterna pierde agua",
+        "como purgar tuberias de agua",
+        "como quitar cal de tuberias",
+        "como aumentar presion de agua en casa",
+        "que hacer si se atasca el wc",
+        "cuando cambiar tuberias de casa"
+      ]
+    }
+  ]
+}
