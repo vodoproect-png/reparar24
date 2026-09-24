@@ -272,7 +272,7 @@ export const childServicesData: Record<string, ChildServiceData> = {
       },
       {
         question: '¿Cuánto cuesta cambiar un inodoro?',
-        answer: 'El cambio de inodoro forma parte de nuestra instalación de sanitarios: si tú aportas el inodoro nuevo, la mano de obra (retirada del antiguo, colocación, conexiones, sellado y prueba de funcionamiento) tiene un coste de 300-600€ según el modelo (inodoro de suelo estándar, suspendido con bastidor, o con cisterna empotrada) y la complejidad del acceso. Trabajamos tanto en Valencia capital como en poblaciones de su área metropolitana.',
+        answer: 'El cambio de inodoro se presupuesta según el tipo de instalación y si es necesario retirar el sanitario anterior. Nuestro servicio incluye la instalación, las conexiones, el sellado y la comprobación final. Te damos presupuesto antes de realizar el trabajo.',
       },
     ],
   },
