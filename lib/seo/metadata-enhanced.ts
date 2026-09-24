@@ -79,7 +79,7 @@ export function generateEnhancedServiceMetadata(
   const title = city
     ? `${service.name} en ${city.name} - ${service.available24h ? 'Servicio 24h' : 'Servicio Profesional'} | ${titleSuffix}`
     : service.slug === 'fontanero'
-      ? 'Fontanero 24h Valencia | Fontanería de Cualquier Complejidad'
+      ? 'Fontanero Urgente 24h Valencia | Fontanería de Cualquier Complejidad'
       : service.slug === 'electricista'
         ? 'Electricista 24 Horas Valencia | Urgencias Eléctricas'
       : `${service.name} - Servicio Profesional en España | ${titleSuffix}`
@@ -88,7 +88,7 @@ export function generateEnhancedServiceMetadata(
   const description = city
     ? `${service.name} ${service.available24h ? '24h' : 'profesional'} en ${city.name}. ${service.priceRange}. Garantía y presupuesto gratuito. ¡Llama ahora!`
     : service.slug === 'fontanero'
-      ? 'Fontanero 24 horas en Valencia. Fugas, desatascos, termos e instalaciones con llegada en 30-60 minutos y presupuesto previo.'
+      ? 'Fontanero urgente 24 horas en Valencia. Fugas, desatascos, termos e instalaciones con llegada en 30-60 minutos y presupuesto previo.'
       : service.slug === 'electricista'
         ? 'Electricista urgente 24h en Valencia. Averías eléctricas, cuadros, instalaciones, iluminación LED y enchufes. Desde 59€. Garantía profesional.'
       : `${service.name} profesional en toda España. ${service.priceRange}. Servicio ${service.available24h ? '24h' : 'certificado'} con garantía. Presupuesto gratis.`

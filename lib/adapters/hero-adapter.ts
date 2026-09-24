@@ -619,7 +619,7 @@ export function serviceToHeroProps(
 
   return {
     eyebrow: locale === 'es'
-      ? isFontanero ? 'Fontanero en Valencia 24h' : isElectricista ? 'Servicio 24/7 en Valencia' : isDesatascos ? 'Empresa de desatascos 24h' : isAireAcondicionado ? 'Servicio técnico de climatización' : isCalefaccion ? 'Servicio tecnico de calefaccion' : isLimpiezaTuberias ? 'Limpieza profesional de tuberias' : 'Servicio Profesional 24h'
+      ? isFontanero ? 'Fontanero Urgente en Valencia 24h' : isElectricista ? 'Servicio 24/7 en Valencia' : isDesatascos ? 'Empresa de desatascos 24h' : isAireAcondicionado ? 'Servicio técnico de climatización' : isCalefaccion ? 'Servicio tecnico de calefaccion' : isLimpiezaTuberias ? 'Limpieza profesional de tuberias' : 'Servicio Profesional 24h'
       : '24/7 Professional Service',
     title: isFontanero
       ? 'Fontanero 24 Horas Valencia'
