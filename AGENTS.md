@@ -56,6 +56,27 @@ and verify changes technically (build/typecheck/lint) before finishing.
   ```
   Pre-existing lint warnings are fine; new errors are not.
 
+## SEO architecture rule — Valencia service-hub ownership
+
+Valencia is Reparar24's primary GEO. The 6 main service hub URLs
+(`/fontanero`, `/electricista`, `/desatascos`, `/aire-acondicionado`,
+`/calefaccion`, `/limpieza-tuberias`) **are** the Valencia landing pages for
+their respective service — they own the Valencia commercial intent directly.
+
+**Rule:** `/{service}/valencia` must never exist as a separate indexable
+page for these 6 services. If it exists historically or appears in inbound
+links, it must permanently (301/308) redirect to the service hub
+(`/{service}`). Historical GSC impressions on `/{service}/valencia` are not
+a reason to restore it — that signal consolidates into the hub via redirect.
+Future SEO audits must not recommend `/{service}/valencia` as KEEP,
+OPTIMIZE_EXISTING, or NEW_PAGE_CANDIDATE. This rule overrides automatic
+GSC/DataForSEO suggestions to the contrary.
+
+This rule is Valencia-specific only. Other cities (Madrid, Barcelona,
+Sevilla, Zaragoza, Málaga, etc.) keep their own `/{service}/{city}` pages;
+extending this hub-ownership pattern to another GEO requires a separate,
+explicit decision.
+
 ## Paid API policy — DataForSEO
 
 This is a cost/scope control for the paid DataForSEO API. It does not define

@@ -93,6 +93,10 @@ export function getLocalizedServiceUrl(serviceId: ServiceId, locale: Locale): st
 /**
  * Generate service+city URL with localized slug
  * Spanish (default locale) uses root-level URLs without prefix
+ *
+ * VALENCIA SERVICE-HUB OWNERSHIP RULE: Valencia has no separate
+ * /{service}/valencia page — the service hub itself owns Valencia intent.
+ * Internal links for Valencia must point directly at the hub.
  */
 export function getLocalizedServiceCityUrl(
   serviceId: ServiceId,
@@ -101,6 +105,9 @@ export function getLocalizedServiceCityUrl(
 ): string {
   const serviceSlug = getLocalizedServiceSlug(serviceId, locale)
   const prefix = locale === defaultLocale ? '' : `/${locale}`
+  if (citySlug === 'valencia') {
+    return `${prefix}/${serviceSlug}`
+  }
   return `${prefix}/${serviceSlug}/${citySlug}`
 }
 

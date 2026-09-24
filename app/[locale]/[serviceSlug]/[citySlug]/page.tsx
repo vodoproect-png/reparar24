@@ -40,6 +40,10 @@ export async function generateStaticParams() {
   locales.forEach((locale) => {
     services.forEach((service) => {
       cities.forEach((city) => {
+        // VALENCIA SERVICE-HUB OWNERSHIP RULE: Valencia is not a separate
+        // /{service}/valencia page for any service — it redirects to the
+        // service hub (see next.config.js). Skip static generation for it.
+        if (city.slug === 'valencia') return
         params.push({
           locale,
           serviceSlug: service.slug,

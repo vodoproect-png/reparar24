@@ -43,12 +43,20 @@ export function getServiceUrl(serviceSlug: string, locale: Locale = defaultLocal
 
 /**
  * Generate service + city page URL (primary SEO route)
+ *
+ * VALENCIA SERVICE-HUB OWNERSHIP RULE: Valencia has no separate
+ * /{service}/valencia page — the service hub itself owns Valencia intent.
+ * Internal links for Valencia must point directly at the hub, not through
+ * a redirect.
  */
 export function getServiceCityUrl(
   serviceSlug: string,
   citySlug: string,
   locale: Locale = defaultLocale
 ): string {
+  if (citySlug === 'valencia') {
+    return getServiceUrl(serviceSlug, locale)
+  }
   const path = `${serviceSlug}/${citySlug}`
   return getCanonicalUrl(path, locale)
 }

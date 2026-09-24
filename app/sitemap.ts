@@ -75,8 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
 
     // Service + City pages - NOW USES LOCALIZED SLUGS
+    // VALENCIA SERVICE-HUB OWNERSHIP RULE: /{service}/valencia is never an
+    // indexable page (it 301-redirects to the service hub), so it must be
+    // excluded from the sitemap for all services.
     services.forEach((service) => {
       cities.forEach((city) => {
+        if (city.slug === 'valencia') return
         const localizedSlug = getLocalizedServiceSlug(service.slug as ServiceId, locale)
         sitemapEntries.push({
           url: `${baseUrl}${localePrefix}/${localizedSlug}/${city.slug}`,
