@@ -50,10 +50,10 @@ export const childServicesData: Record<string, ChildServiceData> = {
     metaTitle: 'Reparación de Fugas de Agua | Detección y Solución Rápida',
     metaDescription: 'Especialistas en reparación y detección de fugas de agua. Localizamos fugas ocultas y reparamos con garantía y presupuesto previo.',
     lockedPrimaryKw: 'reparación fugas agua',
-    secondaryKw: ['fuga de agua', 'como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'fuga de agua en casa', 'detector de fuga de agua', 'detector fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua'],
-    seoBlockKw: ['reparación fugas agua', 'fuga de agua', 'como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'fuga de agua en casa', 'detector de fuga de agua', 'detector fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua', 'como tapar una fuga de agua en un tubo de pvc'],
-    faqKw: ['como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua', 'como tapar una fuga de agua en un tubo de pvc', 'como saber si tengo una fuga de agua en casa', 'como detectar fuga de agua en casa', 'precio detectar fuga de agua calefacción'],
-    contentBrief: 'Texto centrado en detección de fugas, fugas ocultas, fuga en tubería, reparación urgente y garantía.',
+    secondaryKw: ['fuga de agua', 'como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'fuga de agua en casa', 'detector de fuga de agua', 'detector fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua', 'cisterna pierde agua', 'cisterna gotea', 'grifo gotea'],
+    seoBlockKw: ['reparación fugas agua', 'fuga de agua', 'como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'fuga de agua en casa', 'detector de fuga de agua', 'detector fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua', 'como tapar una fuga de agua en un tubo de pvc', 'cisterna pierde agua', 'cisterna gotea', 'grifo gotea'],
+    faqKw: ['como localizar una fuga de agua en una tubería enterrada', 'precio detectar fuga de agua', 'como tapar una fuga de agua con presión', 'como detectar una fuga de agua', 'como tapar una fuga de agua en un tubo de pvc', 'como saber si tengo una fuga de agua en casa', 'como detectar fuga de agua en casa', 'precio detectar fuga de agua calefacción', 'cisterna pierde agua', 'cisterna gotea', 'grifo gotea'],
+    contentBrief: 'Texto centrado en detección de fugas, fugas ocultas, fuga en tubería, cisternas y grifos que gotean, reparación urgente y garantía.',
     description: 'Especialistas en reparación y detección de fugas de agua. Localizamos fugas ocultas y reparamos con garantía y presupuesto previo.',
     seoContent: {
       badge: 'Detección y reparación de fugas',
@@ -61,7 +61,7 @@ export const childServicesData: Record<string, ChildServiceData> = {
       intro: [
         'La detección y reparación de fugas de agua es un servicio especializado que requiere tecnología avanzada y técnicos cualificados. Una fuga de agua no detectada puede causar daños estructurales importantes, incrementar dramáticamente tu factura de agua y crear problemas de humedad que afectan la salud de tu hogar.',
         'Nuestro equipo utiliza equipos profesionales de última generación para localizar fugas ocultas sin necesidad de romper paredes o suelos innecesariamente. Trabajamos con termografía infrarroja, correlación acústica y geófonos electrónicos que permiten detectar el sonido del agua escapando incluso en tuberías enterradas a varios metros de profundidad.',
-        'Una fuga de agua en casa puede manifestarse de múltiples formas: manchas de humedad en paredes o techos, un contador que gira constantemente aunque no se use agua, pérdida de presión en grifos, sonido de agua corriendo cuando todo está cerrado, o una factura de agua inexplicablemente elevada.',
+        'Una fuga de agua en casa puede manifestarse de múltiples formas: manchas de humedad en paredes o techos, un contador que gira constantemente aunque no se use agua, pérdida de presión en grifos, sonido de agua corriendo cuando todo está cerrado, una cisterna que pierde agua o gotea sin parar, un grifo que gotea de forma continua, o una factura de agua inexplicablemente elevada.',
       ],
       serviceCards: [
         {
@@ -81,6 +81,12 @@ export const childServicesData: Record<string, ChildServiceData> = {
           title: 'Fugas por presión',
           color: 'red' as const,
           bullets: ['Como tapar fuga con presión', 'Sellado interno de tuberías', 'Inyección de resina', 'Técnicas sin cortar agua'],
+        },
+        {
+          icon: AlertCircle,
+          title: 'Cisternas y grifos que gotean',
+          color: 'blue' as const,
+          bullets: ['Cisterna que pierde agua o gotea', 'Grifo que gotea de forma continua', 'Cambio de mecanismos y juntas', 'Reparación en la misma visita'],
         },
       ],
       localCoverage: {
@@ -105,6 +111,9 @@ export const childServicesData: Record<string, ChildServiceData> = {
         'fuga tubería enterrada',
         'como detectar fuga',
         'reparar fuga presión',
+        'cisterna que gotea',
+        'cisterna pierde agua',
+        'grifo que gotea',
       ],
     },
     faqs: [
@@ -139,6 +148,14 @@ export const childServicesData: Record<string, ChildServiceData> = {
       {
         question: '¿Cuál es el precio de detectar una fuga de agua en calefacción?',
         answer: 'Detección de fugas en instalaciones de calefacción: 150-300€ según complejidad del circuito. Las fugas en calefacción son más complicadas de localizar porque el circuito está cerrado, a mayor presión que agua sanitaria, y las tuberías suelen estar empotradas bajo suelo o en paredes. Incluye pruebas de presión del circuito, detección con equipos especializados (termografía muy efectiva porque el agua es caliente), uso de gas trazador si es necesario, y localización exacta del punto de pérdida. El precio detectar fuga de agua calefacción incluye informe completo y presupuesto de reparación.',
+      },
+      {
+        question: '¿Reparáis una cisterna que gotea o pierde agua?',
+        answer: 'Sí, la cisterna que pierde agua o gotea es una de las averías más habituales que reparamos: mecanismo de llenado desgastado, boya descalibrada, junta de la válvula de salida deteriorada o fisura en el depósito. En la misma visita diagnosticamos la causa exacta (a menudo se nota porque la cisterna gotea por dentro de la taza incluso con el grifo cerrado) y sustituimos la pieza necesaria con presupuesto cerrado antes de empezar.',
+      },
+      {
+        question: '¿Reparáis un grifo que gotea?',
+        answer: 'Sí. Un grifo que gotea de forma continua suele deberse a un desgaste en las juntas, el cartucho cerámico o la zapata de goma. Revisamos el mecanismo, sustituimos la pieza dañada y comprobamos el cierre completo antes de finalizar, dentro del mismo servicio de reparación de fugas.',
       },
       {
         question: '¿Ofrecéis servicio urgente para reparación de fugas?',
