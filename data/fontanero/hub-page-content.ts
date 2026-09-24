@@ -25,7 +25,7 @@ export const fontaneroHubSeoContent: SeoContentSectionV1Props = {
   intro: [
     "Cuando necesitas un fontanero 24 horas en Valencia, cada minuto cuenta. Nuestro equipo de fontaneros profesionales está disponible todos los días del año para atender emergencias de fontanería: reparación de fugas urgentes, desatascos inmediatos, termos eléctricos averiados, o cualquier problema que no puede esperar.",
     "Somos especialistas en fontanería profesional con más de 15 años trabajando en Valencia y área metropolitana. Como fontanero urgente cerca de ti, llegamos en 30-60 minutos equipados para resolver reparaciones de fontanería, desatascos profesionales, reparación de fugas de agua, instalación y reparación de termos eléctricos, y cualquier instalación de fontanería que necesites.",
-    "¿Buscas un fontanero cerca de mi con precios claros? Ofrecemos presupuesto transparente antes de empezar cualquier trabajo. Nuestro servicio de fontanero de urgencia incluye diagnóstico técnico completo, materiales de primeras marcas, mano de obra certificada y respuesta rápida garantizada. Todos nuestros trabajos incluyen 2 años de garantía por escrito.",
+    "¿Buscas un fontanero cerca de mi con precios claros? Ofrecemos presupuesto transparente antes de empezar cualquier trabajo. Nuestro servicio de fontanero de urgencia incluye diagnóstico técnico completo, materiales de primeras marcas, mano de obra certificada y respuesta rápida garantizada. Todos nuestros trabajos incluyen 6 meses de garantía por escrito.",
   ],
   serviceCards: [], // Explicitly remove service cards to avoid duplication with ServicesGridV1
   localCoverage: {
@@ -37,9 +37,9 @@ export const fontaneroHubSeoContent: SeoContentSectionV1Props = {
     { icon: ShieldCheck, label: "Servicio 24/7", value: "365 días al año" },
     { icon: Users, label: "Profesionales", value: "cualificados" },
   ],
-  phone: { label: "Llama ahora", number: "641 688 524" },
+  phone: { label: "Llama ahora", number: "642 310 813" },
   footerTrustItems: [
-    { icon: FileText, title: "Garantía", subtitle: "2 años" },
+    { icon: FileText, title: "Garantía", subtitle: "6 meses" },
     { icon: BadgeCheck, title: "Certificados", subtitle: "y seguros" },
     { icon: Receipt, title: "Facturas", subtitle: "oficiales" },
     { icon: Umbrella, title: "Seguro RC", subtitle: "600.000€" },
@@ -62,11 +62,11 @@ export const fontaneroHubFaqs = [
   },
   {
     question: "¿Qué servicios de fontanería ofrecéis?",
-    answer: "Ofrecemos fontanería 24 horas: reparación de fugas urgentes, desatascos profesionales, instalación y reparación de termos eléctricos, grifos y sanitarios, sustitución de tuberías, y reformas de fontanería completas. Todos los trabajos incluyen garantía de 2 años y presupuesto previo sin compromiso.",
+    answer: "Ofrecemos fontanería 24 horas: reparación de fugas urgentes, desatascos profesionales, instalación y reparación de termos eléctricos, grifos y sanitarios, sustitución de tuberías, y reformas de fontanería completas. Todos los trabajos incluyen garantía de 6 meses y presupuesto previo sin compromiso.",
   },
   {
     question: "¿Cuánto tardáis en llegar en una emergencia?",
-    answer: "Nuestro fontanero urgente llega en 30-60 minutos en Valencia y área metropolitana. Atendemos emergencias 24/7 todos los días del año. Para fugas graves, cortes de agua o desatascos críticos priorizamos la atención inmediata. Llama al 641 688 524 para servicio urgente.",
+    answer: "Nuestro fontanero urgente llega en 30-60 minutos en Valencia y área metropolitana. Atendemos emergencias 24/7 todos los días del año. Para fugas graves, cortes de agua o desatascos críticos priorizamos la atención inmediata. Llama al 642 310 813 para servicio urgente.",
   },
   {
     question: "¿Los fontaneros están certificados?",

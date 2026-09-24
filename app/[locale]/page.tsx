@@ -1,17 +1,24 @@
 import { type Locale } from '@/lib/i18n/config'
-import { getDictionary } from '@/lib/i18n/dictionaries'
 import Hero from '@/components/sections/Hero'
 import ServicesSection from '@/components/sections/ServicesSection'
 import CitiesSection from '@/components/sections/CitiesSection'
-import CTASection from '@/components/sections/CTASection'
-import FAQSection from '@/components/sections/FAQSection'
 import ReviewsSection from '@/components/sections/ReviewsSection'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
-import EmergencyBanner from '@/components/conversion/EmergencyBanner'
-import { generateLocalBusinessSchema } from '@/lib/seo/schema'
-import { getPhoneNumber, getBusinessAddress } from '@/lib/config/contact'
+import FaqSectionV2 from '@/components/ds/FaqSectionV2'
+import ProcessStepsV3 from '@/components/ds/ProcessStepsV3'
+import SeoContentSectionV1 from '@/components/ds/SeoContentSectionV1'
+import TrustCtaBlueV1 from '@/components/ds/TrustCtaBlueV1'
+import TrustSignalsV1 from '@/components/ds/TrustSignalsV1'
+import {
+  homepageCommercialKeywords,
+  homepageFaqs,
+  homepageProcessStepsContent,
+  homepageSeoContent,
+  homepageTrustSignalsContent,
+} from '@/data/homepage-content'
+import { generateFAQSchema, generateLocalBusinessSchema } from '@/lib/seo/schema'
 import type { Metadata } from 'next'
 
 interface HomePageProps {
@@ -27,16 +34,22 @@ export async function generateStaticParams() {
 
 // Homepage Open Graph Metadata
 export async function generateMetadata(): Promise<Metadata> {
-  const ogImage = 'https://reparar24.es/reparar24-og.png'
-  
+  const ogImage = 'https://reparar24.es/reparar24-og.jpg'
+
   return {
     title: 'Reparar24 - Servicios de Fontanería, Electricidad y Climatización 24/7',
-    description: 'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
+    description:
+      'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
+    keywords: homepageCommercialKeywords,
+    alternates: {
+      canonical: 'https://reparar24.es',
+    },
     openGraph: {
       title: 'Reparar24 - Servicios de Fontanería, Electricidad y Climatización 24/7',
-      description: 'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
+      description:
+        'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
       url: 'https://reparar24.es',
-      siteName: 'Reparar24',
+      siteName: 'Fontanero Valencia Reparar24',
       images: [
         {
           url: ogImage,
@@ -51,7 +64,8 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: 'summary_large_image',
       title: 'Reparar24 - Servicios de Fontanería, Electricidad y Climatización 24/7',
-      description: 'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
+      description:
+        'Profesionales certificados. Atención urgente 24 horas. Fontanería, electricidad y climatización en Valencia.',
       images: [ogImage],
     },
   }
@@ -59,15 +73,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params
-  // Dictionary available for future use
-  // const dict = getDictionary(params.locale)
-  
-  const businessAddress = getBusinessAddress()
-  
+
   const localBusinessSchema = generateLocalBusinessSchema({
     name: 'Reparar24',
     description: 'Servicios profesionales de fontanería, electricidad, desatascos y reparaciones 24 horas',
   })
+  const faqSchema = generateFAQSchema({ questions: homepageFaqs })
 
   return (
     <>
@@ -75,15 +86,21 @@ export default async function HomePage({ params }: HomePageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
-      <EmergencyBanner />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Header locale={locale} />
       <main>
         <Hero locale={locale} />
         <ServicesSection locale={locale} />
+        <TrustSignalsV1 {...homepageTrustSignalsContent} />
+        <ProcessStepsV3 {...homepageProcessStepsContent} />
         <CitiesSection locale={locale} />
         <ReviewsSection locale={locale} />
-        <FAQSection locale={locale} />
-        <CTASection locale={locale} />
+        <FaqSectionV2 faqs={homepageFaqs} />
+        <SeoContentSectionV1 {...homepageSeoContent} />
+        <TrustCtaBlueV1 />
       </main>
       <Footer locale={locale} />
       <MobileStickyCTA />

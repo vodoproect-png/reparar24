@@ -241,8 +241,18 @@ export default function MobileMenu({ isOpen, onClose, locale }: MobileMenuProps)
           >
             <span className="text-lg">📧</span>
             <span className="font-semibold text-gray-900">
-              {locale === 'es' ? 'Contacto' : locale === 'en' ? 'Contact' : 'Контакты'}
+              Contacto
             </span>
+          </Link>
+
+          {/* Guias */}
+          <Link
+            href={`${localePrefix}/blog`}
+            onClick={onClose}
+            className="flex items-center gap-2 px-4 py-3 border-b border-gray-200 hover:bg-gray-50 transition-colors"
+          >
+            <span className="text-lg">G</span>
+            <span className="font-semibold text-gray-900">Guias</span>
           </Link>
 
           {/* Contact CTAs */}

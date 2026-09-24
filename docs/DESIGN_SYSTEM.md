@@ -569,6 +569,15 @@ Design system supports:
 ## 📚 Usage Examples
 
 ### Service Page Hero
+
+Approved production rule:
+- `ServiceHeroV2` is the single approved hero shell for all service, service-child, city, and district pages.
+- Page-specific changes are limited to SEO copy, CTA URLs, quick service chips, and the hero image.
+- The hero image must show a branded technician, a white branded service van, and a clear visual tie to the service category.
+- Each top-level category needs its own hero bitmap. The van must show the Reparar24 brand and the category/service, while the technician shirt uses only a small left-chest Reparar24 badge.
+- Every rendered hero image must include a descriptive alt text.
+- For electricista pages, use the same layout standard as the fontanero page and the `/images/electricista/electricista-hero.png` asset until a new approved service image is generated.
+
 ```html
 <section class="section-hero gradient-primary">
   <div class="container-custom">

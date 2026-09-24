@@ -76,7 +76,10 @@ export default function Header({ locale }: HeaderProps) {
                 Clima
               </Link>
               <Link href={`${localePrefix}/contacto`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
-                {locale === 'es' ? 'Contacto' : locale === 'en' ? 'Contact' : 'Контакты'}
+                Contacto
+              </Link>
+              <Link href={`${localePrefix}/blog`} className="text-gray-700 hover:text-primary-600 font-medium transition-colors">
+                Guias
               </Link>
             </div>
 

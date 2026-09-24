@@ -11,7 +11,7 @@
 import { services } from '../../data/services'
 import { cities } from '../../data/cities'
 import { serviceSlugMap, type ServiceId } from '../i18n/slugs'
-import type { Locale } from '../i18n/config'
+import { locales } from '../i18n/config'
 
 export interface ValidationResult {
   valid: boolean
@@ -218,10 +218,8 @@ export function validateSlugs(): ValidationResult {
   const errors: string[] = []
   const warnings: string[] = []
 
-  const locales: Locale[] = ['es', 'en', 'ru']
-
   for (const [serviceId, slugMap] of Object.entries(serviceSlugMap)) {
-    // Check all locales are present
+    // Check all active locales are present
     for (const locale of locales) {
       if (!slugMap[locale]) {
         errors.push(`Service "${serviceId}" missing ${locale} locale in slug map`)
@@ -308,8 +306,6 @@ export function validateRoutes(): ValidationResult {
   const warnings: string[] = []
 
   const routes = new Set<string>()
-  const locales: Locale[] = ['es', 'en', 'ru']
-
   for (const locale of locales) {
     // Check service routes
     for (const service of services) {

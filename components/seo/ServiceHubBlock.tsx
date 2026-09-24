@@ -33,13 +33,16 @@ interface ServiceHubBlockProps {
  * @param intro - Section introduction
  * @param cards - Array of child service cards
  */
-export function ServiceHubBlock({
-  serviceSlug,
-  locale,
-  title = 'Servicios Especializados',
-  intro,
-  cards
-}: ServiceHubBlockProps) {
+export function ServiceHubBlock(props: ServiceHubBlockProps) {
+  const {
+    serviceSlug,
+    title = 'Servicios Especializados',
+    intro,
+    cards,
+  } = props
+
+  void props.locale
+
   return (
     <section className="py-16 bg-white" aria-labelledby="service-hub-title">
       <div className="container-custom">

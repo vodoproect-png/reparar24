@@ -58,5 +58,5 @@ export const servicePageValenciaCoverage = {
   coverageTitle: "Cobertura en Valencia y alrededores",
   coverageDescription: "Si tu ciudad no aparece en la lista, consúltanos. Cubrimos Valencia y área metropolitana según disponibilidad.",
   ctaText: "Llámanos ahora",
-  ctaPhone: "tel:+34641688524"
+  ctaPhone: "tel:+34642310813"
 }

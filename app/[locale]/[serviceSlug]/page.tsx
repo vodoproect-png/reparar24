@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { type Locale } from '@/lib/i18n/config'
 import { services } from '@/data/services'
@@ -10,18 +11,9 @@ import { Breadcrumbs, generateBreadcrumbSchema } from '@/components/navigation/B
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import CTASection from '@/components/sections/CTASection'
-import { ServiceGuaranteeBlock } from '@/components/seo/EEATSignals'
-import { ServiceHubBlock } from '@/components/seo/ServiceHubBlock'
-import Link from 'next/link'
-// Commercial components for master template (fontanero)
-import { TrustStatsBlock } from '@/components/commercial/TrustStatsBlock'
-import { CommercialCTA } from '@/components/commercial/CommercialCTA'
-import { PricingTableBlock } from '@/components/commercial/PricingTableBlock'
-// Conversion components
 import MobileStickyCTA from '@/components/conversion/MobileStickyCTA'
-// PILOT: V0 Design System Components
 import { ServiceHeroV2 } from '@/components/ds/ServiceHeroV2'
-import { ServicesGridV1 } from '@/components/ds/ServicesGridV1'
+import { ServicesDirectoryV2 } from '@/components/ds/ServicesDirectoryV2'
 import { TrustSignalsV1 } from '@/components/ds/TrustSignalsV1'
 import { ProcessStepsV3 } from '@/components/ds/ProcessStepsV3'
 import { PricingSectionV1 } from '@/components/ds/PricingSectionV1'
@@ -31,26 +23,15 @@ import { TrustCtaBlueV1 } from '@/components/ds/TrustCtaBlueV1'
 import ServiceAreasV1 from '@/components/ds/ServiceAreasV1'
 import SeoContentSectionV1 from '@/components/ds/SeoContentSectionV1'
 import { serviceToHeroProps } from '@/lib/adapters/hero-adapter'
-import { fontaneroHubSeoContent, fontaneroHubFaqs } from '@/data/fontanero/hub-page-content'
 import {
-  fontaneroServicesGridContent,
-  fontaneroTrustSignalsContent,
-  fontaneroProcessStepsContent,
-  fontaneroPricingSectionContent,
-  fontaneroOpinionesClientesContent,
-} from '@/data/fontanero/page-components-content'
-import {
-  electricistaHeroContent,
-} from '@/data/electricista/page-components-content'
-// Shared Valencia GEO preset
-import { servicePageValenciaCoverage } from '@/data/block-presets/service-page-neutral'
+  getServicePageContent,
+  servicePageValenciaCoverage,
+} from '@/data/service-page-content'
 
 export async function generateStaticParams() {
   const params: { locale: Locale; serviceSlug: string }[] = []
-  
-  // SPANISH-ONLY PRODUCTION: Only generate Spanish pages
   const locales: Locale[] = ['es']
-  
+
   locales.forEach((locale) => {
     services.forEach((service) => {
       params.push({
@@ -59,7 +40,7 @@ export async function generateStaticParams() {
       })
     })
   })
-  
+
   return params
 }
 
@@ -71,7 +52,7 @@ export async function generateMetadata({
   const { locale, serviceSlug } = await params
   const service = services.find((s) => s.slug === serviceSlug)
   if (!service) return {}
-  
+
   return generateEnhancedServiceMetadata(service, locale)
 }
 
@@ -87,9 +68,31 @@ export default async function ServicePage({
     notFound()
   }
 
-  const serviceSchema = generateServiceSchema({ service })
+  const serviceContent = getServicePageContent(serviceSlug)
+  const isOptimizedService = Boolean(serviceContent)
+  const valenciaCity = cities.find((city) => city.slug === 'valencia')
+  const serviceSchema = generateServiceSchema({
+    service,
+    url: `https://reparar24.es/${service.slug}`,
+    areaServed:
+      service.slug === 'fontanero' && valenciaCity
+        ? {
+            '@type': 'AdministrativeArea',
+            name: valenciaCity.name,
+            containedInPlace: {
+              '@type': 'Country',
+              name: 'Espana',
+            },
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: valenciaCity.coordinates.lat,
+              longitude: valenciaCity.coordinates.lng,
+            },
+          }
+        : undefined,
+  })
   const faqSchema = generateFAQSchema({
-    questions: [
+    questions: serviceContent?.faqs ?? [
       {
         question: `¿Cuánto cuesta el servicio de ${service.name.toLowerCase()}?`,
         answer: `El servicio comienza desde ${service.priceRange}. El precio final depende de la complejidad del trabajo.`,
@@ -102,7 +105,6 @@ export default async function ServicePage({
       },
     ],
   })
-
   const cityLinks = getServiceCityLinks(service, cities, locale)
   const breadcrumbItems = generateServiceBreadcrumbs(service, locale)
   const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems)
@@ -124,33 +126,23 @@ export default async function ServicePage({
       <Header locale={locale} />
       <Breadcrumbs items={breadcrumbItems} />
       <main>
-        {/* Hero Section - PILOT: V0 Design System Component (fontanero, electricista) */}
-        {serviceSlug === 'fontanero' ? (
+        {isOptimizedService ? (
           <ServiceHeroV2 {...serviceToHeroProps(service, locale)} />
-        ) : serviceSlug === 'electricista' ? (
-          <ServiceHeroV2 {...electricistaHeroContent} />
         ) : (
-          /* Original Hero Section - Other Services */
-          <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+          <section className="bg-gradient-to-br from-primary-600 to-primary-800 py-20 text-white">
             <div className="container-custom">
               <div className="max-w-4xl">
-                <div className="flex items-center space-x-4 mb-6">
+                <div className="mb-6 flex items-center space-x-4">
                   <span className="text-6xl">{service.icon}</span>
-                  <h1 className="text-5xl md:text-6xl font-bold">
-                    {service.name}
-                  </h1>
+                  <h1 className="text-5xl font-bold md:text-6xl">{service.name}</h1>
                 </div>
-                <p className="text-2xl mb-8 text-primary-50">
-                  {service.description}
-                </p>
-                
-                {/* CTAs - Only 2 primary actions */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-6">
+                <p className="mb-8 text-2xl text-primary-50">{service.description}</p>
+                <div className="mb-6 flex flex-col gap-4 sm:flex-row">
                   <a
-                    href="tel:+34641688524"
-                    className="btn-primary bg-accent-500 hover:bg-accent-600 text-lg font-bold px-8 py-4 shadow-xl"
+                    href="tel:+34642310813"
+                    className="btn-primary bg-accent-500 px-8 py-4 text-lg font-bold shadow-xl hover:bg-accent-600"
                   >
-                    📞 Llamar Ahora - {service.priceRange}
+                    📞 Llamar ahora - {service.priceRange}
                   </a>
                 </div>
               </div>
@@ -158,57 +150,33 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Mobile Sticky CTA - Fontanero */}
-        {serviceSlug === 'fontanero' && (
-          <MobileStickyCTA 
-            phone="34641688524"
-            whatsappMessage="Hola, necesito un fontanero urgente. ¿Pueden ayudarme?"
+        {isOptimizedService && (
+          <MobileStickyCTA
+            phone="34642310813"
+            whatsappMessage={`Hola, necesito un ${service.name.toLowerCase()} urgente. ¿Pueden ayudarme?`}
           />
         )}
 
-        {/* PILOT: V0 ServicesGridV1 - WITH PROPS (fontanero) */}
-        {serviceSlug === 'fontanero' && <ServicesGridV1 {...fontaneroServicesGridContent} />}
-
-        {/* SEO Heading + PILOT: V0 TrustSignalsV1 - WITH PROPS (fontanero) */}
-        {serviceSlug === 'fontanero' && (
-          <div className="container-custom mt-8 mb-4">
-            {/* Pill badge */}
-            <div className="flex justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
-                VENTAJAS REPARAR24
-              </span>
-            </div>
-            
-            {/* Heading */}
-            <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
-              ¿Por qué elegir Reparar24?
-            </h2>
-          </div>
+        {serviceContent && (
+          <>
+            <ServicesDirectoryV2 {...serviceContent.servicesDirectory} />
+            <TrustSignalsV1 {...serviceContent.trustSignals} />
+            <ProcessStepsV3 {...serviceContent.processSteps} />
+            <PricingSectionV1 {...serviceContent.pricing} />
+            <OpinionesClientesV1 {...serviceContent.opiniones} />
+            <ServiceAreasV1 {...servicePageValenciaCoverage} />
+          </>
         )}
-        {serviceSlug === 'fontanero' && <TrustSignalsV1 {...fontaneroTrustSignalsContent} />}
 
-        {/* Process Steps V3 - WITH PROPS (fontanero) */}
-        {serviceSlug === 'fontanero' && <ProcessStepsV3 {...fontaneroProcessStepsContent} />}
-
-        {/* Pricing Section V1 - WITH PROPS (fontanero) */}
-        {serviceSlug === 'fontanero' && <PricingSectionV1 {...fontaneroPricingSectionContent} />}
-
-        {/* Opiniones Clientes V1 - WITH PROPS (fontanero) */}
-        {serviceSlug === 'fontanero' && <OpinionesClientesV1 {...fontaneroOpinionesClientesContent} />}
-
-        {/* Service Areas V1 - SHARED VALENCIA GEO COVERAGE (fontanero) */}
-        {serviceSlug === 'fontanero' && <ServiceAreasV1 {...servicePageValenciaCoverage} />}
-
-        {/* Benefits Section - OTHER SERVICES */}
-        {serviceSlug !== 'fontanero' && (
-          <section className="py-16 bg-gray-50">
+        {!isOptimizedService && (
+          <section className="bg-gray-50 py-16">
             <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">¿Por Qué Elegirnos?</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {service.benefits.map((benefit, index) => (
-                  <div key={index} className="card">
+              <h2 className="mb-8 text-center text-3xl font-bold">¿Por qué elegirnos?</h2>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {service.benefits.map((benefit) => (
+                  <div key={benefit} className="card">
                     <div className="flex items-start space-x-3">
-                      <span className="text-green-500 text-2xl mt-1">✓</span>
+                      <span className="mt-1 text-2xl text-green-500">✓</span>
                       <p className="text-lg">{benefit}</p>
                     </div>
                   </div>
@@ -218,21 +186,16 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Service Areas - REMOVED (duplicates SeoContentSectionV1 coverage) */}
-
-        {/* Cities Section - OTHER SERVICES */}
-        {serviceSlug !== 'fontanero' && (
-          <section className="py-16 bg-white">
+        {!isOptimizedService && (
+          <section className="bg-white py-16">
             <div className="container-custom">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                {service.name} en Tu Ciudad
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {cityLinks.map((link, index) => (
+              <h2 className="mb-8 text-center text-3xl font-bold">{service.name} en tu ciudad</h2>
+              <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+                {cityLinks.map((link) => (
                   <Link
-                    key={index}
+                    key={link.href}
                     href={link.href}
-                    className="p-4 bg-gray-50 hover:bg-primary-50 rounded-lg transition-colors text-center font-medium hover:text-primary-600"
+                    className="rounded-lg bg-gray-50 p-4 text-center font-medium transition-colors hover:bg-primary-50 hover:text-primary-600"
                   >
                     {link.title}
                   </Link>
@@ -242,27 +205,23 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Generic CTA for other services */}
-        {serviceSlug !== 'fontanero' && <CTASection locale={locale} />}
+        {!isOptimizedService && <CTASection locale={locale} />}
 
-        {/* FAQ Section - FONTANERO uses V2, ELECTRICISTA uses generic, others use generic */}
-        {serviceSlug === 'fontanero' ? (
-          <FaqSectionV2 faqs={fontaneroHubFaqs} />
+        {serviceContent ? (
+          <FaqSectionV2 faqs={serviceContent.faqs} />
         ) : (
-          faqs.filter(faq => faq.serviceId === service.id).length > 0 && (
-            <section className="py-16 bg-gray-50">
+          faqs.filter((faq) => faq.serviceId === service.id).length > 0 && (
+            <section className="bg-gray-50 py-16">
               <div className="container-custom">
-                <h2 className="text-3xl font-bold mb-8 text-center">Preguntas Frecuentes</h2>
-                <div className="max-w-3xl mx-auto space-y-4">
-                  {faqs.filter(faq => faq.serviceId === service.id).map((faq, index) => (
-                    <details key={index} className="bg-white rounded-lg shadow-md overflow-hidden group">
-                      <summary className="px-6 py-4 font-semibold text-lg cursor-pointer hover:bg-gray-50 transition-colors flex justify-between items-center">
+                <h2 className="mb-8 text-center text-3xl font-bold">Preguntas frecuentes</h2>
+                <div className="mx-auto max-w-3xl space-y-4">
+                  {faqs.filter((faq) => faq.serviceId === service.id).map((faq) => (
+                    <details key={faq.question} className="group overflow-hidden rounded-lg bg-white shadow-md">
+                      <summary className="flex cursor-pointer items-center justify-between px-6 py-4 text-lg font-semibold transition-colors hover:bg-gray-50">
                         <span>{faq.question}</span>
-                        <span className="text-primary-600 group-open:rotate-180 transition-transform">▼</span>
+                        <span className="text-primary-600 transition-transform group-open:rotate-180">⌄</span>
                       </summary>
-                      <div className="px-6 pb-4 text-gray-600">
-                        {faq.answer}
-                      </div>
+                      <div className="px-6 pb-4 text-gray-600">{faq.answer}</div>
                     </details>
                   ))}
                 </div>
@@ -271,15 +230,13 @@ export default async function ServicePage({
           )
         )}
 
-        {/* SEO Content Section V1 - FONTANERO (v0 approved component) */}
-        {serviceSlug === 'fontanero' ? (
-          <SeoContentSectionV1 {...fontaneroHubSeoContent} />
+        {serviceContent ? (
+          <SeoContentSectionV1 {...serviceContent.seo} />
         ) : (
-          /* SEO Content Section - OTHER SERVICES (keep as is) */
-          <section className="py-16 bg-white">
+          <section className="bg-white py-16">
             <div className="container-custom">
-              <div className="max-w-4xl mx-auto prose prose-lg">
-                <div className="text-gray-700 leading-relaxed whitespace-pre-line">
+              <div className="prose prose-lg mx-auto max-w-4xl">
+                <div className="whitespace-pre-line leading-relaxed text-gray-700">
                   {service.longDescription}
                 </div>
               </div>
@@ -287,8 +244,7 @@ export default async function ServicePage({
           </section>
         )}
 
-        {/* Final CTA - FONTANERO */}
-        {serviceSlug === 'fontanero' && <TrustCtaBlueV1 />}
+        {isOptimizedService && <TrustCtaBlueV1 />}
       </main>
       <Footer locale={locale} />
     </>

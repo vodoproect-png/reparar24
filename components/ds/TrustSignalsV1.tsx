@@ -27,6 +27,9 @@ interface TrustItem {
 }
 
 export interface TrustSignalsV1Props {
+  badge?: string
+  title?: string
+  subtitle?: string
   stats?: TrustStat[]
   bottomItems?: TrustItem[]
 }
@@ -40,6 +43,9 @@ const badgeStyles: Record<StatColor, string> = {
 }
 
 export function TrustSignalsV1({
+  badge,
+  title,
+  subtitle,
   stats,
   bottomItems,
 }: TrustSignalsV1Props = {}) {
@@ -47,6 +53,27 @@ export function TrustSignalsV1({
   if (!stats?.length || !bottomItems?.length) return null
   return (
     <section className="w-full px-4 py-8 sm:px-6">
+      {(badge || title || subtitle) && (
+        <div className="mx-auto mb-6 max-w-[1280px]">
+          <div className="flex flex-col items-center text-center">
+            {badge && (
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#E4EDFB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
+                {badge}
+              </span>
+            )}
+            {title && (
+              <h2 className="mt-6 text-balance text-center text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
+                {title}
+              </h2>
+            )}
+            {subtitle && (
+              <p className="mx-auto mt-4 max-w-2xl text-balance text-center text-lg text-[#4A5B7D] sm:text-xl">
+                {subtitle}
+              </p>
+            )}
+          </div>
+        </div>
+      )}
       <div className="mx-auto max-w-[1280px] rounded-[32px] border border-[#E4ECF9] bg-[#F7FAFF] px-6 py-5 shadow-[0_20px_50px_-20px_rgba(15,45,117,0.18)] transition-shadow duration-300 hover:shadow-[0_28px_60px_-20px_rgba(15,45,117,0.28)] sm:px-10 sm:py-6">
         {/* Top row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

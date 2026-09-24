@@ -30,7 +30,7 @@ export default function FaqSectionV2({ faqs }: FaqSectionV2Props = {}) {
           <h2 className="mt-5 text-balance text-4xl font-extrabold leading-tight text-[#0F2D75] sm:text-5xl lg:text-[56px]">
             Resolvemos Tus Dudas
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#5B6B8C] sm:text-xl">
+          <p className="mx-auto mt-4 max-w-2xl text-balance text-lg text-[#4A5B7D] sm:text-xl">
             Respuestas claras sobre nuestros servicios profesionales
           </p>
         </div>
@@ -65,7 +65,7 @@ export default function FaqSectionV2({ faqs }: FaqSectionV2Props = {}) {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-5 text-[15px] leading-relaxed text-[#5B6B8C]">{faq.answer}</p>
+                    <p className="px-6 pb-5 text-[15px] leading-relaxed text-[#4A5B7D]">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -79,24 +79,24 @@ export default function FaqSectionV2({ faqs }: FaqSectionV2Props = {}) {
             <h3 className="text-xl font-extrabold leading-tight text-[#0F2D75] sm:text-2xl">
               ¿No encuentras la respuesta?
             </h3>
-            <p className="mt-2 text-[15px] leading-relaxed text-[#5B6B8C]">
+            <p className="mt-2 text-[15px] leading-relaxed text-[#4A5B7D]">
               Llámanos o escríbenos por WhatsApp.
             </p>
           </div>
 
           <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center lg:w-auto lg:flex-shrink-0">
             <a
-              href="tel:+34641688524"
+              href="tel:+34642310813"
               className="flex items-center justify-center gap-3 rounded-2xl bg-[#F97316] px-5 py-3.5 text-white shadow-[0_14px_30px_-14px_rgba(249,115,22,0.7)] transition-colors duration-200 hover:bg-[#EA6A0F]"
             >
               <Phone className="h-5 w-5 flex-shrink-0" strokeWidth={2.25} aria-hidden="true" />
               <span className="flex flex-col leading-tight text-left">
                 <span className="text-base font-bold">Llamar ahora</span>
-                <span className="text-sm font-medium text-white/90">641 688 524</span>
+                <span className="text-sm font-medium text-white/90">642 310 813</span>
               </span>
             </a>
             <a
-              href="https://wa.me/34641688524"
+              href="https://wa.me/34642310813"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-3 rounded-2xl bg-[#22C55E] px-5 py-3.5 text-white shadow-[0_14px_30px_-14px_rgba(34,197,94,0.7)] transition-colors duration-200 hover:bg-[#1FB055]"

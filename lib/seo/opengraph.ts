@@ -13,6 +13,7 @@ interface OpenGraphParams {
   locale: Locale
   image?: string
   imageAlt?: string
+  siteName?: string
   type?: 'website' | 'article'
 }
 
@@ -27,6 +28,7 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     locale,
     image,
     imageAlt,
+    siteName = 'Reparar24',
     type = 'website',
   } = params
 
@@ -43,7 +45,7 @@ export function generateOpenGraph(params: OpenGraphParams): Metadata['openGraph'
     title,
     description,
     url,
-    siteName: 'Reparar24',
+    siteName,
     type,
     locale: localeMap[locale],
     images: [

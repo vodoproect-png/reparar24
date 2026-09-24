@@ -3,6 +3,9 @@ import { City } from '@/data/cities'
 import { getPhoneNumber, getEmail, getBusinessAddress } from '@/lib/config/contact'
 import { getCompanyInfo } from '@/lib/config/company'
 
+const SITE_URL = 'https://reparar24.es'
+const BRAND_IMAGE_URL = `${SITE_URL}/reparar24-og.jpg`
+
 interface LocalBusinessSchemaProps {
   name: string
   description: string
@@ -12,118 +15,12 @@ interface LocalBusinessSchemaProps {
   city?: City
 }
 
-export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
-  const address = getBusinessAddress()
-  const telephone = getPhoneNumber()
-  const email = getEmail()
-  
-  // Use city coordinates if provided, otherwise use business address coordinates (Valencia/Torrent area)
-  const geo = props.city ? {
-    '@type': 'GeoCoordinates' as const,
-    latitude: props.city.coordinates.lat,
-    longitude: props.city.coordinates.lng
-  } : {
-    '@type': 'GeoCoordinates' as const,
-    latitude: 39.4699, // Valencia coordinates (fallback for homepage/organization)
-    longitude: -0.3763
-  }
-  
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${props.url || 'https://reparar24.es'}#business`,
-    name: props.name,
-    description: props.description,
-    url: props.url || 'https://reparar24.es',
-    telephone: telephone,
-    email: email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: address.streetAddress,
-      addressLocality: address.addressLocality,
-      addressRegion: address.addressRegion,
-      postalCode: address.postalCode,
-      addressCountry: address.addressCountry
-    },
-    geo: geo,
-    image: props.image || 'https://reparar24.es/logo.png',
-    logo: 'https://reparar24.es/logo.png',
-    priceRange: props.priceRange || '€€-€€€',
-    openingHoursSpecification: [
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
-        ],
-        opens: '00:00',
-        closes: '23:59'
-      }
-    ],
-    areaServed: [
-      {
-        '@type': 'City',
-        name: 'Valencia'
-      },
-      {
-        '@type': 'City',
-        name: 'Madrid'
-      },
-      {
-        '@type': 'City',
-        name: 'Barcelona'
-      }
-    ],
-    serviceType: [
-      'Fontanería',
-      'Electricidad',
-      'Desatascos',
-      'Calefacción',
-      'Aire Acondicionado'
-    ]
-    // aggregateRating removed - Google requires verifiable reviews backing any rating claims
-    // Only 3 sample reviews exist, insufficient for structured data rating
-  }
-}
-
 interface ServiceSchemaProps {
   service: Service
   city?: City
   provider?: string
-}
-
-export function generateServiceSchema(props: ServiceSchemaProps) {
-  const { service, city, provider = 'Reparar24' } = props
-  
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: city ? `${service.name} en ${city.name}` : service.name,
-    description: service.longDescription,
-    provider: {
-      '@type': 'Organization',
-      name: provider
-    },
-    areaServed: city ? {
-      '@type': 'City',
-      name: city.name
-    } : {
-      '@type': 'Country',
-      name: 'España'
-    },
-    available: service.available24h ? '24/7' : 'Business hours',
-    serviceType: service.name,
-    offers: {
-      '@type': 'Offer',
-      price: service.priceRange,
-      priceCurrency: 'EUR'
-    }
-  }
+  url?: string
+  areaServed?: Record<string, unknown>
 }
 
 interface FAQSchemaProps {
@@ -133,67 +30,196 @@ interface FAQSchemaProps {
   }>
 }
 
-export function generateFAQSchema(props: FAQSchemaProps) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: props.questions.map(faq => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer
-      }
-    }))
-  }
-}
-
 interface BreadcrumbItem {
   name: string
   url: string
 }
 
-/**
- * Generate BreadcrumbList schema with absolute URLs
- * Note: items should already contain absolute URLs from lib/linking/internal.ts
- */
+interface WebPageSchemaProps {
+  url: string
+  name: string
+  description: string
+  breadcrumbs?: BreadcrumbItem[]
+}
+
+interface EnhancedServiceSchemaProps {
+  service: Service
+  city?: City
+  url: string
+}
+
+function getServicePageUrl(service: Service, city?: City) {
+  return city ? `${SITE_URL}/${service.slug}/${city.slug}` : `${SITE_URL}/${service.slug}`
+}
+
+function getOpeningHoursSpecification() {
+  return {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59',
+  }
+}
+
+function getContactPoint() {
+  return {
+    '@type': 'ContactPoint',
+    telephone: getPhoneNumber(),
+    contactType: 'customer service',
+    areaServed: 'ES',
+    availableLanguage: ['es'],
+    hoursAvailable: getOpeningHoursSpecification(),
+  }
+}
+
+export function generateLocalBusinessSchema(props: LocalBusinessSchemaProps) {
+  const address = getBusinessAddress()
+  const geo = props.city
+    ? {
+        '@type': 'GeoCoordinates' as const,
+        latitude: props.city.coordinates.lat,
+        longitude: props.city.coordinates.lng,
+      }
+    : {
+        '@type': 'GeoCoordinates' as const,
+        latitude: 39.4699,
+        longitude: -0.3763,
+      }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${props.url || SITE_URL}#business`,
+    name: props.name,
+    description: props.description,
+    url: props.url || SITE_URL,
+    telephone: getPhoneNumber(),
+    email: getEmail(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address.streetAddress,
+      addressLocality: address.addressLocality,
+      addressRegion: address.addressRegion,
+      postalCode: address.postalCode,
+      addressCountry: address.addressCountry,
+    },
+    geo,
+    image: props.image || BRAND_IMAGE_URL,
+    logo: BRAND_IMAGE_URL,
+    priceRange: props.priceRange || 'EUR 49-600',
+    openingHoursSpecification: [getOpeningHoursSpecification()],
+    areaServed: [
+      { '@type': 'City', name: 'Valencia' },
+      { '@type': 'City', name: 'Madrid' },
+      { '@type': 'City', name: 'Barcelona' },
+    ],
+  }
+}
+
+export function generateServiceSchema(props: ServiceSchemaProps) {
+  const { service, city, provider = 'Reparar24', areaServed } = props
+  const url = props.url || getServicePageUrl(service, city)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: city ? `${service.name} en ${city.name}` : service.name,
+    description: service.description,
+    url,
+    mainEntityOfPage: {
+      '@id': `${url}#webpage`,
+    },
+    provider: {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}#organization`,
+      name: provider,
+      url: SITE_URL,
+    },
+    areaServed:
+      areaServed ??
+      (city
+        ? {
+            '@type': 'City',
+            name: city.name,
+            containedInPlace: {
+              '@type': 'Country',
+              name: 'Espana',
+            },
+          }
+        : {
+            '@type': 'Country',
+            name: 'Espana',
+          }),
+    serviceType: service.name,
+    brand: {
+      '@type': 'Brand',
+      name: 'Reparar24',
+    },
+    offers: {
+      '@type': 'Offer',
+      url,
+      priceCurrency: 'EUR',
+      availability: 'https://schema.org/InStock',
+      seller: {
+        '@id': `${SITE_URL}#organization`,
+      },
+      itemOffered: {
+        '@id': `${url}#service`,
+      },
+    },
+  }
+}
+
+export function generateFAQSchema(props: FAQSchemaProps) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: props.questions.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+}
+
 export function generateBreadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: items.map((item, index) => {
-      const isLast = index === items.length - 1
-      return {
-        '@type': 'ListItem',
-        position: index + 1,
-        name: item.name,
-        // Google recommends omitting 'item' for the last breadcrumb (current page)
-        ...((!isLast) && { item: item.url })
-      }
-    })
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   }
 }
 
 export function generateOrganizationSchema() {
   const address = getBusinessAddress()
   const company = getCompanyInfo()
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    '@id': 'https://reparar24.es#organization',
+    '@id': `${SITE_URL}#organization`,
     name: company.tradeName,
     legalName: company.legalName,
     alternateName: 'Reparar 24',
     taxID: company.cif,
-    url: 'https://reparar24.es',
+    url: SITE_URL,
     logo: {
       '@type': 'ImageObject',
-      url: 'https://reparar24.es/logo.png',
-      width: '250',
-      height: '60'
+      url: BRAND_IMAGE_URL,
+      width: '1200',
+      height: '630',
     },
-    description: 'Servicios de fontanería, electricidad y reparaciones 24 horas en España',
+    image: BRAND_IMAGE_URL,
+    description: 'Servicios de fontaneria, electricidad, desatascos y reparaciones 24 horas en Espana',
     email: getEmail(),
     telephone: getPhoneNumber(),
     address: {
@@ -202,27 +228,9 @@ export function generateOrganizationSchema() {
       addressLocality: address.addressLocality,
       addressRegion: address.addressRegion,
       postalCode: address.postalCode,
-      addressCountry: address.addressCountry
+      addressCountry: address.addressCountry,
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: getPhoneNumber(),
-      contactType: 'customer service',
-      areaServed: 'ES',
-      availableLanguage: ['Spanish', 'English', 'Russian'],
-      contactOption: 'TollFree',
-      hoursAvailable: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        opens: '00:00',
-        closes: '23:59'
-      }
-    },
-    sameAs: [
-      'https://facebook.com/reparar24',
-      'https://twitter.com/reparar24',
-      'https://instagram.com/reparar24'
-    ]
+    contactPoint: [getContactPoint()],
   }
 }
 
@@ -230,30 +238,15 @@ export function generateWebSiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': 'https://reparar24.es#website',
-    url: 'https://reparar24.es',
+    '@id': `${SITE_URL}#website`,
+    url: SITE_URL,
     name: 'Reparar24',
-    description: 'Servicios de fontanería, electricidad y reparaciones 24 horas',
+    description: 'Servicios de fontaneria, electricidad, desatascos y reparaciones 24 horas',
     publisher: {
-      '@id': 'https://reparar24.es#organization'
+      '@id': `${SITE_URL}#organization`,
     },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: 'https://reparar24.es/buscar?q={search_term_string}'
-      },
-      'query-input': 'required name=search_term_string'
-    },
-    inLanguage: ['es', 'en', 'ru']
+    inLanguage: 'es-ES',
   }
-}
-
-interface WebPageSchemaProps {
-  url: string
-  name: string
-  description: string
-  breadcrumbs?: BreadcrumbItem[]
 }
 
 export function generateWebPageSchema(props: WebPageSchemaProps) {
@@ -265,79 +258,65 @@ export function generateWebPageSchema(props: WebPageSchemaProps) {
     name: props.name,
     description: props.description,
     isPartOf: {
-      '@id': 'https://reparar24.es#website'
+      '@id': `${SITE_URL}#website`,
     },
     about: {
-      '@id': 'https://reparar24.es#organization'
+      '@id': `${SITE_URL}#organization`,
     },
-    breadcrumb: props.breadcrumbs ? {
-      '@id': `${props.url}#breadcrumb`
-    } : undefined,
-    inLanguage: 'es',
+    breadcrumb: props.breadcrumbs
+      ? {
+          '@id': `${props.url}#breadcrumb`,
+        }
+      : undefined,
+    inLanguage: 'es-ES',
     potentialAction: {
       '@type': 'ReadAction',
-      target: [props.url]
-    }
+      target: [props.url],
+    },
   }
-}
-
-interface EnhancedServiceSchemaProps {
-  service: Service
-  city?: City
-  url: string
 }
 
 export function generateEnhancedServiceSchema(props: EnhancedServiceSchemaProps) {
   const { service, city, url } = props
-  
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${url}#service`,
     name: city ? `${service.name} en ${city.name}` : service.name,
-    description: service.longDescription,
+    description: service.description,
     serviceType: service.name,
+    url,
+    mainEntityOfPage: {
+      '@id': `${url}#webpage`,
+    },
     provider: {
-      '@id': 'https://reparar24.es#organization'
+      '@id': `${SITE_URL}#organization`,
     },
-    areaServed: city ? {
-      '@type': 'City',
-      name: city.name,
-      containedInPlace: {
-        '@type': 'Country',
-        name: 'España'
-      }
-    } : {
-      '@type': 'Country',
-      name: 'España'
-    },
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      serviceUrl: url,
-      servicePhone: {
-        '@type': 'ContactPoint',
-        telephone: getPhoneNumber(),
-        contactType: 'customer service',
-        availableLanguage: ['Spanish', 'English', 'Russian']
-      }
-    },
-    hoursAvailable: service.available24h ? {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-      opens: '00:00',
-      closes: '23:59'
-    } : undefined,
+    areaServed: city
+      ? {
+          '@type': 'City',
+          name: city.name,
+          containedInPlace: {
+            '@type': 'Country',
+            name: 'Espana',
+          },
+        }
+      : {
+          '@type': 'Country',
+          name: 'Espana',
+        },
     offers: {
       '@type': 'Offer',
-      price: service.priceRange,
+      url,
       priceCurrency: 'EUR',
       availability: 'https://schema.org/InStock',
-      priceSpecification: {
-        '@type': 'UnitPriceSpecification',
-        price: service.priceRange,
-        priceCurrency: 'EUR'
-      }
-    }
-    // aggregateRating removed - Google requires verifiable reviews backing any rating claims
+      seller: {
+        '@id': `${SITE_URL}#organization`,
+      },
+      itemOffered: {
+        '@id': `${url}#service`,
+      },
+    },
   }
 }

@@ -5,7 +5,7 @@
  */
 
 import { analyticsConfig, isAnalyticsEnabled, type AnalyticsEvent } from './config'
-import { pushToDataLayer } from './gtm'
+import { pushToDataLayer, type DataLayerEvent } from './gtm'
 
 /**
  * Get GA4 script for <head>
@@ -44,7 +44,7 @@ export function trackPageView(url: string, title?: string): void {
  */
 export function trackEvent(
   eventName: AnalyticsEvent,
-  eventParams?: Record<string, any>
+  eventParams?: DataLayerEvent
 ): void {
   if (!isAnalyticsEnabled()) {
     if (analyticsConfig.debug) {

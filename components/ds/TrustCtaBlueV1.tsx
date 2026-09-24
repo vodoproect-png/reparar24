@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Phone, ShieldCheck, Zap } from "lucide-react"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -15,8 +16,8 @@ const trustItems = [
 ]
 
 export function TrustCtaBlueV1({
-  phoneHref = "tel:+34641688524",
-  whatsappHref = "https://wa.me/34641688524",
+  phoneHref = "tel:+34642310813",
+  whatsappHref = "https://wa.me/34642310813",
 }: {
   phoneHref?: string
   whatsappHref?: string
@@ -26,20 +27,19 @@ export function TrustCtaBlueV1({
       <div className="mx-auto max-w-[1100px]">
         <div className="relative overflow-hidden rounded-[28px] border border-[#DCE7F7] bg-[#EAF1FD] px-6 py-8 shadow-[0_24px_55px_-30px_rgba(15,45,117,0.45)] sm:px-10 sm:py-10">
           <div className="flex items-center justify-between gap-6">
-            {/* Left 3D icon */}
             <div className="hidden shrink-0 lg:block">
               <div className="relative flex h-32 w-32 items-center justify-center">
                 <span className="absolute inset-0 rounded-full bg-[#DCE7FB]" aria-hidden="true" />
-                <img
-                  src="/icons/process-3d-01-contacto.png"
-                  alt=""
-                  aria-hidden="true"
+                <Image
+                  src="/icons/process-3d-01-contacto.webp"
+                  alt="Icono 3D de contacto con Reparar24"
+                  width={112}
+                  height={112}
                   className="relative h-28 w-28 object-contain drop-shadow-[0_18px_28px_rgba(15,45,117,0.28)]"
                 />
               </div>
             </div>
 
-            {/* Center content */}
             <div className="flex min-w-0 flex-1 flex-col items-center text-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-[#D6E4FB] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-[#2563EB]">
                 <ShieldCheck className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
@@ -47,14 +47,13 @@ export function TrustCtaBlueV1({
               </span>
 
               <h2 className="mt-4 text-balance text-2xl font-extrabold leading-tight text-[#0F2D75] sm:text-3xl lg:text-4xl">
-                ¿Listo para Resolver Tu Problema?
+                ¿Listo para resolver tu problema?
               </h2>
 
-              <p className="mt-2 max-w-xl text-pretty text-sm text-[#5B6B8C] sm:text-base">
-                Más de 15 años de experiencia. Presupuesto gratuito. Garantía de 2 años.
+              <p className="mt-2 max-w-xl text-pretty text-sm text-[#4A5B7D] sm:text-base">
+                Más de 15 años de experiencia. Presupuesto gratuito. Garantía de 6 meses.
               </p>
 
-              {/* Buttons */}
               <div className="mt-5 flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:items-center">
                 <a
                   href={phoneHref}
@@ -74,7 +73,6 @@ export function TrustCtaBlueV1({
                 </a>
               </div>
 
-              {/* Trust items */}
               <ul className="mt-6 flex flex-col items-center gap-3 sm:flex-row sm:gap-7">
                 {trustItems.map((item) => {
                   const Icon = item.icon
@@ -90,14 +88,14 @@ export function TrustCtaBlueV1({
               </ul>
             </div>
 
-            {/* Right 3D icon */}
             <div className="hidden shrink-0 lg:block">
               <div className="relative flex h-32 w-32 items-center justify-center">
                 <span className="absolute inset-0 rounded-full bg-[#DCE7FB]" aria-hidden="true" />
-                <img
-                  src="/icons/garantias-3d-shield.png"
-                  alt=""
-                  aria-hidden="true"
+                <Image
+                  src="/icons/garantias-3d-shield.webp"
+                  alt="Icono 3D de garantía Reparar24"
+                  width={112}
+                  height={112}
                   className="relative h-28 w-28 object-contain drop-shadow-[0_18px_28px_rgba(15,45,117,0.28)]"
                 />
               </div>

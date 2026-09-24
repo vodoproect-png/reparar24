@@ -29,37 +29,16 @@ export default function PaymentInfo({ locale = 'es', showCopyButton = true }: Pa
     }
   }
 
-  const labels = {
-    es: {
-      title: 'Información de Pago',
-      subtitle: 'Transferencia bancaria directa',
-      iban: 'IBAN',
-      swift: 'SWIFT/BIC',
-      bank: 'Banco',
-      copyIBAN: 'Copiar IBAN',
-      copied: '¡Copiado!',
-    },
-    en: {
-      title: 'Payment Information',
-      subtitle: 'Direct bank transfer',
-      iban: 'IBAN',
-      swift: 'SWIFT/BIC',
-      bank: 'Bank',
-      copyIBAN: 'Copy IBAN',
-      copied: 'Copied!',
-    },
-    ru: {
-      title: 'Платежная информация',
-      subtitle: 'Прямой банковский перевод',
-      iban: 'IBAN',
-      swift: 'SWIFT/BIC',
-      bank: 'Банк',
-      copyIBAN: 'Копировать IBAN',
-      copied: 'Скопировано!',
-    },
+  void locale
+  const t = {
+    title: 'Información de Pago',
+    subtitle: 'Transferencia bancaria directa',
+    iban: 'IBAN',
+    swift: 'SWIFT/BIC',
+    bank: 'Banco',
+    copyIBAN: 'Copiar IBAN',
+    copied: '¡Copiado!',
   }
-
-  const t = labels[locale as keyof typeof labels] || labels.es
 
   return (
     <div className="card bg-gradient-to-br from-blue-50 to-primary-50">
