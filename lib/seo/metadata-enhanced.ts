@@ -82,6 +82,10 @@ export function generateEnhancedServiceMetadata(
       ? 'Fontanero Urgente 24h Valencia | Fontanería de Cualquier Complejidad'
       : service.slug === 'electricista'
         ? 'Electricista 24 Horas Valencia | Urgencias Eléctricas'
+      : service.slug === 'desatascos'
+        ? 'Desatascos Urgentes 24h Valencia | Arquetas, Bajantes y Tuberías'
+        : service.slug === 'limpieza-tuberias'
+          ? 'Limpieza de Tuberías y Bajantes Valencia | Inspección con Cámara'
       : `${service.name} - Servicio Profesional en España | ${titleSuffix}`
 
   // OPTIMIZED: 120-155 char meta descriptions (removed longDescription - too long!)
@@ -91,6 +95,10 @@ export function generateEnhancedServiceMetadata(
       ? 'Fontanero urgente 24 horas en Valencia. Fugas, desatascos, termos e instalaciones con llegada en 30-60 minutos y presupuesto previo.'
       : service.slug === 'electricista'
         ? 'Electricista urgente 24h en Valencia. Averías eléctricas, cuadros, instalaciones, iluminación LED y enchufes. Desde 59€. Garantía profesional.'
+      : service.slug === 'desatascos'
+        ? 'Desatascos urgentes 24 horas en Valencia. Tuberías, arquetas, bajantes y WC atascado con camión cuba. Presupuesto previo antes de intervenir.'
+        : service.slug === 'limpieza-tuberias'
+          ? 'Limpieza profesional de tuberías, bajantes y arquetas en Valencia. Mantenimiento preventivo e inspección con cámara para comunidades y empresas.'
       : `${service.name} profesional en toda España. ${service.priceRange}. Servicio ${service.available24h ? '24h' : 'certificado'} con garantía. Presupuesto gratis.`
 
   const path = city

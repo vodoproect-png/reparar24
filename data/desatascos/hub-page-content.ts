@@ -19,6 +19,10 @@ export const desatascosHubFaqs = [
     answer: 'Sí, cuando el atasco requiere camión cuba, aspiración, alta presión o limpieza de arquetas, colectores, bajantes y saneamiento de mayor volumen. Si no hace falta equipo pesado, proponemos una solución más sencilla.',
   },
   {
+    question: '¿Hacéis desatascos de arquetas y bajantes?',
+    answer: 'Sí. La arqueta o bajante atascada suele avisar con mal olor, retorno de agua o desbordamiento en el punto más bajo del edificio. Revisamos el tramo, valoramos si hace falta camión cuba o cámara de inspección y damos presupuesto antes de intervenir.',
+  },
+  {
     question: '¿Qué diferencia hay entre fontanero y desatascos?',
     answer: 'Fontanería cubre fugas, instalaciones, grifos, cisternas o sanitarios. Desatascos cubre obstrucciones: tuberías que no tragan, WC atascado, fregadero bloqueado, arquetas, bajantes y saneamiento.',
   },
@@ -49,5 +53,5 @@ export const desatascosHubSeoContent: SeoContentSectionV1Props = {
   benefitsTitle: 'Servicios incluidos',
   benefits: ['Desatascos de tuberías', 'Desatascar fregadero, WC, lavabo y ducha', 'Alta presión y aspiración', 'Limpieza de fosas sépticas y arquetas'],
   keywordsTitle: 'Semántica comercial trabajada',
-  keywordTags: ['desatascos', 'desatascos urgentes', 'desatascos 24 horas', 'empresa de desatascos', 'camion cuba', 'desatascar tuberias'],
+  keywordTags: ['desatascos', 'desatascos urgentes', 'desatascos 24 horas', 'empresa de desatascos', 'camion cuba', 'desatascar tuberias', 'desatascar arqueta', 'desatascar bajante'],
 }
