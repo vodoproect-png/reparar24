@@ -173,9 +173,9 @@ export const childServicesData: Record<string, ChildServiceData> = {
     metaTitle: 'Instalaciones de Fontanería | Grifos, Sanitarios y Tuberías',
     metaDescription: 'Instalamos grifos, sanitarios, termos y tuberías con técnicos cualificados, materiales de calidad y garantía por escrito.',
     lockedPrimaryKw: 'instalación fontanería',
-    secondaryKw: ['instalacion fontaneria baño', 'instalacion fontaneria en pladur', 'medidas instalacion fontaneria', 'instalar grifo', 'cambiar grifo', 'instalacion sanitarios', 'instalacion inodoro', 'instalacion lavabo'],
-    seoBlockKw: ['instalación fontanería', 'instalacion fontaneria baño', 'instalar grifo', 'cambiar grifo', 'instalacion sanitarios', 'instalacion inodoro', 'instalacion lavabo', 'instalacion fontaneria en pladur', 'medidas instalacion fontaneria', 'instalacion fontaneria', 'reforma baño', 'fontaneria obra nueva'],
-    faqKw: ['cuanto cobra un fontanero por cambiar un grifo', 'cuanto cuesta instalar un baño completo', 'precio instalacion fontaneria baño', 'precio cambiar grifo', 'se puede instalar fontaneria en pladur', 'cuanto cuesta reforma baño fontaneria', 'precio instalacion sanitarios'],
+    secondaryKw: ['instalacion fontaneria baño', 'instalacion fontaneria en pladur', 'medidas instalacion fontaneria', 'instalar grifo', 'cambiar grifo', 'instalacion sanitarios', 'instalacion inodoro', 'instalacion lavabo', 'cambio de inodoro'],
+    seoBlockKw: ['instalación fontanería', 'instalacion fontaneria baño', 'instalar grifo', 'cambiar grifo', 'instalacion sanitarios', 'instalacion inodoro', 'instalacion lavabo', 'instalacion fontaneria en pladur', 'medidas instalacion fontaneria', 'instalacion fontaneria', 'reforma baño', 'fontaneria obra nueva', 'cambio de inodoro'],
+    faqKw: ['cuanto cobra un fontanero por cambiar un grifo', 'cuanto cuesta instalar un baño completo', 'precio instalacion fontaneria baño', 'precio cambiar grifo', 'se puede instalar fontaneria en pladur', 'cuanto cuesta reforma baño fontaneria', 'precio instalacion sanitarios', 'cuanto cuesta cambiar un inodoro'],
     contentBrief: 'Texto centrado en instalación de grifos, sanitarios, baños, termos y trabajos con garantía.',
     description: 'Instalamos grifos, sanitarios, termos y tuberías con técnicos cualificados, materiales de calidad y garantía por escrito.',
     seoContent: {
@@ -270,6 +270,10 @@ export const childServicesData: Record<string, ChildServiceData> = {
         question: '¿Ofrecéis suministro de materiales o solo instalación?',
         answer: 'Ofrecemos ambas opciones flexibles: 1) Instalación con nuestros materiales: te damos presupuesto desglosado materiales + mano obra. Compramos materiales certificados de primeras marcas con descuento profesional, aseguramos compatibilidad y calidad, y extendemos garantía a conjunto completo. 2) Solo instalación (tú aportas materiales): presupuesto solo mano trabajo. Verificamos previamente que materiales sean apropiados, certificados, compatibles. Si no lo son, avisamos antes empezar. NO nos responsabilizamos defectos fabricación de materiales aportados por cliente, solo de instalación ejecutada. Muchos clientes prefieren opción 1 porque ganan tranquilidad: seleccionamos correcto, garantizamos funcional, y cualquier problema es responsabilidad nuestra única sin discusiones si fue material o instalación.',
       },
+      {
+        question: '¿Cuánto cuesta cambiar un inodoro?',
+        answer: 'El cambio de inodoro se presupuesta según el tipo de instalación y si es necesario retirar el sanitario anterior. Nuestro servicio incluye la instalación, las conexiones, el sellado y la comprobación final. Te damos presupuesto antes de realizar el trabajo.',
+      },
     ],
   },
 
@@ -278,9 +282,9 @@ export const childServicesData: Record<string, ChildServiceData> = {
     metaTitle: 'Sustitución de Tuberías | Cambio de Cañerías con Garantía',
     metaDescription: 'Cambio y sustitución de tuberías antiguas por instalaciones seguras y eficientes. Presupuesto previo, materiales de calidad y garantía.',
     lockedPrimaryKw: 'sustitución tuberías',
-    secondaryKw: [],
-    seoBlockKw: ['sustitución tuberías', 'cambio tuberías', 'renovación tuberías', 'tuberías antiguas', 'tuberías corroídas'],
-    faqKw: ['cuánto cuesta sustitución de tuberías', 'cuánto tarda sustitución de tuberías', 'hay garantía en sustitución de tuberías', 'servicio urgente de sustitución de tuberías'],
+    secondaryKw: ['cambio de tuberías valencia', 'cambio tuberías edificios', 'sustitucion de tuberias', 'cambio tuberías antiguas', 'tuberías de cobre', 'tuberías PEX', 'cambio de bajantes'],
+    seoBlockKw: ['sustitución tuberías', 'cambio tuberías', 'renovación tuberías', 'tuberías antiguas', 'tuberías corroídas', 'cambio de tuberías valencia', 'cambio tuberias edificios'],
+    faqKw: ['cuánto cuesta sustitución de tuberías', 'cuánto tarda sustitución de tuberías', 'hay garantía en sustitución de tuberías', 'servicio urgente de sustitución de tuberías', 'precio cambio de tuberias edificios'],
     contentBrief: 'Texto centrado en cambio de tuberías, cañerías antiguas, multicapa, cobre, presión y normativa.',
     description: 'Cambio y sustitución de tuberías antiguas por instalaciones seguras y eficientes. Presupuesto previo, materiales de calidad y garantía.',
     seoContent: {
@@ -311,8 +315,8 @@ export const childServicesData: Record<string, ChildServiceData> = {
         },
       ],
       localCoverage: {
-        title: 'Sustitución de tuberías en toda Valencia',
-        description: 'Renovamos instalaciones completas con materiales certificados y mínimas molestias para ti.',
+        title: 'Sustitución de tuberías en Valencia',
+        description: 'Renovamos instalaciones de viviendas particulares y también tuberías/bajantes de comunidades de vecinos en Valencia, con materiales certificados y mínimas molestias para ti.',
       },
       benefitsTitle: 'Ventajas de renovar tuberías',
       benefits: [
@@ -374,6 +378,10 @@ export const childServicesData: Record<string, ChildServiceData> = {
       {
         question: '¿Qué diferencia hay entre renovar tuberías en vivienda vacía vs habitada?',
         answer: 'Vivienda vacía: ventajas enormes: libertad total horarios (trabajamos jornada completa sin interrupciones), no preocupación incomodar, guardado muebles no es problema, limpieza profunda más fácil, avance obra mucho más rápido (20-30% menos tiempo), no necesidad mantener servicios mínimos cada noche, y obras pueden ser más extensas si beneficia trazado óptimo. Vivienda habitada: requiere: coordinación horarios civilizados (9h-19h), protecciones estrictas zonas no obra, mantener punto agua operativo cada noche si posible, baño básico usable, limpieza diaria rigurosa polvo/escombros, avisos previos cortes agua programados, y mayor cuidado general. Es perfectamente factible pero ralentiza algo la obra y requiere mayor coordinación. Si puedes alojar temporalmente con familiares durante los 4-6 días obra, se simplifica mucho y acelera finalización. Precio similar en ambos casos, diferencia está en comodidad tuya y velocidad ejecución.',
+      },
+      {
+        question: '¿Cuánto cuesta cambiar las tuberías de un edificio o comunidad de vecinos?',
+        answer: 'El cambio de tuberías en edificios suele centrarse en las bajantes y la acometida general, que son elementos comunitarios. Orientativamente: bajante comunitaria vertical (cambio de hierro por PVC u otro material moderno): 150-300€ por metro lineal. Cambio de acometida general del edificio: 800-2.000€ según longitud y accesos. Estos trabajos se coordinan con el administrador o presidente de la comunidad, se presupuestan tras visita e inspección de las bajantes/arquetas accesibles, y se programan minimizando cortes de agua a los vecinos.',
       },
     ],
   },
