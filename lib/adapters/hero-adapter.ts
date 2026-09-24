@@ -619,20 +619,20 @@ export function serviceToHeroProps(
 
   return {
     eyebrow: locale === 'es'
-      ? isFontanero ? 'Fontanero Urgente en Valencia 24h' : isElectricista ? 'Servicio 24/7 en Valencia' : isDesatascos ? 'Empresa de desatascos 24h' : isAireAcondicionado ? 'Servicio técnico de climatización' : isCalefaccion ? 'Servicio tecnico de calefaccion' : isLimpiezaTuberias ? 'Limpieza profesional de tuberias' : 'Servicio Profesional 24h'
+      ? isFontanero ? 'Fontanero Urgente en Valencia 24h'       : isElectricista ? 'Servicio 24/7 en Valencia' : isDesatascos ? 'Empresa de desatascos 24h en Valencia' : isAireAcondicionado ? 'Servicio técnico de climatización' : isCalefaccion ? 'Servicio tecnico de calefaccion' : isLimpiezaTuberias ? 'Limpieza profesional de tuberias en Valencia' : 'Servicio Profesional 24h'
       : '24/7 Professional Service',
     title: isFontanero
       ? 'Fontanero 24 Horas Valencia'
       : isElectricista
         ? 'Electricista 24 Horas Valencia'
         : isDesatascos
-          ? 'Desatascos 24 Horas'
+          ? 'Desatascos 24 Horas Valencia'
           : isAireAcondicionado
             ? 'Aire Acondicionado'
           : isCalefaccion
             ? 'Calefaccion y Calderas'
           : isLimpiezaTuberias
-            ? 'Limpieza de Tuberias'
+            ? 'Limpieza de Tuberias Valencia'
           : `${service.name} 24 Horas`,
     titleHighlight: undefined,
     subtitle: isFontanero
